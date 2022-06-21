@@ -114,9 +114,33 @@
                     <div class="provisionGreyBg p-4 mb-5">
 
                         <div>
-                            <div class="pb-3">
-                                <span class="Grungversicherung fs-5">Grundversicherung</span>
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="pb-3">
+                                        <span class="Grungversicherung fs-5">Grundversicherung</span>
+                                    </div>
+                                </div>
+                                <div class="col-auto" style="margin-top: -0.5rem; margin-right: -0.7rem;cursor: pointer;">
+                                    <div onclick="enableTableEdit()">
+                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="#a7a4a4"/>
+                                                            <path d="M10.49 0.635254L14.9281 5.4768" stroke="#F5F5F5"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
+                            <script>
+                                function enableTableEdit(){
+                                    document.getElementById("editBtn1").style.display = "flex"
+                                    document.getElementById("editBtn2").style.display = "flex"
+                                    document.getElementById("submitBtnHide").style.display = "block"
+
+                                    var x = document.querySelectorAll(".removeEditBtn")
+                                    for(var i = 0;i <= x.length; i++){
+                                        x[i].style.display = "block"
+                                    }
+                                }
+                            </script>
                             <form action="{{route('companies.register',['id' => $id,'field'=> 'Grund'])}}" method="post" class="mb-0">
                                 @csrf
                                 <input type="number" hidden id="grundnr" name="cnt" value="0">
@@ -183,7 +207,7 @@
                                                     <div class="col">
                                                         {{ 100 - (int) $company->provision_percent }}
                                                     </div>
-                                                    <div class="col-auto" onclick="updatee({{$company->id}})">
+                                                    <div style="cursor: pointer;display: none" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
                                                         <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
                                                             <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
@@ -223,14 +247,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row g-0 justify-content-end py-3">
-                                <div class="col-6 col-md-5 col-lg-3">
-                                    <button style="display: none" id="akt1" type="submit" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
-                                </div>
-                            </div>
                         </form>
                             <div>
-                                <div class="row g-0 justify-content-end">
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn1" style="display: none;">
 
                                     <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addFirstTableRow()">
                                         <span class="addMoreBtn">Grundversicherung</span>
@@ -280,7 +299,7 @@
                                                     <div class="col">
                                                         {{ 100 - (int) $company->provision_percent }}
                                                     </div>
-                                                    <div class="col-auto" onclick="updatee({{$company->id}})">
+                                                    <div style="cursor: pointer;display: none;" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
                                                         <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
                                                             <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
@@ -330,7 +349,7 @@
                                         let mql = window.matchMedia('(max-width: 576px)');
 
                                         if (mql.matches) {
-                                            y.innerHTML += '<div class="mobileOnlyTable1 p-3 mb-2">'
+                                            $(y).append('<div class="mobileOnlyTable1 p-3 mb-2">'
                                             +        '<div class="row g-0 pb-2">'
                                             +           '<div class="col-6">'
                                             +               '<span class="fw-600">Versicherer</span>'
@@ -352,17 +371,17 @@
                                             +               '<span class="fw-600">Provision Berater</span>'
                                             +           '</div>'
                                             +           '<div class="col my-auto">'
-                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput1" onclick="insertCompany()" id="secondpercent" name="secondpercent' + first + '"">'
+                                            +               '<input type="akt1Grundversicherungtext" placeholder="Enter %" class="form-control py-1 provisionProfileInput1" onclick="insertCompany()" id="secondpercent" name="secondpercent' + first + '"">'
                                             +           '</div>'
                                             +       '</div>'
-                                            +   '</div>';
+                                            +   '</div>');
                                         }
                                         else if(!mql.matches) {
-                                            x.innerHTML += '<tr>'
+                                            $(x).append('<tr>'
                                             +    '<td scope="row">' +           '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput1 pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="company' + first + '" name="company' + first + '"></td>'
                                             +    '<td><input type="number" required placeholder="Prozentsatz eingeben" class="form-control py-1 provisionProfileInput1" id="percent" name="percent' + first + '""></td>'
                                             +    '<td><input type="number" placeholder="Prozentsatz eingeben" class="form-control py-1 provisionProfileInput1" onclick="insertCompany()" id="secondpercent" name="secondpercent' + first + '""></td>'
-                                            +    '</tr>';
+                                            +    '</tr>');
                                         }
                                         document.getElementById('grundnr').value = parseInt(document.getElementById('grundnr').value) + 1;
                                         $('#akt1').show();
@@ -374,7 +393,7 @@
                                         var y = document.getElementById('overflowSecondTable');
                                         let mql1 = window.matchMedia('(max-width: 576px)');
                                         if (mql1.matches) {
-                                            y.innerHTML += '<div class="mobileOnlyTable2 p-3 mb-2">'
+                                            $(y).append('<div class="mobileOnlyTable2 p-3 mb-2">'
                                             +        '<div class="row g-0 pb-2">'
                                             +           '<div class="col-6">'
                                             +               '<span class="fw-600">Versicherer</span>'
@@ -399,15 +418,15 @@
                                             +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + second + '"">'
                                             +           '</div>'
                                             +       '</div>'
-                                            +   '</div>';
+                                            +   '</div>');
                                         }
                                         else if(!mql1.matches) {
-                                            x.innerHTML += '<tr>'
+                                            $(x).append('<tr>'
                                             +    '<td scope="row">'
                                             +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + second  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="company"></td>'
                                             +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percent" name="percent' + second + '"></td>'
                                             +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + second + '""></td>'
-                                            +    '</tr>';
+                                            +    '</tr>');
                                         }
                                         $('#akt2').show();
                                         document.getElementById('zusnr').value = parseInt(document.getElementById('zusnr').value) + 1;
@@ -423,14 +442,9 @@
                                     }
                                 </script>
                             </div>
-                            <div class="row g-0 justify-content-end py-3">
-                                <div class="col-6 col-md-5 col-lg-3">
-                                    <button style="display: none" id="akt2" type="submit" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
-                                </div>
-                            </div>
                         </form>
                             <div>
-                                <div class="row g-0 justify-content-end">
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn2" style="display: none;">
 
                                     <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addSecondTableRow()">
                                         <span class="addMoreBtn">Zusatzversicherung</span>
@@ -449,6 +463,13 @@
                                                 d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
                                                 fill="white" />
                                         </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="submitBtnHide" style="display: none;">
+                                <div class="row g-0 justify-content-end pt-3">
+                                    <div class="col-12 col-sm-6 col-md-5 col-lg-3">
+                                        <button type="submit"  class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
                                     </div>
                                 </div>
                             </div>
