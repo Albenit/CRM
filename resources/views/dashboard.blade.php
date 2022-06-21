@@ -6081,12 +6081,15 @@ var date = 0;
     }
     function statusvomvertragCostum(){
         $('#statusvomvertragCostum').slideToggle()
+        $("#activeDropDownItem").html("Individueller Zeitraum")
     }
     function vertragCostum(){
         $('#vertragCostum').slideToggle()
+        $("#activeDropDownItem1").html("Individueller Zeitraum")
     }
     function leadsCostum(){
         $('#leadsCostum').slideToggle()
+        $("#activeDropDownItem5").html("Individueller Zeitraum")
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

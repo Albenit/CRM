@@ -229,8 +229,8 @@
                                                                             <span class="memberCheckmark"></span>
                                                                         </label>
                                                                     </div>
-                                                                    @endif
-                                                                    @endforeach
+                                                                @endif
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                     <div class="">

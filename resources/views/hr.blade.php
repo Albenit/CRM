@@ -1968,9 +1968,9 @@
                                 <div class="pt-4">
                                     <div class="row g-3"  id="employes">
                                         @for($i = 0; $i < $admins->count(); $i++)
-                                            
                                                 @if($admins[$i]->roless == null)
-                                                    <div class="col-12" >
+                                                @if (!Auth::user()->hasRole('admin'))
+                                                <div class="col-12" >
                                                     <div class="adminHrGreyBg py-2 px-3">
                                                         <div class="row g-0 h-100 justify-content-between">
                                                             <div class="col-auto my-auto me-3">
@@ -2029,7 +2029,7 @@
                                                                 <div class="">
                                                                     @if ($admins[$i]->admin_id == null)
                                                                         <button onclick="window.location.href='{{route('employeProfile',$admins[$i]->id)}}'" class="adminViewProfileBtn w-100 py-1">Profil Anzeigen</button>
-     
+    
                                                                     @else
                                                                         <button onclick="window.location.href='{{route('employeProfile',$admins[$i]->headadmin->id)}}'" class="adminViewProfileBtn w-100 py-1">Profil Anzeigen</button>
                                                                     @endif
@@ -2037,7 +2037,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                </div>
+                                                @endif
+                                                    
                                                 @else
                                                 <div class="col-12" >
                                                     <div class="adminHrGreyBg py-2 px-3">
@@ -2113,7 +2115,6 @@
                                                     </div>
                                                     </div>
                                                 @endif
-                                            
                                         @endfor
                                     </div>
                                     <div class="pt-4">

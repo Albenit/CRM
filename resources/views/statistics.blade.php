@@ -2301,7 +2301,7 @@
                                                                 </div>
                                                                 <div class="col my-auto ps-2 pe-5">
                                                                     <div>
-                                                                        <span id="rtest">Letzte Tage</span>
+                                                                        <span id="rtest">Heute</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2701,7 +2701,7 @@
                                                             </div>
                                                             <div class="col my-auto ps-2 pe-5">
                                                                 <div>
-                                                                    <span>Letzte Tage</span>
+                                                                    <span>Heute</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3173,7 +3173,7 @@
                                                                     </div>
                                                                     <div class="col my-auto ps-2 pe-5">
                                                                         <div>
-                                                                            <span id="rtest">letzte Tage</span>
+                                                                            <span id="rtest">Heute</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3447,7 +3447,7 @@
                                                                     </div>
                                                                     <div class="col my-auto ps-2 pe-5">
                                                                         <div>
-                                                                            <span id="rtest">letzte Tage</span>
+                                                                            <span id="rtest">Heute</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3711,8 +3711,7 @@
                                                                                     </div>
                                                                                     <div class="col my-auto ps-2 pe-5">
                                                                                         <div>
-                                                                                            <span id="rtest">Letzte
-                                                                                                Tage</span>
+                                                                                            <span id="rtest">Heute</span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -4443,8 +4442,7 @@
                                                                                         <div
                                                                                             class="col my-auto ps-2 pe-5">
                                                                                             <div>
-                                                                                                <span id="rtest">Letzte
-                                                                                                    Tage</span>
+                                                                                                <span id="rtest">Heute</span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4772,8 +4770,7 @@
                                                                                         <div
                                                                                             class="col my-auto ps-2 pe-5">
                                                                                             <div>
-                                                                                                <span id="rtest">Letzte
-                                                                                                    Tage</span>
+                                                                                                <span id="rtest">Heute</span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -6128,18 +6125,23 @@
 
         function statusvomvertragCostum(){
             $("#statusvomvertragCostum").slideToggle()
+            $("#activeDropDownItem").html("Individueller Zeitraum")
         }
         function verträgeCostum(){
             $("#verträgeCostum").slideToggle()
+            $("#activeDropDownItem1").html("Individueller Zeitraum")
         }
         function leadsCostum(){
             $('#leadsCostum').slideToggle()
+            $("#activeDropDownItem5").html("Individueller Zeitraum")
         }
         function dauervomleadCostum(){
             $('#dauervomleadCostum').slideToggle()
+            $("#activeDropDownItem6").html("Individueller Zeitraum")
         }
         function hrCostum(){
             $('#hrCostum').slideToggle()
+            $("#activeDropDownItem7").html("Individueller Zeitraum")
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
