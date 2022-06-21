@@ -1330,7 +1330,7 @@
         },
         @endif
         @endforeach
-	  @foreach ( $appointments as $appointmentAGG )
+	  @foreach ( $appointments as $appointmentAGG)
         {
 		id: '{!! $appointmentAGG["id"] !!}',
 		start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["appointment_date"]." ".$appointmentAGG["time"])) !!}') ,

@@ -130,6 +130,7 @@ public function filterhrcalendar(Request  $req){
 			$regions ="";
 			$langues = "";
 			$appointments = lead::select('*')->where('assign_to_id',$user->id)->whereNotNull('appointment_date')->where('completed',0)->where('wantsonline',0)->where('rejected',0)->get();
+       
             $personalApp = PersonalAppointment::where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->where('date','>=',Carbon::now()->format('Y-m-d'))->with('Admins')->get();
             $maps = DB::table('leads')->where('appointment_date',Carbon::now()->format('Y-m-d'))->where('assign_to_id',$user->id)->select('leads.first_name','leads.last_name','leads.latitude','leads.longitude')->get();
 			return view('appointment')
@@ -167,12 +168,14 @@ public function filterhrcalendar(Request  $req){
         return view('appointment')->with('users',$users)->with('appointments_events',$appointments_events)->with('appointments',$appointments)->with('regions',$regions)->with('langues',$langues)->with('regionO',$regionO)->with('rejectedO',$rejectedO)->with('spracheO',$spracheO)->with('trie',$trie)->with('maps',$maps)->with('date_in',$date_in)->with('absences',$absences)->with('personalApp',$personalApp)->with('rejected',$rejected);
        }
        else{
+     
         $absences = Absence::where('employee_id',auth()->user()->id)->with('admin')->orderBy('created_at', 'desc')->paginate(30, ['*'], 'events_page');
 
         $users="";$appointments_events = "";
         $regions ="";
         $langues = "";
         $appointments = lead::select('*')->where('assign_to_id',$user->id)->whereNotNull('appointment_date')->where('completed',0)->where('wantsonline',0)->where('rejected',0)->get();
+
         $personalApp = PersonalAppointment::where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->where('date','>=',Carbon::now()->format('Y-m-d'))->with('Admins')->get();
         $maps = DB::table('leads')->where('appointment_date',Carbon::now()->format('Y-m-d'))->where('assign_to_id',$user->id)->select('leads.first_name','leads.last_name','leads.latitude','leads.longitude')->get();
         return view('appointment')

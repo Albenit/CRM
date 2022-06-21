@@ -64,9 +64,8 @@ route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->
         if ($request->searchEmployes == null){
             $admins = \App\Models\Admins::with('personaldata')->where('admin_id', null)->get();
         }else{
-            $admins = \App\Models\Admins::where('name', 'LIKE', '%'.$request->searchEmployes.'%')->with('personaldata')->get();
+            $admins = \App\Models\Admins::where('name', 'LIKE', '%'.$request->searchEmployes.'%')->with('personaldata')->where('admin_id', null)->get();
         }
-
         
         $admini = Admins::find(auth()->user()->id);
         if($admini->admin_id == null){

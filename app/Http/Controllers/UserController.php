@@ -244,7 +244,7 @@ public function folgetermin($id){
             }
             if(auth()->user()->hasRole('fs')){
                 Admins::role(['salesmanager'])->get()->each(function($item){
-                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem' . auth()->user()->name .' importiert </a>"'));
+                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem ' . auth()->user()->name .' importiert </a>"'));
                  });
             }
             return redirect()->back()->with('success', 'Termin wurde erfolgreich hinzugefügt!');
@@ -1145,7 +1145,6 @@ public function folgetermin($id){
                     $admins->roless = json_encode($roles);
                     $admins->password = Hash::make($request->user_password);
                     $admins->save();
-                    $admins->assignRole($request->input('role_name'));
                     $personalData = EmployeePersonalData::create([
                         'admin_id' => $admins->id,
                         'name' => filter_var($request->user_name, FILTER_SANITIZE_STRING),
