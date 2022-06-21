@@ -546,7 +546,7 @@
                                 <div class="pt-4">
                                     <div class="row g-3"  id="employes">
                                         @for($i = 0; $i < $admins->count(); $i++)
-                                            @if (!$admins[$i]->hasRole('admin'))
+                                            
                                             @if($admins[$i]->roless == null)
                                                 <div class="col-12" >
                                                     <div class="adminHrGreyBg py-2 px-3">
@@ -689,7 +689,7 @@
                                                     </div>
                                                 </div>
                                             @endif
-                                            @endif
+                                        
                                         @endfor
                                     </div>
                                 </div>
@@ -1968,7 +1968,7 @@
                                 <div class="pt-4">
                                     <div class="row g-3"  id="employes">
                                         @for($i = 0; $i < $admins->count(); $i++)
-                                            @if (!$admins[$i]->hasRole('admin'))
+                                            
                                                 @if($admins[$i]->roless == null)
                                                     <div class="col-12" >
                                                     <div class="adminHrGreyBg py-2 px-3">
@@ -2113,7 +2113,7 @@
                                                     </div>
                                                     </div>
                                                 @endif
-                                            @endif
+                                            
                                         @endfor
                                     </div>
                                     <div class="pt-4">
