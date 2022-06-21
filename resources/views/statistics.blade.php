@@ -2301,7 +2301,7 @@
                                                                 </div>
                                                                 <div class="col my-auto ps-2 pe-5">
                                                                     <div>
-                                                                        <span id="rtest">Letzte Tage</span>
+                                                                        <span id="rtest">Heute</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2659,7 +2659,7 @@
                                         <div class="row g-0 justify-content-between" style="position: relative;">
                                             <div class="col my-auto">
                                                 <div>
-                                                    <span class="statsTitleSpan fs-3">Verträge</span>
+                                                    <span class="statsTitleSpan fs-3">Vertr盲ge</span>
                                                 </div>
                                             </div>
                                             <div class="col-auto my-auto">
@@ -2701,7 +2701,7 @@
                                                             </div>
                                                             <div class="col my-auto ps-2 pe-5">
                                                                 <div>
-                                                                    <span>Letzte Tage</span>
+                                                                    <span>Heute</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2815,7 +2815,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="py-2" style="border-top: 1px solid #E8E8E8;">
-                                                        <div class="row g-0" onclick="verträgeCostum()" style="cursor: pointer">
+                                                        <div class="row g-0" onclick="vertr盲geCostum()" style="cursor: pointer">
                                                             <div class="col-auto my-auto ps-3">
                                                                 <div>
                                                                     <svg width="18" height="12" viewBox="0 0 12 12"
@@ -2834,7 +2834,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="verträgeCostum" style="display: none">
+                                                    <div id="vertr盲geCostum" style="display: none">
                                                         <div class="py-2">
                                                             <div class="row g-0">
                                                                 {{-- <div class="col-auto my-auto ps-3">
@@ -2844,7 +2844,7 @@
                                                                 </div> --}}
                                                                 <div class="col my-auto ps-2 pe-2">
                                                                     <div>
-                                                                        <input class="form-control" type="date" id="verträgeFrom">
+                                                                        <input class="form-control" type="date" id="vertr盲geFrom">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2858,7 +2858,7 @@
                                                                 </div> --}}
                                                                 <div class="col my-auto ps-2 pe-2">
                                                                     <div>
-                                                                       <input class="form-control" type="date" id="verträgeTo">
+                                                                       <input class="form-control" type="date" id="vertr盲geTo">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3173,7 +3173,7 @@
                                                                     </div>
                                                                     <div class="col my-auto ps-2 pe-5">
                                                                         <div>
-                                                                            <span id="rtest">letzte Tage</span>
+                                                                            <span id="rtest">Heute</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3447,7 +3447,7 @@
                                                                     </div>
                                                                     <div class="col my-auto ps-2 pe-5">
                                                                         <div>
-                                                                            <span id="rtest">letzte Tage</span>
+                                                                            <span id="rtest">Heute</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3711,8 +3711,7 @@
                                                                                     </div>
                                                                                     <div class="col my-auto ps-2 pe-5">
                                                                                         <div>
-                                                                                            <span id="rtest">Letzte
-                                                                                                Tage</span>
+                                                                                            <span id="rtest">Heute</span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -4443,8 +4442,7 @@
                                                                                         <div
                                                                                             class="col my-auto ps-2 pe-5">
                                                                                             <div>
-                                                                                                <span id="rtest">Letzte
-                                                                                                    Tage</span>
+                                                                                                <span id="rtest">Heute</span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -4772,8 +4770,7 @@
                                                                                         <div
                                                                                             class="col my-auto ps-2 pe-5">
                                                                                             <div>
-                                                                                                <span id="rtest">Letzte
-                                                                                                    Tage</span>
+                                                                                                <span id="rtest">Heute</span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -5584,8 +5581,8 @@
         }
 
         function makeSelectActive1(x, numberi) {
-            dateFrom = document.getElementById('verträgeFrom').value
-            dateTo = document.getElementById('verträgeTo').value
+            dateFrom = document.getElementById('vertr盲geFrom').value
+            dateTo = document.getElementById('vertr盲geTo').value
             axios.get('provisionert?numberi=' + numberi + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
 
                 $('#grund').html(response.data[0]);
@@ -6129,8 +6126,8 @@
         function statusvomvertragCostum(){
             $("#statusvomvertragCostum").slideToggle()
         }
-        function verträgeCostum(){
-            $("#verträgeCostum").slideToggle()
+        function vertr盲geCostum(){
+            $("#vertr盲geCostum").slideToggle()
         }
         function leadsCostum(){
             $('#leadsCostum').slideToggle()
