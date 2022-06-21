@@ -1611,7 +1611,7 @@
                                                                                 </div>
                                                                                 <div class="col my-auto ps-2 pe-5">
                                                                                     <div>
-                                                                                        <span id="rtest">Letzte Tage</span>
+                                                                                        <span id="rtest">Heute</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1983,7 +1983,7 @@
                                                                             </div>
                                                                             <div class="col my-auto ps-2 pe-5">
                                                                                 <div>
-                                                                                    <span>Letzte Tage</span>
+                                                                                    <span>Heute</span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
