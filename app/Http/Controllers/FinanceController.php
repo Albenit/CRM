@@ -41,7 +41,16 @@ foreach (Group::find($id)->members as $member){
 }
 
 foreach ($req->members as $member){
+    
+    if(Admins::find($member)->roless != null){
+   
+        Admins::find($member)->childrens->each(function($item) use($id){
+           $item->group_id = $id;
+           $item->save();
+        });
+    }
     Admins::find($member)->update(['group_id'=> $id]);
+    
 }
 return redirect()->back();
     }
@@ -51,10 +60,19 @@ return redirect()->back();
         $group->salary = (float) $req->salary;
         $group->expenses = (float) $req->expenses;
         $group->name = (string) $req->name;
+        $group->provision_id = (int) $req->prov_id;
         $group->save();
         foreach ($req->admins as $admin){
+            if(Admins::find($admin)->roless != null){
+   
+                Admins::find($admin)->childrens->each(function($item) use($group){
+                   $item->group_id = $group->id;
+                   $item->save();
+                });
+            }
             Admins::find($admin)->update(['group_id' => $group->id]);
         }
+        
         return redirect()->back();
     }
     public function register($id,$field,Request $req){

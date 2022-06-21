@@ -214,7 +214,7 @@
                                                             <span class="provisionModalSpan">Grouppe Mitglieder</span>
                                                         </div>
                                                         <div class="row g-0">
-                                                            @foreach(App\Models\Admins::role(['fs','salesmanager','callagent'])->get() as $member)
+                                                            @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $member)
                                                                 @if($group->members->contains($member->id))
                                                                     <div class="col-6">
                                                                         <label for="checkbox{{$member->id}}" class="memberLabel">
@@ -498,7 +498,7 @@
         </div>
     
     <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2">
-     @foreach(App\Models\Admins::role(['fs','salesmanager','callagent'])->where('group_id',0)->get() as $admin)
+    @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $admin)
         <label for="checkbox1{{$admin->id}}22" class="memberLabel">
             <input onchange="checkboxes122()" id="checkbox1{{$admin->id}}22" value="{{$admin->id}}" class="memberCheckmarkselect122" type="checkbox" name="admins[]">{{$admin->name}}
             <span class="memberCheckmark"></span>
@@ -543,17 +543,11 @@
     
     <div id="multipleSelectDropdown1222" class="multipleSelectDropdown p-2">
     @foreach(App\Models\Provisions::get() as $prov)
-    @if($prov->id == $group->provision_id)
-        <label for="checkbox1{{$admin->id}}222" class="memberLabel">
-            <input onchange="checkboxes1222()" id="checkbox1{{$admin->id}}222" value="{{$admin->id}}" class="memberCheckmarkselect1222" type="checkbox" name="admins[]" checked>{{$admin->name}}
+        <label for="checkbox1{{$prov->id}}222" class="memberLabel">
+            <input onchange="checkboxes1222()" id="checkbox1{{$prov->id}}222" value="{{$prov->id}}" class="memberCheckmarkselect1222" type="checkbox" name="prov_id">{{$prov->name}}
             <span class="memberCheckmark"></span>
         </label>
-        @else
-        <label for="checkbox1{{$admin->id}}222" class="memberLabel">
-            <input onchange="checkboxes1222()" id="checkbox1{{$admin->id}}222" value="{{$admin->id}}" class="memberCheckmarkselect1222" type="checkbox" name="admins[]" checked>{{$admin->name}}
-            <span class="memberCheckmark"></span>
-        </label>
-        @endif
+  
       @endforeach
     </div>
     </div>
