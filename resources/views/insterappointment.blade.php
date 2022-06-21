@@ -187,14 +187,12 @@
         </div>
     </section>
 
-
-
         <section>
-            @if(!auth()->user()->hasRole('callagent'))
+            @if(!auth()->user()->hasRole('callagent') && !auth()->user()->hasRole('fs') )
             <div class="">
                 <div class="form-div my-5 py-4 mx-3  mx-sm-5" style="background: #F9FAFC;
-box-shadow: 0px 4px 4px rgba(213, 213, 213, 0.25);
-border-radius: 13px;">
+                    box-shadow: 0px 4px 4px rgba(213, 213, 213, 0.25);
+                    border-radius: 13px;">
                     <div class="mb-4 mx-4">
                         <span class="fs-5 fw-600">Oder per Datei einfügen</span>
                     </div>

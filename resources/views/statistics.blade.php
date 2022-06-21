@@ -6125,18 +6125,25 @@
 
         function statusvomvertragCostum(){
             $("#statusvomvertragCostum").slideToggle()
+            $("#activeDropDownItem").html("Individueller Zeitraum")
         }
-        function vertr盲geCostum(){
-            $("#vertr盲geCostum").slideToggle()
+
+        function verträgeCostum(){
+            $("#verträgeCostum").slideToggle()
+            $("#activeDropDownItem1").html("Individueller Zeitraum")
+
         }
         function leadsCostum(){
             $('#leadsCostum').slideToggle()
+            $("#activeDropDownItem5").html("Individueller Zeitraum")
         }
         function dauervomleadCostum(){
             $('#dauervomleadCostum').slideToggle()
+            $("#activeDropDownItem6").html("Individueller Zeitraum")
         }
         function hrCostum(){
             $('#hrCostum').slideToggle()
+            $("#activeDropDownItem7").html("Individueller Zeitraum")
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
