@@ -2659,7 +2659,7 @@
                                         <div class="row g-0 justify-content-between" style="position: relative;">
                                             <div class="col my-auto">
                                                 <div>
-                                                    <span class="statsTitleSpan fs-3">Vertr盲ge</span>
+                                                    <span class="statsTitleSpan fs-3">Verträge</span>
                                                 </div>
                                             </div>
                                             <div class="col-auto my-auto">
@@ -2815,7 +2815,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="py-2" style="border-top: 1px solid #E8E8E8;">
-                                                        <div class="row g-0" onclick="vertr盲geCostum()" style="cursor: pointer">
+                                                        <div class="row g-0" onclick="vertrageCostum()" style="cursor: pointer">
                                                             <div class="col-auto my-auto ps-3">
                                                                 <div>
                                                                     <svg width="18" height="12" viewBox="0 0 12 12"
@@ -2834,7 +2834,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="vertr盲geCostum" style="display: none">
+                                                    <div id="vertrageCostum" style="display: none">
                                                         <div class="py-2">
                                                             <div class="row g-0">
                                                                 {{-- <div class="col-auto my-auto ps-3">
@@ -2844,7 +2844,7 @@
                                                                 </div> --}}
                                                                 <div class="col my-auto ps-2 pe-2">
                                                                     <div>
-                                                                        <input class="form-control" type="date" id="vertr盲geFrom">
+                                                                        <input class="form-control" type="date" id="vertrageFrom">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2858,7 +2858,7 @@
                                                                 </div> --}}
                                                                 <div class="col my-auto ps-2 pe-2">
                                                                     <div>
-                                                                       <input class="form-control" type="date" id="vertr盲geTo">
+                                                                       <input class="form-control" type="date" id="vertrageTo">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -5581,8 +5581,8 @@
         }
 
         function makeSelectActive1(x, numberi) {
-            dateFrom = document.getElementById('vertr盲geFrom').value
-            dateTo = document.getElementById('vertr盲geTo').value
+            dateFrom = document.getElementById('vertrageFrom').value
+            dateTo = document.getElementById('vertrageTo').value
             axios.get('provisionert?numberi=' + numberi + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
 
                 $('#grund').html(response.data[0]);
@@ -6128,8 +6128,8 @@
             $("#activeDropDownItem").html("Individueller Zeitraum")
         }
 
-        function verträgeCostum(){
-            $("#verträgeCostum").slideToggle()
+        function vertrageCostum(){
+            $("#vertrageCostum").slideToggle()
             $("#activeDropDownItem1").html("Individueller Zeitraum")
 
         }
