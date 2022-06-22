@@ -1106,9 +1106,23 @@ public function folgetermin($id){
     }
 
     public function addnewuser(){
-        if (Auth::guard('admins')->user()->hasRole('admin')) {
+      
             $roles = Role::all();
             return view('addnewuser', compact('roles'));
+        
+       
+    }
+    public function changePassword(Request $req){
+        $admini = Admins::select('password')->find(auth()->user()->id);
+
+        if(Hash::check($req->current_password ,$admini->password)){
+            Admins::find(auth()->user()->id)->update([
+                'password' => Hash::make($req->new_password)
+            ]);
+
+            return back()->with('success','Passwort geändert');
+        }else{
+            return back()->with('fail','Kennwort konnte nicht geändert werden');
         }
     }
     public function loginas(Request  $req){

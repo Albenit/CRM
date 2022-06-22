@@ -17,7 +17,7 @@ class isagent
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user()->hasRole('callagent')){
+        if(!auth()->user()->hasRole('callagent') || $request->is('changerole')){
             return $next($request);
         }
         else{

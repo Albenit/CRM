@@ -160,7 +160,8 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::post('rejectedleads',[UserController::class,'rejectedleads'])->name('rejectedleads')->middleware('role:admin|fs|salesmanager');
     route::post('pending_rejectedlead',[UserController::class,'pending_rejectedlead'])->name('pending_rejectedlead')->middleware('role:admin|fs|salesmanager');
     route::post('rejectlead/{id}',[UserController::class,'rejectlead'])->name('rejectlead')->middleware('role:admin|fs|salesmanager');
-    route::get('addnewuser',[UserController::class,'addnewuser'])->name('addnewuser')->middleware('role:admin');
+    route::get('addnewuser',[UserController::class,'addnewuser'])->name('addnewuser');
+    route::post('changePassword',[UserController::class,'changePassword'])->name('changePassword');
     route::post('registernewuser',[UserController::class,'registernewuser'])->name('registernewuser')->middleware('role:admin');
     route::get('folgetermin/{id}',[UserController::class,'folgetermin'])->name('folge');
     route::get('insertPerson/{id}',function ($id){
