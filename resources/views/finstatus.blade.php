@@ -363,7 +363,7 @@
                                             +               '<span class="fw-600">Provision Firma</span>'
                                             +           '</div>'
                                             +           '<div class="col my-auto">'
-                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput1" id="percent" name="percent' + first + '"">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput1" id="percent' + first + ' " name="percent' + first + '"">'
                                             +           '</div>'
                                             +       '</div>'
                                             +       '<div class="row g-0">'
@@ -379,7 +379,7 @@
                                         else if(!mql.matches) {
                                             $(x).append('<tr>'
                                             +    '<td scope="row">' +           '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput1 pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="company' + first + '" name="company' + first + '"></td>'
-                                            +    '<td><input type="number" required placeholder="Prozentsatz eingeben" class="form-control py-1 provisionProfileInput1" id="percent" name="percent' + first + '""></td>'
+                                            +    '<td><input type="number" required placeholder="Prozentsatz eingeben" class="form-control py-1 provisionProfileInput1" id="percent' + first + '" name="percent' + first + '""></td>'
                                             +    '<td><input type="number" placeholder="Prozentsatz eingeben" class="form-control py-1 provisionProfileInput1" onclick="insertCompany()" id="secondpercent" name="secondpercent' + first + '""></td>'
                                             +    '</tr>');
                                         }
@@ -399,7 +399,7 @@
                                             +               '<span class="fw-600">Versicherer</span>'
                                             +           '</div>'
                                             +           '<div class="col my-auto">'
-                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="company' + second + '" name="company' + second + '"></td>'
+                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyz' + second + '" name="company' + second + '"></td>'
                                             +           '</div>'
                                             +       '</div>'
                                             +       '<div class="row g-0 pb-2">'
@@ -407,7 +407,7 @@
                                             +               '<span class="fw-600">Provision Firma</span>'
                                             +           '</div>'
                                             +           '<div class="col my-auto">'
-                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percent" name="percent' + second + '"">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percentz' + second + '" name="percent' + second + '">'
                                             +           '</div>'
                                             +       '</div>'
                                             +       '<div class="row g-0">'
@@ -423,24 +423,33 @@
                                         else if(!mql1.matches) {
                                             $(x).append('<tr>'
                                             +    '<td scope="row">'
-                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + second  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="company"></td>'
-                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percent" name="percent' + second + '"></td>'
-                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + second + '""></td>'
+                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + second  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyz' + second + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percentz' + second +'" name="percent' + second + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + second + '"></td>'
                                             +    '</tr>');
                                         }
                                         $('#akt2').show();
                                         document.getElementById('zusnr').value = parseInt(document.getElementById('zusnr').value) + 1;
                                         $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
+                                    
                                     }
-                                    function insertgrund(){
-                                        var company = $('#company' + first);
-                                        alert(company.val());
-{{--                                        axios.get('{{config('app.url')}}register/' + {{$id}} + '/grund?company=' + )--}}
-                                    }
+                              
                                     function updatee(id){ 
                                         $('#modali' + id).modal('show')
                                     }
+                                    function updateprov(){
+
+                                        for(var i = 1; i <= document.getElementById('grundnr').value; i++){
+                                        axios.get('{{route("companies.register",$id)}}' + '?field=Grund&company_name=' + document.getElementById('company' + i).value + '&provision_percent=' + document.getElementById('percent' + i).value).catch(err => {console.log(err)})
+                                        }
+                                        for(var i = 1; i <= document.getElementById('zusnr').value; i++){
+                                        axios.get('{{route("companies.register",$id)}}' + '?field=Zusat&company_name=' + document.getElementById('companyz' + i).value + '&provision_percent=' + document.getElementById('percentz' + i).value).catch(err => {console.log(err)})
+                                        }
+window.location.reload();
+                                    
+                                    }
                                 </script>
+
                             </div>
                         </form>
                             <div>
@@ -469,7 +478,7 @@
                             <div id="submitBtnHide" style="display: none;">
                                 <div class="row g-0 justify-content-end pt-3">
                                     <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                                        <button type="submit"  class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
+                                        <button type="button" onclick="updateprov()" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
                                     </div>
                                 </div>
                             </div>
