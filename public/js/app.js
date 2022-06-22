@@ -8271,6 +8271,9 @@ __webpack_require__.r(__webpack_exports__);
         axios.get('assignpendency?admin=' + this.admin + '&id=' + this.costumer + '&desc=' + document.getElementById('desc').value + '&task=' + document.getElementById('task').value);
         document.getElementById('alrt').innerHTML = "";
         document.getElementById('alrt').innerHTML += '<div style="background-color: #DEF2D5 !important;border-radius: 8px!important;color: #219653 !important;font-weight: 600 !important;border: none !important;padding-right: 0.75rem !important;padding-left: 0.75rem !important;padding-top: 0.6rem !important;padding-bottom: 0.6rem !important" class="alert alert-success alert-dismissible fade show" role="alert">\n' + 'Pendenz erfolgreich zugewiesen \n' + '                    <button style="padding: 0.85rem 1rem;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\n' + '                </div>';
+      } else {
+        document.getElementById('alrt').innerHTML = "";
+        document.getElementById('alrt').innerHTML += '<div style="background-color: #F8F4CA !important;border-radius: 8px!important;color: #BEAB00 !important;font-weight: 600 !important;border: none !important;padding-right: 0.75rem !important;padding-left: 0.75rem !important;padding-top: 0.6rem !important;padding-bottom: 0.6rem !important" class="alert alert-success alert-dismissible fade show" role="alert">\n' + 'Füllen Sie die Felder aus  \n' + '                    <button style="padding: 0.85rem 1rem;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\n' + '                </div>';
       }
 
       task.value = '';
@@ -40483,7 +40486,7 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", {
-      staticClass: "col-12",
+      staticClass: "col-12 px-0",
       staticStyle: { "margin-top": "-1.5rem" },
       attrs: { id: "alrt" },
     }),
