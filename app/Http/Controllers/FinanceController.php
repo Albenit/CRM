@@ -75,19 +75,17 @@ return redirect()->back();
         
         return redirect()->back();
     }
-    public function register($id,$field,Request $req){
-        $cnt = (int) $req->cnt;
+    public function register($id,Request $req){
 
-        for ($i = 1; $i <= $cnt; $i++){
-            if(!Companies::firstWhere(['company_name' => $req->input('company' . $i),'field' => $field,'prov_id' => $id])){
-                if($req->input('company' . $i) != null && $req->input('percent' . $i) != null){
-            Companies::create(['company_name' => $req->input('company' . $i),'provision_percent' => $req->input('percent' . $i),'field' => $field,'prov_id' => $id]);
+            if(!Companies::firstWhere(['company_name' => $req->company_name,'field' => $req->field,'prov_id' => $id])){
+                if($req->company_name != null && $req->provision_percent != null){
+            Companies::create(['company_name' => $req->company_name,'provision_percent' => $req->provision_percent,'field' => $req->field,'prov_id' => $id]);
                 }
                 else{
               return redirect()->back();
                 }
             }
-    }
+    
     return back();
 }
 
