@@ -224,7 +224,7 @@
                 <thead style="border-bottom: 0px solid #fff !important;border-radius: 8px">
                     <tr class="bg-color1" style="border: none; border-bottom: 0px #fff solid !important;border-radius: 8px">
                         <th scope="col" class="header-styling">Leads</th>
-                        <th scope="col" class="header-styling">Platform</th>
+                        <th scope="col" class="header-styling">Plattform</th>
                         <th scope="col" class="header-styling">Personen</th>
                         <th scope="col"  class="header-styling">Status</th>
                         <th scope="col" class="header-styling">Kampagne</th>
@@ -260,7 +260,7 @@
                         <td>
                             @if($lead->rejected == 1 || $lead->deleted_at != null)
                                 <div class="lostRedDiv py-1 text-center">
-                                    <span>Lost</span>
+                                    <span>Verloren</span>
                                 </div>
                             @elseif($lead->rejected == 0   && $lead->appointment_date == null)
                                 <div class="yellowRedDiv py-1 text-center">
@@ -268,7 +268,7 @@
                                 </div>
                             @elseif($lead->completed = 1 && $lead->rejected == 0)
                                 <div class="greenRedDiv py-1 text-center">
-                                    <span>Won</span>
+                                    <span>Gewonnen</span>
                                 </div>
                             @endif
                             
@@ -280,7 +280,7 @@
                             <div>{{$lead->info->teilnahme}}</div>
                         </td>
                         <td>
-                            <div class="showMoreBlueText fw-600" data-bs-toggle="modal" data-bs-target="#{{$lead->slug}}">Zeig mehr</div>
+                            <div class="showMoreBlueText fw-600" data-bs-toggle="modal" data-bs-target="#{{$lead->slug}}">Details</div>
                         </td>
                     </tr>
                     <div class="col-12 col-lg-6">
@@ -316,7 +316,7 @@
 
                                                         <div class="py-1">
                                             <span
-                                                style="color: #434343; font-weight: 600;">Platform: <span
+                                                style="color: #434343; font-weight: 600;">Plattform: <span
                                                 style="color: #88889D;font-weight: 500">{{$lead->campaign->name}} </span></span><br>
                                                         </div>
                                                         <div class="py-1">

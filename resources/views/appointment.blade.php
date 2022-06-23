@@ -1045,7 +1045,7 @@
 			<div class="col-lg">
 				<label class="fw-500">Sprache</label>
 				<select name="sprache" class="form-control form-select form-select-sm kalendarFormStyle py-2">
-					<option value="all"  @if($spracheO == "all") selected @endif>Alle Sprache</option>
+					<option value="all"  @if($spracheO == "all") selected @endif>Alle Sprachen</option>
 					@foreach ( $langues as $langue)
 						<option value="{!! $langue->sprache !!}" @if($spracheO == $langue->sprache) selected @endif >{!! $langue->sprache !!}</option>
 					@endforeach
@@ -1111,16 +1111,16 @@
                                          style="margin: 10px 0; cursor: pointer;color:#fff;text-align: left; font-size: 14px; border-radius: 10px;  background: #0c71c3;">{!! $appointment["id"] !!}
                                         -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
                                             style="color:#fff">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
-                                            ({!! $appointment["number_of_persons"] !!}
-                                            persons, {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
+                                            ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
+                                            {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
                                              style="color:#fff; border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Nicht zugeordnet</div>@endif</div>
                                 @else
                                     <div class='fc-event  p-2 m-2'
                                          style="margin: 10px 0; cursor: pointer; text-align: left; color:#fff;border-radius: 10px; font-size: 14px;  background:#c40000;">{!! $appointment["id"] !!}
                                         -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
                                             style="color: #fff;">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
-                                            ({!! $appointment["number_of_persons"] !!}
-                                            persons, {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
+                                            ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
+                                            {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
                                              style="color:#fff;border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Abgelehnt </div>@endif
                                     </div>
                                 @endif
@@ -1144,7 +1144,7 @@
                             </div>
                             <div class="col-auto my-auto ps-2">
                                     <div>
-                                        <span class="text-dark">Neues hinzufügen</span>
+                                        <span class="text-dark">Neuen hinzufügen</span>
                                     </div>
                             </div>
                         </div>

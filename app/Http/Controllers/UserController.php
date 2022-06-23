@@ -98,6 +98,77 @@ public function folgetermin($id){
         notification::where('receiver_id', Auth::guard('admins')->user()->id)->update(['done' => 1]);
     }
 
+    public function addrole(Request $req){
+        $admin = Admins::find((int) $req->admin);
+        $roles = collect();
+ 
+        if($admin->roless != null){
+         $role = $req->input('role_name') . $admin->email;
+         if(!Admins::firstWhere('email',$role)){
+             $admin2 = new Admins();
+             $admin2->name = $admin->name;
+             $admin2->password = $admin->password;
+             $admin2->phonenumber = $admin->phonenumber;
+             $admin2->admin_id = $admin->id;
+             $admin2->email = $req->input('role_name') . $admin->email;
+             $admin2->save();
+             $admin2->assignRole($req->input('role_name'));
+             $roles->push($req->input('role_name'));
+         }
+         for($i = 1; $i <= $req->addedroles2; $i++){
+             $role = $req->input('role_name' . $i) . $admin->email;
+             if(!Admins::firstWhere('email',$role)){
+             $admin2 = new Admins();
+             $admin2->name = $admin->name;
+             $admin2->password = $admin->password;
+             $admin2->phonenumber = $admin->phonenumber;
+             $admin2->admin_id = $admin->id;
+             $admin2->email = $req->input('role_name' . $i) . $admin->email;
+             $admin2->save();
+             $admin2->assignRole($req->input('role_name' . $i));
+             $roles->push($req->input('role_name' . $i));
+         }
+    
+     }
+         
+        }
+        else{
+         $roles->push($req->input('role_name'));
+         for($i = 1; $i <= $req->addedroles2; $i++){
+           $roles->push($req->input('role_name' . $i));
+         }
+         $admin->roless = json_decode($roles);
+ 
+         $admin->hasAnyRole() ? $admin->removeRole($admin->getRoleNames()[0]) : '';
+         $admin->save();
+         $role = $req->input('role_name') . $admin->email;
+         if(!Admins::firstWhere('email',$role)){
+             $admin2 = new Admins();
+             $admin2->name = $admin->name;
+             $admin2->password = $admin->password;
+             $admin2->phonenumber = $admin->phonenumber;
+             $admin2->admin_id = $admin->id;
+             $admin2->email = $req->input('role_name') . $admin->email;
+             $admin2->save();
+             $admin2->assignRole($req->input('role_name'));
+           }
+         for($i = 1; $i <= $req->addedroles2; $i++){
+             $role = $req->input('role_name' . $i) . $admin->email;
+             if(!Admins::firstWhere('email',$role)){
+             $admin2 = new Admins();
+             $admin2->name = $admin->name;
+             $admin2->password = $admin->password;
+             $admin2->phonenumber = $admin->phonenumber;
+             $admin2->admin_id = $admin->id;
+             $admin2->email = $req->input('role_name' . $i) . $admin->email;
+             $admin2->save();
+             $admin2->assignRole($req->input('role_name' . $i));
+           }
+         }
+         auth()->user()->update(['roless' => '[]']);
+        }
+     }
+
     public function addslead(Request $req){
 
         $lead = new lead();
@@ -179,9 +250,9 @@ public function folgetermin($id){
         $lead->first_name = filter_var($req->input('fname'), FILTER_SANITIZE_STRING);
         $lead->last_name = filter_var($req->input('lname'), FILTER_SANITIZE_STRING);
         $lead->telephone = filter_var($req->input('phone'), FILTER_SANITIZE_STRING);
-        $lead->address = filter_var($req->input('address'), FILTER_SANITIZE_STRING);
+        $lead->address = $req->input('address');
         $lead->postal_code = filter_var($req->input('postal'), FILTER_SANITIZE_STRING);
-        $lead->city =  filter_var($req->input('location'), FILTER_SANITIZE_STRING);
+        $lead->city =  $req->input('location');
         $lead->nr = filter_var($req->input('nr'),FILTER_SANITIZE_STRING);
         $lead->nationality = filter_var($req->input('country'), FILTER_SANITIZE_STRING);
         $lead->appointment_date = filter_var($req->input('appdate'), FILTER_SANITIZE_STRING);
@@ -1106,9 +1177,9 @@ public function folgetermin($id){
     }
 
     public function addnewuser(){
-      
+            $admins = Admins::all()->whereNull('admin_id');
             $roles = Role::all();
-            return view('addnewuser', compact('roles'));
+            return view('addnewuser', compact('roles','admins'));
         
        
     }

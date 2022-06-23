@@ -1,81 +1,144 @@
-    @extends('template.navbar')
-    @section('content')
-    <title>Settings</title>
+@extends('template.navbar')
+@section('content')
     @if(Auth::guard('admins')->user()->hasRole('admin'))
         @if($errors->any())
             <div class="text-center">
                 {!! implode('<br />', $errors->all(':message')) !!}
             </div>
         @endif
-        
-        <section style="display:flex; flex-direction: column; justify-content: center; width: 100%;height: 100%; align-items: center">
-            <div class="col-11 col-sm-11 col-md-9 col-lg-9 col-xl-6 my-auto p-4 p-sm-5 boxShadowMob">
-                <div class="">
-                    <form class="form1" method="post" action="{{route('registernewuser')}}" onsubmit="return verifyPassword()">
-                        @csrf
-                        <div class="text-center">
-                            <div class="">
-                                <span class="fs-5" style="color: #313131;font-weight: 700">
-                                    Registrieren
-                                </span>
+        <title>Einstellungen</title>
+        <section class="p-4 p-md-5">
+            <div class="row gx-0 gx-md-3">
+                <div class="col-12 col-sm-12 col-md-6 ">
+                    <div class="p-4 p-sm-5 boxShadowMob">
+                        <form class="form1" method="post" action="{{route('registernewuser')}}" onsubmit ="return verifyPassword()">
+                            @csrf
+                            <div class="text-center">
+                                <div class="">
+                                    <span class="fs-5" style="color: #313131;font-weight: 700">
+                                        Registrieren
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <input name="addedroles" id="addedroles" style="display:none" type="number" value="0">
-                        <br>
-                        <div class="input-group mb-3">
-                            <input placeholder="Vorname" autocomplete="off" type="text" name="user_name" class="form-control py-2"
-                                aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input placeholder="Email" autocomplete="off" type="text" name="user_email" class="form-control py-2"
-                                aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input placeholder="Telefonnummer" autocomplete="off" type="number" name="phone_number" class="form-control py-2"
-                                aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input placeholder="Passwort" type="password" name="user_password" class="form-control py-2"
-                                aria-describedby="basic-addon1"  id="pswd" autocomplete="off">
-                        </div>
-                        <div class="input-group mb-3">
-                            <input placeholder=" Retype Passwort" type="password" name="retype_password" class="form-control py-2"
-                                aria-describedby="basic-addon1" id="password" autocomplete="off">
-                        </div>
-                        <span id="message" style="color:red"> </span>
-                        <div class="mb-3" id="roles">
-                            <select name="role_name" class="form-select py-2 w-100">
-                                @foreach($roles as $role)
-                                        
-                                    @if ($role->name == 'admin')
-                                        <option value="{{$role->name}}">Admin</option>
-                                    @elseif($role->name == 'fs')
-                                        <option value="{{$role->name}}">Aussendienst</option>
-                                    @elseif($role->name == 'salesmanager')
-                                        <option value="{{$role->name}}">Verkaufsleiter</option>
-                                    @elseif($role->name == 'backoffice')
-                                        <option value="{{$role->name}}">Innendienst</option>
-                                    @elseif($role->name == 'finance')
-                                        <option value="{{$role->name}}">Finanzen</option>
-                                    @elseif ($role->name == 'callagent')
-                                        <option value="{{$role->name}}">Call Agent</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-3" id="roles" onclick="addanother()">
-                            <div name="role_name" class="form-select addAnotherDiv py-2 w-100">
-                                Weitere Rolle zuweisen
+                            <input name="addedroles" id="addedroles" style="display:none" type="number" value="0">
+                            <br>
+                            <div class="input-group mb-3">
+                                <input placeholder="Vorname" autocomplete="off" type="text" name="user_name" class="form-control py-2"
+                                    aria-describedby="basic-addon1" required>
                             </div>
-                        </div>
+                            <div class="input-group mb-3">
+                                <input placeholder="Email" autocomplete="off" type="text" name="user_email" class="form-control py-2"
+                                    aria-describedby="basic-addon1" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input placeholder="Telefonnummer" autocomplete="off" type="number" name="phone_number" class="form-control py-2"
+                                    aria-describedby="basic-addon1" required>
+                            </div>
+                            <span id = "message" style="color:red"> </span>
+                            <div class="input-group mb-3">
+                                <input placeholder="Passwort" type="password" name="user_password" class="form-control py-2"
+                                    aria-describedby="basic-addon1"  id = "pswd" autocomplete="off" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input placeholder=" Retype Passwort" type="password" name="retype_password" class="form-control py-2"
+                                    aria-describedby="basic-addon1" id="password" autocomplete="off" required>
+                            </div>
+                            <div class="mb-3" id="roles">
+                                <select name="role_name" class="form-select py-2 w-100">
+                                    @foreach($roles as $role)
+                                            
+                                        @if ($role->name == 'admin')
+                                            <option value="{{$role->name}}">Admin</option>
+                                        @elseif($role->name == 'fs')
+                                            <option value="{{$role->name}}">Aussendienst</option>
+                                        @elseif($role->name == 'salesmanager')
+                                            <option value="{{$role->name}}">Verkaufsleiter</option>
+                                        @elseif($role->name == 'backoffice')
+                                            <option value="{{$role->name}}">Innendienst</option>
+                                        @elseif($role->name == 'finance')
+                                            <option value="{{$role->name}}">Finanzen</option>
+                                        @elseif ($role->name == 'callagent')
+                                            <option value="{{$role->name}}">Call Agent</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3" id="roles" onclick="addanother()">
+                                <div name="role_name" class="form-select addAnotherDiv py-2 w-100">
+                                    Weitere Rolle zuweisen
+                                </div>
+                            </div>
 
-                        <div class="row g-0 justify-content-center">
-                            <div class="pt-2 col-12">
-                                <input type="submit" class="py-2 w-100 border-0 fw-bold" value="Registrieren">
+                            <div class="row g-0 justify-content-center">
+                                <div class="pt-2 col-12">
+                                    <input type="submit" class="py-2 w-100 border-0 fw-bold" value="Registrieren">
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
+                        </form>
+                            
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6  ">
+                    <div class="p-4 p-sm-5 boxShadowMob">
+                        <form class="form1" method="post" action="{{route('addrole')}}" onsubmit ="return verifyPassword()">
+                            @csrf
+                            <input name="addedroles2" id="addedroles2" style="display:none" type="number" value="0">
+                            <div class="text-center">
+                                <div class="">
+                                    <span class="fs-5" style="color: #313131;font-weight: 700">
+                                        Rolle aktualisieren
+                                    </span>
+                                </div>
+                            </div>
+                            <input name="addedroles" id="addedroles" style="display:none" type="number" value="0">
+                            <br>
+                            <span id = "message" style="color:red"> </span>
+                        
+                            <div class="input-group mb-3">
+                                <select class="form-control py-2"
+                                    name="admin">
+                                    <option disabled selected>Berater</option> 
+                                    @foreach($admins as $admin)
+                                    <option value="{{$admin->id}}">{{$admin->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3" id="roless">
+                                <select name="role_name" class="form-select py-2 w-100">
+                                       
+                                    @foreach($roles as $role)
+                                        @if ($role->name == 'admin')
+                                            <option value="{{$role->name}}">Admin</option>
+                                        @elseif($role->name == 'fs')
+                                            <option value="{{$role->name}}">Aussendienst</option>
+                                        @elseif($role->name == 'salesmanager')
+                                            <option value="{{$role->name}}">Verkaufsleiter</option>
+                                        @elseif($role->name == 'backoffice')
+                                            <option value="{{$role->name}}">Innendienst</option>
+                                        @elseif($role->name == 'finance')
+                                            <option value="{{$role->name}}">Finanzen</option>
+                                        @elseif ($role->name == 'callagent')
+                                            <option value="{{$role->name}}">Call Agent</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3" id="roles2" onclick="addanother2()">
+                                <div name="role_name" class="form-select addAnotherDiv py-2 w-100">
+                                    Weitere Rolle zuweisen
+                                </div>
+                            </div>
+
+                            <div class="row g-0 justify-content-center">
+                                <div class="pt-2 col-12">
+                                    <input type="submit" class="py-2 w-100 border-0 fw-bold" value="Aktualisieren">
+                                </div>
+                            </div>
+
+                        </form>
+                            
+                    </div>
                 </div>
             </div>
         </section>
@@ -93,7 +156,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input placeholder="Jetziges Passwort" type="password" name="current_password" class="form-control py-2"
+                            <input placeholder="Aktuelles Passwort" type="password" name="current_password" class="form-control py-2"
                                 aria-describedby="basic-addon1"  id="current_password" autocomplete="off">      
                         </div>
                         <span id="curr_msg" style="color:red"> </span>
@@ -118,13 +181,16 @@
             </div>
         </section>
     @endif
-@endsection
+
+
+    @endsection
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
         <script>
             var cnt = 1;
+            var cnt2 = 1;
             function addanother(){
 
                var x = document.getElementById('roles');
@@ -148,8 +214,33 @@
                     document.getElementById('addedroles').value = cnt;
                 cnt++;
             }
+            function addanother2(){
+
+var x = document.getElementById('roles2');
+$("#roless").append("<select class='form-select py-2 w-100 mt-3' name='role_name" + cnt2 + "' id='" + cnt2 + "c'>");
+@foreach($roles as $role)
+ document.getElementById(cnt2.toString() + 'c').innerHTML +=
+             '@if ($role->name == "admin")'+
+             '<option value="{{$role->name}}">Admin</option>'+
+             '@elseif($role->name == "fs")'+
+                 '<option value="{{$role->name}}">Aussendienst</option>'+
+             '@elseif($role->name == "salesmanager")'+
+                 '<option value="{{$role->name}}">Verkaufsleiter</option>'+
+             '@elseif($role->name == "backoffice")'+
+                 '<option value="{{$role->name}}">Innendienst</option>'+
+             '@elseif($role->name == "finance")'+
+                 '<option value="{{$role->name}}">Finanzen</option>'+
+             '@elseif ($role->name == "callagent")'+
+                 '<option value="{{$role->name}}">Call Agent</option>'+
+             '@endif';
+ @endforeach
+     document.getElementById('addedroles2').value = cnt2;
+ cnt2++;
+}
+
 
         </script>
+
 
 <script>
     function verifyPasswordChange() {
@@ -202,7 +293,6 @@
     }
 
 </script>
-
 <style>
     .form1 input {
         background: #FFFFFF !important;

@@ -62,32 +62,42 @@ class HumanResourcesController extends Controller
     public function createAbsence(Request $request)
     {
         $decryptedEmployeeId = $request->employeeId;
-
+        $emp  = auth()->user();
         $created_at =  Carbon::createFromFormat('Y-m-d',$request->from);
         $duration_time = Carbon::createFromFormat('Y-m-d',$request->to);
 
-        $duration =  (int) date_diff($created_at,$duration_time)->format('%d');
-        if($duration > 7) $type = 0; else $type = 1;
-        $emp  = auth()->user();
-        $absence = new Absence();
-        $absence->employee_id = $emp->id;
-        $absence->from = $request->from;
-        $absence->to = $request->to;
-        $absence->file = $request->hasFile('begrundungfile2') ? $this->storeFile($request->file('begrundungfile2'),FolderPaths::KK_FILES) : null;
-        $absence->type = $type;
-        if ($request->descriptionSelect != null) {
-            $absence->description = $request->descriptionSelect;
-        }else {
-            $absence->description = $request->description;
+        $absence = Absence::where('employee_id', $emp->id)->latest()->first();
+
+        if($absence == null || $absence->to < Carbon::now()){
+            $duration =  (int) date_diff($created_at,$duration_time)->format('%d');
+            if($duration > 7) $type = 0; else $type = 1;
+            
+            $absence = new Absence();
+            $absence->employee_id = $emp->id;
+            $absence->from = $request->from;
+            $absence->to = $request->to;
+            $absence->file = $request->hasFile('begrundungfile2') ? $this->storeFile($request->file('begrundungfile2'),FolderPaths::KK_FILES) : null;
+            $absence->type = $type;
+    
+            if ($request->descriptionSelect != null) {
+                $absence->description = $request->descriptionSelect;
+            }else {
+                $absence->description = $request->description;
+            }
+            $absence->save();
+    
+    
+               foreach (Admins::role(['backoffice'])->get() as $admin){
+               $text = '<a href="' . route('hr_view') . '">Es liegt eine Abwesenheitsanfrage von ' . ucfirst(auth()->user()->name) .' vor</a>';
+                   $admin->notify(new SendNotificationn($text));
+               }
+            return redirect()->back()->with('absenceSuccess','Ihr Abwesenheitsantrag wurde erfolgreich bearbeitet');
+
+        }else{
+            return redirect()->back()->with('absenceFail','You cant do absence until this date '.$absence->to.' because you are on vocation');
         }
-        $absence->save();
 
 
-           foreach (Admins::role(['backoffice'])->get() as $admin){
-           $text = '<a href="' . route('hr_view') . '">Es liegt eine Abwesenheitsanfrage von ' . ucfirst(auth()->user()->name) .' vor</a>';
-               $admin->notify(new SendNotificationn($text));
-           }
-        return redirect()->back()->with('absenceSuccess','Ihre Anfrage wurde erfolgreich bearbeitet');
     }
 
     public function updateAbsenceById(Request $request)

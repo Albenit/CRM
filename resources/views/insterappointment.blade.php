@@ -194,7 +194,7 @@
                     box-shadow: 0px 4px 4px rgba(213, 213, 213, 0.25);
                     border-radius: 13px;">
                     <div class="mb-4 mx-4">
-                        <span class="fs-5 fw-600">Oder per Datei einfügen</span>
+                        <span class="fs-5 fw-600">Oder per Datei hochladen</span>
                     </div>
                     <form method="post" action="{{route('addappointmentfile')}}" enctype="multipart/form-data">
                         @csrf
