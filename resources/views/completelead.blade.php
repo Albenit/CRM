@@ -617,7 +617,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                     <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Vorname </span> 
                                                         </div>
                                                         <div class="col">
@@ -631,7 +631,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Nachname </span> 
                                                         </div>
                                                         <div class="col">
@@ -645,7 +645,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Strasse </span> 
                                                         </div>
                                                         <div class="col">
@@ -659,7 +659,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Nr </span> 
                                                         </div>
                                                         <div class="col">
@@ -672,7 +672,14 @@
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
-                                                    <span class="fw-600 fs-6 pe-1">PLZ </span> <span class="fs-6">{{$app->postal_code}}</span>
+                                                    <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 fs-6 pe-1">PLZ </span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$app->postal_code}} </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                     </div>
@@ -681,7 +688,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Ort </span> 
                                                         </div>
                                                         <div class="col">
@@ -695,7 +702,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Nationalitat </span> 
                                                         </div>
                                                         <div class="col">
@@ -710,7 +717,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Sprache </span> 
                                                         </div>
                                                         <div class="col">
@@ -724,7 +731,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Tel. Privat </span> 
                                                         </div>
                                                         <div class="col">
@@ -738,7 +745,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Personen </span> 
                                                         </div>
                                                         <div class="col">
@@ -752,7 +759,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Datum </span> 
                                                         </div>
                                                         <div class="col">
@@ -766,7 +773,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Zeit </span> 
                                                         </div>
                                                         <div class="col">
@@ -780,7 +787,7 @@
                                     <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
-                                                        <div class="col-auto me-2">
+                                                        <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 pe-1">Zufriedenheit </span> 
                                                         </div>
                                                         <div class="col">
