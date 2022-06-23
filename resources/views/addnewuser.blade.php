@@ -40,7 +40,7 @@
                                     aria-describedby="basic-addon1"  id = "pswd" autocomplete="off" required>
                             </div>
                             <div class="input-group mb-3">
-                                <input placeholder=" Retype Passwort" type="password" name="retype_password" class="form-control py-2"
+                                <input placeholder="Passwort erneut eingeben" type="password" name="retype_password" class="form-control py-2"
                                     aria-describedby="basic-addon1" id="password" autocomplete="off" required>
                             </div>
                             <div class="mb-3" id="roles">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6  ">
                     <div class="p-4 p-sm-5 boxShadowMob">
-                        <form class="form1" method="post" action="{{route('addrole')}}" onsubmit ="return verifyPassword()">
+                        <form class="form1" method="post" action="{{route('addrole')}}">
                             @csrf
                             <input name="addedroles2" id="addedroles2" style="display:none" type="number" value="0">
                             <div class="text-center">
