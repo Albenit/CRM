@@ -268,7 +268,7 @@
                 document.getElementById("date_new2").value = moment(calEvent.event.start).format('Y-MM-DD');
                 document.getElementById("time_new").value = moment(calEvent.event.start).format('HH:mm');
                 document.getElementById("time_new2").value = moment(calEvent.event.start).format('HH:mm');
-                document.getElementById("datumm").innerHTML = calEvent.event.extendedProps.appointment_date;
+                document.getElementById("datumm").innerHTML = moment(calEvent.event.extendedProps.appointment_date).format('DD.MM.Y');
                 document.getElementById("zeitt").innerHTML = calEvent.event.extendedProps.time;
                 document.getElementById("berater").innerHTML = calEvent.event.extendedProps.berater;
 		        document.getElementById("OP-"+calEvent.event.extendedProps.user_to).selected = true;
@@ -465,7 +465,7 @@
 
                                     </div>
                                     <div class="col-auto pe-4 my-auto">
-                                        <span class="appointmentModalSpanStyle">Nationalitet</span>
+                                        <span class="appointmentModalSpanStyle">Nationalität</span>
                                     </div>
                                     <div class="col my-auto">
                                     <span class="appointmentModalSpanStyle1" id='nationality'></span>
@@ -563,7 +563,7 @@
                                 <input type="hidden"  id="ts_id2" name="ts_id" value="0">
                                 <input type="hidden"  id="time_new2" name="time_new">
                                 <input type="hidden"  id="date_new2" name="date_new">
-                                <button type="submit" class="py-2 w-100" style="background: #2F60DC; border: none; border-radius: 7px;color: #fff;font-weight: 600;">In Terminliste Ersetzen</button>
+                                <button type="submit" class="py-2 w-100" style="background: #2F60DC; border: none; border-radius: 7px;color: #fff;font-weight: 600;">Berater entfernen</button>
 
 			                {{ Form::close() }}
                             </div>
