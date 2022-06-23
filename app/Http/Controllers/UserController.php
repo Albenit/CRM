@@ -101,7 +101,7 @@ public function folgetermin($id){
     public function addrole(Request $req){
         $admin = Admins::find((int) $req->admin);
         $roles = collect();
- 
+        
         if($admin->roless != null){
          $role = $req->input('role_name') . $admin->email;
          if(!Admins::firstWhere('email',$role)){
@@ -165,8 +165,10 @@ public function folgetermin($id){
              $admin2->assignRole($req->input('role_name' . $i));
            }
          }
-         auth()->user()->update(['roless' => '[]']);
+         
         }
+        $admin = Admins::find((int) $req->admin)->update(['roless' => '[]']);
+        return redirect()->back()->with('success','Erfolgreich hinzugefügt');
      }
 
     public function addslead(Request $req){
