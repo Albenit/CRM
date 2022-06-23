@@ -956,7 +956,7 @@ $urole = $urole->toArray();
                                                     <span class="documentFormLeftSpan">Quelle</span>
                                                 </div>
                                                 <div class="col">
-                                                    <span class="documentFormRightSpan">Lead</span>
+                                                    <span class="documentFormRightSpan">{{$lead->lead->admin->hasRole('callagent') ? 'Call Agent' : 'Lead'}}</span>
                                                 </div>
                                             </div>
                                         </div>

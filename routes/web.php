@@ -192,6 +192,7 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::post('createLeadDataKK/{leadIdd}/{personIdd}',[LeadDataController::class,'createLeadDataKK'])->name('createLeadDataKK')->middleware('role:admin|backoffice');
     route::post('updateLeadDataKK/{leadId}/{personId}',[LeadDataController::class,'updateLeadDataKK'])->name('updateLeadDataKK')->middleware('role:admin|backoffice');
     route::get('changerole','App\Http\Controllers\UserController@changerole');
+    route::post('addrole',[UserController::class,'addrole'])->name('addrole');
     route::any('tasks',[TasksController::class,'tasks'])->name('tasks')->middleware('role:admin|fs|backoffice');
     route::get('searchword',[TasksController::class,'searchword'])->name('searchword')->middleware('role:admin|fs|backoffice|salesmanager');
     route::get('costumer/{costumerId}',[TodoController::class,'getDataForTaskByCostumerId'])->name('getDataForTaskByCostumerId');

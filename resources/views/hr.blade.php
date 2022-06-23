@@ -3128,6 +3128,45 @@
                                                         </div>
                                                         <div>
                                                             <div class="hrGreyBackground p-4">
+                                                                <div class="g-0 px-0">
+                                                                    @if(Illuminate\Support\Facades\Session::has('absenceSuccess'))
+                                                                    <div style="background: #DEF2D5 !important;border-radius: 8px !important;" class="alert alert-success alert-dismissible fade show  px-3" role="alert">
+                                                                        <div class="row g-0">
+                                                                            <div class="col my-auto">
+                                                                            <div style="font-weight: 600;color: #377449;">{!! Illuminate\Support\Facades\Session::get('absenceSuccess') !!}</div>
+                                                    
+                                                                            </div>
+                                                                            <div class="col-auto my-auto">
+                                                                            <button style="border: none; background-color: transparent;" type="button" class="" data-bs-dismiss="alert" aria-label="Close">
+                                                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path d="M1.0498 1.00044L13.0498 13.0004" stroke="#434343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                                    <path d="M12.9756 1L1.07376 13.0497" stroke="#434343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                                </svg>
+                                                                            </button>
+                                                    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    @endif
+                                                                    @if(Illuminate\Support\Facades\Session::has('absenceFail'))
+                                                                        <div style="border-radius: 8px !important;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                                        <div class="row g-0">
+                                                                                <div class="col my-auto">
+                                                                                    <div style="font-weight: 600;color: #CB0C0C;">{!! Illuminate\Support\Facades\Session::get('absenceFail') !!}</div>
+                                                        
+                                                                                </div>
+                                                                                <div class="col-auto my-auto">
+                                                                                    <button style="border: none; background-color: transparent;" type="button" class="" data-bs-dismiss="alert" aria-label="Close">
+                                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                            <path d="M1.0498 1.00044L13.0498 13.0004" stroke="#434343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                                            <path d="M12.9756 1L1.07376 13.0497" stroke="#434343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
                                                                 <div class="row g-0 justify-content-between">
                                                                     <form id="crt" action="{{route('createAbsence')}}" enctype="multipart/form-data" method="post" class="col-12 col-lg-6 pe-0 pe-lg-3 pb-4 pb-lg-0">
                                                                         <div class="pb-4">
@@ -3175,7 +3214,6 @@
                                                                                                     d="M13.5 20C13.2237 20 13 19.6579 13 19.2353V13.5V7.76471C13 7.34211 13.2237 7 13.5 7C13.7763 7 14 7.34211 14 7.76471V19.2353C14 19.6579 13.7763 20 13.5 20Z"
                                                                                                     fill="#454545" />
                                                                                             </svg>
-
                                                                                         </div>
                                                                                         <div class="col" style="padding-left: 10px">
                                                                                             <span>Andere</span>
@@ -3204,7 +3242,7 @@
                                                                                                        class="form-control ps-2"
                                                                                                        style="border: none;background-color: transparent;"
                                                                                                        name="from" id="from"
-                                                                                                       placeholder="Start Date" required>
+                                                                                                       placeholder="Start Date" required min="{{Carbon\Carbon::now()->format('Y-m-d')}}">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -3218,7 +3256,7 @@
 
                                                                                                        class="form-control ps-2" id="to" name="to"
                                                                                                        style="border: none;background-color: transparent;"
-                                                                                                       placeholder="End Date" required>
+                                                                                                       placeholder="End Date" required min="{{Carbon\Carbon::now()->format('Y-m-d')}}">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -6200,6 +6238,9 @@
         text-decoration: none;
 
     }
+    .alert-dismissible {
+    padding-right: 1rem !important;
+}
 
 </style>
 <style>

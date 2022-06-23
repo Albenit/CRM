@@ -16,10 +16,17 @@ class ChangeRole
      */
     public function handle(Request $request, Closure $next)
     {
+$roles = collect();
+ 
+    if(auth()->user()->roless != null){
+   
+        auth()->user()->childrens->each(function($item) use($roles){
+          
+            $roles->push($item->getRoleNames()[0]);
+        });
+    }
 
-        $roles = json_decode(auth()->user()->roless);
-
-    if(!is_null($roles) && count($roles) > 1){
+    if(auth()->user()->roless != null){
             return response()->view('selectrole',compact('roles'));
         }
         return $next($request);

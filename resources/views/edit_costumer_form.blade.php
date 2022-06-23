@@ -670,10 +670,9 @@ if it's not present, don't show loader */
                     <div class="tab-content mx-2 mx-sm-4 pb-3" id="nav-tabContent">
                         <div class="tab-pane show active fade status-content mb-3" id="nav-home" role="tabpanel"
                              aria-labelledby="nav-home-tab">
-                             <div class="p-4">
+                            <div class="p-4">
                                 <div class="pb-5">
                                     <div class="row gx-0 gx-md-3 gy-3 mt-3">
-
                                         @if($grundversicherungPP->society_PG != null || $grundversicherungPP->graduation_date_PG != null || $grundversicherungPP->product_PG != null  || ( $grundversicherungPP->status_PG != 'Offen (Berater)' && $grundversicherungPP->status_PG != 'Offen (Innendienst)'))
                                         <div class="col-12 col-md-6 col-xl-4">
                                             <div class="documentFormGreyBGDiv h-100">
@@ -724,7 +723,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$grundversicherungPP->last_adjustment_PG}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -794,7 +793,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan ">{{$zusatzversicherungPP->last_adjustment_PZ}}</span>
+                                                                <span class="documentFormRightSpan ">{{Carbon\Carbon::parse($zusatzversicherungPP->last_adjustment_PZ)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -819,7 +818,7 @@ if it's not present, don't show loader */
                                             <div class="documentFormGreyBGDiv h-100">
                                                 <div class="p-4">
                                                     <div class="pb-3">
-                                                        <span class="documentFormGreyBGTitle">Reschtsschutz</span>
+                                                        <span class="documentFormGreyBGTitle">Rechtsschutz</span>
                                                     </div>
                                                     <div class="pb-4">
                                                         <div class="row g-0">
@@ -862,7 +861,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$retchsschutzP->last_adjustment_PR}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($retchsschutzP->last_adjustment_PR)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -934,7 +933,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$autoversicherungP->last_adjustment_PA}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($autoversicherungP->last_adjustment_PA)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1003,7 +1002,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$hausratP->last_adjustment_PH}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($hausratP->last_adjustment_PH)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1071,7 +1070,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$vorsorgeP->last_adjustment_PV}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($vorsorgeP->last_adjustment_PV)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1091,17 +1090,9 @@ if it's not present, don't show loader */
                                             </div>
                                         </div>
                                         @endif
-
-                                        {{-- <div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-4" style="color: #9F9F9F">
-                                            <div class="py-4">
-                                                Kein Status für Kunden
-                                            </div>
-                                        </div>
-                                        @endif --}}
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
 
@@ -1148,7 +1139,7 @@ if it's not present, don't show loader */
                                                 <div class="">
                                                     <div class="row g-0">
                                                         <div class="col-7">
-                                                            <span class="documentFormLeftSpan">GEBURSTAG</span>
+                                                            <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{$costumer->birthdate}}</span>
@@ -1167,7 +1158,7 @@ if it's not present, don't show loader */
                                                 <div class="pb-4">
                                                     <div class="row g-0">
                                                         <div class="col-7">
-                                                            <span class="documentFormLeftSpan">ADDRESE</span>
+                                                            <span class="documentFormLeftSpan">ADRESSE</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{$costumer->lead->address}} {{$costumer->lead->nr}}</span>
@@ -1229,7 +1220,7 @@ if it's not present, don't show loader */
                                                         <span class="documentFormLeftSpan">Quelle</span>
                                                     </div>
                                                     <div class="col">
-                                                        <span class="documentFormRightSpan">Lead</span>
+                                                        <span class="documentFormRightSpan">{{$costumer->lead->admin->hasRole('callagent') ? 'Call Agent' : 'Lead'}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1473,10 +1464,10 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control"
-                                                                       value="{{$grundversicherungPP->last_adjustment_PG}}" type="date"
-{{--                                                                       name="last_adjustment_PG" --}}
-                                                                       id="" min="1900-01-01" max="9999-12-31" readonly>
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="mb-3" id="grundProvision" style="display: none">
@@ -1625,12 +1616,10 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
-{{--                                                                       name="last_adjustment_PA{{$count}}" --}}
-                                                                       id=""
-                                                                       min="1900-01-01" max="9999-12-31"
-                                                                       value="{{$autoversicherungP->last_adjustment_PA}}" readonly
-                                                                >
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($autoversicherungP->last_adjustment_PA)->format('d.m.Y')}}</span>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="mb-3" id="autoProvision" style="display:none;">
@@ -1754,9 +1743,9 @@ if it's not present, don't show loader */
                                                                     Laufzeit:
                                                                 </span>
                                                                 </div>
-                                                                <label for="from">From</label>
+                                                                <label for="from">Von</label>
                                                                 <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungPP->duration_from_PZ}}" type="date" name="duration_from_PZ" id="from" min="1900-01-01" max="9999-12-31">
-                                                                <label for="to">To</label>
+                                                                <label for="to">Bis</label>
                                                                 <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungPP->duration_to_PZ}}" type="date" name="duration_to_PZ" id="to" min="1900-01-01" max="9999-12-31">
                                                             </div>
 
@@ -1801,9 +1790,10 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungPP->last_adjustment_PZ}}" type="date"
-{{--                                                                       name="last_adjustment_PZ"--}}
-                                                                       id="" min="1900-01-01" max="9999-12-31" readonly>
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($zusatzversicherungPP->last_adjustment_PZ)->format('d.m.Y')}}</span>
+                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                         {{-- <div class="mb-3">
@@ -1956,10 +1946,10 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
-{{--                                                                       name="last_adjustment_PH" id=""--}}
-                                                                       value="{{$hausratP->last_adjustment_PH}}"
-                                                                       min="1900-01-01" max="9999-12-31" readonly>
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($hausratP->last_adjustment_PH)->format('d.m.Y')}}</span>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="mb-3" id="hausProvision" style="display: none">
@@ -2101,9 +2091,10 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$retchsschutzP->last_adjustment_PR}}" type="date"
-{{--                                                                       name="last_adjustment_PR" --}}
-                                                                       id="" min="1900-01-01" max="9999-12-31" readonly>
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($retchsschutzP->last_adjustment_PR)->format('d.m.Y')}}</span>
+                                                                </div>
+                                                                
                                                             </div>
 
                                                         </div>
@@ -2219,12 +2210,12 @@ if it's not present, don't show loader */
                                                             <div class="input-div1 input-groupp justify-content-between">
                                                                 <div class="pe-3">
                                                                 <span class="GrundversicherungSpans">
-                                                                    Lauftzeit:
+                                                                    Laufzeit:
                                                                 </span>
                                                                 </div>
-                                                                <label for="from2">From</label>
+                                                                <label for="from2">Von</label>
                                                                 <input class="GrundversicherungInput form-control" value="{{$vorsorgeP->duration_from_PV}}" type="date" name="duration_from_PV" id="from2" min="1900-01-01" max="9999-12-31">
-                                                                <label for="to2">To</label>
+                                                                <label for="to2">Bis</label>
                                                                 <input class="GrundversicherungInput form-control" value="{{$vorsorgeP->duration_to_PV}}" type="date" name="duration_to_PV" id="to2" min="1900-01-01" max="9999-12-31">
                                                             </div>
                                                         </div>
@@ -2277,9 +2268,9 @@ if it's not present, don't show loader */
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$vorsorgeP->last_adjustment_PV}}" type="date"
-{{--                                                                       name="last_adjustment_PV" --}}
-                                                                       id="" min="1900-01-01" max="9999-12-31" readonly>
+                                                                <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                    <span>{{Carbon\Carbon::parse($vorsorgeP->last_adjustment_PV)->format('d.m.Y')}}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="mb-3" id="vorProvision" style="display: none">
@@ -2315,9 +2306,7 @@ if it's not present, don't show loader */
                                 <div class="row pe-4">
                                     <div class="col g-0 text-end my-auto">
                                         <div class="">
-                                        <span class="pe-2" style="color: #9F9F9F;">
-                                            Einreichen
-                                        </span>
+                                        
                                         </div>
                                     </div>
                                     <div class="col-auto ps-0 text-center">

@@ -5953,7 +5953,7 @@ __webpack_require__.r(__webpack_exports__);
       this.vvalue = this.lista.find(function (e) {
         return e.date == _this4.vvalue;
       });
-      this.vvalue = this.vvalue.day + " " + this.vvalue.month + "," + this.vvalue.year;
+      this.vvalue = this.vvalue.day + " " + this.vvalue.month + " " + this.vvalue.year;
       console.log(this.vvalue);
     },
     loadmore: function loadmore() {
@@ -33306,10 +33306,23 @@ var render = function () {
                                           _vm._s(tod.first_name) +
                                           " " +
                                           _vm._s(tod.last_name) +
-                                          " (" +
-                                          _vm._s(tod.number_of_persons) +
-                                          " Personen)\n                                "
+                                          " "
                                       ),
+                                      tod.number_of_persons == 1
+                                        ? _c("span", [
+                                            _vm._v(
+                                              "(" +
+                                                _vm._s(tod.number_of_persons) +
+                                                " Person)"
+                                            ),
+                                          ])
+                                        : _c("span", [
+                                            _vm._v(
+                                              "(" +
+                                                _vm._s(tod.number_of_persons) +
+                                                " Personen)"
+                                            ),
+                                          ]),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -34557,7 +34570,7 @@ var staticRenderFns = [
                     "data-bs-target": "#numberModal",
                   },
                 },
-                [_vm._v("Kontakt Hinzufügen")]
+                [_vm._v("Kontakt hinzufügen")]
               ),
             ]
           ),

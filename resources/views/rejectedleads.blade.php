@@ -51,91 +51,183 @@
                                     <div class="col-12 col-md-6">
                                         <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
-                                                    <span class="fw-600 fs-6 pe-1 ">Vorname </span> <span class="fs-6">{{$leads->first_name}} </span>
+                                                    <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Vorname</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->first_name}}</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Nachname </span> <span class="fs-6">{{$leads->last_name}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Nachname</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->last_name}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Strasse </span> <span class="fs-6">{{$leads->address}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Strasse</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->address}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Nr </span> <span class="fs-6">{{$leads->nr}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Nr</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->nr}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">PLZ </span> <span class="fs-6">{{$leads->postal_code}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">PLZ</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->postal_code}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div> 
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Ort</span> <span class="fs-6">{{$leads->city}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Ort</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->city}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Nationalitat </span> <span
-                                                    class="fs-6">{{$leads->nationality}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Nationalitat</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->nationality}}</span>
+                                                        </div>
+                                                    </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Sprache </span><span class="fs-6">{{$leads->sprache}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Sprache</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->sprache}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Tel. Privat</span> <span class="fs-6">{{$leads->telephone}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Tel. Privat</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->telephone}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Personen </span> <span class="fs-6">{{$leads->number_of_persons}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Personen</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->number_of_persons}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Datum </span> <span class="fs-6">{{$leads->appointment_date}}</span>                                        </div>
+                                                    <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Datum</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->appointment_date}}</span>
+                                                        </div>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Zeit </span> <span class="fs-6">{{$leads->time}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Zeit</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->time}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
-                                                <span class="fw-600 fs-6 pe-1 ">Zufriedenheit </span> <span class="fs-6">{{$leads->zufriedenheit}}</span>
+                                            <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 ">Zufriedenheit</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$leads->zufriedenheit}}</span>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div> 
                                     </div>
@@ -143,7 +235,14 @@
                                 </div>
                                 <div class="white-thingy mt-2">
                                     <div class="text-div py-3 ps-4">
-                                        <span class="fw-600 fs-6 pe-1 ">Bemerkung </span> <span class="fs-6">{{$leads->bemerkung}}</span>
+                                    <div class="row g-0">
+                                                    <div class="col-5 col-sm-2 me-0 me-sm-4">
+                                                        <span class="fw-600 fs-6">Bemerkung</span> 
+                                                    </div>
+                                                    <div class="col ms-2 ms-md-3 ms-lg-1">
+                                                        <span class="fs-6">{{$leads->bemerkung}}</span>
+                                                    </div>
+                                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -428,9 +527,7 @@
         width: 100px;
     }
 
-    .text-div {
-        font-size: 13px;
-    }
+    
 
     .white-thingy {
         background-color: #fff;

@@ -81,7 +81,7 @@
                             <div class="row g-0">
                                 <div class="col-12 col-md-9">
                                     <div class="calendarResponsiveText1">
-                                        {{tod.first_name}} {{tod.last_name}} ({{tod.number_of_persons}} Personen)
+                                        {{tod.first_name}} {{tod.last_name}} <span v-if="tod.number_of_persons == 1">({{tod.number_of_persons}} Person)</span><span v-else>({{tod.number_of_persons}} Personen)</span>
                                     </div>
                                     <div class="calendarResponsiveText2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
@@ -197,7 +197,7 @@ export default {
             );
             this.vvalue = vall;
             this.vvalue = this.lista.find(e => e.date == this.vvalue);
-            this.vvalue = this.vvalue.day + " " + this.vvalue.month + "," + this.vvalue.year;
+            this.vvalue = this.vvalue.day + " " + this.vvalue.month + " " + this.vvalue.year;
             console.log(this.vvalue);
          
         },

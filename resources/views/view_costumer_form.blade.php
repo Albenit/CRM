@@ -691,7 +691,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$grundversicherungPP->last_adjustment_PG}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -759,7 +759,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$zusatzversicherungPP->last_adjustment_PZ}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($zusatzversicherungPP->last_adjustment_PZ)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -770,7 +770,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{findgrund($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ)}}</span>
+                                                                <span class="documentFormRightSpan colori-green">{{findgrund($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -784,7 +784,7 @@
                                             <div class="documentFormGreyBGDiv h-100">
                                                 <div class="p-4">
                                                     <div class="pb-3">
-                                                        <span class="documentFormGreyBGTitle">Reschtsschutz</span>
+                                                        <span class="documentFormGreyBGTitle">Rechtsschutz</span>
                                                     </div>
                                                     <div class="pb-4">
                                                         <div class="row g-0">
@@ -827,7 +827,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$retchsschutzP->last_adjustment_PR}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($retchsschutzP->last_adjustment_PR)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -838,7 +838,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$retchsschutzP->total_commisions_PR}}</span>
+                                                                <span class="documentFormRightSpan colori-green">{{$retchsschutzP->total_commisions_PR}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -899,7 +899,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$autoversicherungP->last_adjustment_PA}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($autoversicherungP->last_adjustment_PA)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -910,7 +910,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$autoversicherungP->total_commisions_PA}}</span>
+                                                                <span class="documentFormRightSpan colori-green">{{$autoversicherungP->total_commisions_PA}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -969,7 +969,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$hausratP->last_adjustment_PH}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($hausratP->last_adjustment_PH)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -980,7 +980,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$hausratP->total_commisions_PH}}</span>
+                                                                <span class="documentFormRightSpan colori-green">{{$hausratP->total_commisions_PH}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1037,7 +1037,7 @@
                                                                 <span class="documentFormLeftSpan">Anderung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$vorsorgeP->last_adjustment_PV}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($vorsorgeP->last_adjustment_PV)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1048,7 +1048,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$vorsorgeP->total_commisions_PV}}</span>
+                                                                <span class="documentFormRightSpan colori-green">{{$vorsorgeP->total_commisions_PV}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1120,7 +1120,7 @@
                                                 <div class="">
                                                     <div class="row g-0">
                                                         <div class="col-7">
-                                                            <span class="documentFormLeftSpan">GEBURSTAG</span>
+                                                            <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{$costumer->birthdate}}</span>
@@ -1139,7 +1139,7 @@
                                                 <div class="pb-4">
                                                     <div class="row g-0">
                                                         <div class="col-7">
-                                                            <span class="documentFormLeftSpan">ADDRESE</span>
+                                                            <span class="documentFormLeftSpan">ADRESSE</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{$costumer->lead->address}} {{$costumer->lead->nr}}</span>
@@ -1201,7 +1201,7 @@
                                                         <span class="documentFormLeftSpan">Quelle</span>
                                                     </div>
                                                     <div class="col">
-                                                        <span class="documentFormRightSpan">Lead</span>
+                                                        <span class="documentFormRightSpan">{{$costumer->lead->admin->hasRole('callagent') ? 'Call Agent' : 'Lead'}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1313,7 +1313,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$grundversicherungPP->last_adjustment_PG}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1386,16 +1386,16 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="col">
-                                                                    <span class="documentFormLeftSpan">Aus</span>
+                                                                    <span class="documentFormLeftSpan">Von</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormRightSpan">{{$zusatzversicherungPP->duration_from_PZ}}</span>
+                                                                    <span class="documentFormRightSpan">{{Carbon\Carbon::parse($zusatzversicherungPP->duration_from_PZ)->format('d.m.Y')}}</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormLeftSpan">Zu</span>
+                                                                    <span class="documentFormLeftSpan">Bis</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormRightSpan">{{$zusatzversicherungPP->duration_to_PZ}}</span>
+                                                                    <span class="documentFormRightSpan">{{Carbon\Carbon::parse($zusatzversicherungPP->duration_to_PZ)->format('d.m.Y')}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1431,7 +1431,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$zusatzversicherungPP->last_adjustment_PZ}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($zusatzversicherungPP->last_adjustment_PZ)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1454,7 +1454,7 @@
                                             <div class="documentFormGreyBGDiv h-100">
                                                 <div class="p-4">
                                                     <div class="pb-3">
-                                                        <span class="documentFormGreyBGTitle">Reschtsschutz</span>
+                                                        <span class="documentFormGreyBGTitle">Rechtsschutz</span>
                                                     </div>
                                                     <div class="pb-4">
                                                         <div class="row g-0">
@@ -1517,7 +1517,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$retchsschutzP->last_adjustment_PR}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($retchsschutzP->last_adjustment_PR)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1607,7 +1607,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$autoversicherungP->last_adjustment_PA}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($autoversicherungP->last_adjustment_PA)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1695,7 +1695,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$hausratP->last_adjustment_PH}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($hausratP->last_adjustment_PH)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1777,16 +1777,16 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="col">
-                                                                    <span class="documentFormLeftSpan">Aus</span>
+                                                                    <span class="documentFormLeftSpan">Von</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormRightSpan">{{$vorsorgeP->duration_from_PV}}</span>
+                                                                    <span class="documentFormRightSpan">{{Carbon\Carbon::parse($vorsorgeP->duration_from_PV)->format('d.m.Y')}}</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormLeftSpan">Zu</span>
+                                                                    <span class="documentFormLeftSpan">Bis</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormRightSpan">{{$vorsorgeP->duration_to_PV}}</span>
+                                                                    <span class="documentFormRightSpan">{{Carbon\Carbon::parse($vorsorgeP->duration_to_PV)->format('d.m.Y')}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1832,7 +1832,7 @@
                                                                 <span class="documentFormLeftSpan">Letze Anpassung</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$vorsorgeP->last_adjustment_PV}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($vorsorgeP->last_adjustment_PV)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>

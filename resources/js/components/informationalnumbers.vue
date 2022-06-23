@@ -75,7 +75,7 @@
             <div class="w-100" style="position: absolute;bottom: 0rem;">
                 <div class="row g-0 justify-content-center">
                     <div class="text-center col-12 col-md-8 col-lg-8 col-xl-7 col-xxl-6">
-                        <button data-bs-toggle="modal" data-bs-target="#numberModal" class="kontaktBtnDash w-100 py-1 fs-6">Kontakt Hinzufügen</button>
+                        <button data-bs-toggle="modal" data-bs-target="#numberModal" class="kontaktBtnDash w-100 py-1 fs-6">Kontakt hinzufügen</button>
                     </div>
                 </div>
             </div>
