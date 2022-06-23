@@ -23,6 +23,7 @@ class PersonalAppointmentController extends Controller
             $personalApp->time = $request->time;
             $personalApp->address = $request->address;
             $personalApp->comment = $request->comment;
+            
             if(Auth::guard('admins')->user()->hasRole('admin') || Auth::guard('admins')->user()->hasRole('salesmanager')){
             if($request->apporconId == 1){
                 $personalApp->user_id = Auth::user()->id;
