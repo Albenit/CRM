@@ -175,7 +175,8 @@
                 absence: false,
                 appointment_date: ('{!! date("m/d/Y", strtotime($appointmentAGG["appointment_date"])) !!}'),
                 time: ('{!! date("H:i", strtotime($appointmentAGG["time"])) !!}'),
-                berater: '{!! $appointmentAGG->admin->name !!}'
+                berater: '{!! $appointmentAGG->admin->name !!}',
+                titlemodal: '{{ $appointmentAGG["first_name"] }} {{ $appointmentAGG["last_name"] }}'
               },
 	  @endforeach
               @foreach($personalApp as $appointmentAGG)
@@ -256,7 +257,7 @@
 	  eventClick: function(calEvent) {
             if(!calEvent.event.extendedProps.absence && !calEvent.event.extendedProps.app && !calEvent.event.extendedProps.rejected){
                 document.getElementById("start").innerHTML = moment(calEvent.event.start).format('Y-MM-DD HH:mm');
-                document.getElementById("name").innerHTML = calEvent.event.title;
+                document.getElementById("name").innerHTML = calEvent.event.extendedProps.titlemodal;
                 document.getElementById("telephone").innerHTML = calEvent.event.extendedProps.telephone;
                 document.getElementById("birthdate").innerHTML = calEvent.event.extendedProps.birthdate;
                 document.getElementById("number_of_persons").innerHTML = calEvent.event.extendedProps.number_of_persons;
