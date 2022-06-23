@@ -111,11 +111,11 @@
                     },
 
                     slotLabelFormat: {hour: 'numeric', minute: '2-digit', hour12: false},
-                    height: 600,
+                    height: 650,
                     initialView: 'resourceTimeGridDay',
                     slotMinTime: "08:00:00",
                     slotMaxTime: "20:30:00",
-                    slotDuration: '00:30:00',
+                    slotDuration: '00:20:00',
                     slotLabelInterval: 30,
                     allDaySlot: false,
                     eventMaxStack: 3,
@@ -162,7 +162,7 @@
         {
                 id: '{!! $appointmentAGG["id"] !!}',
                 resourceId: '{!! $appointmentAGG["assign_to_id"] !!}',
-                title: '{{ $appointmentAGG["first_name"] }} {{ $appointmentAGG["last_name"] }}',
+                title: '{{ $appointmentAGG["first_name"] }} {{ $appointmentAGG["last_name"] }} ({{$appointmentAGG["address"]}} , {{$appointmentAGG["postal_code"]}} , {{$appointmentAGG["city"]}} , {{$appointmentAGG["number_of_persons"]}})',
                 start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["appointment_date"]." ".$appointmentAGG["time"])) !!}') ,
                 telephone: '{{ $appointmentAGG["telephone"] }}' ,
                 birthdate: '{{ $appointmentAGG["birthdate"] }}' ,

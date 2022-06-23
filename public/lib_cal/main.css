@@ -5,6 +5,9 @@
 .fc-not-allowed .fc-event { /* override events' custom cursors */
   cursor: not-allowed;
 }
+.fc-event-main {
+  min-height: 60px;
+}
 
 /* TODO: not attached to body. attached to specific els. move */
 .fc-unselectable {

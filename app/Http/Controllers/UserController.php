@@ -152,6 +152,17 @@ public function folgetermin($id){
              $admin2->save();
              $admin2->assignRole($req->input('role_name'));
            }
+           if(!Admins::firstWhere('email',$admin->getRoleNames()[0] . $admin->email)){
+            $admin2 = new Admins();
+            $admin2->name = $admin->name;
+            $admin2->password = $admin->password;
+            $admin2->phonenumber = $admin->phonenumber;
+            $admin2->admin_id = $admin->id;
+            $admin2->email = $admin->getRoleNames()[0] . $admin->email;
+            $admin2->save();
+            $admin2->assignRole($admin->getRoleNames()[0]);
+          }
+          
          for($i = 1; $i <= $req->addedroles2; $i++){
              $role = $req->input('role_name' . $i) . $admin->email;
              if(!Admins::firstWhere('email',$role)){
