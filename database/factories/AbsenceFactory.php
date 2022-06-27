@@ -16,10 +16,10 @@ class AbsenceFactory extends Factory
     {
         $day = Carbon::now()->addDays(random_int(0,14));
         return [
-            'employee_id' => random_int(0,7),
+            'employee_id' => random_int(4,7),
             'from' => $day,
             'to' => $day->addDays(random_int(0,14)),
-            'type'=> $this->faker->randomDigit(),
+            'type'=> random_int(0,2),
             'description'=> $this->faker->text,
         ];
     }
