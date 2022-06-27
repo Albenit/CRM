@@ -220,10 +220,10 @@ public function filterhrcalendar(Request  $req){
             return "Der Termin wurde dem Berater erfolgreich hinzugefügt.";} else { return "ERROR !!!"; }
 	}
 	elseif(strtotime(lead::find($id_lead)->time) > strtotime("22:00") || strtotime(lead::find($id_lead)->time) < strtotime("07:59")){
-		return "Die Terminzeit ist nicht korrekt, sie sollte zwischen 8:00 und 20:00 Uhr liegen";
+		return "Die Terminzeit ist nicht korrekt, sie sollte zwischen 8:00 und 22:00 Uhr liegen";
 	}
 
-        elseif(Absence::where('from','<=',lead::find($id_lead)->appointment_date)->where('to','>=',lead::find($id_lead)->appointment_date)->firstWhere('employee_id',$input['id_user'])){
+        elseif(Absence::where('from','<=',lead::find($id_lead)->appointment_date)->where('to','>=',lead::find($id_lead)->appointment_date)->where('type',1)->firstWhere('employee_id',$input['id_user'])){
             return "Der Berater ist beurlaubt";
         }
         elseif(lead::find($id_lead)->wantsonline == 0 && Admins::find($input['id_user'])->getRoleNames()[0] == 'fs'){

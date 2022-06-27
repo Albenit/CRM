@@ -61,7 +61,6 @@ class TasksController extends Controller
     }
     public function accepttask(Request $req)
     {
-
        Pendency::find($req->id)->update(['completed' => 1]);
        return back();
     }
@@ -255,6 +254,7 @@ class TasksController extends Controller
 
     public function searchword()
     {
+
         $beraters = Admins::role(['fs'])->get();
         $sumGegen = $totaliGegen = $sumNeuen = $totaliNeuen = $statusGegen = $statusNeuen = $grundversicherungP = $retchsschutzP = $vorsorgeP = $zusatzversicherungP = $autoversicherungP = $hausratP = $family_person = collect();
 
@@ -362,30 +362,39 @@ class TasksController extends Controller
         $date2 = date('Y-m-d', strtotime($n . "+1 days"));
         $searchname = $request->searchname ? $request->searchname : '';
         $user = auth()->user();
-
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
-            if($searchname == null) {
-                foreach (family::with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done'])
-                             ->orderBy('updated_at','desc')->paginate(200) as $fam) {
-                    if ($fam->lead->assign_to_id == $user->id) $data->push($fam);
-                }
-            }
-            if ($searchname != null){
-
-                foreach(family::with('hausrat')->with('datak')->with('df')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done'])->where('first_name','like','%'.$searchname . '%')->get() as $item){
-                    if($item->lead->assign_to_id == $user->id){
-                        $data->push($item);
-                    }
-                }
-            }
+            family = family::query()->whereHas('lead',function($query){
+                $query->where('assign_to_id',auth()->id());
+            })->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done']);
             if (isset($request->searchdate1) && isset($request->searchdate2)) {
-
-                foreach(family::with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done'])->where('first_name','like','%'.$searchname . '%')->whereBetween('family_person.created_at', [$date1, $date2])->get() as $item) {
-                    if ($item->lead->assign_to_id == $user->id){
-                        $data->push($item);
-                    }
-                }
+                $family->whereBetween('family_person.created_at', [$date1, $date2]);
             }
+            if (isset($request->searchname)) {
+                $family->where('first_name', 'like', '%' . $searchname . '%');
+            }
+            if(isset($request->berater)){
+                $family->whereHas('lead',function($query) use($request){
+                    $query->where('assign_to_id',$request->berater);
+                });
+            }
+
+            if(isset($request->status) && $request->status != 'alle'){
+                $family->whereHas('hausrat',function($query) use($request){
+                    $query->where('status_PH',$request->status);
+                })->orWhereHas('rech',function($query) use($request){
+                    $query->where('status_PR',$request->status);
+                })->orWhereHas('vor',function($query) use($request){
+                    $query->where('status_PV',$request->status);
+                })->orWhereHas('zus',function($query) use($request){
+                    $query->where('status_PZ',$request->status);
+                })->orWhereHas('auto',function($query) use($request){
+                    $query->where('status_PA',$request->status);
+                })->orWhereHas('grund',function($query) use($request){
+                    $query->where('status_PG',$request->status);
+                });
+            }
+            
+
 
             $cnt = 0;
 
