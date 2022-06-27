@@ -66,7 +66,7 @@ class HumanResourcesController extends Controller
         $created_at =  Carbon::createFromFormat('Y-m-d',$request->from);
         $duration_time = Carbon::createFromFormat('Y-m-d',$request->to);
 
-        $absence = Absence::where('employee_id', $emp->id)->latest()->first();
+        $absence = Absence::where('employee_id', $emp->id)->where('type',1)->latest()->first();
 
         if($absence == null || $absence->to < Carbon::now()){
             $duration =  (int) date_diff($created_at,$duration_time)->format('%d');
@@ -94,7 +94,7 @@ class HumanResourcesController extends Controller
             return redirect()->back()->with('absenceSuccess','Ihr Abwesenheitsantrag wurde erfolgreich bearbeitet');
 
         }else{
-            return redirect()->back()->with('absenceFail','You cant do absence until this date '.$absence->to.' because you are on vocation');
+            return redirect()->back()->with('absenceFail','You cant do absence until this date '.$absence->to.' because you are on vacation');
         }
 
 

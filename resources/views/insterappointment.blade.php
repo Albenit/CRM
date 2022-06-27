@@ -46,37 +46,37 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Vorname</label>
-                                        <input type="text" name="fname" class="form-control GrundversicherungInput" >
+                                        <input type="text" name="fname" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Nachname</label>
-                                        <input type="text" name="lname" class="form-control GrundversicherungInput" >
+                                        <input type="text" name="lname" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Strasse</label>
-                                        <input type="text" name="address" class="form-control GrundversicherungInput" >
+                                        <input type="text" name="address" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Nr</label>
-                                        <input type="number" name="nr" class="form-control GrundversicherungInput" >
+                                        <input type="number" name="nr" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Ort</label>
-                                        <input type="text" name="location" class="form-control GrundversicherungInput" >
+                                        <input type="text" name="location" class="form-control GrundversicherungInput" required>
                                     </div> 
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                             <label for="" class="mb-1">PLZ</label>
-                                            <input type="number" name="postal" class="form-control GrundversicherungInput" >
+                                            <input type="number" name="postal" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -94,7 +94,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Datum</label>
-                                        <input type="date" placeholder="dd-mm-yyyy" class="form-control GrundversicherungInput" name="appdate" >
+                                        <input type="date" placeholder="dd-mm-yyyy" class="form-control GrundversicherungInput" name="appdate" required>
                                     </div>
 
                                 </div>
@@ -103,20 +103,20 @@
                                         <label for="" class="mb-1">Zeit</label>
                                         <!-- <input type='time' min="01:30" max="19:30" class="form-control GrundversicherungInput" name="apptime"> -->
                                         <select name="apptime" required
-                                            id="hours" class="form-select GrundversicherungInput">
+                                            id="hours" class="form-select GrundversicherungInput" required>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Tel. Privat</label>
-                                        <input type="number" name="phone" class="form-control GrundversicherungInput" >
+                                        <input type="number" name="phone" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Personen</label>
-                                        <input type="number" name="count" class="form-control GrundversicherungInput">
+                                        <input type="number" name="count" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">

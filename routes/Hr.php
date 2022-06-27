@@ -4,6 +4,7 @@ use App\Models\Absence;
 use App\Models\Admins;
 use App\Models\bestellungen;
 use App\Models\EmployeePersonalData;
+use App\Models\Provisions;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
     route::post('createbst',[HumanResourcesController::class,'createBestellunge'])->name('createBestellunge');
@@ -47,10 +48,9 @@ route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->
         $rroga2 = $rroga;
         $rroga += auth()->user()->salary->expenses + auth()->user()->salary->salary;
 
-
         $admins = null;
-        if($user->hasRole('admin')  || $user->hasRole('backoffice'))
-        {
+
+        if($user->hasRole('admin')  || $user->hasRole('backoffice')){
             $date_in =  new DateTime($date_in);
             $absences = Absence::whereHas('admin')->with('admin')->orderBy('created_at', 'desc')->get();
             $date_to = new DateTime(Carbon::now());
@@ -72,11 +72,13 @@ route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->
             $personalData = EmployeePersonalData::where('admin_id',auth()->user()->id)->first();
             $personalDatas = EmployeePersonalData::where('admin_id',auth()->user()->id)->get();
             $bankInfo = \App\Models\BankInformation::where('employee_id',auth()->user()->id)->first();
+        
         }else{
             $personalDatas = EmployeePersonalData::where('admin_id',auth()->user()->headadmin->id)->get();
             $personalData = EmployeePersonalData::where('admin_id',auth()->user()->headadmin->id)->first();
             $bankInfo = \App\Models\BankInformation::where('employee_id',auth()->user()->headadmin->id)->first();
         }
+
 
        
 if(auth()->user()->hasRole('fs')){

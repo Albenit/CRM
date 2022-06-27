@@ -3017,7 +3017,7 @@
                                                                                         </svg>
                                                                                     </div>
                                                                                     <div class="col">
-                                                                            <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat
+                                                                            <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}
                                                                             </span>
                                                                                     </div>
                                                                                 </div>
@@ -3035,9 +3035,9 @@
                                                                     <div class="col-12 col-xl">
                                                                         <div class="py-3">
                                                                             <div class="pb-4">
-                                                    <span class="fs-5 fw-600" style="color: #3B3A3A">
-                                                        Spesen
-                                                    </span>
+                                                                            <span class="fs-5 fw-600" style="color: #3B3A3A">
+                                                                                Spesen
+                                                                            </span>
                                                                             </div>
                                                                             <div class="pb-3">
                                                                                 <div class="row g-0">
@@ -3048,7 +3048,7 @@
                                                                                         </svg>
                                                                                     </div>
                                                                                     <div class="col">
-                                                                                        <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat</span>
+                                                                                        <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -3080,7 +3080,7 @@
                                                                                         </svg>
                                                                                     </div>
                                                                                     <div class="col">
-                                                                                        <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat</span>
+                                                                                        <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

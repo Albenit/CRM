@@ -372,7 +372,7 @@
 
                                                         </div>
                                                         <div class="col">
-                                                            <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat</span>
+                                                            <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -402,7 +402,7 @@
                                                             </svg>
                                                         </div>
                                                         <div class="col">
-                                                            <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat</span>
+                                                            <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
                                                             </svg>
                                                         </div>
                                                         <div class="col">
-                                                            <span style="color: #686868;" class="hrGreyTextStyle">Pro Monat</span>
+                                                            <span style="color: #686868;" class="hrGreyTextStyle">Aktueller Monat {{Carbon\Carbon::now()->format('M')}}</span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -23,7 +23,7 @@ class lead extends Model
     }
     public function info(){
         return $this->belongsTo(lead_info::class,'id','lead_id')->withDefault(['
-        kampagne' => '',
+            kampagne' => '',
             'grund' => '',
             'krankenkasse' => '',
             'bewertung' => '',
@@ -34,6 +34,19 @@ class lead extends Model
     public function admin(){
         return $this->belongsTo(Admins::class,'assign_to_id','id');
     }
+
+    public function leadsHistory(){
+        return $this->belongsTo(lead_history::class,'id','leads_id')->withDefault([
+            'image' => '',
+            'status' => '',
+        ]);
+    }
+    public function pendingRejectLead(){
+        return $this->belongsTo(PendingRejectedLead::class,'id','lead_id')->withDefault([
+            'begrundung' => ''
+        ]);
+    }
+    
     public function pending_reject_lead(){
         return $this->belongsTo(PendingRejectedLead::class,'lead_id');
     }

@@ -33,9 +33,8 @@ class Appointment extends FormRequest
             'count' => 'min:1',
             'appdate' => 'required',
             'apptime' => 'required',
-            'nr' => 'required',
-            'zufriedenheit' => 'required',
-            'sprache' => 'required'
+            'nr' => 'required'
+
         ];
     }
     public function messages()
@@ -50,9 +49,7 @@ class Appointment extends FormRequest
            'count.min' => 'Mindestens eine Person erforderlich',
            'appdate.required' => 'Termin dateum erforderlich',
            'apptime.required' => 'Termin zeit erforderlich',
-           'nr.required' => 'Anzahl erforderlich',
-           'zufriedenheit.required' => 'Zufriedenheit erforderlich',
-           'sprache.required' => 'Sprache erforderlich'
+           'nr.required' => 'Anzahl erforderlich'
        ];
     }
 }
