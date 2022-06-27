@@ -1272,9 +1272,11 @@ $urole = $urole->toArray();
                     {{--                    @endif--}}
                     <div>
 
-                        <div id="krankenkasseModal" class="documentsFormModals px-4">
+                        <div id="krankenkasseModal" class="documentsFormModals mb-5">
                         @php $count = 1; @endphp
                         @if($lead->krank_id == 0)
+                            
+                            <div id="step1Kranken" class="stepsBgColor px-4">
                             <div class="" style="position: relative;">
                                 <div class="cornerSvgDiv">
                                     <svg class="cornerSvg" viewBox="0 0 242 215" fill="none"
@@ -1309,31 +1311,19 @@ $urole = $urole->toArray();
                                         </defs>
                                     </svg>
                                 </div>
-
+                            </div>
                                 <div class="row g-0 justify-content-center pt-4">
-                                    <div class="col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
                                                 <span id="step1Krankenkasse" class="activeStepTitle">Schritt 1</span>
                                             </div>
-                                            <div class="mx-auto">
-                                                <div id="step1LineKranken" class="blueLine mx-auto"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step2Krankenkasse" class="passiveStepTitle">Schritt 2</span>
-                                            </div>
                                             <div>
-                                                <div id="step2LineKranken" class="greyLine mx-auto"></div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload von den Dokumenten und Vertragsmitglieder bestimmen</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="step1Kranken">
                                 <div class="row g-0 justify-content-center pt-0 pt-md-5">
                                     <div class="col-12 col-md-5 col-lg-4 ">
                                         <div class="pt-3 px-2">
@@ -1468,9 +1458,9 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="py-4 py-md-4">
+                                <div class="py-4 py-md-4 ">
 
-                                    <div class="pt-4 pt-md-0">
+                                    <div class="pt-4 pt-md-0 d-none">
                                         <div class="row g-0 changeBtnAlign">
                                             <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="cancelBtnClickKranken()"
@@ -1488,132 +1478,29 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                             </div>
-                            <div id="step2Kranken" class="" style="display: none;">
-                                <div class="">
-                                    <div class="row g-0 justify-content-center">
-                                        <div class="col-12 col-md-6 col-lg-5 pe-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
-                                                 onclick="openKrankenDropdownStep2()">
-                                                <div class="row g-0">
-                                                    <div class="col my-auto">
-                                                        <span>Grundversicherung</span>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
-                                                            <path
-                                                                d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
-                                                                fill="white" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="Grundversicherung" class="Grundversicherung mt-4">
-                                                @php
-                                                    $count = 1;
-                                                @endphp
-                                                @foreach($grundversicherungP as $grundversicherungPP)
-                                                    <div class="p-4">
-
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Abschlussdatum</span>
-                                                            </div>
-                                                            <div>
-                                                                <input class="GrundversicherungInput form-control" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Gesellschaft</span>
-                                                            </div>
-                                                            <div>
-                                                                <select class="GrundversicherungInput form-control" name="society_PG{{$count}}">
-                                                                    <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
-                                                                    <option value="Sympany">Sympany</option>
-                                                                    <option value="Helsana">Helsana</option>
-                                                                    <option value="Swica">Swica</option>
-                                                                    <option value="GM">GM</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Produkt</span>
-                                                            </div>
-                                                            <div>
-                                                                <input class="GrundversicherungInput form-control" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Status</span>
-                                                            </div>
-                                                            <div>
-                                                                <select class="GrundversicherungInput form-control" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
-                                                                    @if($grundversicherungPP->status_PG == 'Offen (Berater)')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Offen (Innendienst)">Offen (Innendienst)</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Offen (Innendienst)')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Eingereicht">Eingereicht</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Eingereicht')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Aufgenommen">Aufgenommen</option>
-                                                                        <option value="Abgelehnt">Abgelehnt</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Aufgenommen')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Provisionert">Provisionert</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Abgelehnt')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Provisionert' && $grundversicherungPP->stoiner_PG == null)
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Storniert">Storniert</option>
-                                                                    @elseif($grundversicherungPP->stoiner_PG == 'Storniert')
-                                                                        <option selected value="{{$grundversicherungPP->stoiner_PG}}">{{$grundversicherungPP->stoiner_PG}}</option>
-                                                                    @endif
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Letze Anpassung</span>
-                                                            </div>
-                                                            <div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
-                                                                       value="{{$grundversicherungPP->last_adjustment_PG}}"
-{{--                                                                       name="last_adjustment_PG{{$count}}" --}}
-                                                                       min="1900-01-01" max="9999-12-31" readonly>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3" id="grundProvision" style="display: none">
-                                                            <div class="input-div1 input-groupp justify-content-between">
-                                                                <div class="pe-3">
-                                                            <span class="GrundversicherungSpans">
-                                                                Gesamtprovision:
-                                                            </span>
-                                                                </div>
-                                                                <input class="py-1 form-control" type="number" name="total_commisions_PG{{$count}}">
-                                                            </div>
-                                                       </div>
-                                                        @if($grundversicherungPP->status_PG == 'Provisionert')
-                                                            <div class="pb-2">
-                                                                <div>
-                                                                    <span class="GrundversicherungSpans">Gesamtprovision</span>
-                                                                </div>
-                                                                <div>
-                                                                    <input class="GrundversicherungInput form-control" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    @php $count++ @endphp
-                                                @endforeach
-                                            </div>
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
 
                                         </div>
-                                        <div class="col-12 col-md-6 col-lg-5 ps-0 ps-md-2">
+                                </div>
+                            </div>
+                            <div id="step2Kranken" class="stepsBgColor px-4">
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte für Name</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="row g-0 justify-content-center">
+                                        <div class="col-12 col-md-6 col-lg-5 ps-0 pe-md-2">
                                             <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
                                                  onclick="openKrankenDropdownStep22()">
                                                 <div class="row g-0">
@@ -1734,7 +1621,7 @@ $urole = $urole->toArray();
                                                             </div>
                                                             <div>
                                                                 <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->last_adjustment_PZ}}" type="date"
-{{--                                                                       name="last_adjustment_PZ" --}}
+
                                                                        min="1900-01-01" max="9999-12-31" readonly>
                                                             </div>
                                                         </div>
@@ -1769,19 +1656,137 @@ $urole = $urole->toArray();
                                                     </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="col-12 col-md-6 col-lg-5 pe-0 ps-md-2">
+                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                                 onclick="openKrankenDropdownStep2()">
+                                                <div class="row g-0">
+                                                    <div class="col my-auto">
+                                                        <span>Grundversicherung</span>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                            <path
+                                                                d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                                fill="white" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="Grundversicherung" class="Grundversicherung mt-4">
+                                                @php
+                                                    $count = 1;
+                                                @endphp
+                                                @foreach($grundversicherungP as $grundversicherungPP)
+                                                    <div class="p-4">
 
-                                    <div class="py-4" id="step2BtnDiv">
-                                        <div class="row g-0 changeBtnAlign">
-                                            <div class="col-6 col-md-3 col-lg-2 pe-1">
-                                                <button type="button" onclick="backBtnKranken()"
-                                                        class="cancelBtnKranken py-1 py-md-1 w-100">Zurück</button>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Abschlussdatum</span>
+                                                            </div>
+                                                            <div>
+                                                                <input class="GrundversicherungInput form-control" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Gesellschaft</span>
+                                                            </div>
+                                                            <div>
+                                                                <select class="GrundversicherungInput form-control" name="society_PG{{$count}}">
+                                                                    <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
+                                                                    <option value="Sympany">Sympany</option>
+                                                                    <option value="Helsana">Helsana</option>
+                                                                    <option value="Swica">Swica</option>
+                                                                    <option value="GM">GM</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Produkt</span>
+                                                            </div>
+                                                            <div>
+                                                                <input class="GrundversicherungInput form-control" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Status</span>
+                                                            </div>
+                                                            <div>
+                                                                <select class="GrundversicherungInput form-control" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
+                                                                    @if($grundversicherungPP->status_PG == 'Offen (Berater)')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Offen (Innendienst)')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Eingereicht">Eingereicht</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Eingereicht')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Aufgenommen">Aufgenommen</option>
+                                                                        <option value="Abgelehnt">Abgelehnt</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Aufgenommen')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Provisionert">Provisionert</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Abgelehnt')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Provisionert' && $grundversicherungPP->stoiner_PG == null)
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Storniert">Storniert</option>
+                                                                    @elseif($grundversicherungPP->stoiner_PG == 'Storniert')
+                                                                        <option selected value="{{$grundversicherungPP->stoiner_PG}}">{{$grundversicherungPP->stoiner_PG}}</option>
+                                                                    @endif
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Letze Anpassung</span>
+                                                            </div>
+                                                            <div>
+                                                                <input class="GrundversicherungInput form-control" type="date"
+                                                                       value="{{$grundversicherungPP->last_adjustment_PG}}"
+                                                                       min="1900-01-01" max="9999-12-31" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-3" id="grundProvision" style="display: none">
+                                                            <div class="input-div1 input-groupp justify-content-between">
+                                                                <div class="pe-3">
+                                                            <span class="GrundversicherungSpans">
+                                                                Gesamtprovision:
+                                                            </span>
+                                                                </div>
+                                                                <input class="py-1 form-control" type="number" name="total_commisions_PG{{$count}}">
+                                                            </div>
+                                                       </div>
+                                                        @if($grundversicherungPP->status_PG == 'Provisionert')
+                                                            <div class="pb-2">
+                                                                <div>
+                                                                    <span class="GrundversicherungSpans">Gesamtprovision</span>
+                                                                </div>
+                                                                <div>
+                                                                    <input class="GrundversicherungInput form-control" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    @php $count++ @endphp
+                                                @endforeach
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 pe-1">
-                                                <button type="button" onclick="edit()"
-                                                        class="cancelBtnKranken py-1 py-md-1 w-100">Einreichen</button>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 ps-1">
+
+                                        </div>  
+                                    </div>
+                                    </div>
+                                    <div class="py-4">
+                                        
+                                    </div>
+                                    </div>
+                                    
+                                        <div class="row g-1 changeBtnAlign pt-4">
+                                            
+                                            <div class="col-6 col-md-3 col-lg-2">
 
                                                 <button type="button" onclick="toNextModal1();"
                                                         class="continueBtn py-1 py-md-1 w-100 px-2">
@@ -1792,26 +1797,24 @@ $urole = $urole->toArray();
                                                                 </div>
                                                             </div>
                                                             <div class="col-auto my-auto">
-                                                            <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M5.07994 14.3927C3.91301 14.3927 2.96338 13.4114 2.96338 12.2055C2.96338 10.9997 3.91301 10.0184 5.07994 10.0184C6.24688 10.0184 7.19651 10.9997 7.19651 12.2055C7.19651 13.4114 6.24688 14.3927 5.07994 14.3927ZM5.07994 11.4765C4.6905 11.4765 4.37442 11.8031 4.37442 12.2055C4.37442 12.608 4.6905 12.9346 5.07994 12.9346C5.46939 12.9346 5.78547 12.608 5.78547 12.2055C5.78547 11.8031 5.46939 11.4765 5.07994 11.4765Z" fill="#F79C42"/>
-                                                                <path d="M17.9908 14.3927C16.785 14.3927 15.8037 13.4114 15.8037 12.2055C15.8037 10.9997 16.785 10.0184 17.9908 10.0184C19.1967 10.0184 20.1779 10.9997 20.1779 12.2055C20.1779 13.4114 19.1967 14.3927 17.9908 14.3927ZM17.9908 11.4765C17.5884 11.4765 17.2618 11.8031 17.2618 12.2055C17.2618 12.608 17.5884 12.9346 17.9908 12.9346C18.3933 12.9346 18.7199 12.608 18.7199 12.2055C18.7199 11.8031 18.3933 11.4765 17.9908 11.4765Z" fill="#F79C42"/>
-                                                                <path d="M21.5021 8.4541C21.3153 7.32059 20.7072 3.85422 20.0488 2.54181C19.6104 1.66878 18.4848 1.00041 16.7052 0.558168C15.2591 0.198937 13.4104 0 11.5 0C9.58956 0 7.74094 0.197505 6.29481 0.558168C4.51519 1.00184 3.38963 1.66878 2.95119 2.54181C2.29281 3.85279 1.68475 7.32059 1.49787 8.4541C0.493062 9.13965 0 10.1315 0 11.4496V15.0276C0 15.9608 0.600875 16.7565 1.4375 17.0513V18.6056C1.4375 19.3942 2.08294 20.0368 2.875 20.0368H4.3125C5.10456 20.0368 5.75 19.3942 5.75 18.6056V17.1744H17.25V18.6056C17.25 19.3942 17.8954 20.0368 18.6875 20.0368H20.125C20.9171 20.0368 21.5625 19.3942 21.5625 18.6056V17.0513C22.3991 16.7565 23 15.9608 23 15.0276V11.4496C23 10.1315 22.5069 9.13965 21.5021 8.4541ZM4.23631 3.18299C4.66325 2.33429 7.35281 1.4312 11.5 1.4312C15.6472 1.4312 18.3368 2.33286 18.7637 3.18299C19.1763 4.00593 19.6348 6.18279 19.918 7.7385C19.7771 7.697 19.6319 7.65835 19.4824 7.62401C19.0986 7.53384 18.6846 7.46085 18.2419 7.40074L14.0746 4.42813C13.7526 4.19771 13.3026 4.27213 13.0712 4.59272C12.8398 4.91331 12.9145 5.36128 13.2365 5.5917L15.4876 7.19751C14.2658 7.15744 12.926 7.15743 11.4986 7.15743C11.3304 7.15743 11.1636 7.15743 10.9969 7.15743L6.8655 4.41525C6.53488 4.19628 6.08925 4.28501 5.86931 4.61419C5.64937 4.94337 5.7385 5.38704 6.06913 5.60601L8.43238 7.17461C6.50469 7.20896 4.82856 7.31343 3.51613 7.62401C3.36663 7.65979 3.22144 7.69843 3.08056 7.7385C3.36519 6.18279 3.82231 4.00593 4.23631 3.18299ZM4.3125 18.6056H2.875V17.1744H4.3125V18.6056ZM18.6875 18.6056V17.1744H20.125V18.6056H18.6875ZM21.5625 15.0276C21.5625 15.4226 21.2405 15.7432 20.8438 15.7432H2.15625C1.7595 15.7432 1.4375 15.4226 1.4375 15.0276V11.4496C1.4375 10.1272 2.13612 9.42159 3.84962 9.01513C5.65369 8.5872 8.36338 8.5872 11.5 8.5872C14.6366 8.5872 17.3449 8.5872 19.1504 9.01513C20.8639 9.42159 21.5625 10.1272 21.5625 11.4496V15.0276Z" fill="#F79C42"/>
+                                                            <svg width="23" height="21" viewBox="0 0 171 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M165.102 84.0348H161.499L142.96 46.9579H145.188C148.329 46.9579 150.875 44.4118 150.875 41.2713C150.875 38.1308 148.329 35.5847 145.188 35.5847H90.9088V30.5539C96.8251 28.2633 101.038 22.5289 101.038 15.8141C101.038 7.09388 93.9431 0 85.2221 0C76.5019 0 69.408 7.09388 69.408 15.8141C69.408 22.5282 73.6206 28.2633 79.5355 30.5539V35.5847H25.2585C22.1172 35.5847 19.5719 38.1308 19.5719 41.2713C19.5719 44.4118 22.1172 46.9579 25.2585 46.9579H27.8296L9.29044 84.0348H5.68663C2.54534 84.0348 0 86.5808 0 89.7214C0 110.139 16.611 126.75 37.0298 126.75C57.4479 126.75 74.0581 110.139 74.0581 89.7214C74.0581 86.5808 71.5128 84.0348 68.3715 84.0348H64.7684L46.2308 46.9579H79.5362V123.843H61.4763C58.335 123.843 55.7896 126.39 55.7896 129.53C55.7896 132.671 58.335 135.217 61.4763 135.217H109.665C112.806 135.217 115.351 132.671 115.351 129.53C115.351 126.39 112.806 123.843 109.665 123.843H90.9095V46.9579H124.558L106.021 84.0348H102.418C99.2764 84.0348 96.7311 86.5808 96.7311 89.7214C96.7311 110.139 113.341 126.75 133.759 126.75C154.178 126.75 170.789 110.139 170.789 89.7214C170.788 86.5808 168.243 84.0348 165.102 84.0348ZM85.2221 11.3725C87.6712 11.3725 89.6645 13.3651 89.6645 15.8141C89.6645 18.2632 87.6712 20.255 85.2221 20.255C82.7738 20.255 80.7812 18.2632 80.7812 15.8141C80.7812 13.3651 82.7738 11.3725 85.2221 11.3725ZM37.0298 115.377C24.8369 115.377 14.6033 106.827 12.0086 95.408H12.7805C12.7866 95.408 12.7934 95.4088 12.7995 95.4088C12.8048 95.4088 12.8101 95.408 12.8154 95.408H61.242C61.248 95.408 61.2533 95.4088 61.2579 95.4088C61.2647 95.4088 61.2715 95.408 61.2769 95.408H62.0487C59.4556 106.828 49.222 115.377 37.0298 115.377ZM22.0042 84.0348L37.0291 53.9866L52.0524 84.0348H22.0042ZM133.759 53.9866L148.783 84.0348H118.735L133.759 53.9866ZM133.759 115.377C121.567 115.377 111.333 106.827 108.739 95.408H109.511C109.517 95.408 109.524 95.4088 109.53 95.4088C109.535 95.4088 109.54 95.408 109.546 95.408H157.972C157.978 95.408 157.984 95.4088 157.988 95.4088C157.995 95.4088 158.002 95.408 158.007 95.408H158.779C156.185 106.828 145.952 115.377 133.759 115.377Z" fill="#FFD945"/>
                                                             </svg>
+
                                                             </div>
                                                         </div>
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
                                     <script>
                                         function toNextModal1() {
                                             document.getElementById("krankenkasseModal").style.display = "none";
-                                            document.getElementById("autoModal").style.display = "block";
+                                            document.getElementById("rechtsschutzModal").style.display = "block";
 
                                         }
                                     </script>
-                                </div>
-                            </div>
+                                
+                            
                             @else
                             <div class="" style="position: relative">
                                 <div class="cornerSvgDiv">
@@ -1858,8 +1861,318 @@ $urole = $urole->toArray();
 
                         </div>
 
+                        <div id="rechtsschutzModal" class="documentsFormModals mb-5">
+                            <div class="stepsBgColor px-4">                  
+                                <div class="" style="position: relative;">
+                                    <div class="cornerSvgDiv">
+                                    <svg class="cornerSvg" viewBox="0 0 243 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g filter="url(#filter0_d_28_428)">
+                                        <path d="M37.4111 124.968C42.8217 133.974 66.4192 136.788 74.9473 142.987C83.4754 149.186 87.52 171.555 97.8674 174.005C108.215 176.454 124.662 158.936 135.253 157.263C145.844 155.59 156.043 151.877 165.265 146.336C174.488 140.794 182.555 133.534 189.005 124.968C195.455 116.403 200.162 106.7 202.858 96.4139C205.553 86.1279 206.185 75.4602 204.715 65.0198C203.246 54.5794 194.465 42.1953 189.055 33.19L67.0546 33.1899L57.5547 33.1899L55.8444 33.4037C54.3232 33.5938 52.8295 33.9618 51.3941 34.5001C50.1709 34.9588 48.9966 35.5387 47.8888 36.2311L45.5547 37.6899L44.3345 38.6661C43.4839 39.3465 42.7113 40.1191 42.0309 40.9696C41.3819 41.7809 40.8205 42.6584 40.3559 43.5875L39.723 44.8533C38.9458 46.4077 38.3144 48.0308 37.837 49.7018L37.5547 50.6899L37.5398 50.7496C37.2176 52.0383 37.0546 53.3616 37.0546 54.6899L37.0546 64.6899L37.4111 124.968Z" fill="#EDF0F8"/>
+                                        </g>
+                                        <path d="M155.51 96.0147H153.666L144.176 77.0363H145.317C146.925 77.0363 148.228 75.733 148.228 74.1255C148.228 72.5179 146.925 71.2146 145.317 71.2146H117.533V68.6396C120.562 67.4671 122.718 64.5318 122.718 61.0948C122.718 56.6311 119.086 53 114.622 53C110.159 53 106.528 56.6311 106.528 61.0948C106.528 64.5314 108.684 67.4671 111.712 68.6396V71.2146H83.929C82.3211 71.2146 81.0182 72.5179 81.0182 74.1255C81.0182 75.733 82.3211 77.0363 83.929 77.0363H85.2451L75.7555 96.0147H73.9108C72.3029 96.0147 71 97.318 71 98.9255C71 109.377 79.5027 117.879 89.9544 117.879C100.406 117.879 108.908 109.377 108.908 98.9255C108.908 97.318 107.605 96.0147 105.997 96.0147H104.153L94.6641 77.0363H111.712V116.391H102.468C100.86 116.391 99.5569 117.695 99.5569 119.302C99.5569 120.91 100.86 122.213 102.468 122.213H127.134C128.742 122.213 130.045 120.91 130.045 119.302C130.045 117.695 128.742 116.391 127.134 116.391H117.534V77.0363H134.757L125.269 96.0147H123.424C121.816 96.0147 120.514 97.318 120.514 98.9255C120.514 109.377 129.016 117.879 139.467 117.879C149.919 117.879 158.422 109.377 158.422 98.9255C158.421 97.318 157.118 96.0147 155.51 96.0147ZM114.622 58.8212C115.876 58.8212 116.896 59.8412 116.896 61.0948C116.896 62.3483 115.876 63.3679 114.622 63.3679C113.369 63.3679 112.349 62.3483 112.349 61.0948C112.349 59.8412 113.369 58.8212 114.622 58.8212ZM89.9544 112.058C83.7132 112.058 78.4749 107.681 77.1468 101.836H77.5419C77.545 101.836 77.5485 101.837 77.5516 101.837C77.5544 101.837 77.5571 101.836 77.5598 101.836H102.348C102.351 101.836 102.354 101.837 102.356 101.837C102.359 101.837 102.363 101.836 102.366 101.836H102.761C101.433 107.682 96.1951 112.058 89.9544 112.058ZM82.2633 96.0147L89.954 80.634L97.6439 96.0147H82.2633ZM139.467 80.634L147.157 96.0147H131.776L139.467 80.634ZM139.467 112.058C133.226 112.058 127.988 107.681 126.66 101.836H127.055C127.058 101.836 127.062 101.837 127.065 101.837C127.068 101.837 127.07 101.836 127.073 101.836H151.861C151.864 101.836 151.867 101.837 151.869 101.837C151.873 101.837 151.876 101.836 151.879 101.836H152.274C150.946 107.682 145.708 112.058 139.467 112.058Z" fill="#FFD945"/>
+                                        <defs>
+                                        <filter id="filter0_d_28_428" x="0.0546875" y="0.189941" width="242.434" height="215.049" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                        <feOffset dy="4"/>
+                                        <feGaussianBlur stdDeviation="18.5"/>
+                                        <feComposite in2="hardAlpha" operator="out"/>
+                                        <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0"/>
+                                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
 
-                        <div id="autoModal" class="documentsFormModals px-4">
+                                    </div>
+                                </div>
+                                <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 1</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Details</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 justify-content-center pt-0 pt-md-5 pb-5">
+                                    <div class="col-12 col-md-5 col-lg-4 ">
+                                        <div class="pt-3 px-2">
+                                            <div class="pb-2">
+                                                <span class="modalTitle">Datei</span>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="IDCheckBoxLabel" class="container2 uncheckedCheckbox">ID
+                                                    @if($data->rech->id_select == 'Ja')
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBox" value="Ja" name="id_select_rech" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBox" value="Ja" name="id_select_rech">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label id="vollmachtrechCheckBoxLabel" for="vollmachtrechCheckBox"
+                                                       class="container2 uncheckedCheckbox">Vertrag
+                                                    @if($data->rech->vertrag_select == 'Ja')
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja" name="vertrag_select_rech" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja" name="vertrag_select_rech">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        {{-- <div class="pt-3 px-2">
+                                            
+                                            <div class="pb-2">
+                                                <span class="modalTitle d-block" style="font-size: 18px">Zugeisen Personen</span>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="IDCheckBoxLabel" class="container2 uncheckedCheckbox">Enis
+                                                    @if($data->datakk->id_notwending_select == 'Ja')
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBox" value="Ja" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBox" value="Ja">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="vollmachtrechCheckBoxLabel" for="vollmachtrechCheckBox"
+                                                       class="container2 uncheckedCheckbox">Flori
+                                                    @if($data->datakk->vollmacht_select == 'Ja')
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="vollmachtrechCheckBoxLabel" for="vollmachtrechCheckBox"
+                                                       class="container2 uncheckedCheckbox">Bleron
+                                                    @if($data->datakk->vollmacht_select == 'Ja')
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input type="checkbox" id="vollmachtrechCheckBox" value="Ja">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+                                    <div class="col-12 col-md-5 col-lg-4 my-auto">
+                                        <div class="pt-4 pt-md-0">
+                                            <div class="text-center" id="krankenkasseUploadFile">
+                                                <label for="rech_upload" class="text-center w-100 px-2 px-md-0">
+                                                    <div class="inputFileBG w-100" id="inputFileBG3">
+                                                        <div class="px-5 py-3">
+                                                            <div id="beforeUploadTextKranken">
+                                                                <div class="mb-2">
+                                                                <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                    </svg>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputSecondTitle">Durchsuchen</span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="aferUploadText" id="aferUploadTextKranken">
+                                                                <svg class="afterUploadSvg" viewBox="0 0 90 90" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M90 45C90 69.8226 69.8226 90 45 90C20.1774 90 0 69.8226 0 45C0 20.1774 20.1774 0 45 0C69.8226 0 90 20.1774 90 45Z"
+                                                                        fill="#2F60DC" fill-opacity="0.81" />
+                                                                    <path
+                                                                        d="M45 0C69.8226 0 90 20.1774 90 45C90 69.8226 69.8226 90 45 90"
+                                                                        fill="#002A96" fill-opacity="0.58" />
+                                                                    <path
+                                                                        d="M13 13.2156C30.6208 -4.4052 59.1636 -4.4052 76.7844 13.2156C94.4052 30.8364 94.4052 59.3792 76.7844 77"
+                                                                        fill="#2F60DC" />
+                                                                    <path
+                                                                        d="M44.1241 61C43.5507 61 43.1206 60.8509 42.6906 60.4036L29.6451 46.8355C28.785 45.9409 28.785 44.599 29.6451 43.7044C30.5052 42.8098 31.7955 42.8098 32.6556 43.7044L44.2675 55.7815L66.3444 32.671C67.2045 31.7763 68.4948 31.7763 69.3549 32.671C70.215 33.5656 70.215 34.9075 69.3549 35.8021L45.5577 60.4036C45.1276 60.8509 44.5542 61 44.1241 61Z"
+                                                                        fill="#EEFFFF" />
+                                                                </svg>
+                                                            </div>
+                                                            @if(isset($data->rech->upload_file))
+                                                                <input type="file" id="rech_upload"
+                                                                       name="kranken_file" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);"
+                                                                       value="{{$data->rech->upload_file}}"
+                                                                >
+                                                                <a style="text-decoration: none"
+                                                                   href="{{route('showfile',$data->rech->upload_file)}}">
+                                                                    <input type="text"
+                                                                           class="form-control text-center"
+                                                                           id="rech_uploadc" disabled
+                                                                           style="background:transparent; border:none;"
+                                                                           value="{{$data->rech->upload_file}}"
+                                                                    >
+                                                                </a>
+                                                            @else
+                                                                <input type="file" id="rech_upload"
+                                                                       name="rech_uploadFile" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);">
+                                                                <input type="text"
+                                                                       class="form-control text-center"
+                                                                       id="rech_uploadc" disabled
+                                                                       style="background:transparent; border:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="stepsBgColor px-4">  
+                                <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div>
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Rechtsschutz von “Samir”</span>
+                                            </div>
+                                        </div>  
+                                        <div>  
+                                            <div class="row g-4 justify-content-center pb-5">
+                                                <div class="col-12 col-md-4 ps-0 ps-md-2">
+                                                    <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                                        onclick="openGesellschaftDropdownStep()">
+                                                        <div class="row g-0">
+                                                            <div class="col my-auto">
+                                                                <span>Gesellschaft</span>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                                    <path
+                                                                        d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                                        fill="white" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+        
+                                                    </div>
+                                                    <div class="Zusatzversicherung mt-4" id="Gesellschaft">
+                                                        <div class="p-4">
+                                                            <div class="">
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class="justify-content-between">
+                                                                        <div class="pe-3 GrundversicherungSpans">
+                                                                        <span class=""  >
+                                                                            Gesellschaft:
+                                                                        </span>
+                                                                        </div>
+                                                                        <select class="form-select GrundversicherungInput"
+                                                                                aria-label="Default select example" name="gesellchaft">
+                                                                            <option value="{{$data->rech->gesellchaft}}">{{$data->rech->gesellchaft}}</option>
+                                                                            <option value="Helvetia">Helvetia</option>
+                                                                            <option value="Zurich">Zurich</option>
+                                                                            <option value="Axa">Axa</option>
+                                                                            <option value="GM">GM</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4 ps-0 ps-md-2">
+                                                    <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                                        onclick="openPreisDropdownStep()">
+                                                        <div class="row g-0">
+                                                            <div class="col my-auto">
+                                                                <span>Preis</span>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                                    <path
+                                                                        d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                                        fill="white" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+        
+                                                    </div>
+                                                    <div class="Zusatzversicherung mt-4" id="Preis">
+                                                        <div class="p-4">
+                                                            <div class="">
+                                                                ...
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-1 changeBtnAlign pt-4">
+                                            
+                                            <div class="col-6 col-md-3 col-lg-2">
+
+                                                <button type="button" onclick="toNextModalR();"
+                                                        class="continueBtn py-1 py-md-1 w-100 px-2">
+                                                        <div class="row g-0">
+                                                            <div class="col">
+                                                                <div style="margin-right: -23px">
+                                                                    Weiter
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto my-auto">
+                                                            <svg width="23" height="21" viewBox="0 0 67 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M14.7049 41.662C11.327 41.662 8.57812 38.8215 8.57812 35.331C8.57812 31.8405 11.327 29 14.7049 29C18.0828 29 20.8316 31.8405 20.8316 35.331C20.8316 38.8215 18.0828 41.662 14.7049 41.662ZM14.7049 33.2207C13.5776 33.2207 12.6626 34.1661 12.6626 35.331C12.6626 36.4959 13.5776 37.4413 14.7049 37.4413C15.8322 37.4413 16.7471 36.4959 16.7471 35.331C16.7471 34.1661 15.8322 33.2207 14.7049 33.2207Z" fill="#F79C42"/>
+                                                                <path d="M52.079 41.662C48.5886 41.662 45.748 38.8215 45.748 35.331C45.748 31.8405 48.5886 29 52.079 29C55.5695 29 58.41 31.8405 58.41 35.331C58.41 38.8215 55.5695 41.662 52.079 41.662ZM52.079 33.2207C50.9141 33.2207 49.9687 34.1661 49.9687 35.331C49.9687 36.4959 50.9141 37.4413 52.079 37.4413C53.2439 37.4413 54.1894 36.4959 54.1894 35.331C54.1894 34.1661 53.2439 33.2207 52.079 33.2207Z" fill="#F79C42"/>
+                                                                <path d="M62.2416 24.4719C61.7007 21.1907 59.9405 11.1567 58.0347 7.35771C56.7656 4.83057 53.5075 2.89586 48.356 1.61571C44.17 0.575856 38.8188 0 33.2887 0C27.7586 0 22.4075 0.571713 18.2214 1.61571C13.07 2.9 9.81185 4.83057 8.54272 7.35771C6.63694 11.1526 4.8768 21.1907 4.33586 24.4719C1.42725 26.4563 0 29.3273 0 33.1429V43.5C0 46.2011 1.73934 48.5046 4.16109 49.358V53.8571C4.16109 56.1399 6.02942 58 8.32218 58H12.4833C14.776 58 16.6444 56.1399 16.6444 53.8571V49.7143H49.9331V53.8571C49.9331 56.1399 51.8014 58 54.0942 58H58.2553C60.548 58 62.4164 56.1399 62.4164 53.8571V49.358C64.8381 48.5046 66.5775 46.2011 66.5775 43.5V33.1429C66.5775 29.3273 65.1502 26.4563 62.2416 24.4719V24.4719ZM12.2627 9.21371C13.4986 6.757 21.284 4.14286 33.2887 4.14286C45.2935 4.14286 53.0789 6.75286 54.3147 9.21371C55.509 11.5959 56.8363 17.8971 57.6561 22.4004C57.2483 22.2803 56.828 22.1684 56.3953 22.069C55.2843 21.808 54.0859 21.5967 52.8042 21.4227L40.7413 12.818C39.8092 12.151 38.5067 12.3664 37.8368 13.2944C37.1669 14.2224 37.3832 15.5191 38.3153 16.1861L44.8316 20.8344C41.2947 20.7184 37.4165 20.7184 33.2846 20.7184C32.7977 20.7184 32.315 20.7184 31.8324 20.7184L19.8734 12.7807C18.9163 12.1469 17.6264 12.4037 16.9897 13.3566C16.3531 14.3094 16.6111 15.5937 17.5681 16.2276L24.409 20.7681C18.8289 20.8676 13.9771 21.17 10.178 22.069C9.74528 22.1726 9.32501 22.2844 8.91722 22.4004C9.74112 17.8971 11.0643 11.5959 12.2627 9.21371V9.21371ZM12.4833 53.8571H8.32218V49.7143H12.4833V53.8571ZM54.0942 53.8571V49.7143H58.2553V53.8571H54.0942ZM62.4164 43.5C62.4164 44.6434 61.4843 45.5714 60.3358 45.5714H6.24164C5.09318 45.5714 4.16109 44.6434 4.16109 43.5V33.1429C4.16109 29.3149 6.18338 27.2724 11.1434 26.0959C16.3656 24.8571 24.2092 24.8571 33.2887 24.8571C42.3682 24.8571 50.2077 24.8571 55.4341 26.0959C60.3941 27.2724 62.4164 29.3149 62.4164 33.1429V43.5Z" fill="#F79C42"/>
+                                                                </svg>
+
+                                                            </div>
+                                                        </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <script>
+                                        function toNextModalR() {
+                                            document.getElementById("rechtsschutzModal").style.display = "none";
+                                            document.getElementById("autoModal").style.display = "block";
+
+                                        }
+                                    </script>
+                        </div>
+                        <div id="autoModal" class="documentsFormModals mb-5">
+                            
+                            <div id="step1Auto" class="stepsBgColor px-4">
                             <div class="" style="position: relative;">
                                 <div class="cornerSvgDiv">
                                     <svg class="cornerSvg" viewBox="0 0 243 217" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1886,29 +2199,18 @@ $urole = $urole->toArray();
 
                                 </div>
                                 <div class="row g-0 justify-content-center pt-4">
-                                    <div class="col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step1Autoo" class="activeStepTitle">Schritt 1</span>
-                                            </div>
-                                            <div class="mx-auto">
-                                                <div id="step1LineAuto" class="blueLine mx-auto"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step2Autoo" class="passiveStepTitle">Schritt 2</span>
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 1</span>
                                             </div>
                                             <div>
-                                                <div id="step2LineAuto" class="greyLine mx-auto"></div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Lorem ipsumus</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="step1Auto">
                                 <div class="row g-0 justify-content-center pt-0 pt-md-4">
                                     <div class="col-12 col-md-6 col-lg-4 pe-0 pe-md-2">
                                         <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
@@ -1931,7 +2233,7 @@ $urole = $urole->toArray();
                                         <div id="Gegenofferte" class="Grundversicherung mt-3">
                                             <div class="p-4" id="shtogegen">
                                                 <div class="" >
-                                                    <div class="GrundversicherungSpans pb-2">
+                                                    {{-- <div class="GrundversicherungSpans pb-2">
                                                                 <span class="GrundversicherungSpans">
                                                                     Police Hochladen:
                                                                 </span>
@@ -2001,8 +2303,8 @@ $urole = $urole->toArray();
                                                                 </div>
                                                             </div>
                                                         </label>
-                                                    </div>
-                                                    <div class="">
+                                                    </div> --}}
+                                                    {{-- <div class="">
                                                         <div class="row g-0 pt-3">
                                                             <div class="col-6 d-flex g-0 my-auto">
                                                                 <div class="text-nowrap GrundversicherungSpans">
@@ -2044,7 +2346,7 @@ $urole = $urole->toArray();
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="">
                                                         <div class="mb-3 mt-3">
                                                             <label for="exampleFormControlTextarea1"
@@ -2075,9 +2377,9 @@ $urole = $urole->toArray();
                                                                                 <div id="beforeUploadTextKranken">
                                                                                     <div class="mb-2">
                                                                                     <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-<path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
-</svg>
+                                                                                        <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                                        <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                                        </svg>
 
                                                                                     </div>
                                                                                     <div>
@@ -2153,9 +2455,9 @@ $urole = $urole->toArray();
                                                                             <div id="beforeUploadTextKranken">
                                                                                 <div class="mb-2">
                                                                                 <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-<path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
-</svg>
+                                                <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                </svg>
                                                                                 </div>
                                                                                 <div>
                                                                                     <span class="fileInputSecondTitle">Durchsuchen</span>
@@ -2285,9 +2587,9 @@ $urole = $urole->toArray();
                                                                                         <div id="beforeUploadTextKranken">
                                                                                             <div class="mb-2">
                                                                                             <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-<path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
-</svg>
+                                                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                                                    </svg>
                                                                                             </div>
                                                                                             <div>
                                                                                                 <span class="fileInputSecondTitle">Durchsuchen</span>
@@ -2503,11 +2805,11 @@ $urole = $urole->toArray();
                                                                             function yesBtnLeasingClicked() {
 
                                                                                 document.getElementById("yesBtnLeasing").style = "background: #60CB9D";
-                                                                                document.getElementById("noBtnLeasing").style = "background: rgba(231, 236, 249, 0.32);";
+                                                                                document.getElementById("noBtnLeasing").style = "background: #d4d4d4;";
                                                                             }
 
                                                                             function noBtnLeasingClicked() {
-                                                                                document.getElementById("yesBtnLeasing").style = "background: rgba(231, 236, 249, 0.32);";
+                                                                                document.getElementById("yesBtnLeasing").style = "background: #d4d4d4;";
                                                                                 document.getElementById("noBtnLeasing").style = "background: #EF7C6D";
 
                                                                             }
@@ -4102,11 +4404,11 @@ $urole = $urole->toArray();
                                                                 <script>
                                                                     function yesBtnGarageClicked() {
                                                                         document.getElementById("yesBtnGarage").style = "background: #60CB9D ";
-                                                                        document.getElementById("noBtnGarage").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                        document.getElementById("noBtnGarage").style = "background: #d4d4d4";
                                                                     }
 
                                                                     function noBtnGarageClicked() {
-                                                                        document.getElementById("yesBtnGarage").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                        document.getElementById("yesBtnGarage").style = "background: #d4d4d4";
                                                                         document.getElementById("noBtnGarage").style = "background: #60CB9D ";
                                                                     }
                                                                 </script>
@@ -4170,11 +4472,11 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function yesBtnUnfalldeckungClicked() {
                                                                             document.getElementById("yesBtnUnfalldeckung").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnUnfalldeckung").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnUnfalldeckung").style = "background: #d4d4d4";
                                                                         }
 
                                                                         function noBtnUnfalldeckungClicked() {
-                                                                            document.getElementById("yesBtnUnfalldeckung").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnUnfalldeckung").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnUnfalldeckung").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                     </script>
@@ -4242,12 +4544,12 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function yesBtnVerkehrsrechtsschutzClicked() {
                                                                             document.getElementById("yesBtnVerkehrsrechtsschutz").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnVerkehrsrechtsschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnVerkehrsrechtsschutz").style = "background: #d4d4d4";
                                                                         }
 
                                                                         function noBtnVerkehrsrechtsschutzClicked() {
 
-                                                                            document.getElementById("yesBtnVerkehrsrechtsschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnVerkehrsrechtsschutz").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnVerkehrsrechtsschutz").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                     </script>
@@ -4306,12 +4608,12 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function yesBtnGrobfahrlässigkeitschutzClicked() {
                                                                             document.getElementById("yesBtnGrobfahrlässigkeitschutz").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnGrobfahrlässigkeitschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnGrobfahrlässigkeitschutz").style = "background: #d4d4d4";
                                                                         }
 
                                                                         function noBtnGrobfahrlässigkeitschutzClicked() {
 
-                                                                            document.getElementById("yesBtnGrobfahrlässigkeitschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnGrobfahrlässigkeitschutz").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnGrobfahrlässigkeitschutz").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                     </script>
@@ -4370,12 +4672,12 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function yesBtnGlasschutzClicked() {
                                                                             document.getElementById("yesBtnGlasschutz").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnGlasschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnGlasschutz").style = "background: #d4d4d4";
                                                                         }
 
                                                                         function noBtnGlasschutzClicked() {
 
-                                                                            document.getElementById("yesBtnGlasschutz").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnGlasschutz").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnGlasschutz").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                     </script>
@@ -4441,11 +4743,11 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function yesBtnParkschadenClicked() {
                                                                             document.getElementById("yesBtnParkschaden").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnParkschaden").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnParkschaden").style = "background: #d4d4d4";
                                                                         }
                                                                         function noBtnParkschadenClicked() {
 
-                                                                            document.getElementById("yesBtnParkschaden").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnParkschaden").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnParkschaden").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                     </script>
@@ -4510,12 +4812,12 @@ $urole = $urole->toArray();
                                                                     <script>
                                                                         function noBtnPannenhilfeClicked() {
 
-                                                                            document.getElementById("yesBtnPannenhilfe").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("yesBtnPannenhilfe").style = "background: #d4d4d4";
                                                                             document.getElementById("noBtnPannenhilfe").style = "background: rgb(239, 124, 109); ";
                                                                         }
                                                                         function yesBtnPannenhilfeClicked() {
                                                                             document.getElementById("yesBtnPannenhilfe").style = "background: #60CB9D ";
-                                                                            document.getElementById("noBtnPannenhilfe").style = "background: rgba(231, 236, 249, 0.32)";
+                                                                            document.getElementById("noBtnPannenhilfe").style = "background: #d4d4d4";
                                                                         }
                                                                     </script>
                                                                 </div>
@@ -6619,7 +6921,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                                 <div class="py-4 py-md-4">
-                                    <div class="pt-4 pt-md-0">
+                                    <!-- <div class="pt-4 pt-md-0">
                                         <div class="row g-0 changeBtnAlign">
                                             <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="cancelBtnClickAuto()"
@@ -6631,10 +6933,29 @@ $urole = $urole->toArray();
                                                         class="continueBtn py-1 py-md-1 w-100 px-2">Weiter</button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div id="step2Auto" class="" style="display: none;">
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="step2Auto" class="stepsBgColor px-4">
+                                <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload von den Dokumenten und Vertragsmitglieder bestimmen</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-8 col-lg-6 pe-0 pe-md-2">
@@ -6792,11 +7113,21 @@ $urole = $urole->toArray();
 
                                     </div>
                                     <div class="py-4" id="step2BtnDiv">
-                                        <div class="row g-0 changeBtnAlign">
-                                            <div class="col-6 col-md-3 col-lg-2 pe-1">
+                                        
+                                    </div>
+                                    <script>
+                                        function toNextModal2() {
+                                            document.getElementById("autoModal").style.display = "none";
+                                            document.getElementById("vorsorgeModal").style.display = "block";
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="row g-0 changeBtnAlign pt-4">
+                                            <!-- <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="backBtnAuto()"
                                                         class="cancelBtnKranken py-1 py-md-1 w-100">Zurück</button>
-                                            </div>
+                                            </div> -->
 
                                             <div class="col-6 col-md-3 col-lg-2 ps-1">
                                                 <button type="button" onclick="toNextModal2()" class="continueBtn py-1 py-md-1 px-2 w-100">
@@ -6816,17 +7147,10 @@ $urole = $urole->toArray();
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <script>
-                                        function toNextModal2() {
-                                            document.getElementById("autoModal").style.display = "none";
-                                            document.getElementById("vorsorgeModal").style.display = "block";
-                                        }
-                                    </script>
-                                </div>
-                            </div>
                         </div>
-                        <div id="vorsorgeModal" class="documentsFormModals px-4">
+                        <div id="vorsorgeModal" class="documentsFormModals mb-5">
+                            
+                            <div id="step1Vorsorge" class="stepsBgColor px-4">
                             <div class="" style="position: relative;">
                                 <div class="cornerSvgDiv">
                                     <svg class="cornerSvg" viewBox="0 0 243 217" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -6849,33 +7173,22 @@ $urole = $urole->toArray();
                                     </svg>
 
                                 </div>
-                                <div class="row g-0 justify-content-center pt-4">
-                                    <div class="col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step1Vorsorgee" class="activeStepTitle">Schritt 1</span>
-                                            </div>
-                                            <div class="mx-auto">
-                                                <div id="step1LineVorsorge" class="blueLine mx-auto"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step2Vorsorgee" class="passiveStepTitle">Schritt 2</span>
+                            </div>
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 1</span>
                                             </div>
                                             <div>
-                                                <div id="step2LineVorsorge" class="greyLine mx-auto"></div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Details</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="step1Vorsorge">
                                 <div class="row g-0 justify-content-center">
-                                    <div class="col-12 col-xl-11">
-                                        <div class="Grundversicherung mt-4" style="display: block;">
+                                    <div class="col-12 col-xl-11 mb-4">
+                                        <div class="Grundversicherung my-4" style="display: block;">
                                             <div class="p-4">
                                                 <div class=" my-2">
                                                         <span class="ZusatzversicherungTitle">
@@ -8211,7 +8524,7 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="py-4 py-md-4">
+                                <!-- <div class="py-4 py-md-4">
                                     <div class="pt-4 pt-md-0">
                                         <div class="row g-0 changeBtnAlign">
                                             <div class="col-6 col-md-3 col-lg-2 pe-1">
@@ -8222,9 +8535,151 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                     </div>
+                                </div> -->
+                            </div>
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
                                 </div>
                             </div>
-                            <div id="step2Vorsorge" class="" style="display: none;">
+                            <div id="step2Vorsorge" class="stepsBgColor px-4">
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload der Dokumente</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 justify-content-center pt-0 pt-md-5 pb-5">
+                                    <div class="col-12 col-md-5 col-lg-4 ">
+                                        <div class="pt-3 px-2">
+                                            <div class="pb-2">
+                                                <span class="modalTitle">Datei</span>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="IDCheckBoxLabel" class="container2 uncheckedCheckbox">ID
+                                                    @if($data->things->id_select_vorsorge == 'Ja')
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBoxVor" value="Ja" name="id_select_vorsorge" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBoxVor" value="Ja" name="id_select_vorsorge">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label id="vollmachtCheckBoxLabel" for="vollmachtCheckBoxVor"
+                                                       class="container2 uncheckedCheckbox">Vertrag
+                                                    @if($data->things->vollmacht_select_vorsorge == 'Ja')
+                                                        <input type="checkbox" id="vollmachtCheckBoxVor" value="Ja" name="vollmacht_select_vorsorge" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input type="checkbox" id="vollmachtCheckBoxVor" value="Ja" name="vollmacht_select_vorsorge">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-5 col-lg-4 my-auto">
+                                        <div class="pt-4 pt-md-0">
+                                            <div class="text-center" id="krankenkasseUploadFile">
+                                                <label for="upload_file_vorsorgee" class="text-center w-100 px-2 px-md-0">
+                                                    <div class="inputFileBG w-100" id="inputFileBG3">
+                                                        <div class="px-5 py-3">
+                                                            <div id="beforeUploadTextKranken">
+                                                                <div class="mb-2">
+                                                                <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                    </svg>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputSecondTitle">Durchsuchen</span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="aferUploadText" id="aferUploadTextKranken">
+                                                                <svg class="afterUploadSvg" viewBox="0 0 90 90" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M90 45C90 69.8226 69.8226 90 45 90C20.1774 90 0 69.8226 0 45C0 20.1774 20.1774 0 45 0C69.8226 0 90 20.1774 90 45Z"
+                                                                        fill="#2F60DC" fill-opacity="0.81" />
+                                                                    <path
+                                                                        d="M45 0C69.8226 0 90 20.1774 90 45C90 69.8226 69.8226 90 45 90"
+                                                                        fill="#002A96" fill-opacity="0.58" />
+                                                                    <path
+                                                                        d="M13 13.2156C30.6208 -4.4052 59.1636 -4.4052 76.7844 13.2156C94.4052 30.8364 94.4052 59.3792 76.7844 77"
+                                                                        fill="#2F60DC" />
+                                                                    <path
+                                                                        d="M44.1241 61C43.5507 61 43.1206 60.8509 42.6906 60.4036L29.6451 46.8355C28.785 45.9409 28.785 44.599 29.6451 43.7044C30.5052 42.8098 31.7955 42.8098 32.6556 43.7044L44.2675 55.7815L66.3444 32.671C67.2045 31.7763 68.4948 31.7763 69.3549 32.671C70.215 33.5656 70.215 34.9075 69.3549 35.8021L45.5577 60.4036C45.1276 60.8509 44.5542 61 44.1241 61Z"
+                                                                        fill="#EEFFFF" />
+                                                                </svg>
+                                                            </div>
+                                                            @if(isset($data->things->upload_file_vorsorge))
+                                                                <input type="file" id="upload_file_vorsorgee"
+                                                                       name="upload_file_vorsorge" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);"
+                                                                       value="{{$data->things->upload_file_vorsorge}}"
+                                                                >
+                                                                <a style="text-decoration: none"
+                                                                   href="{{route('showfile',$data->things->upload_file_vorsorge)}}">
+                                                                    <input type="text"
+                                                                           class="form-control text-center"
+                                                                           id="upload_file_vorsorgeec" disabled
+                                                                           style="background:transparent; border:none;"
+                                                                           value="{{$data->things->upload_file_vorsorge}}"
+                                                                    >
+                                                                </a>
+                                                            @else
+                                                                <input type="file" id="upload_file_vorsorgee"
+                                                                       name="upload_file_vorsorge" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);">
+                                                                <input type="text"
+                                                                       class="form-control text-center"
+                                                                       id="upload_file_vorsorgeec" disabled
+                                                                       style="background:transparent; border:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="step3Vorsorge" class="stepsBgColor px-4">
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 3</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-10 col-lg-8 col-xl-6 pe-0 pe-md-2">
@@ -8433,14 +8888,24 @@ $urole = $urole->toArray();
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="py-4"></div>
                                     </div>
 
-                                    <div class="py-4" id="step2BtnDiv">
+                                    
+                                    <script>
+                                        function toNextModal3() {
+                                            document.getElementById("vorsorgeModal").style.display = "none";
+                                            document.getElementById("sachenModal").style.display = "block";
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="py-4" id="step2BtnDiv">
                                         <div class="row g-0 changeBtnAlign">
-                                            <div class="col-6 col-md-3 col-lg-2 pe-1">
+                                            <!-- <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="backBtnVorsorge()"
                                                         class="cancelBtnKranken py-1 py-md-1 w-100">Zurück</button>
-                                            </div>
+                                            </div> -->
                                             <div class="col-6 col-md-3 col-lg-2 ps-1">
                                                 <button type="button" onclick="toNextModal3()" class="continueBtn py-1 py-md-1 px-2 w-100">
                                                 <div class="row g-0">
@@ -8463,17 +8928,11 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                     </div>
-                                    <script>
-                                        function toNextModal3() {
-                                            document.getElementById("vorsorgeModal").style.display = "none";
-                                            document.getElementById("sachenModal").style.display = "block";
-                                        }
-                                    </script>
-                                </div>
-                            </div>
                         </div>
 
-                        <div id="sachenModal" class="documentsFormModals px-4">
+                        <div id="sachenModal" class="documentsFormModals mb-5">
+                            
+                            <div id="step1Sachen" class="stepsBgColor px-4">
                             <div class="" style="position: relative;">
                                 <div class="cornerSvgDiv">
                                     <svg class="cornerSvg" viewBox="0 0 243 217" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -8498,31 +8957,20 @@ $urole = $urole->toArray();
                                     </svg>
                                 </div>
                                 <div class="row g-0 justify-content-center pt-4">
-                                    <div class="col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step1Sachenn" class="activeStepTitle">Schritt 1</span>
-                                            </div>
-                                            <div class="mx-auto">
-                                                <div id="step1LineSachen" class="blueLine mx-auto"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-4 col-md-2">
-                                        <div>
-                                            <div class="text-center">
-                                                <span id="step2Sachenn" class="passiveStepTitle">Schritt 2</span>
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 1</span>
                                             </div>
                                             <div>
-                                                <div id="step2LineSachen" class="greyLine mx-auto"></div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload von den Dokumenten und Vertragsmitglieder bestimmen</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="step1Sachen">
                                 <div class="row g-0 justify-content-center pt-0 pt-md-5">
-                                    <div class="row g-0 px-4">
+                                    <div class="row g-0">
                                         <div class="col-12 col-md-6 col-xl-4 pe-0 pe-md-2">
                                             <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
                                                  onclick="openSachenDropdownStep2()">
@@ -9089,7 +9537,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                                 <div class="py-4 py-md-4">
-                                    <div class="pt-4 pt-md-0">
+                                    <!-- <div class="pt-4 pt-md-0">
                                         <div class="row g-0 changeBtnAlign">
                                             <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="cancelBtnClickSachen()"
@@ -9100,13 +9548,155 @@ $urole = $urole->toArray();
                                                         class="continueBtn py-1 py-md-1 w-100 px-2">Weiter</button>
                                             </div>
                                         </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="step2S" class="stepsBgColor px-4">
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload der Dokumente</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 justify-content-center pt-0 pt-md-5 pb-5">
+                                    <div class="col-12 col-md-5 col-lg-4 ">
+                                        <div class="pt-3 px-2">
+                                            <div class="pb-2">
+                                                <span class="modalTitle">Datei</span>
+                                            </div>
+                                            <div class="pb-2">
+                                                <label id="IDCheckBoxSachenLabel" class="container2 uncheckedCheckbox">ID
+                                                    @if($data->prevention->id_select_sachen == 'Ja')
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBoxSachen" value="Ja" name="id_select_sachen" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input class="isChecked" type="checkbox" id="IDCheckBoxSachen" value="Ja" name="id_select_sachen">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label id="vollmachtCheckBoxSachenLabel" for="vollmachtCheckBoxSachen"
+                                                       class="container2 uncheckedCheckbox">Vertrag
+                                                    @if($data->prevention->vollmacht_select_sachen == 'Ja')
+                                                        <input type="checkbox" id="vollmachtCheckBoxSachen" value="Ja" name="vollmacht_select_sachen" checked>
+                                                        <span class="checkmark2"></span>
+                                                    @else
+                                                        <input type="checkbox" id="vollmachtCheckBoxSachen" value="Ja" name="vollmacht_select_sachen">
+                                                        <span class="checkmark2"></span>
+                                                    @endif
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-5 col-lg-4 my-auto">
+                                        <div class="pt-4 pt-md-0">
+                                            <div class="text-center" id="krankenkasseUploadFile">
+                                                <label for="upload_file_sachenn" class="text-center w-100 px-2 px-md-0">
+                                                    <div class="inputFileBG w-100" id="inputFileBG3">
+                                                        <div class="px-5 py-3">
+                                                            <div id="beforeUploadTextKranken">
+                                                                <div class="mb-2">
+                                                                <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                    </svg>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputSecondTitle">Durchsuchen</span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="aferUploadText" id="aferUploadTextKranken">
+                                                                <svg class="afterUploadSvg" viewBox="0 0 90 90" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M90 45C90 69.8226 69.8226 90 45 90C20.1774 90 0 69.8226 0 45C0 20.1774 20.1774 0 45 0C69.8226 0 90 20.1774 90 45Z"
+                                                                        fill="#2F60DC" fill-opacity="0.81" />
+                                                                    <path
+                                                                        d="M45 0C69.8226 0 90 20.1774 90 45C90 69.8226 69.8226 90 45 90"
+                                                                        fill="#002A96" fill-opacity="0.58" />
+                                                                    <path
+                                                                        d="M13 13.2156C30.6208 -4.4052 59.1636 -4.4052 76.7844 13.2156C94.4052 30.8364 94.4052 59.3792 76.7844 77"
+                                                                        fill="#2F60DC" />
+                                                                    <path
+                                                                        d="M44.1241 61C43.5507 61 43.1206 60.8509 42.6906 60.4036L29.6451 46.8355C28.785 45.9409 28.785 44.599 29.6451 43.7044C30.5052 42.8098 31.7955 42.8098 32.6556 43.7044L44.2675 55.7815L66.3444 32.671C67.2045 31.7763 68.4948 31.7763 69.3549 32.671C70.215 33.5656 70.215 34.9075 69.3549 35.8021L45.5577 60.4036C45.1276 60.8509 44.5542 61 44.1241 61Z"
+                                                                        fill="#EEFFFF" />
+                                                                </svg>
+                                                            </div>
+                                                            @if(isset($data->prevention->upload_file_sachen))
+                                                                <input type="file" id="upload_file_sachenn"
+                                                                       name="upload_file_sachen" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);"
+                                                                       value="{{$data->prevention->upload_file_sachen}}"
+                                                                >
+                                                                <a style="text-decoration: none"
+                                                                   href="{{route('showfile',$data->prevention->upload_file_sachen)}}">
+                                                                    <input type="text"
+                                                                           class="form-control text-center"
+                                                                           id="upload_file_sachennc" disabled
+                                                                           style="background:transparent; border:none;"
+                                                                           value="{{$data->prevention->upload_file_sachen}}"
+                                                                    >
+                                                                </a>
+                                                            @else
+                                                                <input type="file" id="upload_file_sachenn"
+                                                                       name="upload_file_sachen" hidden
+                                                                       class="svg-div w-100 border-0  g-0"
+                                                                       onchange="upload(this);">
+                                                                <input type="text"
+                                                                       class="form-control text-center"
+                                                                       id="upload_file_sachennc" disabled
+                                                                       style="background:transparent; border:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="step2Sachen" class="" style="display: none;">
+                            <div>
+                                <div class="col-auto mx-auto">
+                                        <div class="mx-auto" style="height:3rem; width:2px; background-color: #D4D4D4">
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div id="step2Sachen" class="stepsBgColor px-4">
+                            <div class="row g-0 justify-content-center pt-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div >
+                                                <span id="step1Krankenkasse" class="activeStepTitle">Schritt 3</span>
+                                            </div>
+                                            <div>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
-                                        <div class="col-12 col-md-4 pe-0 pe-md-2">
+                                        {{-- <div class="col-12 col-md-4 pe-0 pe-md-2">
                                             <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
                                                  onclick="openSachenDropdownStep2222()">
                                                 <div class="row g-0">
@@ -9219,7 +9809,7 @@ $urole = $urole->toArray();
                                                                 </span>
                                                                 </div>
                                                                 <input class="py-1 form-control GrundversicherungInput" type="date"
-{{--                                                                       name="last_adjustment_PR" id="" --}}
+
                                                                        min="1900-01-01"
                                                                        max="9999-12-31" value="{{$retchsschutzP->last_adjustment_PR}}" readonly>
                                                             </div>
@@ -9252,7 +9842,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12 col-md-4 ps-0 ps-md-2">
                                             <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
                                                  onclick="openSachenDropdownStep22222()">
@@ -9363,7 +9953,7 @@ $urole = $urole->toArray();
                                                                 </span>
                                                                 </div>
                                                                 <input class="py-1 form-control GrundversicherungInput" type="date"
-{{--                                                                       name="last_adjustment_PH" id=""--}}
+
                                                                        min="1900-01-01" max="9999-12-31" value="{{$hausratP->last_adjustment_PH}}" readonly>
                                                             </div>
                                                         </div>
@@ -9399,30 +9989,29 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                     <div class="py-4" id="step2BtnDiv">
-                                        <div class="row g-0 changeBtnAlign">
-                                            <div class="col-4 col-md-3 col-lg-2 me-2">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-0 changeBtnAlign pt-4">
+                                            <!-- <div class="col-4 col-md-3 col-lg-2 me-2">
                                                 <button type="button" onclick="backBtnSachen()"
                                                         class="cancelBtnKranken py-0 py-md-1 w-100">Zurück</button>
-                                            </div>
+                                            </div> -->
                                             <div class="col-4 col-md-3 col-lg-2">
                                                 <button onclick="edit();"
                                                         class="continueBtn py-0 py-md-1 w-100">Einreichen</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="pb-4" id="produkteTitleDiv">
                             <span class="documentFormTitle">Produkte</span>
                         </div>
                         <div class="px-0 px-md-0 px-xl-0 mx-0 mx-md-0 mx-lg-4 mx-xl-5">
-                            <div class="row g-0">
-                                <div class="col-6 col-md-6 col-lg-3 pe-2 pb-3">
-                                    <div id="krankenkaseDiv" class="documentFormGreyBGDiv2 pt-3 pb-3"
-
- onclick="openKrankenkasseModal();">
+                            <div class="row g-4">
+                                <div class="col-6 col-md-6 col-lg-6 col-xl">
+                                    <div id="krankenkaseDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openKrankenkasseModal();">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -9440,10 +10029,27 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-6 col-lg-3 ps-2 pe-md-0 pe-lg-2 pb-3">
-                                    <div id="autoDiv" class="documentFormGreyBGDiv2 pt-3 pb-3"
+                                <div class="col-6 col-md-6 col-lg-6 col-xl">
+                                    <div id="rechtsschutzDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openRechtsschutzModal()">
+                                        <div class="row flex-column g-0">
+                                            <div class="col">
+                                                <div class="text-center">
+                                                <svg class="ProduktsSvgClass" viewBox="0 0 171 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M165.102 84.0348H161.499L142.96 46.9579H145.188C148.329 46.9579 150.875 44.4118 150.875 41.2713C150.875 38.1308 148.329 35.5847 145.188 35.5847H90.9088V30.5539C96.8251 28.2633 101.038 22.5289 101.038 15.8141C101.038 7.09388 93.9431 0 85.2221 0C76.5019 0 69.408 7.09388 69.408 15.8141C69.408 22.5282 73.6206 28.2633 79.5355 30.5539V35.5847H25.2585C22.1172 35.5847 19.5719 38.1308 19.5719 41.2713C19.5719 44.4118 22.1172 46.9579 25.2585 46.9579H27.8296L9.29044 84.0348H5.68663C2.54534 84.0348 0 86.5808 0 89.7214C0 110.139 16.611 126.75 37.0298 126.75C57.4479 126.75 74.0581 110.139 74.0581 89.7214C74.0581 86.5808 71.5128 84.0348 68.3715 84.0348H64.7684L46.2308 46.9579H79.5362V123.843H61.4763C58.335 123.843 55.7896 126.39 55.7896 129.53C55.7896 132.671 58.335 135.217 61.4763 135.217H109.665C112.806 135.217 115.351 132.671 115.351 129.53C115.351 126.39 112.806 123.843 109.665 123.843H90.9095V46.9579H124.558L106.021 84.0348H102.418C99.2764 84.0348 96.7311 86.5808 96.7311 89.7214C96.7311 110.139 113.341 126.75 133.759 126.75C154.178 126.75 170.789 110.139 170.789 89.7214C170.788 86.5808 168.243 84.0348 165.102 84.0348ZM85.2221 11.3725C87.6712 11.3725 89.6645 13.3651 89.6645 15.8141C89.6645 18.2632 87.6712 20.255 85.2221 20.255C82.7738 20.255 80.7812 18.2632 80.7812 15.8141C80.7812 13.3651 82.7738 11.3725 85.2221 11.3725ZM37.0298 115.377C24.8369 115.377 14.6033 106.827 12.0086 95.408H12.7805C12.7866 95.408 12.7934 95.4088 12.7995 95.4088C12.8048 95.4088 12.8101 95.408 12.8154 95.408H61.242C61.248 95.408 61.2534 95.4088 61.2579 95.4088C61.2647 95.4088 61.2715 95.408 61.2769 95.408H62.0487C59.4556 106.828 49.222 115.377 37.0298 115.377ZM22.0042 84.0348L37.0291 53.9866L52.0524 84.0348H22.0042ZM133.759 53.9866L148.783 84.0348H118.735L133.759 53.9866ZM133.759 115.377C121.567 115.377 111.333 106.827 108.739 95.408H109.511C109.517 95.408 109.524 95.4088 109.53 95.4088C109.535 95.4088 109.54 95.408 109.546 95.408H157.972C157.978 95.408 157.984 95.4088 157.988 95.4088C157.995 95.4088 158.002 95.408 158.007 95.408H158.779C156.185 106.828 145.952 115.377 133.759 115.377Z" fill="#FFD945"/>
+                                                </svg>
 
- onclick="openAutoModal();">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="text-center">
+                                                    <span class="underSvgSpan">Rechtsschutz</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-6 col-lg-6 col-xl">
+                                    <div id="autoDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openAutoModal();">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -9465,15 +10071,15 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
 
-                                <div class="col-6 col-md-6 col-lg-3 pe-2 ps-0 ps-lg-2">
-                                    <div id="VorsorgeDiv" class="documentFormGreyBGDiv2 pt-3 pb-3"
-
- onclick="openVorsorgeModal();">
+                                <div class="col-6 col-md-6 col-lg-6 col-xl">
+                                    <div id="VorsorgeDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openVorsorgeModal();">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
-                                                    <svg class="ProduktsSvgClass" viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M24.7516 59.4837C11.0816 59.4837 0.00101231 48.2783 0.00101231 34.4546V14.432C-0.0258343 12.7964 0.481952 11.1968 1.447 9.877C2.41204 8.55721 3.78142 7.58959 5.34647 7.1216L8.86222 6.09616C12.2702 5.08857 15.5829 3.78243 18.7621 2.19286L21.4357 0.790314C22.464 0.270693 23.5998 0 24.7516 0C25.9034 0 27.0392 0.270693 28.0676 0.790314L30.8418 2.16639C34.0191 3.76599 37.3315 5.08103 40.7401 6.09616L44.1568 7.1216C45.7218 7.58959 47.0912 8.55721 48.0562 9.877C49.0213 11.1968 49.5291 12.7964 49.5022 14.432V34.4546C49.5022 48.2783 38.4216 59.4837 24.7516 59.4837ZM24.7516 5.01944C24.3751 5.01944 24.0019 5.10379 23.6617 5.27084L20.9155 6.64692C17.5003 8.3966 13.9287 9.82137 10.2477 10.9025L6.73361 11.928C6.20028 12.0867 5.73514 12.4192 5.41204 12.8729C5.08893 13.3265 4.92636 13.8753 4.95014 14.432V34.4546C4.95014 45.5129 13.8163 54.4772 24.7516 54.4772C35.6869 54.4772 44.5514 45.5129 44.5514 34.4546V14.432C44.5753 13.8755 44.413 13.3269 44.0902 12.8733C43.7674 12.4197 43.3027 12.087 42.7696 11.928L39.3794 10.9025C35.6787 9.81928 32.0834 8.40326 28.6373 6.67173L25.8646 5.27084C25.5185 5.10068 25.1372 5.01455 24.7516 5.01944ZM24.7516 43.9913C24.3929 43.9883 24.0387 43.9112 23.7113 43.7647C23.4146 43.6261 23.1482 43.4303 22.9272 43.1885C22.7062 42.9467 22.5349 42.6637 22.4232 42.3555C22.1953 41.7309 22.2226 41.0415 22.4992 40.4369L26.6837 31.2013H18.9867C18.558 31.2033 18.1361 31.0934 17.7626 30.8826C17.3891 30.6718 17.0768 30.3672 16.8565 29.9989C16.6392 29.6178 16.525 29.1865 16.525 28.7477C16.525 28.3089 16.6392 27.8776 16.8565 27.4965L22.6247 16.2084C22.7723 15.9169 22.9761 15.6577 23.2244 15.4456C23.4727 15.2336 23.7605 15.0729 24.0711 14.9729C24.3818 14.873 24.7091 14.8357 25.0343 14.8632C25.3594 14.8907 25.6759 14.9825 25.9654 15.1333C27.1824 15.7684 27.6597 17.2801 27.0305 18.5106L23.1201 26.0195H30.5446C31.3868 26.0212 32.1695 26.4545 32.6253 27.1707C33.0761 27.8819 33.1405 28.7783 32.7971 29.549L27.0305 42.339C26.8629 42.8131 26.5554 43.225 26.1487 43.5201C25.742 43.8152 25.2553 43.9795 24.7533 43.9913H24.7516Z" fill="#14B971" />
+                                                    
+                                                
+                                                    <svg class="ProduktsSvgClass" viewBox="0 0 125 149" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M62.0234 149C27.7817 149 0.0259732 120.932 0.0259732 86.305V36.1506C-0.0412746 32.0535 1.23067 28.0467 3.648 24.7408C6.06532 21.4348 9.49546 19.0111 13.4157 17.8388L22.2223 15.2702C30.7588 12.7463 39.0569 9.47455 47.0204 5.49286L53.7174 1.97965C56.2933 0.678055 59.1383 0 62.0234 0C64.9086 0 67.7535 0.678055 70.3295 1.97965L77.2788 5.42657C85.2376 9.43337 93.5345 12.7274 102.073 15.2702L110.631 17.8388C114.551 19.0111 117.982 21.4348 120.399 24.7408C122.816 28.0467 124.088 32.0535 124.021 36.1506V86.305C124.021 120.932 96.2652 149 62.0234 149ZM62.0234 12.5731C61.0803 12.5731 60.1455 12.7844 59.2934 13.2029L52.4144 16.6498C43.8598 21.0325 34.9134 24.6014 25.6928 27.3096L16.8904 29.8782C15.5544 30.2757 14.3893 31.1088 13.58 32.2451C12.7706 33.3815 12.3634 34.756 12.423 36.1506V86.305C12.423 114.005 34.6317 136.459 62.0234 136.459C89.4152 136.459 111.62 114.005 111.62 86.305V36.1506C111.68 34.7565 111.273 33.3824 110.464 32.2461C109.656 31.1099 108.492 30.2765 107.157 29.8782L98.6643 27.3096C89.3946 24.5962 80.3887 21.0492 71.7566 16.7119L64.8114 13.2029C63.9443 12.7766 62.9892 12.5609 62.0234 12.5731V12.5731ZM62.0234 110.193C61.125 110.186 60.2378 109.993 59.4175 109.626C58.6744 109.278 58.007 108.788 57.4534 108.182C56.8998 107.577 56.4708 106.868 56.191 106.096C55.6203 104.531 55.6886 102.804 56.3813 101.29L66.8631 78.1558H47.583C46.5091 78.1607 45.4524 77.8855 44.5168 77.3575C43.5812 76.8294 42.799 76.0665 42.247 75.1439C41.7029 74.1892 41.4167 73.109 41.4167 72.0098C41.4167 70.9105 41.7029 69.8303 42.247 68.8756L56.6957 40.6001C57.0654 39.87 57.576 39.2207 58.198 38.6895C58.8199 38.1583 59.5407 37.7559 60.3189 37.5055C61.097 37.2551 61.917 37.1616 62.7315 37.2306C63.5459 37.2995 64.3386 37.5295 65.0637 37.9072C68.1123 39.4981 69.3078 43.2847 67.7318 46.3671L57.9366 65.176H76.5342C78.6438 65.1801 80.6045 66.2656 81.7461 68.0595C82.8754 69.8409 83.0367 72.0864 82.1763 74.017L67.7318 106.054C67.312 107.242 66.5416 108.274 65.5229 109.013C64.5042 109.752 63.2852 110.164 62.0276 110.193H62.0234Z" fill="#14B971"/>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -9485,10 +10091,8 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-6 col-lg-3 ps-2">
-                                    <div id="SachenDiv" class="documentFormGreyBGDiv2 pt-3 pb-3"
-
- onclick="openSachenModal();">
+                                <div class="col-6 col-md-6 col-lg-6 col-xl">
+                                    <div id="SachenDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openSachenModal();">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -9513,19 +10117,19 @@ $urole = $urole->toArray();
 
                     </div>
                     <div class="row g-0 justify-content-end">
-                        <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 pt-lg-3 me-lg-4 me-xl-5">
+                        <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3 me-lg-4 me-xl-5">
                             @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
                             @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
                                 @if($pendency->completed == 0 && $pendency->done == 1)
                                     <button class="px-5 py-2 w-100" id="submitt1" type="button"
-                                            style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:500; margin-bottom: 13px;" title="Accept"
+                                            style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
                                             onclick="accept();">
                                         Annehmen
                                     </button>
                                 @endif
                             @endif
                             <button class="px-5 py-2 w-100" id="submitt1" type="button"
-                                    style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:500" title="Accept"
+                                    style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
                                     onclick="edit();">
                                 Einreichen
                             </button>
@@ -10578,86 +11182,6 @@ $urole = $user->getRoleNames()->toArray();
             '<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>' +
             '   <hr style="height: 4px;"> <div class="">' +
             '<div class=""'+
-            '                                                            <div class="GrundversicherungSpans pb-2">'+
-            '                                                                <span class="">'+
-            '                                                                    Police Hochladen:'+
-            '                                                                </span>'+
-            '                                                            </div>'+
-            '                                                            <div class="text-center" id="AutoUploadFilee">'+
-            '                                                                <label for="AutoUpload' + newgcnt + '" class="text-center w-100 px-2 px-md-0">'+
-            '                                                                    <div class="inputFileBG w-100" id="inputFileBG3">'+
-            '                                                                        <div class="px-5 py-3">'+
-            '                                                                            <div id="beforeUploadTextKranken">'+
-            '                                                                                <div class="mb-2">'+
-            '                                                                                    <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">'+
-            '                                                                                           <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>'+
-            '                                                                                           <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>'+
-            '                                                                                     </svg>'+
-            '                                                                                </div>'+
-            '                                                                                <div>'+
-            '                                                                                   <span class="fileInputSecondTitle">Durchsuchen</span>'+
-            '                                                                                </div>'+
-            '                                                                                <div>'+
-            '                                                                                    <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>'+
-            '                                                                                </div>'+
-            '                                                                            </div>'+
-            '                                                                            <div class="aferUploadText" id="aferUploadTextKranken">'+
-            '                                                                                <svg class="afterUploadSvg" viewBox="0 0 90 90" fill="none"'+
-            '                                                                                     xmlns="http://www.w3.org/2000/svg">'+
-            '                                                                                    <path'+
-            '                                                                                        d="M90 45C90 69.8226 69.8226 90 45 90C20.1774 90 0 69.8226 0 45C0 20.1774 20.1774 0 45 0C69.8226 0 90 20.1774 90 45Z"'+
-            '                                                                                        fill="#2F60DC" fill-opacity="0.81" />'+
-            '                                                                                    <path'+
-            '                                                                                        d="M45 0C69.8226 0 90 20.1774 90 45C90 69.8226 69.8226 90 45 90"'+
-            '                                                                                        fill="#002A96" fill-opacity="0.58" />'+
-            '                                                                                    <path'+
-            '                                                                                        d="M13 13.2156C30.6208 -4.4052 59.1636 -4.4052 76.7844 13.2156C94.4052 30.8364 94.4052 59.3792 76.7844 77"'+
-            '                                                                                        fill="#2F60DC" />'+
-            '                                                                                    <path'+
-            '                                                                                        d="M44.1241 61C43.5507 61 43.1206 60.8509 42.6906 60.4036L29.6451 46.8355C28.785 45.9409 28.785 44.599 29.6451 43.7044C30.5052 42.8098 31.7955 42.8098 32.6556 43.7044L44.2675 55.7815L66.3444 32.671C67.2045 31.7763 68.4948 31.7763 69.3549 32.671C70.215 33.5656 70.215 34.9075 69.3549 35.8021L45.5577 60.4036C45.1276 60.8509 44.5542 61 44.1241 61Z"'+
-            '                                                                                        fill="#EEFFFF" />'+
-            '                                                                                </svg>'+
-            '                                                                            </div>'+
-            '                                                                                <input type="file" id="AutoUpload' + newgcnt + '"'+
-            '                                                                                       name="upload_policeFahrzeug' + newgcnt + '" hidden'+
-            '                                                                                       class="svg-div w-100 border-0  g-0"'+
-            '                                                                                       onchange="upload(this);">'+
-            '                                                                                <input type="text"'+
-            '                                                                                       class="form-control text-center"'+
-            '                                                                                       id="AutoUpload' + newgcnt + 'c" disabled'+
-            '                                                                                       style="background:transparent; border:none;">'+
-            '                                                                        </div>'+
-            '                                                                    </div>'+
-            '                                                                </label>'+
-            '                                                            </div>'+
-            '                                                            <div class="">'+
-            '                                                                <div class="row mx-2 pt-3">'+
-            '                                                                    <div class="col-6 d-flex g-0 ">'+
-            '                                                                        <div class="text-nowrap GrundversicherungSpans">'+
-            '                                                                            <span class="">'+
-            '                                                                                Vergleichsart:'+
-            '                                                                            </span>'+
-            '                                                                        </div>'+
-            '                                                                    </div>'+
-            '                                                                    <div class="col g-0 d-flex justify-content-end">'+
-            '                                                                        <div class="text-end">'+
-            '                                                                            <select name="vergleichsart_select' + newgcnt + '"'+
-            '                                                                                    class="form-control GrundversicherungInput" id="">'+
-            '                                                                                    <option selected>Auswählen</option>'+
-            '                                                                                    <option value="1:0 Aktualisierung">1:0'+
-            '                                                                                        Aktualisierung'+
-            '                                                                                    </option>'+
-            '                                                                                    <option value="0:1 Downgraden">0:1'+
-            '                                                                                        Downgraden'+
-            '                                                                                    </option>'+
-            '                                                                                    <option value="1:1 Das Gleiche">1:1 Das'+
-            '                                                                                        Gleiche'+
-            '                                                                                    </option>'+
-            '                                                                            </select>'+
-            '                                                                        </div>'+
-            '                                                                    </div>'+
-            '                                                                </div>'+
-            '                                                            </div>'+
             '                                                            <div class="">'+
             '                                                                <div class="mb-3 mt-3">'+
             '                                                                    <label for="exampleFormControlTextarea1"'+
@@ -12051,64 +12575,62 @@ $urole = $user->getRoleNames()->toArray();
         $("#yesBtnKundingurungForm1").slideUp();
         $("#yesBtnKundingurungForm").slideDown();
         document.getElementById("yesBtnKundingurung").style = "background: #60CB9D";
-        document.getElementById("noBtnKundingurung").style = "background: #F3F1F1";
+        document.getElementById("noBtnKundingurung").style = "background: #d4d4d4";
     }
     function noBtnKundingurungClicked() {
         $("#yesBtnKundingurungForm").slideUp();
-        document.getElementById("yesBtnKundingurung").style = "background: #F3F1F1";
+        document.getElementById("yesBtnKundingurung").style = "background: #d4d4d4";
         document.getElementById("noBtnKundingurung").style = "background: #60CB9D";
 
     }
     function yesBtnMandatiertClicked() {
         $("#yesBtnMandatiertForm").slideDown();
         document.getElementById("yesBtnMandatiert").style = "background: #60CB9D";
-        document.getElementById("noBtnMandatiert").style = "background: #F3F1F1";
+        document.getElementById("noBtnMandatiert").style = "background: #d4d4d4";
     }
     function noBtnMandatiertClicked() {
         $("#yesBtnMandatiertForm").slideUp();
-        document.getElementById("yesBtnMandatiert").style = "background: #F3F1F1";
+        document.getElementById("yesBtnMandatiert").style = "background: #d4d4d4";
         document.getElementById("noBtnMandatiert").style = "background: #EF7C6D";
 
     }
 
     function openSachenModal() {
         $("#sachenModal").css("display", "block");
-        var x = document.getElementsByTagName("BODY")[0];
-        document.getElementById("krankenkaseDiv").style.display = "none";
-        document.getElementById("autoDiv").style.display = "none";
-        document.getElementById("VorsorgeDiv").style.display = "none";
-        document.getElementById("SachenDiv").style.display = "none";
-        document.getElementById("produkteTitleDiv").style.display = "none";
-
-
+        $("#vorsorgeModal").css("display", "none");
+        $("#autoModal").css("display", "none");
+        $("#krankenkasseModal").css("display", "none");
+        $("#rechtsschutzModal").css("display", "none");
     }
     function openVorsorgeModal() {
         $("#vorsorgeModal").css("display", "block");
-        var x = document.getElementsByTagName("BODY")[0];
-        document.getElementById("krankenkaseDiv").style.display = "none";
-        document.getElementById("autoDiv").style.display = "none";
-        document.getElementById("VorsorgeDiv").style.display = "none";
-        document.getElementById("SachenDiv").style.display = "none";
-        document.getElementById("produkteTitleDiv").style.display = "none";
-
+        $("#sachenModal").css("display", "none");
+        $("#autoModal").css("display", "none");
+        $("#krankenkasseModal").css("display", "none");
+        $("#rechtsschutzModal").css("display", "none");
     }
     function openAutoModal() {
         $("#autoModal").show().css("display", "block");
-        document.getElementById("krankenkaseDiv").style.display = "none";
-        document.getElementById("autoDiv").style.display = "none";
-        document.getElementById("VorsorgeDiv").style.display = "none";
-        document.getElementById("SachenDiv").style.display = "none";
-        document.getElementById("produkteTitleDiv").style.display = "none";
-
+        $("#sachenModal").css("display", "none");
+        $("#vorsorgeModal").css("display", "none");
+        $("#krankenkasseModal").css("display", "none");
+        $("#rechtsschutzModal").css("display", "none");
+        
     }
     function openKrankenkasseModal() {
         $("#krankenkasseModal").css("display", "block");
-        document.getElementById("krankenkaseDiv").style.display = "none";
-        document.getElementById("autoDiv").style.display = "none";
-        document.getElementById("VorsorgeDiv").style.display = "none";
-        document.getElementById("SachenDiv").style.display = "none";
-        document.getElementById("produkteTitleDiv").style.display = "none";
+        $("#autoModal").show().css("display", "none");
+        $("#sachenModal").css("display", "none");
+        $("#vorsorgeModal").css("display", "none");
+        $("#rechtsschutzModal").css("display", "none");
+    }
 
+    function openRechtsschutzModal() {
+        $("#rechtsschutzModal").css("display", "block");
+        $("#autoModal").show().css("display", "none");
+        $("#sachenModal").css("display", "none");
+        $("#vorsorgeModal").css("display", "none");
+        $("#krankenkasseModal").css("display", "none");
     }
 
     let mandatiertFile = document.getElementById("mandatiertFile");
@@ -12156,6 +12678,7 @@ $urole = $user->getRoleNames()->toArray();
         document.getElementById("VorsorgeDiv").style.display = "block";
         document.getElementById("SachenDiv").style.display = "block";
         document.getElementById("produkteTitleDiv").style.display = "block";
+        document.getElementById("rechtsschutzDiv").style.display = "block";
     }
     function backBtnKranken() {
         document.getElementById("step1Kranken").style.display = "block";
@@ -12181,6 +12704,8 @@ $urole = $user->getRoleNames()->toArray();
         document.getElementById("VorsorgeDiv").style.display = "block";
         document.getElementById("SachenDiv").style.display = "block";
         document.getElementById("produkteTitleDiv").style.display = "block";
+        document.getElementById("rechtsschutzDiv").style.display = "block";
+
     }
     function backBtnAuto() {
         document.getElementById("step1Auto").style.display = "block";
@@ -12206,6 +12731,8 @@ $urole = $user->getRoleNames()->toArray();
         document.getElementById("VorsorgeDiv").style.display = "block";
         document.getElementById("SachenDiv").style.display = "block";
         document.getElementById("produkteTitleDiv").style.display = "block";
+        document.getElementById("rechtsschutzDiv").style.display = "block";
+
     }
     function backBtnVorsorge() {
         document.getElementById("step1Vorsorge").style.display = "block";
@@ -12231,6 +12758,8 @@ $urole = $user->getRoleNames()->toArray();
         document.getElementById("VorsorgeDiv").style.display = "block";
         document.getElementById("SachenDiv").style.display = "block";
         document.getElementById("produkteTitleDiv").style.display = "block";
+        document.getElementById("rechtsschutzDiv").style.display = "block";
+
     }
     function backBtnSachen() {
         document.getElementById("step1Sachen").style.display = "block";
@@ -12250,39 +12779,39 @@ $urole = $user->getRoleNames()->toArray();
     }
     function yesBtnRaucherClicked() {
         document.getElementById("yesBtnRaucher").style = "background: #60CB9D";
-        document.getElementById("noBtnRaucher").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("noBtnRaucher").style = "background: #d4d4d4";
     }
 
     function noBtnRaucherClicked() {
-        document.getElementById("yesBtnRaucher").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("yesBtnRaucher").style = "background: #d4d4d4";
         document.getElementById("noBtnRaucher").style = "background: rgb(239, 124, 109)";
     }
     function yesBtnTodesfalkapitalClicked() {
         document.getElementById("yesBtnTodesfalkapital").style = "background: #60CB9D";
-        document.getElementById("noBtnTodesfalkapital").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("noBtnTodesfalkapital").style = "background: #d4d4d4";
     }
 
     function noBtnTodesfalkapitalClicked() {
-        document.getElementById("yesBtnTodesfalkapital").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("yesBtnTodesfalkapital").style = "background: #d4d4d4";
         document.getElementById("noBtnTodesfalkapital").style = "background: rgb(239, 124, 109)";
     }
 
     function yesBtnRenteClicked() {
         document.getElementById("yesBtnRente").style = "background: #60CB9D";
-        document.getElementById("noBtnRente").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("noBtnRente").style = "background: #d4d4d4";
     }
 
     function noBtnRenteClicked() {
-        document.getElementById("yesBtnRente").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("yesBtnRente").style = "background: #d4d4d4";
         document.getElementById("noBtnRente").style = "background: rgb(239, 124, 109)";
     }
     function yesBtnPramienbefreiungClicked() {
         document.getElementById("yesBtnPramienbefreiung").style = "background: #60CB9D";
-        document.getElementById("noBtnPramienbefreiung").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("noBtnPramienbefreiung").style = "background: #d4d4d4";
     }
 
     function noBtnPramienbefreiungClicked() {
-        document.getElementById("yesBtnPramienbefreiung").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("yesBtnPramienbefreiung").style = "background: #d4d4d4";
         document.getElementById("noBtnPramienbefreiung").style = "background: rgb(239, 124, 109)";
     }
 
@@ -12323,169 +12852,175 @@ $urole = $user->getRoleNames()->toArray();
     function openSachenDropdownStep22222() {
         $("#Hausrat").slideToggle();
     }
+    function openGesellschaftDropdownStep(){
+        $("#Gesellschaft").slideToggle();
+    }
+    function openPreisDropdownStep(){
+        $("#Preis").slideToggle();
+    }
 
     //per javascript
     function yesBtnLeasingClickedx(x) {
         document.getElementById("btnradio1" + x+"nn").style = "background: #60CB9D";
-        document.getElementById("btnradio2" + x+"nn").style = "background: rgba(231, 236, 249, 0.32);";
+        document.getElementById("btnradio2" + x+"nn").style = "background: #d4d4d4;";
     }
     function noBtnLeasingClickedx(x) {
-        document.getElementById("btnradio1" + x+"nn").style = "background: rgba(231, 236, 249, 0.32);";
+        document.getElementById("btnradio1" + x+"nn").style = "background: #d4d4d4;";
         document.getElementById("btnradio2" + x+"nn").style = "background: #EF7C6D";
     }
 
     function yesBtnGarageClickedx(x) {
         document.getElementById("btnradio1__" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2__" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2__" + x+"n").style = "background: #d4d4d4";
     }
 
     function noBtnGarageClickedx(x) {
-        document.getElementById("btnradio1__" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1__" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2__" + x+"n").style = "background: #EF7C6D";
     }
 
     function yesBtnUnfalldeckungClickedx(x) {
         document.getElementById("btnradiis1_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradiis2_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradiis2_" + x+"n").style = "background: #d4d4d4";
     }
 
     function noBtnUnfalldeckungClickedx(x) {
-        document.getElementById("btnradiis1_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradiis1_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradiis2_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnVerkehrsrechtsschutzClickedx(x) {
         document.getElementById("btnradio1b_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2b_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2b_" + x+"n").style = "background: #d4d4d4";
     }
 
     function noBtnVerkehrsrechtsschutzClickedx(x) {
 
-        document.getElementById("btnradio1b_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1b_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2b_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnGrobfahrlässigkeitschutzClickedx(x) {
         document.getElementById("btnradio1ab_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2ab_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2ab_" + x+"n").style = "background: #d4d4d4";
     }
 
     function noBtnGrobfahrlässigkeitschutzClickedx(x) {
 
-        document.getElementById("btnradio1ab_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1ab_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2ab_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnGlasschutzClickedx(x) {
         document.getElementById("btnradio1abbbe_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abbbe_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abbbe_" + x+"n").style = "background: #d4d4d4";
     }
 
     function noBtnGlasschutzClickedx(x) {
 
-        document.getElementById("btnradio1abbbe_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abbbe_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2abbbe_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnParkschadenClickedx(x) {
         document.getElementById("btnradio1abce_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abce_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abce_" + x+"n").style = "background: #d4d4d4";
     }
     function noBtnParkschadenClickedx(x) {
 
-        document.getElementById("btnradio1abce_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abce_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2abce_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
     function noBtnPannenhilfeClickedx(x) {
 
-        document.getElementById("btnradio1abceee_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abceee_" + x+"n").style = "background: #d4d4d4";
         document.getElementById("btnradio2abceee_" + x+"n").style = "background: rgb(239, 124, 109); ";
     }
     function yesBtnPannenhilfeClickedx(x) {
         document.getElementById("btnradio1abceee_" + x+"n").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abceee_" + x+"n").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abceee_" + x+"n").style = "background: #d4d4d4";
     }
 
     //per foreach
     function yesBtnLeasingClickedf(x) {
         document.getElementById("btnradio1" + x+"nn").style = "background: #60CB9D";
-        document.getElementById("btnradio2" + x+"nn").style = "background: rgba(231, 236, 249, 0.32);";
+        document.getElementById("btnradio2" + x+"nn").style = "background: #d4d4d4;";
     }
     function noBtnLeasingClickedf(x) {
-        document.getElementById("btnradio1" + x+"nn").style = "background: rgba(231, 236, 249, 0.32);";
+        document.getElementById("btnradio1" + x+"nn").style = "background: #d4d4d4;";
         document.getElementById("btnradio2" + x+"nn").style = "background: #EF7C6D";
     }
 
     function yesBtnGarageClickedf(x) {
         document.getElementById("btnradio1__" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2__" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2__" + x+"nn").style = "background: #d4d4d4";
     }
 
     function noBtnGarageClickedf(x) {
-        document.getElementById("btnradio1__" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1__" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2__" + x+"nn").style = "background: #EF7C6D";
     }
 
     function yesBtnUnfalldeckungClickedf(x) {
         document.getElementById("btnradiis1_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradiis2_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradiis2_" + x+"nn").style = "background: #d4d4d4";
     }
 
     function noBtnUnfalldeckungClickedf(x) {
-        document.getElementById("btnradiis1_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradiis1_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradiis2_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnVerkehrsrechtsschutzClickedf(x) {
         document.getElementById("btnradio1a_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2a_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2a_" + x+"nn").style = "background: #d4d4d4";
     }
 
     function noBtnVerkehrsrechtsschutzClickedf(x) {
 
-        document.getElementById("btnradio1a_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1a_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2a_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnGrobfahrlässigkeitschutzClickedf(x) {
         document.getElementById("btnradio1ab_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2ab_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2ab_" + x+"nn").style = "background: #d4d4d4";
     }
 
     function noBtnGrobfahrlässigkeitschutzClickedf(x) {
 
-        document.getElementById("btnradio1ab_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1ab_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2ab_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnGlasschutzClickedf(x) {
         document.getElementById("btnradio1abbbe_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abbbe_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abbbe_" + x+"nn").style = "background: #d4d4d4";
     }
 
     function noBtnGlasschutzClickedf(x) {
 
-        document.getElementById("btnradio1abbbe_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abbbe_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2abbbe_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
 
     function yesBtnParkschadenClickedf(x) {
         document.getElementById("btnradio1abce_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abce_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abce_" + x+"nn").style = "background: #d4d4d4";
     }
     function noBtnParkschadenClickedf(x) {
 
-        document.getElementById("btnradio1abce_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abce_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2abce_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
     function noBtnPannenhilfeClickedf(x) {
 
-        document.getElementById("btnradio1abceee_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio1abceee_" + x+"nn").style = "background: #d4d4d4";
         document.getElementById("btnradio2abceee_" + x+"nn").style = "background: rgb(239, 124, 109); ";
     }
     function yesBtnPannenhilfeClickedf(x) {
         document.getElementById("btnradio1abceee_" + x+"nn").style = "background: #60CB9D ";
-        document.getElementById("btnradio2abceee_" + x+"nn").style = "background: rgba(231, 236, 249, 0.32)";
+        document.getElementById("btnradio2abceee_" + x+"nn").style = "background: #d4d4d4";
     }
 
 
@@ -12570,7 +13105,11 @@ $urole = $user->getRoleNames()->toArray();
     span {
         font-family: 'Montserrat';
     }
-
+    .stepsBgColor {
+        background: #FFFFFF;
+        box-shadow: 0px 4px 39px rgba(83, 80, 80, 0.09);
+        border-radius: 23px;
+    }
     .documentFormTitle {
         font-weight: 600;
     }
@@ -12608,14 +13147,14 @@ $urole = $user->getRoleNames()->toArray();
     }
 
     .documentFormBtn {
-        background: #F3F1F1;
+        background: #d4d4d4;
         border-radius: 10px;
         border: none;
         outline: none;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 17px;
         text-align: center;
-        color: #1D2346;
+        color: #fff;
         padding-top: 12px;
         padding-bottom: 12px;
         width: 80px;
@@ -12700,10 +13239,7 @@ $urole = $user->getRoleNames()->toArray();
         display: none;
         height: auto;
         width: 100%;
-        background: #fff;
-        border-radius: 22px;
         z-index: 11;
-        box-shadow: 0px 4px 39px rgba(83, 80, 80, 0.09);
     }
 
     .blurBody {
@@ -12726,7 +13262,7 @@ $urole = $user->getRoleNames()->toArray();
 
     .activeStepTitle {
         font-weight: 500;
-        font-size: 25px;
+        font-size: 18px;
         letter-spacing: -0.04em;
         color: #3F4852;
     }
@@ -12740,7 +13276,7 @@ $urole = $user->getRoleNames()->toArray();
 
     .passiveStepTitle {
         font-weight: 500;
-        font-size: 25px;
+        font-size: 16px;
         color: #B4B9BC;
     }
 
@@ -12754,7 +13290,7 @@ $urole = $user->getRoleNames()->toArray();
 
     .uncheckedCheckbox {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         color: #B4B9BC;
         line-height: 0.8;
     }
@@ -12918,7 +13454,7 @@ $urole = $user->getRoleNames()->toArray();
     }
 
     .cancelBtnKranken {
-        font-weight: 500;
+        font-weight: 600;
         font-size: 16px;
         color: #658BEB;
         border: 1px solid rgba(101, 139, 235, 0.4);
@@ -12932,7 +13468,7 @@ $urole = $user->getRoleNames()->toArray();
         background: #658BEB;
         border: 1px solid rgba(101, 139, 235, 0.4);
         border-radius: 6px;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 14px;
         color: #fff;
         width: 100%;
@@ -12946,6 +13482,7 @@ $urole = $user->getRoleNames()->toArray();
         color: #FFFFFF;
         border: 1px solid #2F60DC;
         width: 100%;
+        font-weight: 600
     }
 
     .list-choice-title-step2 {
@@ -12959,7 +13496,7 @@ $urole = $user->getRoleNames()->toArray();
         border: 1px solid #EDEDED;
         box-sizing: border-box;
         border-radius: 11px;
-        display: none;
+        display: block;
     }
 
     .GrundversicherungSpans {
@@ -13003,7 +13540,7 @@ $urole = $user->getRoleNames()->toArray();
 
     .documentFormBtn {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     .fileInputFirstTitle {
@@ -13034,7 +13571,7 @@ $urole = $user->getRoleNames()->toArray();
     }
 
     .pageBackgroundColor {
-        background: rgba(247, 245, 245, 0.55);
+        background: #fafafa;
         border: 1px solid #F1F1F1;
         box-sizing: border-box;
         border-radius: 22px;
@@ -13064,7 +13601,7 @@ $urole = $user->getRoleNames()->toArray();
     }
 
     .inFormYesNoBtn {
-        background: rgba(231, 236, 249, 0.32);
+        background: #d4d4d4;
         padding-top: 7px;
         padding-bottom: 7px;
         cursor: pointer;
@@ -13140,13 +13677,13 @@ $urole = $user->getRoleNames()->toArray();
 
         .activeStepTitle {
             font-weight: 500;
-            font-size: 20px;
+            font-size: 18px;
 
         }
 
         .passiveStepTitle {
             font-weight: 500;
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .modalTitle {
@@ -13154,7 +13691,7 @@ $urole = $user->getRoleNames()->toArray();
         }
 
         .uncheckedCheckbox {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1;
         }
 
@@ -13213,13 +13750,13 @@ $urole = $user->getRoleNames()->toArray();
 
         .activeStepTitle {
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px;
 
         }
 
         .passiveStepTitle {
             font-weight: 500;
-            font-size: 18px;
+            font-size: 15px;
         }
 
         .continueBtnDiv {
@@ -13231,7 +13768,7 @@ $urole = $user->getRoleNames()->toArray();
         }
 
         .uncheckedCheckbox {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.3;
         }
 
@@ -13252,6 +13789,10 @@ $urole = $user->getRoleNames()->toArray();
 
         .documentFormBtn {
             width: 85px;
+        }
+        .Grundversicherung,
+        .Zusatzversicherung { 
+        display: none;
         }
     }
 
@@ -13279,7 +13820,7 @@ $urole = $user->getRoleNames()->toArray();
 
         .documentFormBtn {
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
 
         }
 
@@ -13320,18 +13861,18 @@ $urole = $user->getRoleNames()->toArray();
         }
 
         .activeStepTitle {
-            font-weight: 400;
+            font-weight: 500;
             font-size: 16px;
 
         }
 
         .passiveStepTitle {
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .documentsFormModals {
-            background-color: #F7F8FC;
+            background-color: #fff;
             box-shadow: none;
 
         }

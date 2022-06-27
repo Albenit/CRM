@@ -34,6 +34,9 @@ class LeadDataS extends Migration
             $table->string('death_benefit')->nullable();
             $table->string('smoker')->nullable();
             $table->string('desired')->nullable();
+            $table->string('id_select_vorsorge')->nullable();
+            $table->string('vollmacht_select_vorsorge')->nullable();
+            $table->string('upload_file_vorsorge')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->string('nationality_sachen')->nullable();
             $table->timestamp('updated_at')->useCurrent();

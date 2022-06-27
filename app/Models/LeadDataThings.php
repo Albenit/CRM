@@ -30,5 +30,8 @@ class LeadDataThings extends Model
         'death_benefit',
         'smoker',
         'desired',
+        'id_select_vorsorge',
+        'vollmacht_select_vorsorge',
+        'upload_file_vorsorge',
     ];
 }

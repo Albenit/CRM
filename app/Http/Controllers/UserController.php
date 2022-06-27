@@ -60,6 +60,7 @@ use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\LeadDataPlus;
+use App\Models\LeadDataRech;
 use App\Notifications\SendNotificationn;
 use Illuminate\Support\Facades\URL;
 use function Clue\StreamFilter\fun;
@@ -582,6 +583,7 @@ public function folgetermin($id){
                 LeadDataPrevention::create(['person_id'=> $family->id,'leads_id' => (int) $idd]);
                 LeadDataThings::create(['person_id'=> $family->id,'leads_id'=> (int) $idd]);
                 LeadDataCounteroffered::create(['person_id'=> $family->id,'leads_id'=> (int) $idd]);
+                LeadDataRech::create(['person_id' => $family->id, 'leads_id' => (int) $idd]);
                 CostumerProduktGrundversicherung::create(['person_id_PG'=> $family->id,'status_PG' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
                 CostumerProduktZusatzversicherung::create(['person_id_PZ'=> $family->id,'status_PZ' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
                 CostumerProduktAutoversicherung::create(['person_id_PA'=> $family->id,'status_PA' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
@@ -658,7 +660,7 @@ public function folgetermin($id){
             $pending_rejcted->pending_or_reject = 0;
 
             if ($pending_rejcted->save()) {
-                lead::where('id', $leads_id)->update(['assigned' => 0, 'rejected' => 1,'duration_time' => Carbon::now()]);
+                lead::where('id', $leads_id)->update(['assigned' => 0, 'rejected' => 1,'duration_time' => Carbon::now(),'deleted_at' => Carbon::now()]);
                 return redirect()->back()->with('success', 'Erfolgreich abgelehnt');
             } else {
                 return redirect()->back()->with('fail', 'Kann nicht abgelehnt werden');

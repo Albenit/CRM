@@ -10,4 +10,7 @@ class lead_history extends Model
     use HasFactory;
     protected $table = 'leads_history';
 
+
+
+
 }

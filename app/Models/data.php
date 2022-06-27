@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class data extends Model
 {
     use HasFactory;
-    public $counter,$fahrzeug,$datakk,$prevention,$things;
+    public $counter,$fahrzeug,$datakk,$prevention,$things,$rech;
      public function getdata($id){
       $this->counter = LeadDataCounteroffered::where('person_id',$id)->first();
       $this->fahrzeug = LeadDataFahrzeug::where('person_id',$id)->first();
@@ -16,5 +16,6 @@ class data extends Model
       $this->datakk = LeadDataKK::where('person_id',$id)->first();
       $this->prevention = LeadDataPrevention::where('person_id',$id)->first();
       $this->things = LeadDataThings::where('person_id',$id)->first();
+      $this->rech = LeadDataRech::where('person_id', $id)->first();
      }
 }

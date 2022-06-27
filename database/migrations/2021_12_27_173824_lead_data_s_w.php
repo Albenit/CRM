@@ -28,6 +28,9 @@ class LeadDataSW extends Migration
             $table->string('personal_liability')->nullable();
             $table->string('society')->nullable();
             $table->string('n_of_p_legal_protection')->nullable();
+            $table->string('id_select_sachen')->nullable();
+            $table->string('vollmacht_select_sachen')->nullable();
+            $table->string('upload_file_sachen')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

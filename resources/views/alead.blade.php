@@ -29,37 +29,37 @@
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Vorname</label>
-                                    <input type="text" name="name" class="form-control GrundversicherungInput" value="{{$lead->first_name}}">
+                                    <input type="text" name="name" class="form-control GrundversicherungInput" value="{{$lead->first_name}}" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Nachname</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->last_name}}" name="lname" >
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->last_name}}" name="lname" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Strasse</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->address}}" name="address">
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->address}}" name="address" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Nr</label>
-                                    <input type="number" class="form-control GrundversicherungInput" value="" name="nr">
+                                    <input type="number" class="form-control GrundversicherungInput" value="" name="nr" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Ort</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->city}}" name="ort">
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->city}}" name="ort" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">PLZ</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->postal_code}}" name="postal">
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->postal_code}}" name="postal" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -77,27 +77,27 @@
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Datum</label>
-                                    <input type="date" class="form-control GrundversicherungInput" name="appointmentdate" min="1900-01-01" max="9999-12-31">
+                                    <input type="date" class="form-control GrundversicherungInput" name="appointmentdate" min="1900-01-01" max="9999-12-31" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">Zeit</label>
                                     <!-- <input class="form-control GrundversicherungInput" type="time" name="apptime"> -->
-                                    <select required id="hours" name="apptime" class="form-select GrundversicherungInput">
+                                    <select required id="hours" name="apptime" class="form-select GrundversicherungInput" required>
                                             </select>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">Tel. Privat</label>
-                                    <input type="text" class="form-control GrundversicherungInput" name="telephone" value="{{$lead->telephone}}">
+                                    <input type="text" class="form-control GrundversicherungInput" name="telephone" value="{{$lead->telephone}}" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Personen</label>
-                                    <input type="number" class="form-control GrundversicherungInput" value="{{$lead->number_of_persons}}" name="personen">
+                                    <input type="number" class="form-control GrundversicherungInput" value="{{$lead->number_of_persons}}" name="personen" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">

@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 use App\Models\Admins;
+use App\Models\LeadDataRech;
 use App\Models\newgegen;
 use App\Models\newnue;
 use App\Notifications\SendNotificationn;
@@ -731,7 +732,7 @@ class LeadDataController extends Controller
             'graduation_date_PR'=> $request->graduation_date_PR,
             'society_PR' => filter_var($request->society_PR,FILTER_SANITIZE_STRING),
             'produkt_PR'=> filter_var($request->produkt_PR,FILTER_SANITIZE_STRING),
-             $table_PR => filter_var($request->status_PR,FILTER_SANITIZE_STRING),
+            'status_PR' => 'Offen (Innendienst)',
             'last_adjustment_PR'=> $todayR,
             'total_commisions_PR'=> (int) filter_var($request->total_commisions_PR,FILTER_SANITIZE_STRING)
         ]);
@@ -978,6 +979,8 @@ class LeadDataController extends Controller
         if ($existingLeadDataFahrzeug) {
             $existingLeadDataFahrzeug->update($leadDataFahrzeug);
         }
+
+
         $existingLeadDataThings = LeadDataThings::where('person_id', $personId)->latest()->first();
 
         $leadDataThings = [
@@ -999,11 +1002,29 @@ class LeadDataController extends Controller
             'death_benefit' => $request->death_benefit,
             'smoker' => $request->smoker ? $request->smoker : $existingLeadDataThings->smoker,
             'desired' => $request->desired,
+            'id_select_vorsorge' => $request->id_select_vorsorge,
+            'vollmacht_select_vorsorge' => $request->vollmacht_select_vorsorge,
+            'upload_file_vorsorge' => $request->hasFile('upload_file_vorsorge') ?  $this->storeFile($request->file('upload_file_vorsorge'),FolderPaths::KK_FILES) : $existingLeadDataThings->upload_file_vorsorge,
         ];
 
 
         if ($existingLeadDataThings) {
             $existingLeadDataThings->update($leadDataThings);
+        }
+
+        $existingLeadDataRech = LeadDataRech::where('person_id',$personId)->latest()->first();
+
+        $leadDataRech = [
+            'leads_id' => $leadId,
+            'person_id' => $personId,
+            'id_select' => $request->id_select_rech,
+            'vertrag_select' => $request->vertrag_select_rech,
+            'upload_file' => $request->hasFile('rech_uploadFile') ?  $this->storeFile($request->file('rech_uploadFile'),FolderPaths::KK_FILES) : $existingLeadDataRech->upload_file,
+            'gesellchaft' => $request->gesellchaft,
+        ];
+
+        if ($existingLeadDataRech) {
+            $existingLeadDataRech->update($leadDataRech);
         }
 
         $existingLeadDataPrevention = LeadDataPrevention::where('person_id', $personId)->latest()->first();
@@ -1027,6 +1048,9 @@ class LeadDataController extends Controller
             'n_of_p_legal_protection' => $request->n_of_p_legal_protection,
             'Hvergleichsart_select' => $request->Hvergleichsart_select,
             'newoffer' => $request->hasFile('newoffer') ? $this->storeFile($request->file('newoffer'), FolderPaths::KK_FILES) : $existingLeadDataPrevention->newoffer,
+            'id_select_sachen' => $request->id_select_sachen,
+            'vollmacht_select_sachen' => $request->vollmacht_select_sachen,
+            'upload_file_sachen' => $request->hasFile('upload_file_sachen') ? $this->storeFile($request->file('upload_file_sachen'), FolderPaths::KK_FILES) : $existingLeadDataPrevention->upload_file_sachen,
         ];
 
 

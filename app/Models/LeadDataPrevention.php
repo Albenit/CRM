@@ -26,5 +26,8 @@ class LeadDataPrevention extends Model
         'n_of_p_legal_protection',
         'Hvergleichsart_select',
         'newoffer',
+        'id_select_sachen',
+        'vollmacht_select_sachen',
+        'upload_file_sachen',
     ];
 }

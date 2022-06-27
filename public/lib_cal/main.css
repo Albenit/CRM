@@ -6,7 +6,7 @@
   cursor: not-allowed;
 }
 .fc-event-main {
-  min-height: 60px;
+  min-height: 20px;
 }
 
 /* TODO: not attached to body. attached to specific els. move */

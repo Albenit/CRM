@@ -1,218 +1,5 @@
 @extends('template.navbar')
 @section('content')
-{{-- @foreach($leads as $lead)
-    <div class="row g-0 m-3 flexDirRow">
-        <div class="col-3 pe-0 openLeadsFirstDiv">
-            <div class="">
-                <div class="whiteee p-3">
-                    <div class="namme mb-2">
-                        <span class="fs-4 fw-bold">{{$lead->first_name}} (19.1.1986)</span>
-                    </div>
-                    <div class="adresse row">
-                        <div class="col-4 pe-0">
-                            <span class="">Adresse:</span>
-                        </div>
-                        <div class="col ps-0">
-                            <span class="grayyy1 fw-500 ">{{$lead->address}}</span>
-                        </div>
-                    </div>
-                    <div class="haushalt row">
-                        <div class="col-4 pe-0">
-                            <span class="">Haushalt:</span>
-                        </div>
-                        <div class="col ps-0">
-                            <span class="grayyy1 fw-500">{{$lead->number_of_persons}}</span>
-                        </div>
-                    </div>
-                    <div class="grund row">
-                        <div class="col-4 pe-0">
-                            <span class="">Grund:</span>
-                        </div>
-                        <div class="col ps-0">
-                            <span class="grayyy1 fw-500">@if($lead->info != null) {{$lead->info->grund}} @endif</span>
-                        </div>
-                    </div>
-                    <div class="kampagne row">
-                        <div class="col-4 pe-0">
-                            <span class="">Kampagne:</span>
-                        </div>
-                        <div class="col ps-0">
-                            <span class="grayyy1 fw-500">@if($lead->info != null) {{$lead->info->kampagne}} @endif</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grayyy" style="cursor: pointer;">
-                    <div class="lead-offnen text-center py-2">
-                        <span class="fs-4 fw-bold">Lead öffnen</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col px-0 receivedCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Erhalten/Neu</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="greyBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div class="receivedDiv h-100 my-auto ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4">
-                        Empfangen
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col px-0 assignedToCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Zugewiesen An</span>
-                </div>
-                <div class="my-auto h-75">
-                @if($lead->assign_to_id != null)
-                    <div
-                        class="orangeBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div
-                            class="assignedToDiv h-100 my-auto ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0">
-                            
-                        </div>
-                    </div>
-                    @else
-                    <div
-                        class="orangeBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div
-                            class="assignedToDiv h-100 my-auto ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0">
-                            
-                        </div>
-                    </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-        @if($lead->rejected == 1)
-        <div class="col px-0 lostCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Hat Verloren</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="redBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto h-100">
-                        <div
-                            class="lostDiv my-auto h-100 justify-content-center ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0">
-                            Hat Verloren
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col px-0 wonCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Gewonnen</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="greenBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div
-                            class="wonDiv my-auto h-100 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0 ps-0 ps-sm-0 ps-md-5 ps-lg-5 ps-xl-5 ps-xxl-5 ms-0 ms-sm-0 ms-md-5 ms-lg-5 ms-xl-5 ms-xxl-5">
-                            <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="59.804" height="43.804"
-                                viewBox="0 0 59.804 43.804">
-                                <path id="Path_379" data-name="Path 379"
-                                    d="M8370.12,1003.732l20.094,20.423,35.472-40.187"
-                                    transform="translate(-8367.999 -981.851)" fill="none" stroke="#feffff"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @elseif($lead->rejected == 0 && $lead->assign_to_id != null && $lead->assign_to_id != 0 && $lead->appointment_date != null)
-        <div class="col px-0 lostCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Hat Verloren</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="redBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto h-100">
-                        <div
-                            class="lostDiv my-auto h-100 justify-content-center ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0">
-                            Hat Verloren
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col px-0 wonCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Gewonnen</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="greenBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div
-                            class="wonDiv my-auto h-100 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0 ps-0 ps-sm-0 ps-md-5 ps-lg-5 ps-xl-5 ps-xxl-5 ms-0 ms-sm-0 ms-md-5 ms-lg-5 ms-xl-5 ms-xxl-5">
-                            <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="59.804" height="43.804"
-                                viewBox="0 0 59.804 43.804">
-                                <path id="Path_379" data-name="Path 379"
-                                    d="M8370.12,1003.732l20.094,20.423,35.472-40.187"
-                                    transform="translate(-8367.999 -981.851)" fill="none" stroke="#feffff"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @else
-        <div class="col px-0 lostCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Hat Verloren</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="redBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto h-100">
-                        <div
-                            class="lostDiv my-auto h-100 justify-content-center ps-0 ps-sm-0 ps-md-4 ps-lg-4 ps-xl-4 ps-xxl-4 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0">
-                            Hat Verloren
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col px-0 wonCol">
-            <div class="py-0 py-sm-0 py-md-3 py-lg-3 py-xl-3 py-xxl-3 h-100">
-                <div class="text-center hideTextMob">
-                    <span class="openLeadsSpanText">Gewonnen</span>
-                </div>
-                <div class="my-auto h-75">
-                    <div
-                        class="greenBorderDiv py-5 py-sm-5 py-md-0 py-lg-0 py-xl-0 py-xxl-0 mt-0 mt-sm-0 mt-md-2 mt-lg-2 mt-xxl-2 mt-xl-2 my-auto">
-                        <div
-                            class="wonDiv my-auto h-100 pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pt-xxl-0 ps-0 ps-sm-0 ps-md-5 ps-lg-5 ps-xl-5 ps-xxl-5 ms-0 ms-sm-0 ms-md-5 ms-lg-5 ms-xl-5 ms-xxl-5">
-                            <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="59.804" height="43.804"
-                                viewBox="0 0 59.804 43.804">
-                                <path id="Path_379" data-name="Path 379"
-                                    d="M8370.12,1003.732l20.094,20.423,35.472-40.187"
-                                    transform="translate(-8367.999 -981.851)" fill="none" stroke="#feffff"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-    </div>
-@endforeach  --}}
-
-
-
-
 
 <div>
     <div class="p-4">
@@ -228,7 +15,7 @@
                         <th scope="col" class="header-styling">Personen</th>
                         <th scope="col"  class="header-styling">Status</th>
                         <th scope="col" class="header-styling">Kampagne</th>
-                        <th scope="col" class="header-styling">Teilnahme</th>
+                        <th scope="col" class="header-styling">Berater</th>
                         <th scope="col" class="header-styling"></th>
                     </tr>
                 </thead>
@@ -277,7 +64,7 @@
                             <div>{{$lead->info->kampagne}}</div>
                         </td>
                         <td>
-                            <div>{{$lead->info->teilnahme}}</div>
+                            <div> {{ucfirst($lead->assign_to_id == null ? '' : $lead->admin->name)}}</div>
                         </td>
                         <td>
                             <div class="showMoreBlueText fw-600" data-bs-toggle="modal" data-bs-target="#{{$lead->slug}}">Details</div>
@@ -315,23 +102,23 @@
                                                         </div>
 
                                                         <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Plattform: <span
-                                                style="color: #88889D;font-weight: 500">{{$lead->campaign->name}} </span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span style="color: #434343; font-weight: 600;">Kampagne:
-                                                <span style="color: #88889D;font-weight: 500"> {{$lead->info->kampagne}}</span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Grund: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->info->grund}}</span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Teilnahme: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->info->teilnahme}}</span></span><br>
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Plattform: <span
+                                                                style="color: #88889D;font-weight: 500">{{$lead->campaign->name}} </span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span style="color: #434343; font-weight: 600;">Kampagne:
+                                                                <span style="color: #88889D;font-weight: 500"> {{$lead->info->kampagne}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Grund: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->info->grund}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Teilnahme: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->info->teilnahme}}</span></span><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -342,40 +129,124 @@
                                                             <h6 style="color: #434343 !important; font-weight: 700 !important;">Angaben</h6>
                                                         </div>
                                                         <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Gerburstdatum: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->birthdate}}</span></span><br>
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Gerburstdatum: <span
+                                                                style="color: #88889D;font-weight: 500"> {{Carbon\Carbon::parse($lead->birthdate)->format('d.m.Y')}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Haushalt: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->number_of_persons}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Telefon: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->telephone}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">PLZ, Ort: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->postal_code}} {{ $lead->city }} </span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Krankenkasse: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->info->krankenkasse}} </span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Bewertung KK: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->info->bewertung}} </span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Wichtig: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->info->wichtig}} </span></span><br>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-sm-2 mt-1">
+                                            <div class="mx-0 pb-0 mx-sm-3 pb-sm-3 row g-2">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="text-dark text-left p-3 m-2 h-100"
+                                                            style="border-radius: 9px; background:#fafafa;">
+                                                        <div class="py-2">
+                                                            <h6 style="font-weight: 700 !important; color:#434343 !important;">Lead Details</h6>
+                                                        </div>
+
                                                         <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Haushalt: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->number_of_persons}}</span></span><br>
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Assigned From: <span
+                                                                style="color: #88889D;font-weight: 500">Sales Manager </span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span style="color: #434343; font-weight: 600;">Assigned To:
+                                                                <span style="color: #88889D;font-weight: 500">{{$lead->assign_to_id == null ? '' : $lead->admin->name }}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            <span
+                                                                style="color: #434343; font-weight: 600;">Created At: <span
+                                                                style="color: #88889D;font-weight: 500"> {{$lead->created_at->format('d.m.Y')}}</span></span><br>
+                                                                        </div>
+                                                                        <div class="py-1">
+                                                            </span><br>
                                                         </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Telefon: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->telephone}}</span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">PLZ, Ort: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->postal_code}} {{ $lead->city }} </span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Krankenkasse: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->info->krankenkasse}} </span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Bewertung KK: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->info->bewertung}} </span></span><br>
-                                                        </div>
-                                                        <div class="py-1">
-                                            <span
-                                                style="color: #434343; font-weight: 600;">Wichtig: <span
-                                                style="color: #88889D;font-weight: 500"> {{$lead->info->wichtig}} </span></span><br>
-                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="text-dark text-left p-3 h-100 m-2"
+                                                            style="border-radius: 9px; background:#fafafa;">
+                                                        
+                                                        @if($lead->rejected == 1 || $lead->deleted_at != null)
+                                                            <div class="py-1">
+                                                                <h6 style="color: #434343 !important; font-weight: 700 !important;">Lead Verloren</h6>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Grund: 
+                                                                    <span style="color: #88889D;font-weight: 500">{{$lead->leadsHistory->status}} {{$lead->pendingRejectLead->begrundung}}</span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Verloren Datum: 
+                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->deleted_at == null ? '' : $lead->deleted_at->format('d.m.Y')}}</span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                        @elseif($lead->completed = 1 && $lead->rejected == 0)
+                                                            <div class="py-1">
+                                                                <h6 style="color: #434343 !important; font-weight: 700 !important;">Gewonen</h6>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Grund: 
+                                                                    <span style="color: #88889D;font-weight: 500"></span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Agent: 
+                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->agent}}</span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Appointment Datum: 
+                                                                    <span style="color: #88889D;font-weight: 500"> {{Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y')}}</span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                            <div class="py-1">
+                                                                <span style="color: #434343; font-weight: 600;">Zeit: 
+                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->time}}</span>
+                                                                </span>
+                                                                <br>
+                                                            </div>
+                                                            
+                                                        @elseif($lead->rejected == 0   && $lead->appointment_date == null)
+                                                            
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
