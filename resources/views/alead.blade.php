@@ -47,7 +47,7 @@
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
                                     <label for="" class="mb-1">Nr</label>
-                                    <input type="number" class="form-control GrundversicherungInput" value="" name="nr" required>
+                                    <input type="text" class="form-control GrundversicherungInput" value="" name="nr" required>
                                 </div>
                         </div>
                         <div class="col-12 col-md-6">

@@ -314,7 +314,7 @@
                                             <div class="text-start">
                                                 <div class="">
                                                     <span>
-                                                        Uploads:
+                                                        Hochladen:
                                                     </span>
                                                 </div>
                                                 
@@ -329,10 +329,10 @@
                                                                 <path d="M16.2309 13.0962C16.4962 12.8308 16.4962 12.4053 16.2309 12.14L12.6515 8.56057C12.5263 8.43541 12.3511 8.36032 12.1759 8.36032C12.0007 8.36032 11.8254 8.43041 11.7003 8.56057L8.12087 12.14C7.85554 12.4053 7.85554 12.8308 8.12087 13.0962C8.25103 13.2263 8.42625 13.2964 8.59646 13.2964C8.76667 13.2964 8.94188 13.2313 9.07204 13.0962L11.5 10.6682V21.8269C11.5 22.2024 11.8004 22.5028 12.1759 22.5028C12.5513 22.5028 12.8517 22.2024 12.8517 21.8269V10.6682L15.2797 13.0962C15.54 13.3615 15.9656 13.3615 16.2309 13.0962Z" fill="#AEAEAE"/>
                                                                 </svg>
                                                                 <div>
-                                                                    <span style="color: #979797;">Upload your files here</span>
+                                                                    <span style="color: #979797;">Laden sie hier ihre dateien hoch</span>
                                                                 </div>
                                                                 <div>
-                                                                    <span class="fw-bold text-decoration-underline" style="color: #979797;">Browse</span>
+                                                                    <span class="fw-bold text-decoration-underline" style="color: #979797;">Durchsuchen</span>
                                                                 </div>
                                                     </label>
                                                     <input onchange="uploadfile()" name="begrundungfile2" type="file" id="file-input-3"
