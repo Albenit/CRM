@@ -1069,9 +1069,9 @@
                     <div class="mx-2" id='calendar'></div>
                     <div style='clear:both'></div>
                 </div>
-                <div class="col-lg-3 col-12 box follow-scroll">
-                    <div id='external-events'>
-                        <div id='wrap' class="me-2 pt-3" style="overflow-y: scroll;background: #F9FAFC;text-align: left;height: 600px ;border-radius: 23px;">
+                <div class="col-lg-3 col-12 box follow-scroll ">
+                    <div id='external-events' class="h-100">
+                        <div id='wrap' class="me-2 pt-3 h-100" style="position: relative; overflow-y: scroll;background: #F9FAFC;text-align: left;height: 600px ;border-radius: 23px;">
                              <div class="row g-0">
                                 <div class="col-auto" style="margin-top: -3.2rem;margin-left:-2.4rem;">
                                 <svg width="139" height="135" viewBox="0 0 139 135" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1101,7 +1101,12 @@
                                 </div>
                                 <div class="col " style="margin-left: -1rem;margin-top: -0.5rem">
                                     <div class="fs-5">
-                                        <span style="font-weight: 700;">Terminliste</span>
+                                        <span style="font-weight: 700;">Terminliste  </span>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div  class=" p-2" style="margin-right: 0.75rem; margin-top: -0.5rem;background: #E7E7E7;border-radius: 5px;filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.15))">
+                                        <span style="font-weight: 600;line-height: 0.7">{{count($appointments_events)}}</span>
                                     </div>
                                 </div>
                              </div>
@@ -1126,7 +1131,24 @@
                                     </div>
                                 @endif
                             @endforeach
+                            <div class="row g-0" style="position: absolute; bottom: 1.25rem;left: 1.25rem">
+                                <div class="col-auto my-auto me-2">
+                                    <div>
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M15.2031 13.7402C16.3604 12.2596 16.9937 10.4371 17.004 8.55805C17.0143 6.67902 16.4009 4.84965 15.2599 3.35651C14.4182 2.25414 13.3191 1.3747 12.0589 0.795072C10.7987 0.215447 9.41568 -0.0467186 8.03072 0.0314946C6.64576 0.109708 5.30105 0.525919 4.11413 1.24374C2.92721 1.96157 1.93422 2.95915 1.22197 4.14929L1.21581 1.24651L0.00257296 1.24909L0.011578 5.49468L0.619483 6.09991L4.86582 6.0909L4.86324 4.87787L2.20747 4.88351C3.01498 3.48088 4.26648 2.38689 5.76462 1.77405C7.26276 1.16122 8.92231 1.06439 10.4816 1.49885C12.0408 1.93331 13.4111 2.87433 14.3763 4.17353C15.3415 5.47274 15.8467 7.0562 15.8123 8.67423C15.7779 10.2923 15.2057 11.8528 14.1862 13.1098C13.1666 14.3668 11.7575 15.2487 10.1812 15.6164C8.60483 15.9842 6.9509 15.8169 5.48019 15.1409C4.00947 14.4649 2.80564 13.3187 2.05852 11.883L0.98357 12.4457C1.64154 13.7046 2.60485 14.7783 3.78528 15.5685C4.96572 16.3588 6.32557 16.8404 7.74034 16.9692C9.15511 17.098 10.5796 16.8699 11.8834 16.3057C13.1871 15.7416 14.3286 14.8595 15.2031 13.7402ZM11.1229 12.5722L11.9801 11.7128L8.51014 8.25693L8.50038 3.65713L7.28715 3.6597L7.29744 8.51181L7.47548 8.94084L11.1229 12.5722Z"
+                                                  fill="#3670BD" />
+                                        </svg>
 
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <a href="{{route('rejectedAppointment')}}" style="text-decoration: none;">
+                                        <span class="underlinedFirstTxt">Historie Der Appointments</span>
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -2046,6 +2068,12 @@ You don't have permission // {!! $admini->hasRole('admin') !!} ---  {!! $admini-
     }
     .fc table {
         font-size: 15px !important;
+    }
+    .underlinedFirstTxt {
+        font-weight: 500;
+        font-size: 18px;
+        text-decoration-line: underline;
+        color: #3670BD;
     }
 </style>
 <style>

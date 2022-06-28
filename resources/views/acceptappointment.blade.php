@@ -19,8 +19,8 @@
                         <div class="mapouter">
                             <div class="gmap_canvas img-fluid">
                                 <iframe width="100%" height="100%" id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q='+{{$lead->address}}+'&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                    src="https://maps.google.com/maps?q='+{{$lead->postal_code}} {{$lead->address}} {{$lead->city}}  {{$lead->nr}}+'&t=&z=13&ie=UTF8&iwloc=&output=embed&z=20"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0" >
                                 </iframe>
                             </div>
                         </div>
