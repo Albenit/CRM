@@ -2081,7 +2081,135 @@ $urole = $urole->toArray();
                                                         </div>
         
                                                     </div>
-                                                    <div class="Zusatzversicherung mt-4" id="Gesellschaft">
+                                                    <div id="Rechtsschutz" class="Grundversicherung mt-4">
+                                                        <div class="p-4">
+                                                            <div class="">
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Abschlussdatum:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="date"
+                                                                               name="graduation_date_PR" id="" min="1900-01-01"
+                                                                               max="9999-12-31" value="{{$retchsschutzP->graduation_date_PR}}">
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Gesellschaft:
+                                                                        </span>
+                                                                        </div>
+                                                                        <select class="form-select GrundversicherungInput"
+                                                                                aria-label="Default select example" name="society_PR">
+                                                                            <option value="{{$retchsschutzP->society_PR}}">{{$retchsschutzP->society_PR}}</option>
+                                                                            <option value="Helvetia">Helvetia</option>
+                                                                            <option value="Zurich">Zurich</option>
+                                                                            <option value="Axa">Axa</option>
+                                                                            <option value="GM">GM</option>
+                                                                        </select>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Produkt
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="text"
+                                                                               name="produkt_PR" id="" value="{{$retchsschutzP->produkt_PR}}">
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Status:
+                                                                        </span>
+                                                                        </div>
+                                                                        <select class="form-select GrundversicherungInput"
+                                                                                aria-label="Default select example"
+                                                                                name="status_PR" id="rechStatusi" onchange="rechStatus()">
+                                                                                @if($retchsschutzP->status_PR == 'Offen (Berater)')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Offen (Innendienst)')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Eingereicht">Eingereicht</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Eingereicht')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Aufgenommen">Aufgenommen</option>
+                                                                                <option value="Abgelehnt">Abgelehnt</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Aufgenommen')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Provisionert">Provisionert</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Abgelehnt')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Provisionert' && $retchsschutzP->stoiner_PR == null)
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Storniert">Storniert</option>
+                                                                            @elseif($retchsschutzP->stoiner_PR == 'Storniert')
+                                                                                <option selected value="{{$retchsschutzP->stoiner_PR}}">{{$retchsschutzP->stoiner_PR}}</option>
+                                                                            @endif
+        
+                                                                        </select>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Letze Anpassung:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="date"
+        
+                                                                               min="1900-01-01"
+                                                                               max="9999-12-31" value="{{$retchsschutzP->last_adjustment_PR}}" readonly>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3" id="rechProvision" style="display: none">
+                                                                    <div class="input-div1 input-groupp justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans">
+                                                                            Gesamtprovision:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="GrundversicherungInput form-control"  type="number" name="total_commisions_PR" id="">
+                                                                    </div>
+                                                                </div>
+                                                                @if($retchsschutzP->status_PR == 'Provisionert')
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Gesamtprovision:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="number"
+                                                                               name="total_commisions_PR" id="" value="{{$retchsschutzP->total_commisions_PR}}">
+                                                                    </div>
+                                                                </div>
+                                                                    @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- <div class="Zusatzversicherung mt-4" id="Gesellschaft">
                                                         <div class="p-4">
                                                             <div class="">
                                                                 <div class="mb-3">
@@ -2104,7 +2232,7 @@ $urole = $urole->toArray();
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="col-12 col-md-4 ps-0 ps-md-2">
                                                     <div class="list-choice-title list-choice-title-step2 p-2 mt-4"

@@ -732,7 +732,7 @@ class LeadDataController extends Controller
             'graduation_date_PR'=> $request->graduation_date_PR,
             'society_PR' => filter_var($request->society_PR,FILTER_SANITIZE_STRING),
             'produkt_PR'=> filter_var($request->produkt_PR,FILTER_SANITIZE_STRING),
-            'status_PR' => 'Offen (Innendienst)',
+             $table_PR => filter_var($request->status_PR,FILTER_SANITIZE_STRING),
             'last_adjustment_PR'=> $todayR,
             'total_commisions_PR'=> (int) filter_var($request->total_commisions_PR,FILTER_SANITIZE_STRING)
         ]);
