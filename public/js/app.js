@@ -8042,6 +8042,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var _this = this;
@@ -40179,7 +40185,10 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "hover-visible-div", attrs: { id: "hoverVisibleDiv" } },
+        {
+          staticClass: "hover-visible-div pe-5",
+          attrs: { id: "hoverVisibleDiv" },
+        },
         [
           _vm.notcnt < 1
             ? _c("div", { staticClass: "txt-notif fs-6" }, [
@@ -40257,89 +40266,104 @@ var render = function () {
             attrs: { "aria-labelledby": "dropdownFunct" },
           },
           [
-            _c(
-              "div",
-              { staticClass: "overflow-div2212" },
-              _vm._l(_vm.notifications, function (notification) {
-                return _c("div", [
-                  _c("div", { staticClass: "row g-0 px-4" }, [
-                    notification.read_at == null
-                      ? _c("div", { staticClass: "col-auto my-auto" }, [
-                          _c(
-                            "svg",
-                            {
-                              attrs: {
-                                width: "28",
-                                height: "21",
-                                viewBox: "0 0 28 21",
-                                fill: "none",
-                                xmlns: "http://www.w3.org/2000/svg",
-                              },
+            _vm.notifications != null
+              ? _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "overflow-div2212" },
+                    _vm._l(_vm.notifications, function (notification) {
+                      return _c("div", [
+                        _c("div", { staticClass: "row g-0 px-4" }, [
+                          notification.read_at == null
+                            ? _c("div", { staticClass: "col-auto my-auto" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "28",
+                                      height: "21",
+                                      viewBox: "0 0 28 21",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M23 21C25.2091 21 27 19.2091 27 17C27 14.7909 25.2091 13 23 13C20.7909 13 19 14.7909 19 17C19 19.2091 20.7909 21 23 21Z",
+                                        fill: "#2F60DC",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M17 18H2L1.9966 2.9062L13.4307 10.8223C13.598 10.938 13.7966 11 14 11C14.2034 11 14.402 10.938 14.5693 10.8223L26 2.9087V12H28V2C27.9993 1.46979 27.7883 0.961493 27.4134 0.586576C27.0385 0.211657 26.5302 0.000714343 26 0H2C1.46975 0.000608734 0.9614 0.211518 0.586459 0.586459C0.211518 0.9614 0.000608734 1.46975 0 2V18C0.000714343 18.5302 0.211657 19.0385 0.586576 19.4134C0.961493 19.7883 1.46979 19.9993 2 20H17V18ZM23.7986 2L14 8.7837L4.2014 2H23.7986Z",
+                                        fill: "black",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                              ])
+                            : _c("div", { staticClass: "col-auto my-auto" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      width: "28",
+                                      height: "21",
+                                      viewBox: "0 0 28 21",
+                                      fill: "none",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M23 21C25.2091 21 27 19.2091 27 17C27 14.7909 25.2091 13 23 13C20.7909 13 19 14.7909 19 17C19 19.2091 20.7909 21 23 21Z",
+                                        fill: "#DFDFDF",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M17 18H2L1.9966 2.9062L13.4307 10.8223C13.598 10.938 13.7966 11 14 11C14.2034 11 14.402 10.938 14.5693 10.8223L26 2.9087V12H28V2C27.9993 1.46979 27.7883 0.961493 27.4134 0.586576C27.0385 0.211657 26.5302 0.000714343 26 0H2C1.46975 0.000608734 0.9614 0.211518 0.586459 0.586459C0.211518 0.9614 0.000608734 1.46975 0 2V18C0.000714343 18.5302 0.211657 19.0385 0.586576 19.4134C0.961493 19.7883 1.46979 19.9993 2 20H17V18ZM23.7986 2L14 8.7837L4.2014 2H23.7986Z",
+                                        fill: "#DFDFDF",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                              ]),
+                          _vm._v(" "),
+                          _c("div", {
+                            staticClass: "p-2 m-1 col",
+                            staticStyle: {
+                              "border-bottom": "1px solid #EDEDED",
+                              color: "#333333",
                             },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d: "M23 21C25.2091 21 27 19.2091 27 17C27 14.7909 25.2091 13 23 13C20.7909 13 19 14.7909 19 17C19 19.2091 20.7909 21 23 21Z",
-                                  fill: "#2F60DC",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d: "M17 18H2L1.9966 2.9062L13.4307 10.8223C13.598 10.938 13.7966 11 14 11C14.2034 11 14.402 10.938 14.5693 10.8223L26 2.9087V12H28V2C27.9993 1.46979 27.7883 0.961493 27.4134 0.586576C27.0385 0.211657 26.5302 0.000714343 26 0H2C1.46975 0.000608734 0.9614 0.211518 0.586459 0.586459C0.211518 0.9614 0.000608734 1.46975 0 2V18C0.000714343 18.5302 0.211657 19.0385 0.586576 19.4134C0.961493 19.7883 1.46979 19.9993 2 20H17V18ZM23.7986 2L14 8.7837L4.2014 2H23.7986Z",
-                                  fill: "black",
-                                },
-                              }),
-                            ]
-                          ),
-                        ])
-                      : _c("div", { staticClass: "col-auto my-auto" }, [
-                          _c(
-                            "svg",
-                            {
-                              attrs: {
-                                width: "28",
-                                height: "21",
-                                viewBox: "0 0 28 21",
-                                fill: "none",
-                                xmlns: "http://www.w3.org/2000/svg",
-                              },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d: "M23 21C25.2091 21 27 19.2091 27 17C27 14.7909 25.2091 13 23 13C20.7909 13 19 14.7909 19 17C19 19.2091 20.7909 21 23 21Z",
-                                  fill: "#DFDFDF",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d: "M17 18H2L1.9966 2.9062L13.4307 10.8223C13.598 10.938 13.7966 11 14 11C14.2034 11 14.402 10.938 14.5693 10.8223L26 2.9087V12H28V2C27.9993 1.46979 27.7883 0.961493 27.4134 0.586576C27.0385 0.211657 26.5302 0.000714343 26 0H2C1.46975 0.000608734 0.9614 0.211518 0.586459 0.586459C0.211518 0.9614 0.000608734 1.46975 0 2V18C0.000714343 18.5302 0.211657 19.0385 0.586576 19.4134C0.961493 19.7883 1.46979 19.9993 2 20H17V18ZM23.7986 2L14 8.7837L4.2014 2H23.7986Z",
-                                  fill: "#DFDFDF",
-                                },
-                              }),
-                            ]
-                          ),
+                            domProps: { innerHTML: _vm._s(notification.data) },
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "fw-bold my-auto" }, [
+                            _vm._v(_vm._s(notification.time)),
+                          ]),
                         ]),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "p-2 m-1 col",
-                      staticStyle: {
-                        "border-bottom": "1px solid #EDEDED",
-                        color: "#333333",
-                      },
-                      domProps: { innerHTML: _vm._s(notification.data) },
+                      ])
                     }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "fw-bold my-auto" }, [
-                      _vm._v(_vm._s(notification.time)),
-                    ]),
-                  ]),
+                    0
+                  ),
                 ])
-              }),
-              0
-            ),
+              : _c(
+                  "div",
+                  {
+                    staticClass:
+                      "text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center",
+                  },
+                  [
+                    _vm._v(
+                      "\n            Es gibt keine Benachrichtigungen\n                "
+                    ),
+                  ]
+                ),
           ]
         ),
       ]),

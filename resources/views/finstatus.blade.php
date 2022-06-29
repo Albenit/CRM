@@ -75,7 +75,7 @@
                                         <div class="pb-2">
                                             <span style="font-weight: 700;">Mitarbeiter</span>
                                         </div>
-                                        @foreach ($group->members as $member)
+                                        @foreach ($group->members()->whereNull('admin_id')->get() as $member)
                                             <div class="pb-2">
                                                 <span class="fw-500">{{$member->name}}</span>
                                             </div>
