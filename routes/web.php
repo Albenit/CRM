@@ -248,10 +248,8 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('file/{file}',function($file,Request $request){
         if(Storage::disk('img')->exists($file)){
             ob_end_clean();
-            $file = Storage::disk('img')->get($file);
-            $response = Illuminate\Support\Facades\Response::make($file,200);
-            $response->header('Content-Type','file');
-            return $response;
+            return response()->file(Storage::disk('img')->path($file));
+        
 // return response()->download(storage_path('app/img/' . $file));
         }
     })->middleware('role:admin|backoffice|salesmanager|management|fs')->name('showfile');
