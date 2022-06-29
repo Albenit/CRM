@@ -4689,8 +4689,8 @@
                     @if(!Auth::user()->hasRole('fs'))
 
                     <div class="">
-                        <div class="row g-0">
-                            <div class="col-12">
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6">
                                 <div class="greyBgStats p-3 p-sm-4 mb-5">
                                     <div>
                                         <div style="position: relative;">
@@ -4700,7 +4700,7 @@
                                                 </div>
                                                 <div>
                                                     <div class="row g-0">
-                                                        <div class="col-12 col-md-8"
+                                                        <div class="col-12"
                                                             style="position: relative;">
                                                             <div class="">
                                                                 <div class="whiteBgGraph h-100 p-3">
@@ -4997,6 +4997,325 @@
                                                                     </div>
 
                                                                     <div id="chart6">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="greyBgStats p-3 p-sm-4 mb-5">
+                                    <div>
+                                        <div style="position: relative;">
+                                            <div class="col my-auto">
+                                                <div>
+                                                    <span class="statsTitleSpan fs-3">Appoinment</span>
+                                                </div>
+                                                <div>
+                                                    <div class="row g-0">
+                                                        <div class="col-12"
+                                                            style="position: relative;">
+                                                            <div class="">
+                                                                <div class="whiteBgGraph h-100 p-3">
+                                                                    <div class="row g-0">
+                                                                        <div class="col">
+                                                                            <div class="pb-2">
+                                                                                <span style="font-weight: 600;"
+                                                                                    class="fs-5"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-auto my-auto">
+                                                                            <div class="statsSelectStyle py-1"
+                                                                                onclick="openDropDownSelect8()"
+                                                                                style="cursor: pointer;">
+                                                                                <div class="row g-0">
+                                                                                    <div class="col ms-2">
+                                                                                        <div>
+                                                                                            <span
+                                                                                                id="activeDropDownItem7">
+                                                                                                Gesamter Zeitraum</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-auto my-auto mx-2 me-1">
+                                                                                        <div>
+                                                                                            <svg width="10" height="6"
+                                                                                                viewBox="0 0 10 6"
+                                                                                                fill="none"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path d="M9 1L5 5L1 1"
+                                                                                                    stroke="black"
+                                                                                                    stroke-width="2"
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round" />
+                                                                                            </svg>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="statsSelectStyleDropdown"
+                                                                                id="dropdownSelectId7"
+                                                                                style="display: none;right: 1rem;">
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,1)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span id="rtest">Heute</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,7)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Letzte 7 Tage</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,30)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Letzte 30
+                                                                                                    Tage</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,120)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Letztes
+                                                                                                    Quartal</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,365)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Letztes Jahr</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-2">
+                                                                                    <div class="row g-0"
+                                                                                        onclick="makeSelectActive8(this,0)">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg class="activeSvg7"
+                                                                                                    width="19"
+                                                                                                    height="19"
+                                                                                                    viewBox="0 0 19 19"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <circle cx="9.5"
+                                                                                                        cy="9.5" r="9"
+                                                                                                        fill="#fff"
+                                                                                                        stroke="#E0E0E0" />
+                                                                                                    <ellipse cx="9.5"
+                                                                                                        cy="9.416"
+                                                                                                        rx="5.5" ry="5"
+                                                                                                        fill="white" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Gesamter Zeitraum</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="py-2"
+                                                                                    style="border-top: 1px solid #E8E8E8;">
+                                                                                    <div class="row g-0" onclick="hrCostum()" style="cursor: pointer">
+                                                                                        <div
+                                                                                            class="col-auto my-auto ps-3">
+                                                                                            <div>
+                                                                                                <svg width="18"
+                                                                                                    height="12"
+                                                                                                    viewBox="0 0 12 12"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path
+                                                                                                        d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
+                                                                                                        fill="black" />
+                                                                                                </svg>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col my-auto ps-2 pe-5">
+                                                                                            <div>
+                                                                                                <span>Individueller Zeitraum</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div id="hrCostum" style="display: none">
+                                                                                    <div class="py-2">
+                                                                                        <div class="row g-0">
+                                                                                            {{-- <div class="col-auto my-auto ps-3">
+                                                                                                <div>
+                                                                                                    <span class="fs-6">Aus</span>
+                                                                                                </div>
+                                                                                            </div> --}}
+                                                                                            <div class="col my-auto ps-2 pe-2">
+                                                                                                <div>
+                                                                                                    <input class="form-control" type="date" id="hrFrom">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="pt-1">
+                                                                                        <div class="row g-0">
+                                                                                            {{-- <div class="col-auto my-auto ps-3">
+                                                                                                <div>
+                                                                                                    <span class="fs-6">Zu</span>
+                                                                                                </div>
+                                                                                            </div> --}}
+                                                                                            <div class="col my-auto ps-2 pe-2">
+                                                                                                <div>
+                                                                                                   <input class="form-control" type="date" id="hrTo">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="pb-2 pt-2">
+                                                                                        <div class="row g-0">
+                                                                                            <div class="col my-auto ps-2 pe-2">
+                                                                                                <div>
+                                                                                                   <input onclick="makeSelectActive8(this,100)" class="col-12 py-1" type="button" value="Suche" style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div id="chart7">
 
                                                                     </div>
                                                                 </div>
@@ -5893,6 +6212,51 @@
             $("#activeDropDownItem7").html(y)
             $("#dropdownSelectId7").hide()
         }
+        function makeSelectActive8(x, number) {
+
+            axios.get('appointmentStat?number=' + number).then( response => {
+
+                Highcharts.chart('chart7', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                        enabled: true,
+                        alpha: 45
+                        }
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    plotOptions: {
+                        pie: {
+                        innerSize: 100,
+                        depth: 45
+                        }
+                    },
+                    series: [{
+                        name: 'Delivered amount',
+                        data: [
+                        ['Bananas', 8],
+                        ['Kiwi', 3],
+                        ['Mixed nuts', 1],
+                        ['Oranges', 6],
+                        ['Apples', 8],
+                        ['Pears', 4],
+                        ['Clementines', 4],
+                        ['Reddish (bag)', 1],
+                        ['Grapes (bunch)', 1]
+                        ]
+                    }]
+        });
+
+            });
+
+           
+
+        }
 
         $(document).ready(function() {
             makeSelectActive(6, 0);
@@ -5900,6 +6264,7 @@
             makeSelectActive5(6, 0);
             makeSelectActive6(6, 0);
             makeSelectActive7(6, 0);
+            makeSelectActive8(6,0);
 
 
         });
@@ -6115,6 +6480,10 @@
             }
 
         }
+    </script>
+
+    <script>
+               
     </script>
     <script>
         function openBurgerFunct() {

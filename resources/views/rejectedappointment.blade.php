@@ -11,6 +11,7 @@
                 <thead style="border-bottom: 0px solid #fff !important;border-radius: 8px">
                     <tr class="bg-color1" style="border: none; border-bottom: 0px #fff solid !important;border-radius: 8px">
                         <th scope="col" class="header-styling">Appointment</th>
+                        <th scope="col" class="header-styling">Datum</th>
                         <th scope="col" class="header-styling">Addres</th>
                         <th scope="col" class="header-styling">Personen</th>
                         <th scope="col"  class="header-styling">Status</th>
@@ -39,6 +40,9 @@
                         <td scope="row">
                             <div>{{$lead->first_name}} {{$lead->last_name}}</div>
                         </td>
+                        <td scope="row">
+                            <div>{{$lead->appointment_date}}</div>
+                        </td>
                         <td>
                             <div>{{$lead->address}}</div>
                         </td>
@@ -60,36 +64,40 @@
                                 </div>
                             @elseif ($lead->assign_to_id != null && $lead->completed == 0 && $lead->rejected == 0 && $lead->deleted_at == null)
                                 <div>
-                                    <button class="mid-btn py-2 w-100" style="font-weight: 600;"> 
+                                    <div class="mid-btn py-2 w-100" style="font-weight: 600; text-align:center;"> 
                                         Pending
-                                    </button>
+                                    </div>
                                 </div>
                             @endif
                             
                        </td>
                         <td>
-                             <div>{{$lead->begrundung}} {{$lead->begrundung2}}</div>
+                            @if ($lead->begrundung != null || $lead->begrundung2 != null)
+                                <div>{{$lead->begrundung}} {{$lead->begrundung2}}</div>
+                            @else
+                                <div class="text-center fs-6 fw-400" style="color: #9F9F9F">keine Begrundung</div>    
+                            @endif
+                            
                         </td>
                         <td>
                             @if ($lead->begrundungfile2 == null)
-                                <div></div>
+                                <div class="text-center fs-6 fw-400" style="color: #9F9F9F">keine Upload</div>
                             @else
-                            <div>
-                                <a style="text-decoration: none"
-                                    href="{{route('showfile2',$lead->begrundungfile2)}}">
-                                        <input type="text"
-                                            class="form-control text-center"
-                                            id="begrundung" disabled
-                                            style="background:transparent; border:none;"
-                                            value="{{$lead->begrundungfile2}}">
-                                </a>
-                            </div>
+                                <div>
+                                    <a style="text-decoration: none"
+                                        href="{{route('showfile2',$lead->begrundungfile2)}}" target="_blank">
+                                            <input type="text"
+                                                class="form-control text-center"
+                                                id="begrundung" disabled
+                                                style="background:transparent; border:none;"
+                                                value="{{$lead->begrundungfile2}}">
+                                    </a>
+                                </div>
                             @endif
                         </td>
                         <td>
                             <div>{{$lead->admin->name}}</div>
                         </td>
-                       
                     </tr>
                     @endforeach
                     @endif
