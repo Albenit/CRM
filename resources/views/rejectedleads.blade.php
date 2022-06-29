@@ -99,7 +99,7 @@
                                                             <span class="fw-600 ">Geburtstag</span> 
                                                         </div>
                                                         <div class="col">
-                                                            <span class="fs-6">{{$leads->birthdate}}</span>
+                                                            <span class="fs-6">{{Carbon\Carbon::parse($leads->birthdate)->format('d.m.Y')}}</span>
                                                         </div>
                                                     </div>
                                                 
@@ -228,7 +228,7 @@
                                                             <span class="fw-600 ">Datum</span> 
                                                         </div>
                                                         <div class="col">
-                                                            <span class="fs-6">{{$leads->appointment_date}}</span>
+                                                            <span class="fs-6">{{Carbon\Carbon::parse($leads->appointment_date)->format('d.m.Y')}}</span>
                                                         </div>
                                                     </div>
                                             </div>

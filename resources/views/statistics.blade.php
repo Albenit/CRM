@@ -5328,7 +5328,7 @@
                                                                                             <span style="font-weight: 500;">Accepted</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="teraccepted"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5344,7 +5344,7 @@
                                                                                             <span style="font-weight: 500;">Pending</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="terpending"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5361,7 +5361,7 @@
                                                                                             <span style="font-weight: 500;">Rejeceted</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="terrejected"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5378,7 +5378,7 @@
                                                                                             <span style="font-weight: 500;">No feedback</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="ternofeedback"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5396,7 +5396,7 @@
                                                                                             <span style="font-weight: 500;">Total</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="tertotal"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>                               
@@ -6306,15 +6306,29 @@
             $("#dropdownSelectId7").hide()
         }
         function makeSelectActive8(x, number) {
-            const data = {
+
+            
+            dateFrom = document.getElementById('terminFrom').value
+            dateTo = document.getElementById('terminTo').value
+
+            axios.get('appointmentStat?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then( response => {
+                document.getElementById('teraccepted').innerHTML = response.data[0]
+                document.getElementById('terpending').innerHTML = response.data[1]
+                document.getElementById('terrejected').innerHTML = response.data[2]
+                document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2]
+
+
+
+                console.log(response.data)
+                const data = {
                 labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
+                    'Acepted',
+                    'Rejected',
+                    'Pending'
                 ],
                 datasets: [{
                     label: 'My First Dataset',
-                    data: [300, 50, 100],
+                    data: [response.data[0], response.data[2], response.data[1]],
                     backgroundColor: [
                     '#DBB4FF',
                     '#7100A7',
@@ -6341,12 +6355,12 @@
                     }
                     };
 
-            const myChart = new Chart(
-                document.getElementById('chart7'),
-                config
+            var myChart = new Chart(document.getElementById('chart7'),config
+
             );
-            
-            
+            })
+           
+
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg8");

@@ -1177,7 +1177,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">{{$costumer->birthdate}}</span>
+                                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($costumer->birthdate)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
                                                     </div>

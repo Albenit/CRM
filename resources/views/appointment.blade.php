@@ -1227,7 +1227,7 @@
 	<div class="row justify-content-between">
             <div class="col-lg pb-3 pb-lg-0">
                 <label class="fw-500">Datum</label>
-                    <input type="date" class="form-control form-control-sm kalendarFormStyle py-2" name="date_in" value="{!! $date_in->format('Y-m-d') !!}">
+                    <input type="date" class="form-control form-control-sm kalendarFormStyle py-2" name="date_in" value="{!! $date_in->format('d.m.Y') !!}">
             </div>
 			<div class="col-lg pb-3 pb-lg-0">
 				<label class="fw-500">Region</label>

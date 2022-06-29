@@ -825,7 +825,7 @@
                                                                             <span
                                                                                 style="color: #434343; font-weight: 600;">Gerburstdatum: <span
                                                                                 style="color: #88889D;font-weight: 500"> {{
-                                                                                    lead.birthdate
+                                                                                   lead.birthdate
                                                                                 }}</span></span><br>
                                                                                         </div>
                                                                                         <div class="py-1">
