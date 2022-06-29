@@ -211,6 +211,11 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('fmembers/{family}/{lid}','App\Http\Controllers\FamilyPersonsController@fmembers')->middleware('role:fs|admin|backoffice');
     route::get('linkthat/{id}/{pid}','App\Http\Controllers\FamilyPersonsController@linkthat');
     route::get('updateperson/{id}',[UserController::class,'updateperson'])->name('updateperson');
+    
+    route::get('rejectedAppointment', function(){
+        $leads = lead::whereNotNull('assign_to_id')->withTrashed()->get();
+        return view('rejectedappointment', compact('leads'));
+    })->name('rejectedAppointment');
 
     include 'Hr.php';
     include 'webv2.php';

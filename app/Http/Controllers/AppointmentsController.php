@@ -229,11 +229,18 @@ public function filterhrcalendar(Request  $req){
         elseif(lead::find($id_lead)->wantsonline == 0 && Admins::find($input['id_user'])->getRoleNames()[0] == 'fs'){
             $appointment = lead::where('id', $pieces['0'])
                 ->update(['assigned' => 1,'assign_to_id' => $input['id_user'],'rejected' => 0]);
-            if($appointment){Admins::role(['salesmanager'])->get()->each(function($item){
-$item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
+            if($appointment){
+                Admins::role(['salesmanager'])->get()->each(function($item){
+                $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
             });
                 Admins::find($input['id_user'])->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
-                return "Der Termin wurde dem Berater erfolgreich hinzugefügt.";} else {return "ERROR !!!";}
+					Admins::role(['salesmanager'])->get()->each(function($item){
+                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
+                return "Der Termin wurde dem Berater erfolgreich hinzugefügt.";
+            }); 
+            }else {
+                return "ERROR !!!";
+            }
         }
 	else{
 		return "Termin sollte nicht diesem Berater zugewiesen werden (vielleicht an Digital oder Außendienst) !";

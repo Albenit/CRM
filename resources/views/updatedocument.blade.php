@@ -1377,7 +1377,6 @@ $urole = $urole->toArray();
                                                     @endif
                                                 </label>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-5 col-lg-4 my-auto">
@@ -1493,7 +1492,7 @@ $urole = $urole->toArray();
                                                 <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
                                             </div>
                                             <div>
-                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte für Name</span>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1526,7 +1525,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Abschlussdatum</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->graduation_date_PZ}}" type="date" name="graduation_date_PZ" min="1900-01-01" max="9999-12-31">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->graduation_date_PZ}}" type="date" name="graduation_date_PZ" min="1900-01-01" max="9999-12-31">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1534,7 +1533,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Gesellschaft</span>
                                                             </div>
                                                             <div>
-                                                                <select class="GrundversicherungInput form-control" name="society_PZ">
+                                                                <select class="GrundversicherungInput form-control py-1" name="society_PZ">
                                                                     @if($zusatzversicherungP->society_PZ != null && $zusatzversicherungP->society_PZ != '')
                                                                         <option selected value="{{$zusatzversicherungP->society_PZ}}">{{$zusatzversicherungP->society_PZ}}</option>
                                                                     @else
@@ -1555,7 +1554,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Produkt</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->produkt_PZ}}" type="text" name="produkt_PZ">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->produkt_PZ}}" type="text" name="produkt_PZ">
                                                             </div>
                                                         </div>
                                                         <div class="pb-3">
@@ -1563,7 +1562,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">VVG Pramie</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->vvg_premium_PZ}}"  type="text" name="vvg_premium_PZ">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->vvg_premium_PZ}}"  type="text" name="vvg_premium_PZ">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1574,7 +1573,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">From</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->duration_from_PZ}}" type="date" name="duration_from_PZ" min="1900-01-01" max="9999-12-31">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_from_PZ}}" type="date" name="duration_from_PZ" min="1900-01-01" max="9999-12-31">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1582,7 +1581,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">To</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->duration_to_PZ}}" type="date" name="duration_to_PZ" min="1900-01-01" max="9999-12-31">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_to_PZ}}" type="date" name="duration_to_PZ" min="1900-01-01" max="9999-12-31">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1590,7 +1589,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Status</span>
                                                             </div>
                                                             <div>
-                                                                <select class="GrundversicherungInput form-control" name="status_PZ" id="zusStatusi" onchange="zusStatus()">
+                                                                <select class="GrundversicherungInput form-control py-1" name="status_PZ" id="zusStatusi" onchange="zusStatus()">
                                                                     @if($zusatzversicherungP->status_PZ == 'Offen (Berater)')
                                                                         <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
                                                                         <option value="Offen (Innendienst)">Offen (Innendienst)</option>
@@ -1620,7 +1619,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Letze Anpassung</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->last_adjustment_PZ}}" type="date"
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->last_adjustment_PZ}}" type="date"
 
                                                                        min="1900-01-01" max="9999-12-31" readonly>
                                                             </div>
@@ -1630,7 +1629,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Provision</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->provision_PZ}}" type="text" name="provision_PZ">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->provision_PZ}}" type="text" name="provision_PZ">
                                                             </div>
                                                         </div> --}}
                                                         <div class="mb-3" id="zusProvision" style="display: none">
@@ -1640,7 +1639,7 @@ $urole = $urole->toArray();
                                                                     Gesamtprovision:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="number" name="total_commisions_PZ" id="">
+                                                                <input class="GrundversicherungInput form-control py-1" type="number" name="total_commisions_PZ" id="">
                                                             </div>
                                                         </div>
                                                         @if($zusatzversicherungP->status_PZ == 'Provisionert')
@@ -1649,7 +1648,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Gesamtprovision</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" value="{{$zusatzversicherungP->total_commisions_PZ}}" type="number" name="total_commisions_PZ">
+                                                                <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->total_commisions_PZ}}" type="number" name="total_commisions_PZ">
                                                             </div>
                                                         </div>
                                                             @endif
@@ -1686,7 +1685,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Abschlussdatum</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
+                                                                <input class="GrundversicherungInput form-control py-1" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1694,7 +1693,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Gesellschaft</span>
                                                             </div>
                                                             <div>
-                                                                <select class="GrundversicherungInput form-control" name="society_PG{{$count}}">
+                                                                <select class="GrundversicherungInput form-control py-1" name="society_PG{{$count}}">
                                                                     <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
                                                                     <option value="Sympany">Sympany</option>
                                                                     <option value="Helsana">Helsana</option>
@@ -1708,7 +1707,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Produkt</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
+                                                                <input class="GrundversicherungInput form-control py-1" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
                                                             </div>
                                                         </div>
                                                         <div class="pb-2">
@@ -1716,7 +1715,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Status</span>
                                                             </div>
                                                             <div>
-                                                                <select class="GrundversicherungInput form-control" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
+                                                                <select class="GrundversicherungInput form-control py-1" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
                                                                     @if($grundversicherungPP->status_PG == 'Offen (Berater)')
                                                                         <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
                                                                         <option value="Offen (Innendienst)">Offen (Innendienst)</option>
@@ -1746,7 +1745,7 @@ $urole = $urole->toArray();
                                                                 <span class="GrundversicherungSpans">Letze Anpassung</span>
                                                             </div>
                                                             <div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
+                                                                <input class="GrundversicherungInput form-control py-1" type="date"
                                                                        value="{{$grundversicherungPP->last_adjustment_PG}}"
                                                                        min="1900-01-01" max="9999-12-31" readonly>
                                                             </div>
@@ -1767,7 +1766,7 @@ $urole = $urole->toArray();
                                                                     <span class="GrundversicherungSpans">Gesamtprovision</span>
                                                                 </div>
                                                                 <div>
-                                                                    <input class="GrundversicherungInput form-control" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
+                                                                    <input class="GrundversicherungInput form-control py-1" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
                                                                 </div>
                                                             </div>
                                                         @endif
@@ -1784,7 +1783,7 @@ $urole = $urole->toArray();
                                     </div>
                                     </div>
                                     
-                                        <div class="row g-1 changeBtnAlign pt-4">
+                                        {{-- <div class="row g-1 changeBtnAlign pt-4">
                                             
                                             <div class="col-6 col-md-3 col-lg-2">
 
@@ -1803,6 +1802,25 @@ $urole = $urole->toArray();
 
                                                             </div>
                                                         </div>
+                                                </button>
+                                            </div>
+                                        </div> --}}
+                                        <div class="row g-0 justify-content-end">
+                                            <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                                @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                                @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                    @if($pendency->completed == 0 && $pendency->done == 1)
+                                                        <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                                style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                                onclick="accept();">
+                                                            Annehmen
+                                                        </button>
+                                                    @endif
+                                                @endif
+                                                <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                        style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                        onclick="edit();">
+                                                    Einreichen
                                                 </button>
                                             </div>
                                         </div>
@@ -1858,7 +1876,6 @@ $urole = $urole->toArray();
                                 </div>
                             </div>
                             @endif
-
                         </div>
 
                         <div id="rechtsschutzModal" class="documentsFormModals mb-5">
@@ -1979,9 +1996,9 @@ $urole = $urole->toArray();
                                                         <div class="px-5 py-3">
                                                             <div id="beforeUploadTextKranken">
                                                                 <div class="mb-2">
-                                                                <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                    <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                        <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
                                                                     </svg>
                                                                 </div>
                                                                 <div>
@@ -2057,7 +2074,7 @@ $urole = $urole->toArray();
                                                 <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
                                             </div>
                                             <div>
-                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Rechtsschutz von “Samir”</span>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte</span>
                                             </div>
                                         </div>  
                                         <div>  
@@ -2067,7 +2084,7 @@ $urole = $urole->toArray();
                                                         onclick="openGesellschaftDropdownStep()">
                                                         <div class="row g-0">
                                                             <div class="col my-auto">
-                                                                <span>Gesellschaft</span>
+                                                                <span>Rechtsschutz</span>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
@@ -2081,7 +2098,135 @@ $urole = $urole->toArray();
                                                         </div>
         
                                                     </div>
-                                                    <div class="Zusatzversicherung mt-4" id="Gesellschaft">
+                                                    <div id="Gesellschaft" class="Grundversicherung mt-4">
+                                                        <div class="p-4">
+                                                            <div class="">
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Abschlussdatum:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="date"
+                                                                               name="graduation_date_PR" id="" min="1900-01-01"
+                                                                               max="9999-12-31" value="{{$retchsschutzP->graduation_date_PR}}">
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Gesellschaft:
+                                                                        </span>
+                                                                        </div>
+                                                                        <select class="form-select GrundversicherungInput"
+                                                                                aria-label="Default select example" name="society_PR">
+                                                                            <option value="{{$retchsschutzP->society_PR}}">{{$retchsschutzP->society_PR}}</option>
+                                                                            <option value="Helvetia">Helvetia</option>
+                                                                            <option value="Zurich">Zurich</option>
+                                                                            <option value="Axa">Axa</option>
+                                                                            <option value="GM">GM</option>
+                                                                        </select>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Produkt
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="text"
+                                                                               name="produkt_PR" id="" value="{{$retchsschutzP->produkt_PR}}">
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Status:
+                                                                        </span>
+                                                                        </div>
+                                                                        <select class="form-select GrundversicherungInput"
+                                                                                aria-label="Default select example"
+                                                                                name="status_PR" id="rechStatusi" onchange="rechStatus()">
+                                                                                @if($retchsschutzP->status_PR == 'Offen (Berater)')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Offen (Innendienst)')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Eingereicht">Eingereicht</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Eingereicht')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Aufgenommen">Aufgenommen</option>
+                                                                                <option value="Abgelehnt">Abgelehnt</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Aufgenommen')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Provisionert">Provisionert</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Abgelehnt')
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                            @elseif($retchsschutzP->status_PR == 'Provisionert' && $retchsschutzP->stoiner_PR == null)
+                                                                                <option selected value="{{$retchsschutzP->status_PR}}">{{$retchsschutzP->status_PR}}</option>
+                                                                                <option value="Storniert">Storniert</option>
+                                                                            @elseif($retchsschutzP->stoiner_PR == 'Storniert')
+                                                                                <option selected value="{{$retchsschutzP->stoiner_PR}}">{{$retchsschutzP->stoiner_PR}}</option>
+                                                                            @endif
+        
+                                                                        </select>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Letze Anpassung:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="date"
+        
+                                                                               min="1900-01-01"
+                                                                               max="9999-12-31" value="{{$retchsschutzP->last_adjustment_PR}}" readonly>
+                                                                    </div>
+        
+                                                                </div>
+                                                                <div class="mb-3" id="rechProvision" style="display: none">
+                                                                    <div class="input-div1 input-groupp justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans">
+                                                                            Gesamtprovision:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="GrundversicherungInput form-control py-1"  type="number" name="total_commisions_PR" id="">
+                                                                    </div>
+                                                                </div>
+                                                                @if($retchsschutzP->status_PR == 'Provisionert')
+                                                                <div class="mb-3">
+                                                                    <div
+                                                                        class=" justify-content-between">
+                                                                        <div class="pe-3">
+                                                                        <span class="GrundversicherungSpans"  >
+                                                                            Gesamtprovision:
+                                                                        </span>
+                                                                        </div>
+                                                                        <input class="py-1 form-control GrundversicherungInput" type="number"
+                                                                               name="total_commisions_PR" id="" value="{{$retchsschutzP->total_commisions_PR}}">
+                                                                    </div>
+                                                                </div>
+                                                                    @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- <div class="Zusatzversicherung mt-4" id="Gesellschaft">
                                                         <div class="p-4">
                                                             <div class="">
                                                                 <div class="mb-3">
@@ -2104,7 +2249,7 @@ $urole = $urole->toArray();
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="col-12 col-md-4 ps-0 ps-md-2">
                                                     <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
@@ -2138,7 +2283,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                             </div>
-                            <div class="row g-1 changeBtnAlign pt-4">
+                            {{-- <div class="row g-1 changeBtnAlign pt-4">
                                             
                                             <div class="col-6 col-md-3 col-lg-2">
 
@@ -2159,6 +2304,25 @@ $urole = $urole->toArray();
 
                                                             </div>
                                                         </div>
+                                                </button>
+                                            </div>
+                                        </div> --}}
+                                        <div class="row g-0 justify-content-end">
+                                            <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                                @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                                @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                    @if($pendency->completed == 0 && $pendency->done == 1)
+                                                        <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                                style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                                onclick="accept();">
+                                                            Annehmen
+                                                        </button>
+                                                    @endif
+                                                @endif
+                                                <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                        style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                        onclick="edit();">
+                                                    Einreichen
                                                 </button>
                                             </div>
                                         </div>
@@ -3049,10 +3213,10 @@ $urole = $urole->toArray();
                                                                                 </span>
                                                                     </div>
                                                                     @if(isset($data->fahrzeug->km_stood))
-                                                                        <input name="km_stood" class="GrundversicherungInput form-control"
+                                                                        <input name="km_stood" class="GrundversicherungInput form-control py-1"
                                                                                type="number" id="" value="{{$data->fahrzeug->km_stood}}">
                                                                     @else
-                                                                        <input name="km_stood" class="GrundversicherungInput form-control"
+                                                                        <input name="km_stood" class="GrundversicherungInput form-control py-1"
                                                                                type="number" id="">
                                                                     @endif
                                                                 </div>
@@ -5181,10 +5345,10 @@ $urole = $urole->toArray();
                                                                                 </span>
                                                                         </div>
                                                                         @if(isset($nue->km_stood))
-                                                                            <input  name="km_stood{{$ncnt}}" class="GrundversicherungInput form-control"
+                                                                            <input  name="km_stood{{$ncnt}}" class="GrundversicherungInput form-control py-1"
                                                                                     type="number" id="" value="{{$nue->km_stood}}">
                                                                         @else
-                                                                            <input name="km_stood{{$ncnt}}" class="GrundversicherungInput form-control"
+                                                                            <input name="km_stood{{$ncnt}}" class="GrundversicherungInput form-control py-1"
                                                                                    type="number" id="">
                                                                         @endif
                                                                     </div>
@@ -6934,6 +7098,25 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                     </div> -->
+                                    <div class="row g-0 justify-content-end">
+                                        <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                            @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                            @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                @if($pendency->completed == 0 && $pendency->done == 1)
+                                                    <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                            style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                            onclick="accept();">
+                                                        Annehmen
+                                                    </button>
+                                                @endif
+                                            @endif
+                                            <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                    style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                    onclick="edit();">
+                                                Einreichen
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -6951,7 +7134,7 @@ $urole = $urole->toArray();
                                                 <span id="step1Krankenkasse" class="activeStepTitle">Schritt 2</span>
                                             </div>
                                             <div>
-                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Upload von den Dokumenten und Vertragsmitglieder bestimmen</span>
+                                                <span id="step2Krankenkasse" style="color: #B4B9BC;" class="passiveStepTitle">Erfassung der Produkte</span>
                                             </div>
                                         </div>
                                     </div>
@@ -6988,7 +7171,7 @@ $urole = $urole->toArray();
                                                                     Gesellschaft:
                                                                 </span>
                                                                 </div>
-                                                                <select class="GrundversicherungInput form-control"
+                                                                <select class="GrundversicherungInput form-control py-1"
                                                                         aria-label="Default select example" name="society_PA{{$cnt}}">
                                                                     <option selected value="{{$autoversicherungPP->society_PA}}">{{$autoversicherungPP->society_PA}}</option>
                                                                     <option value="Helvetia">Helvetia</option>
@@ -7006,7 +7189,7 @@ $urole = $urole->toArray();
                                                                     Beginn Versicherung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
+                                                                <input class="GrundversicherungInput form-control py-1" type="date"
                                                                        name="beginning_insurance_PA{{$cnt}}" id=""
                                                                        min="1900-01-01" max="9999-12-31"
                                                                        value="{{$autoversicherungPP->beginning_insurance_PA}}">
@@ -7021,7 +7204,7 @@ $urole = $urole->toArray();
                                                                     Versicherung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="text"
+                                                                <input class="GrundversicherungInput form-control py-1" type="text"
                                                                        name="insurance_PA{{$cnt}}" id=""
                                                                        value="{{$autoversicherungPP->insurance_PA}}">
                                                             </div>
@@ -7035,7 +7218,7 @@ $urole = $urole->toArray();
                                                                     Status:
                                                                 </span>
                                                                 </div>
-                                                                <select class="GrundversicherungInput form-control"
+                                                                <select class="GrundversicherungInput form-control py-1"
                                                                         aria-label="Default select example"
                                                                         name="status_PA{{$cnt}}" id="autoStatusi" onchange="autoStatus()">
                                                                         @if($autoversicherungPP->status_PA == 'Offen (Berater)')
@@ -7070,7 +7253,7 @@ $urole = $urole->toArray();
                                                                     Letze Anpassung:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="date"
+                                                                <input class="GrundversicherungInput form-control py-1" type="date"
 {{--                                                                       name="last_adjustment_PA{{$cnt}}" id=""--}}
                                                                        min="1900-01-01" max="9999-12-31"
                                                                        value="{{$autoversicherungPP->last_adjustment_PA}}" readonly>
@@ -7084,7 +7267,7 @@ $urole = $urole->toArray();
                                                                     Gesamtprovision:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="number"
+                                                                <input class="GrundversicherungInput form-control py-1" type="number"
                                                                        name="total_commisions_PA{{$count}}" id=""
 
                                                                 >
@@ -7099,7 +7282,7 @@ $urole = $urole->toArray();
                                                                     Gesamtprovision:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="number"
+                                                                <input class="GrundversicherungInput form-control py-1" type="number"
                                                                        name="total_commisions_PA{{$cnt}}" id=""
                                                                        value="{{$autoversicherungPP->total_commisions_PA}}">
                                                             </div>
@@ -7123,7 +7306,7 @@ $urole = $urole->toArray();
                                     </script>
                                 </div>
                             </div>
-                            <div class="row g-0 changeBtnAlign pt-4">
+                            {{-- <div class="row g-0 changeBtnAlign pt-4">
                                             <!-- <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="backBtnAuto()"
                                                         class="cancelBtnKranken py-1 py-md-1 w-100">Zurück</button>
@@ -7144,6 +7327,25 @@ $urole = $urole->toArray();
 
                                                             </div>
                                                         </div>
+                                                </button>
+                                            </div>
+                                        </div> --}}
+                                        <div class="row g-0 justify-content-end">
+                                            <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                                @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                                @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                    @if($pendency->completed == 0 && $pendency->done == 1)
+                                                        <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                                style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                                onclick="accept();">
+                                                            Annehmen
+                                                        </button>
+                                                    @endif
+                                                @endif
+                                                <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                        style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                        onclick="edit();">
+                                                    Einreichen
                                                 </button>
                                             </div>
                                         </div>
@@ -8536,6 +8738,25 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                 </div> -->
+                                <div class="row g-0 justify-content-end">
+                                    <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                        @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                        @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                            @if($pendency->completed == 0 && $pendency->done == 1)
+                                                <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                        style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                        onclick="accept();">
+                                                    Annehmen
+                                                </button>
+                                            @endif
+                                        @endif
+                                        <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                onclick="edit();">
+                                            Einreichen
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <div class="col-auto mx-auto">
@@ -8868,7 +9089,7 @@ $urole = $urole->toArray();
                                                                 Gesamtprovision:
                                                             </span>
                                                             </div>
-                                                            <input class="GrundversicherungInput form-control" type="number" name="total_commisions_PV" id="">
+                                                            <input class="GrundversicherungInput form-control py-1" type="number" name="total_commisions_PV" id="">
                                                         </div>
                                                     </div>
                                                     @if($vorsorgeP->status_PV == 'Provisionert')
@@ -8900,7 +9121,7 @@ $urole = $urole->toArray();
                                     </script>
                                 </div>
                             </div>
-                            <div class="py-4" id="step2BtnDiv">
+                            {{-- <div class="py-4" id="step2BtnDiv">
                                         <div class="row g-0 changeBtnAlign">
                                             <!-- <div class="col-6 col-md-3 col-lg-2 pe-1">
                                                 <button type="button" onclick="backBtnVorsorge()"
@@ -8926,6 +9147,25 @@ $urole = $urole->toArray();
                                                         </div>
                                                 </button>
                                             </div>
+                                        </div>
+                                    </div> --}}
+                                    <div class="row g-0 justify-content-end">
+                                        <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                            @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                            @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                @if($pendency->completed == 0 && $pendency->done == 1)
+                                                    <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                            style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                            onclick="accept();">
+                                                        Annehmen
+                                                    </button>
+                                                @endif
+                                            @endif
+                                            <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                    style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                    onclick="edit();">
+                                                Einreichen
+                                            </button>
                                         </div>
                                     </div>
                         </div>
@@ -9822,7 +10062,7 @@ $urole = $urole->toArray();
                                                                     Gesamtprovision:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control"  type="number" name="total_commisions_PR" id="">
+                                                                <input class="GrundversicherungInput form-control py-1"  type="number" name="total_commisions_PR" id="">
                                                             </div>
                                                         </div>
                                                         @if($retchsschutzP->status_PR == 'Provisionert')
@@ -9965,7 +10205,7 @@ $urole = $urole->toArray();
                                                                     Gesamtprovision:
                                                                 </span>
                                                                 </div>
-                                                                <input class="GrundversicherungInput form-control" type="number"
+                                                                <input class="GrundversicherungInput form-control py-1" type="number"
                                                                        name="total_commisions_PH" id="">
                                                             </div>
                                                         </div>
@@ -9993,7 +10233,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                             </div>
-                            <div class="row g-0 changeBtnAlign pt-4">
+                            {{-- <div class="row g-0 changeBtnAlign pt-4">
                                             <!-- <div class="col-4 col-md-3 col-lg-2 me-2">
                                                 <button type="button" onclick="backBtnSachen()"
                                                         class="cancelBtnKranken py-0 py-md-1 w-100">Zurück</button>
@@ -10001,6 +10241,25 @@ $urole = $urole->toArray();
                                             <div class="col-4 col-md-3 col-lg-2">
                                                 <button onclick="edit();"
                                                         class="continueBtn py-0 py-md-1 w-100">Einreichen</button>
+                                            </div>
+                                        </div> --}}
+                                        <div class="row g-0 justify-content-end">
+                                            <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3">
+                                                @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
+                                                @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
+                                                    @if($pendency->completed == 0 && $pendency->done == 1)
+                                                        <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                                style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600; margin-bottom: 13px;" title="Accept"
+                                                                onclick="accept();">
+                                                            Annehmen
+                                                        </button>
+                                                    @endif
+                                                @endif
+                                                <button class="px-5 py-1 w-100" id="submitt1" type="button"
+                                                        style="border: none; background: #2F60DC;border-radius: 10px;; color: #fff; font-size: 17px; font-weight:600" title="Accept"
+                                                        onclick="edit();">
+                                                    Einreichen
+                                                </button>
                                             </div>
                                         </div>
                         </div>
@@ -10011,7 +10270,7 @@ $urole = $urole->toArray();
                         <div class="px-0 px-md-0 px-xl-0 mx-0 mx-md-0 mx-lg-4 mx-xl-5">
                             <div class="row g-4">
                                 <div class="col-6 col-md-6 col-lg-6 col-xl">
-                                    <div id="krankenkaseDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openKrankenkasseModal();">
+                                    <div id="krankenkaseDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openKrankenkasseModal();document.getElementById('krankenkasseModal').scrollIntoView()">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -10030,7 +10289,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-6 col-xl">
-                                    <div id="rechtsschutzDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openRechtsschutzModal()">
+                                    <div id="rechtsschutzDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openRechtsschutzModal();">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -10092,7 +10351,7 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-6 col-xl">
-                                    <div id="SachenDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openSachenModal();">
+                                    <div id="SachenDiv" class="documentFormGreyBGDiv2 pt-3 pb-3" onclick="openSachenModal(); ">
                                         <div class="row flex-column g-0">
                                             <div class="col">
                                                 <div class="text-center">
@@ -10116,7 +10375,7 @@ $urole = $urole->toArray();
                         </div>
 
                     </div>
-                    <div class="row g-0 justify-content-end">
+                    {{-- <div class="row g-0 justify-content-end">
                         <div class="col-12 col-md-5 col-lg-3 col-xl-2 g-0 text-end pt-4 mt-3 me-lg-4 me-xl-5">
                             @php $pendency = \App\Models\Pendency::find(Session::get('pend_id')); @endphp
                             @if(Auth::user()->hasRole('backoffice') || Auth::user()->hasRole('admin'))
@@ -10134,7 +10393,7 @@ $urole = $urole->toArray();
                                 Einreichen
                             </button>
                         </div>
-                    </div>
+                    </div> --}}
             </div>
             </form>
         </div>
@@ -11497,7 +11756,7 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                                    KM - Stand:'+
             '                                                                                </span>'+
             '                                                                            </div>'+
-            '                                                                                <input name="km_stood' + newncnt + '" class="GrundversicherungInput form-control"'+
+            '                                                                                <input name="km_stood' + newncnt + '" class="GrundversicherungInput form-control py-1"'+
             '                                                                                       type="number" id="">'+
             '                                                                        </div>'+
             '                                                                    </div>'+
@@ -12601,6 +12860,9 @@ $urole = $user->getRoleNames()->toArray();
         $("#autoModal").css("display", "none");
         $("#krankenkasseModal").css("display", "none");
         $("#rechtsschutzModal").css("display", "none");
+        setTimeout(function (){
+            document.getElementById("sachenModal").scrollIntoView();
+        }, 100);
     }
     function openVorsorgeModal() {
         $("#vorsorgeModal").css("display", "block");
@@ -12608,6 +12870,9 @@ $urole = $user->getRoleNames()->toArray();
         $("#autoModal").css("display", "none");
         $("#krankenkasseModal").css("display", "none");
         $("#rechtsschutzModal").css("display", "none");
+        setTimeout(function (){
+            document.getElementById("vorsorgeModal").scrollIntoView();
+        }, 100);
     }
     function openAutoModal() {
         $("#autoModal").show().css("display", "block");
@@ -12615,7 +12880,9 @@ $urole = $user->getRoleNames()->toArray();
         $("#vorsorgeModal").css("display", "none");
         $("#krankenkasseModal").css("display", "none");
         $("#rechtsschutzModal").css("display", "none");
-        
+        setTimeout(function (){
+            document.getElementById("autoModal").scrollIntoView();
+        }, 100);
     }
     function openKrankenkasseModal() {
         $("#krankenkasseModal").css("display", "block");
@@ -12623,6 +12890,9 @@ $urole = $user->getRoleNames()->toArray();
         $("#sachenModal").css("display", "none");
         $("#vorsorgeModal").css("display", "none");
         $("#rechtsschutzModal").css("display", "none");
+        setTimeout(function (){
+            document.getElementById("krankenkasseModal").scrollIntoView();
+        }, 100);
     }
 
     function openRechtsschutzModal() {
@@ -12631,6 +12901,9 @@ $urole = $user->getRoleNames()->toArray();
         $("#sachenModal").css("display", "none");
         $("#vorsorgeModal").css("display", "none");
         $("#krankenkasseModal").css("display", "none");
+        setTimeout(function (){
+            document.getElementById("rechtsschutzModal").scrollIntoView();
+        }, 100);
     }
 
     let mandatiertFile = document.getElementById("mandatiertFile");

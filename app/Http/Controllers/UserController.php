@@ -265,6 +265,7 @@ public function folgetermin($id){
         $lead->last_name = filter_var($req->input('lname'), FILTER_SANITIZE_STRING);
         $lead->telephone = filter_var($req->input('phone'), FILTER_SANITIZE_STRING);
         $lead->address = $req->input('address');
+        $lead->birthdate = $req->input('birthdate');
         $lead->postal_code = filter_var($req->input('postal'), FILTER_SANITIZE_STRING);
         $lead->city =  $req->input('location');
         $lead->nr = filter_var($req->input('nr'),FILTER_SANITIZE_STRING);
@@ -431,6 +432,7 @@ public function folgetermin($id){
         $lead->appointment_date = $req->appointmentdate ? filter_var($req->input('appointmentdate'), FILTER_SANITIZE_STRING) : null;
         $lead->nr = $req->nr ? filter_var($req->input('nr'),FILTER_SANITIZE_STRING) : $lead->nr;
         $lead->assigned = 1;
+        $lead->birthdate = $req->birthdate;
         $lead->gesundheit = $req->gesundheit ?  filter_var($req->gesundheit,FILTER_SANITIZE_STRING) : $lead->gesundheit;
         $lead->zufriedenheit = $req->zufriedenheit ?  filter_var($req->zufriedenheit,FILTER_SANITIZE_STRING) : $lead->zufriedenheit;
         $lead->bemerkung = $req->bemerkung ?  filter_var($req->bemerkung,FILTER_SANITIZE_STRING) : $lead->bemerkung;
@@ -707,8 +709,14 @@ public function folgetermin($id){
             //$this->storeFile($file, 'img');
 
         if($lead->save()){
-            $lead->delete();
+            
+			 Admins::role(['salesmanager'])->get()->each(function($item) use($lead){
+                   $item->notify(new SendNotificationn('ein Begriff wurde von' . Admins::find($lead->assign_to_id)->name . 'abgelehnt'));
+				 $lead->delete();
+                });
+
             return redirect()->route('dashboard')->with('success', 'Aktion erfolgreich durchgeführt');
+			
         }else {
            return redirect()->route('dashboard')->with('fail', 'Aktion fehlgeschlagen');
         }
