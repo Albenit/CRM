@@ -212,7 +212,7 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('linkthat/{id}/{pid}','App\Http\Controllers\FamilyPersonsController@linkthat');
     route::get('updateperson/{id}',[UserController::class,'updateperson'])->name('updateperson');
     
-    route::get('rejectedAppointment', function(){
+    route::get('historyTermine', function(){
         $leads = lead::whereNotNull('assign_to_id')->withTrashed()->get();
         return view('rejectedappointment', compact('leads'));
     })->name('rejectedAppointment');

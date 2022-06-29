@@ -101,7 +101,7 @@
                                             <div class="text-div py-3 ps-2">
                                             <div class="row g-0">
                                                     <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Birthdate</span> 
+                                                        <span class="fw-600 ">Geburtstag</span> 
                                                     </div>
                                                     <div class="col">
                                                         <span class="fs-6">{{$lead->birthdate}}</span>
@@ -187,7 +187,7 @@
                                             <div class="text-div py-3 ps-2">
                                             <div class="row g-0">
                                                     <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Tel. Privat</span> 
+                                                        <span class="fw-600 ">Telefon</span> 
                                                     </div>
                                                     <div class="col">
                                                         <span class="fs-6">{{$lead->telephone}}</span>
@@ -216,7 +216,7 @@
                                             <div class="text-div py-3 ps-2">
                                             <div class="row g-0">
                                                     <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Zufriedenheit</span> 
+                                                        <span class="fw-600 ">aktuelle Krankenkasse</span> 
                                                     </div>
                                                     <div class="col">
                                                         <span class="fs-6">{{$lead->zufriedenheit}}</span>
