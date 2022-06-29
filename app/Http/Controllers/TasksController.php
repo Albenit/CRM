@@ -363,7 +363,7 @@ class TasksController extends Controller
         $searchname = $request->searchname ? $request->searchname : '';
         $user = auth()->user();
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
-            family = family::query()->whereHas('lead',function($query){
+            $family = family::query()->whereHas('lead',function($query){
                 $query->where('assign_to_id',auth()->id());
             })->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done']);
             if (isset($request->searchdate1) && isset($request->searchdate2)) {
