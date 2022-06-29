@@ -1145,7 +1145,7 @@
                                 </div>
                                 <div class="col">
                                     <a href="{{route('rejectedAppointment')}}" style="text-decoration: none;">
-                                        <span class="underlinedFirstTxt">Historie Der Appointments</span>
+                                        <span class="underlinedFirstTxt">Historie Der Termine</span>
                                     </a>
                                 </div>
                             </div>
