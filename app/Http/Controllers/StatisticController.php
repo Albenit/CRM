@@ -1226,34 +1226,34 @@ class StatisticController extends Controller
         
         if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('salesmanager') || Auth::user()->hasRole('backoffice')){
             if($req->number == 0){
-                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->get();
-                $appStatRejected = lead::whereNotNull('assign_to_id')->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->count();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->onlyTrashed()->count();
             }
             elseif($req->number == 100){
-                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->get();
-                $appStatRejected = lead::whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->count();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->count();
             }else{
-                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->where('created_at','>', $date)->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->where('created_at','>', $date)->get();
-                $appStatRejected = lead::whereNotNull('assign_to_id')->where('created_at','>', $date)->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->where('created_at','>', $date)->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->where('created_at','>', $date)->count();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->where('created_at','>', $date)->onlyTrashed()->count();
             }
 
         }else{
             $admin = auth()->user()->id;
             if($req->number == 0){
-                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->get();
-                $appStatRejected = lead::where('assign_to_id',$admin)->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->count();
+                $appStatRejected = lead::where('assign_to_id',$admin)->onlyTrashed()->count();
             }elseif($req->number == 100){
-                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->get();
-                $appStatRejected = lead::where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->count();
+                $appStatRejected = lead::where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->count();
             }else{
-                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->where('created_at','>', $date)->get();
-                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('created_at','>', $date)->get();
-                $appStatRejected = lead::where('assign_to_id',$admin)->where('created_at','>', $date)->onlyTrashed()->get();
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->where('created_at','>', $date)->count();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('created_at','>', $date)->count();
+                $appStatRejected = lead::where('assign_to_id',$admin)->where('created_at','>', $date)->onlyTrashed()->count();
             }
         }
 

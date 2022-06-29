@@ -982,9 +982,9 @@ public function folgetermin($id){
                     }
                     if (in_array('fs',$urole) || in_array('digital',$urole)) {
                         if (in_array('fs',$urole)) {
-                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 0)->where('assigned', 1)->get()->count();
+                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 0)->where('assigned', 1)->where('completed',0)->count();
                         } else {
-                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 1)->where('assigned', 1)->get()->count();
+                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 1)->where('assigned', 1)->where('completed',0)->count();
                         }
 
                         $grundprov = 0;
@@ -1084,7 +1084,7 @@ public function folgetermin($id){
                         //     }
                         // }
 
-                        $leed = lead::where('assign_to_id',Auth::user()->id)->count();
+                        $leed = lead::where('assign_to_id',Auth::user()->id)->withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
                             $leadsAbschlose = lead::where('assign_to_id',Auth::user()->id)->where('completed', 1)->where('rejected',0)->count();
@@ -1131,7 +1131,7 @@ public function folgetermin($id){
 
                         $countconsultation = $consultation->count();
 
-                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->count();
+                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->where('completed',0)->count();
 
                         $admins = Admins::role(['fs','salesmanager'])->get();
                         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
@@ -1159,7 +1159,7 @@ public function folgetermin($id){
 
                         $admins =  Admins::all();
 
-                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->count();
+                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->where('completed',0)->count();
 
 
                         $provisionertCount = $provcnt->count();
@@ -1171,7 +1171,7 @@ public function folgetermin($id){
                         $abgCount = $grundversicherungA + $retchsschutzA + $vorsorgeA + $zusatzversicherungA + $autoversicherungA + $hausratA;
 
 
-                        $leed = lead::count();
+                        $leed = lead::withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
                             $leadsAbschlose = lead::where('completed', 1)->where('rejected',0)->count();
