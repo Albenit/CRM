@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Statistik</title>
     <link rel="icon" type="image/png" href="{{config('app.url')}}crmFav.png">
 </head>
@@ -28,7 +29,7 @@
     {{-- nav style --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@200;800;900&display=swap');
-
+        
         .sideBarStyle {
             position: fixed;
             left: 0px;
@@ -3934,7 +3935,7 @@
                                                                 <div class="ps-2 ps-lg-3">
 
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 23 23" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -3968,7 +3969,7 @@
                                                                 <div class="ps-2 ps-lg-3 pt-1">
 
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 23 23" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -4011,7 +4012,7 @@
                                                                 <div class="ps-2 ps-lg-3 pt-1">
 
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 25 24" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -4038,7 +4039,7 @@
                                                                 </div>
                                                                 <div class="ps-2 ps-lg-3 pt-1">
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 25 24" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -4064,7 +4065,7 @@
                                                                 </div>
                                                                 <div class="ps-2 ps-lg-3 pt-1">
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 25 24" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -4091,7 +4092,7 @@
                                                                 </div>
                                                                 <div class="ps-2 ps-lg-3 pt-1">
                                                                     <div class="row">
-                                                                        <div class="col-auto my-auto">
+                                                                        <div class="col-auto my-auto me-2">
                                                                             <svg width="20" height="20"
                                                                                 viewBox="0 0 18 17" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -4695,8 +4696,8 @@
 
                     <div class="">
                         <div class="row g-4">
-                            <div class="col-12 col-md-6">
-                                <div class="greyBgStats p-3 p-sm-4 mb-5">
+                            <div class="col-12 col-lg-6">
+                                <div class="greyBgStats p-3 p-sm-4 h-100">
                                     <div>
                                         <div style="position: relative;">
                                             <div class="col my-auto">
@@ -5014,8 +5015,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <div class="greyBgStats p-3 p-sm-4 mb-5">
+                            <div class="col-12 col-lg-6 mb-5 mb-md-0">
+                                <div class="greyBgStats p-3 p-sm-4">
                                     <div>
                                         <div style="position: relative;">
                                             <div class="col my-auto">
@@ -5027,7 +5028,7 @@
                                                         <div class="col-12"
                                                             style="position: relative;">
                                                             <div class="">
-                                                                <div class="whiteBgGraph h-100 p-3">
+                                                                <div class="whiteBgGraph h-100 p-3" >
                                                                     <div class="row g-0">
                                                                         <div class="col">
                                                                             <div class="pb-2">
@@ -5310,8 +5311,98 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div id="chart7">
+                                                                    <div class="pt-3">
+                                                                        <div class="row g-0">
+                                                                            <div class="col-12 col-sm mx-auto" style="max-width: 300px;min-width: 270px;">
+                                                                                <canvas id="chart7"></canvas>
+                                                                            </div>
+                                                                            <div class="col-12 col-sm my-auto ps-0 ps-sm-5 pt-4 pt-sm-0">
+                                                                                <div>
+                                                                                    <div class="row g-0 pb-2">
+                                                                                        <div class="col-auto my-auto me-2">
+                                                                                            <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                <rect width="26" height="9" rx="4.5" fill="#DBB4FF"/>
+                                                                                            </svg>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <span style="font-weight: 500;">Accepted</span>
+                                                                                        </div>
+                                                                                        <div class="col-2 text-end">
+                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div class="row g-0 pb-2">
+                                                                                        <div class="col-auto my-auto me-2">
+                                                                                        <svg width="26" height="10" viewBox="0 0 26 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect width="26" height="10" rx="5" fill="#C86FE9"/>
+                                                                                        </svg>
 
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <span style="font-weight: 500;">Pending</span>
+                                                                                        </div>
+                                                                                        <div class="col-2 text-end">
+                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div class="row g-0">
+                                                                                        <div class="col-auto my-auto me-2">
+                                                                                        <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect width="26" height="9" rx="4.5" fill="#7100A7"/>
+                                                                                        </svg>
+
+
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <span style="font-weight: 500;">Rejeceted</span>
+                                                                                        </div>
+                                                                                        <div class="col-2 text-end">
+                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="pt-3">
+                                                                                    <div class="row g-0 pb-2">
+                                                                                        <div class="col-auto my-auto me-2">
+                                                                                        <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect width="26" height="9" rx="4.5" fill="#040404"/>
+                                                                                        </svg>
+
+
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <span style="font-weight: 500;">No feedback</span>
+                                                                                        </div>
+                                                                                        <div class="col-2 text-end">
+                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <div class="row g-0 ">
+                                                                                        <div class="col-auto my-auto me-2">
+                                                                                        <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                            <rect width="26" height="9" rx="4.5" fill="#040404"/>
+                                                                                        </svg>
+
+
+
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <span style="font-weight: 500;">Total</span>
+                                                                                        </div>
+                                                                                        <div class="col-2 text-end">
+                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>                               
+                                                                            </div>
+                                                                        </div>
+                                                                    
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -5965,7 +6056,7 @@
                 // document.getElementById('terminated').innerHTML = response.data[1]
 
                 if(response.data[0] + response.data[1] + response.data[2] == 0){
-                    document.querySelector("#chart3").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #9F9F9F">'+
+                    document.querySelector("#chart3").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
 
@@ -6040,7 +6131,7 @@
 
                 if(response.data[0] + response.data[1] + response.data[2] + response.data[3] + response.data[4] + response.data[5] + response.data[6] + response.data[7] + response.data[8] + response.data[9] + response.data[10] + response.data[11] == 0){
 
-                    document.querySelector("#chart5").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #9F9F9F">'+
+                    document.querySelector("#chart5").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
 
@@ -6155,7 +6246,7 @@
 
                 if(response.data[0] + response.data[1] + response.data[2] + response.data[3] == 0){
                 
-                    document.querySelector("#chart6").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #9F9F9F">'+
+                    document.querySelector("#chart6").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
 
             }else{
@@ -6215,45 +6306,47 @@
             $("#dropdownSelectId7").hide()
         }
         function makeSelectActive8(x, number) {
-
-            dateFrom = document.getElementById('terminFrom').value
-            dateTo = document.getElementById('terminTo').value
-
-            axios.get('appointmentStat?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then( response => {
-                console.log(response.data)
-
-                Highcharts.chart('chart7', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                        enabled: true,
-                        alpha: 45
+            const data = {
+                labels: [
+                    'Red',
+                    'Blue',
+                    'Yellow'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                    '#DBB4FF',
+                    '#7100A7',
+                    '#C86FE9'
+                    ],
+                    borderRadius: 15,
+                    spacing: 10,
+                    hoverOffset: 4
+                }]
+                };
+                
+                const config = {
+                    type: 'doughnut',
+                    data: data,
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                                labels: {
+                                    color: 'rgb(255, 99, 132)'
+                                }
+                            }
                         }
-                    },
-                    title: {
-                        text: ''
-                    },
-                    subtitle: {
-                        text: ''
-                    },
-                    plotOptions: {
-                        pie: {
-                        innerSize: 100,
-                        depth: 45
-                        }
-                    },
-                    series: [{
-                        name: 'Delivered amount',
-                        data: [
-                            ['Acepted', response.date[0]],
-                            ['Pending', response.data[1]],
-                            ['Rejected', response.data[2]]
-                        ]
-                    }]
-                });
-                chart.updateSeries([response.data[0], response.data[1], response.data[2], response.data[3]])
-            });
+                    }
+                    };
 
+            const myChart = new Chart(
+                document.getElementById('chart7'),
+                config
+            );
+            
+            
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg8");
@@ -6261,7 +6354,6 @@
             $(svg).addClass("activeSvg8");
             $("#activeDropDownItem8").html(y)
             $("#dropdownSelectId8").hide()
-
         }
 
         $(document).ready(function() {
