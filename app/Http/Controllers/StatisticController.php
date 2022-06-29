@@ -1215,4 +1215,52 @@ class StatisticController extends Controller
     }
 
 
+    public function appointmentStat(Request $req){
+
+        $date = Carbon::now()->subDays($req->number);
+
+        $appStat = collect();
+
+        $dateFrom = date('Y-m-d', strtotime($req->dateFrom));
+        $dateTo = date('Y-m-d', strtotime($req->dateTo));
+        
+        if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('salesmanager') || Auth::user()->hasRole('backoffice')){
+            if($req->number == 0){
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->get();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->onlyTrashed()->get();
+            }
+            elseif($req->number == 100){
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->get();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->get();
+            }else{
+                $appStatAccepted = lead::where('completed',1)->whereNotNull('assign_to_id')->where('created_at','>', $date)->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereNotNull('assign_to_id')->where('created_at','>', $date)->get();
+                $appStatRejected = lead::whereNotNull('assign_to_id')->where('created_at','>', $date)->onlyTrashed()->get();
+            }
+
+        }else{
+            $admin = auth()->user()->id;
+            if($req->number == 0){
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->get();
+                $appStatRejected = lead::where('assign_to_id',$admin)->onlyTrashed()->get();
+            }elseif($req->number == 100){
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->get();
+                $appStatRejected = lead::where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->get();
+            }else{
+                $appStatAccepted = lead::where('completed',1)->where('assign_to_id',$admin)->where('created_at','>', $date)->get();
+                $appStatPending = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('created_at','>', $date)->get();
+                $appStatRejected = lead::where('assign_to_id',$admin)->where('created_at','>', $date)->onlyTrashed()->get();
+            }
+        }
+
+        $appStat->push($appStatAccepted,$appStatPending,$appStatRejected);
+
+        return $appStat;
+    }
+
+
 }
