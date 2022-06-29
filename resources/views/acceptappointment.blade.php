@@ -19,7 +19,7 @@
                         <div class="mapouter">
                             <div class="gmap_canvas img-fluid">
                                 <iframe width="100%" height="100%" id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q='+{{$lead->postal_code}} {{$lead->address}} {{$lead->city}}  {{$lead->nr}}+'&t=&z=13&ie=UTF8&iwloc=&output=embed&z=20"
+                                    src="https://maps.google.com/maps?q='+{{$lead->postal_code}} {{$lead->address}} {{$lead->city}}  {{$lead->nr}}+'&t=&z=16&ie=UTF8&iwloc=&output=embed&z=25"
                                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0" >
                                 </iframe>
                             </div>
@@ -81,6 +81,36 @@
                                             </div>
                                         </div>
                                     </div>
+									   <div class="col-12 col-sm-6">
+                                        <div class="white-thingy">
+                                            <div class="text-div py-3 ps-2">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 ">Nationalitat</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$lead->nationality}}</span>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="white-thingy">
+                                            <div class="text-div py-3 ps-2">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 ">Birthdate</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$lead->birthdate}}</span>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-12 col-sm-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-2">
@@ -124,7 +154,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                    <div class="white-thingy">
+                                        <div class="white-thingy">
                                             <div class="text-div py-3 ps-2">
                                             <div class="row g-0">
                                                     <div class="col-5 me-2">
@@ -137,21 +167,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6">
-                                    <div class="white-thingy">
-                                            <div class="text-div py-3 ps-2">
-                                            <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Nationalitat</span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$lead->nationality}}</span>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="col-12 col-sm-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-2">
@@ -194,35 +210,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6">
-                                    <div class="white-thingy">
-                                            <div class="text-div py-3 ps-2">
-                                                <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Datum</span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$lead->appointment_date}}</span>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                    <div class="white-thingy">
-                                            <div class="text-div py-3 ps-2">
-                                            <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 ">Zeit</span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$lead->time}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
+									    <div class="col-12 col-sm-6">
         
                                         <div class="white-thingy">
                                             <div class="text-div py-3 ps-2">
@@ -237,6 +225,36 @@
                                             </div>
                                         </div>
 
+                                    </div>
+                                 
+                                  
+                                    <div class="col-12 col-sm-6">
+                                    <div class="white-thingy">
+                                            <div class="text-div py-3 ps-2">
+                                                <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 ">Datum</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$lead->appointment_date}}</span>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    </div>
+									  <div class="col-12 col-sm-6">
+                                    <div class="white-thingy">
+                                            <div class="text-div py-3 ps-2">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 ">Zeit</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$lead->time}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="white-thingy mt-2">

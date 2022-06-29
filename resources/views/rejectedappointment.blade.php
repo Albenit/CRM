@@ -13,6 +13,7 @@
                         <th scope="col" class="header-styling">Appointment</th>
                         <th scope="col" class="header-styling">Addres</th>
                         <th scope="col" class="header-styling">Personen</th>
+                        <th scope="col"  class="header-styling">Status</th>
                         <th scope="col"  class="header-styling">Begrundung</th>
                         <th scope="col" class="header-styling">Uploads:</th>
                         <th scope="col" class="header-styling">Berater</th>
@@ -45,9 +46,34 @@
                             <div>{{$lead->number_of_persons}}</div>
                         </td>
                         <td>
+                            @if ($lead->completed == 1)
+                                <div>
+                                    <div class="go-btn py-2 w-100" style="font-weight: 600; text-align:center;">
+                                        Abschluss
+                                    </div>
+                                </div>
+                             @elseif ($lead->assign_to_id != null && $lead->deleted_at != null )
+                                <div>
+                                    <div class="close-btn py-2 w-100" style="font-weight: 600; text-align:center;">
+                                        Kein Abschluss
+                                    </div>
+                                </div>
+                            @elseif ($lead->assign_to_id != null && $lead->completed == 0 && $lead->rejected == 0 && $lead->deleted_at == null)
+                                <div>
+                                    <button class="mid-btn py-2 w-100" style="font-weight: 600;"> 
+                                        Pending
+                                    </button>
+                                </div>
+                            @endif
+                            
+                       </td>
+                        <td>
                              <div>{{$lead->begrundung}} {{$lead->begrundung2}}</div>
                         </td>
                         <td>
+                            @if ($lead->begrundungfile2 == null)
+                                <div></div>
+                            @else
                             <div>
                                 <a style="text-decoration: none"
                                     href="{{route('showfile2',$lead->begrundungfile2)}}">
@@ -58,6 +84,7 @@
                                             value="{{$lead->begrundungfile2}}">
                                 </a>
                             </div>
+                            @endif
                         </td>
                         <td>
                             <div>{{$lead->admin->name}}</div>
@@ -74,6 +101,30 @@
 
 @endsection
 <style>
+        .mid-btn{
+        color: #FFFFFF;
+        font-weight: 220;
+        background-color: #FFBF00;
+        border: 1px #FFBF00 solid;
+        border-radius: 13px;
+        width: 150px;
+    }
+        .close-btn {
+        color: #ffffff;
+        font-weight: 220;
+        background-color: #C74E46;
+        border: 1px #C74E46 solid;
+        border-radius: 13px;
+        width: 150px;
+    }
+        .go-btn {
+        color: #ffffff;
+        font-weight: 220;
+        background-color: #79B887;
+        border: 1px #79B887 solid;
+        border-radius: 13px;
+        width: 100px;
+    }
     .contentDiv {
         background: #F9FAFC;
         border: 1px solid #EDF1FA;
