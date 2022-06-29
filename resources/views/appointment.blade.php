@@ -115,7 +115,7 @@
                     initialView: 'resourceTimeGridDay',
                     slotMinTime: "08:00:00",
                     slotMaxTime: "20:30:00",
-                    slotDuration: '00:20:00',
+                    slotDuration: '00:15:00',
                     slotLabelInterval: 30,
                     allDaySlot: false,
                     eventMaxStack: 3,

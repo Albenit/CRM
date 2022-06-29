@@ -699,7 +699,7 @@
                                             </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                    <div class="white-thingy">
+                                        <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
                                                         <div class="col-5 me-2">
@@ -707,6 +707,21 @@
                                                         </div>
                                                         <div class="col">
                                                             <span class="fs-6">{{$app->nationality}} </span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="white-thingy">
+                                                <div class="text-div py-3 ps-4">
+                                                <div class="row g-0">
+                                                        <div class="col-5 me-2">
+                                                            <span class="fw-600 fs-6 pe-1">Birthdate</span> 
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="fs-6">{{$app->birthdate}}</span>
                                                         </div>
                                                     </div>
                                                     

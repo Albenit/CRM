@@ -55,12 +55,14 @@
                                         <input type="text" name="lname" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Strasse</label>
                                         <input type="text" name="address" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Nr</label>
@@ -83,6 +85,12 @@
                                     <div class="mb-2">
                                         <label for="" class="mb-1">Nationalität</label>
                                         <input type="text" name="country" class="form-control GrundversicherungInput" >
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2">
+                                        <label for="" class="mb-1">Birthdate</label>
+                                        <input type="date" name="birthdate" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">

@@ -38,7 +38,7 @@
                                     <input type="text" class="form-control GrundversicherungInput" value="{{$lead->last_name}}" name="lname" required>
                                 </div>
                         </div>
-                        <div class="col-12 col-md-6">
+                        
                         <div class="mb-2">
                                     <label for="" class="mb-1">Strasse</label>
                                     <input type="text" class="form-control GrundversicherungInput" value="{{$lead->address}}" name="address" required>
@@ -67,6 +67,12 @@
                                     <label for="" class="mb-1">Nationalitat</label>
                                     <input type="text" class="form-control GrundversicherungInput" value="{{$lead->nationality}}" name="nationality">
                                 </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="mb-2">
+                                <label for="" class="mb-1">Birthdate</label>
+                                <input type="date" class="form-control GrundversicherungInput" value="{{$lead->birthdate}}" name="birthdate" required>
+                            </div>
                         </div>
                         <div class="col-12 col-md-6">
                         <div class="mb-2">
