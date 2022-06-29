@@ -135,7 +135,7 @@
                                                                             <span class="fw-600">Datum</span>
                                                                         </div>
                                                                         <div class="col">
-                                                                            {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task->created_at)->format('Y-m-d')}}
+                                                                            {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task->created_at)->format('d.m.Y')}}
                                                                         </div>
                                                                     </div>
 
@@ -269,7 +269,7 @@
                                                                                 <span class="fw-600">Datum</span>
                                                                             </div>
                                                                             <div class="col">
-                                                                                {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task->created_at)->format('Y-m-d')}}
+                                                                                {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $task->created_at)->format('d.m.Y')}}
                                                                             </div>
                                                                         </div>
 
@@ -372,7 +372,7 @@
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Datum & Zeit</span>
-                                                                <span class="fs-6">{{$perApp->date}} ({{$perApp->time}})</span>
+                                                                <span class="fs-6">{{Carbon\Carbon::parse($perApp->date)->format('d.m.Y')}} ({{$perApp->time}})</span>
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Adress</span>
@@ -716,7 +716,7 @@
                                                         <div class="row g-0 text-start ps-2">
                                                             <div class="col-3">
                                                                 <div onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
-                                                                    <span class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('Y-m-d')}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('d.m.Y')}}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
@@ -905,7 +905,7 @@
                                                                 <span style="font-weight: 500;">Datum</span>
                                                             </div>
                                                             <div class="col">
-                                                            <span>{{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$task->created_at)->format('Y-m-d')}}</span>
+                                                            <span>{{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$task->created_at)->format('d.m.Y')}}</span>
 
                                                             </div>
                                                         </div>
@@ -958,7 +958,7 @@
                                                                 <span style="font-weight: 500;">Datum</span>
                                                             </div>
                                                             <div class="col">
-                                                            <span>{{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$task->created_at)->format('Y-m-d')}}</span>
+                                                            <span>{{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$task->created_at)->format('d.m.Y')}}</span>
 
                                                             </div>
                                                         </div>
@@ -1107,7 +1107,7 @@
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Datum & Zeit</span>
-                                                                <span class="fs-6">{{$perApp->date}} ({{$perApp->time}})</span>
+                                                                <span class="fs-6">{{Carbon\Carbon::parse($perApp->date)->format('d.m.Y')}} ({{$perApp->time}})</span>
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Adress</span>
@@ -1186,7 +1186,7 @@
                                                                 <span class="fw-600">Datum</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span style="font-weight: 400">{{ Carbon\Carbon::parse($task->created_at)->format('Y-m-d')}}</span>
+                                                                <span style="font-weight: 400">{{ Carbon\Carbon::parse($task->created_at)->format('d.m.Y')}}</span>
                                                             </div>
                                                         </div>
 
@@ -1680,7 +1680,7 @@
                                                         <div class="row g-0 text-start ps-2">
                                                             <div class="col-3">
                                                                 <div onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
-                                                                    <span class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('Y-m-d')}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('d.m.Y')}}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">

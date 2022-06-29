@@ -544,7 +544,7 @@
                                                     <div
                                                         onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
                                                         <span
-                                                            class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('Y-m-d')}}</span>
+                                                            class="anfragenFieldsSpan fs-6">{{ Carbon\Carbon::parse($family->created_at)->format('d.m.Y')}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
@@ -1090,12 +1090,10 @@
 
                                         </div>
                                         <div class="col-auto my-auto ms-1">
-                                            <span class="fs-6">{{$perApp->date}}, {{$perApp->time}}</span>
+                                            <span class="fs-6">{{Carbon\Carbon::parse($perApp->date)->format('d.m.Y')}}, {{$perApp->time}}</span>
                                         </div>
                                     </div>
-
                                 </div>
-
                             @endforeach
                             @endif
                         </div>
@@ -1342,7 +1340,7 @@
                                                     </svg>
 
                                                 </div>
-                                                <span class=" fs-6">{{$consult->date}}, {{$consult->time}}</span>
+                                                <span class=" fs-6">{{Carbon\Carbon::parse($consult->date)->format('d.m.Y')}}, {{$consult->time}}</span>
                                             </div>
                                         </li>
                                         
@@ -2853,7 +2851,7 @@
 
                                                         </div>
                                                         <span
-                                                            class=" fs-6">{{$consult->date}}, {{$consult->time}}</span>
+                                                            class=" fs-6">{{Carbon\Carbon::parse($consult->date)->format('d.m.Y')}}, {{$consult->time}}</span>
                                                     </div>
                                                 </li>
 
@@ -3115,7 +3113,7 @@
 
                                                 </div>
                                                 <div class="col-auto my-auto ms-1">
-                                                    <span class="fs-6">{{$perApp->date}}, {{$perApp->time}}</span>
+                                                    <span class="fs-6">{{Carbon\Carbon::parse($perApp->date)->format('d.m.Y')}}, {{$perApp->time}}</span>
                                                 </div>
                                             </div>
                                         </div>
