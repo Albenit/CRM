@@ -37,7 +37,7 @@
                     @foreach ($leads as $lead)
                     <tr style="border-top: 1px solid #E9E8E8 !important;">
                         <td scope="row">
-                            <div>{{$lead->first_name}} {{$lead->last_name}}</div>
+                            <div  style="font-weight: 600 !important;">{{$lead->first_name}} {{$lead->last_name}}</div>
                         </td>
                         <td>
                             <div>{{$lead->address}}</div>
@@ -48,19 +48,19 @@
                         <td>
                             @if ($lead->completed == 1)
                                 <div>
-                                    <div class="go-btn py-2 w-100" style="font-weight: 600; text-align:center;">
+                                    <div class="go-btn py-2 w-100 px-2" style="font-weight: 600; text-align:center;">
                                         Abschluss
                                     </div>
                                 </div>
                              @elseif ($lead->assign_to_id != null && $lead->deleted_at != null )
                                 <div>
-                                    <div class="close-btn py-2 w-100" style="font-weight: 600; text-align:center;">
+                                    <div class="close-btn py-2 w-100 px-2" style="font-weight: 600; text-align:center;">
                                         Kein Abschluss
                                     </div>
                                 </div>
                             @elseif ($lead->assign_to_id != null && $lead->completed == 0 && $lead->rejected == 0 && $lead->deleted_at == null)
                                 <div>
-                                    <button class="mid-btn py-2 w-100" style="font-weight: 600;"> 
+                                    <button class="mid-btn py-2 w-100 px-2" style="font-weight: 600;"> 
                                         Pending
                                     </button>
                                 </div>
@@ -213,7 +213,7 @@
 
     .kundenCustomTableStyle td {
         border-collapse: collapse;
-        font-weight: 600 !important;
+        font-weight: 500 !important;
         color: #585858;
         padding: 1rem !important;
         border-right: 1px solid #E9E8E8 !important;

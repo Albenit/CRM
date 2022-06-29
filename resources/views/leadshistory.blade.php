@@ -35,8 +35,9 @@
                     @else
                     @foreach($leads as $lead)
                     <tr style="border-top: 1px solid #E9E8E8 !important;">
-                        <td scope="row">
-                            <div>{{ucfirst($lead->first_name)}}</div>
+                        <tbody scope="row">
+                            <td>
+                            <div style="font-weight: 600 !important;">{{ucfirst($lead->first_name)}}</div>
                         </td>
                         <td>
                             <div>{{ucfirst($lead->campaign->name)}}</div>
@@ -355,7 +356,7 @@
 
     .kundenCustomTableStyle td {
         border-collapse: collapse;
-        font-weight: 600 !important;
+        font-weight: 500 !important;
         color: #585858;
         padding: 1rem !important;
         border-right: 1px solid #E9E8E8 !important;
