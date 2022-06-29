@@ -175,7 +175,7 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
         $id = $id / 1244;
         lead::find($id)->update(array('appointment_date' => $req->ndate,"time" => $req->time));
         Admins::role(['salesmanager'])->get()->each(function($item) use ($id,$req){
-            $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Ein Termin von ' . lead::find($id)->admin->name . ' bei ' .  lead::find($id)->name . ' wurde auf den '. $req->ndate . 'verschoben</a>'));});
+            $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Ein Termin von ' . lead::find($id)->admin->name . ' bei ' .  lead::find($id)->name . ' wurde auf den '. $req->ndate . ' verschoben</a>'));});
         return redirect()->route('dashboard');
     })->name('folgepost');
     route::get('acceptappointment/{id}',function ($id){
@@ -335,7 +335,6 @@ route::get('test',function (){
     return view('test',compact('admins','leads'));
 })->name('test');
 route::get('hrcalendar','App\Http\Controllers\AppointmentsController@hrcalendar')->name('hrcalendar');
-
 
 
 

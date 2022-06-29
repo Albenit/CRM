@@ -14,6 +14,6 @@ class AbsenceSeeder extends Seeder
      */
     public function run()
     {
-        Absence::factory()->count(200)->create();
+        Absence::factory()->count(500)->create();
     }
 }
