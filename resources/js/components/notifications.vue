@@ -1,6 +1,6 @@
 <template>
     <div class="notification-divvv22" @click="readall();">
-        <div class="hover-visible-div" id="hoverVisibleDiv">
+        <div class="hover-visible-div pe-5" id="hoverVisibleDiv">
             <div v-if="notcnt < 1" class="txt-notif fs-6">
                 Sie haben keine neue Benachrichtigung
             </div>
