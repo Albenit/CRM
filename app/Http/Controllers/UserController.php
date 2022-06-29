@@ -129,10 +129,8 @@ public function folgetermin($id){
              $admin2->assignRole($req->input('role_name' . $i));
              $roles->push($req->input('role_name' . $i));
          }
-    
      }
-         
-        }
+ }
         else{
          $roles->push($req->input('role_name'));
          for($i = 1; $i <= $req->addedroles2; $i++){
@@ -330,7 +328,7 @@ public function folgetermin($id){
             }
             if(auth()->user()->hasRole('fs')){
                 Admins::role(['salesmanager'])->get()->each(function($item){
-                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem ' . auth()->user()->name .' importiert </a>"'));
+                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem ' . auth()->user()->name .' importiert </a>'));
                  });
             }
             return redirect()->back()->with('success', 'Termin wurde erfolgreich hinzugefügt!');
@@ -376,9 +374,7 @@ public function folgetermin($id){
     public function addappointmentfile(Request $request)
     {
 
-        // $request->validate([
-        //     'file' => 'required|mimes:xlsx,xls,csv'
-        // ]);
+  
         $file = $request->file('costumerfile');
 
         if (\Maatwebsite\Excel\Facades\Excel::import(new LeadImport, $file)) {
@@ -409,13 +405,11 @@ public function folgetermin($id){
 
     public function asignlead(Request $req, $id)
     {
-
         $req->validate([
             'personen' => 'required',
             'apptime' => 'required',
             'appointmentdate' => 'required'
         ]);
-
 
         $lead = lead::find($id);
         $lead->berater =  $req->berater ?  filter_var($req->berater,FILTER_SANITIZE_STRING) : $lead->berater;
