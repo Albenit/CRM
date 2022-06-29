@@ -1580,6 +1580,10 @@
             fill: #2F60DC;
             stroke: #2F60DC;
         }
+        .activeSvg8 circle {
+            fill: #2F60DC;
+            stroke: #2F60DC;
+        }
 
         .greyBorderDivStats {
             border: 2px solid rgba(47, 96, 220, 0.1);
@@ -5016,7 +5020,7 @@
                                         <div style="position: relative;">
                                             <div class="col my-auto">
                                                 <div>
-                                                    <span class="statsTitleSpan fs-3">Appoinment</span>
+                                                    <span class="statsTitleSpan fs-3">Termine</span>
                                                 </div>
                                                 <div>
                                                     <div class="row g-0">
@@ -5039,7 +5043,7 @@
                                                                                     <div class="col ms-2">
                                                                                         <div>
                                                                                             <span
-                                                                                                id="activeDropDownItem7">
+                                                                                                id="activeDropDownItem8">
                                                                                                 Gesamter Zeitraum</span>
                                                                                         </div>
                                                                                     </div>
@@ -5061,7 +5065,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="statsSelectStyleDropdown"
-                                                                                id="dropdownSelectId7"
+                                                                                id="dropdownSelectId8"
                                                                                 style="display: none;right: 1rem;">
                                                                                 <div class="py-2">
                                                                                     <div class="row g-0"
@@ -5222,7 +5226,7 @@
                                                                                         <div
                                                                                             class="col-auto my-auto ps-3">
                                                                                             <div>
-                                                                                                <svg class="activeSvg7"
+                                                                                                <svg class="activeSvg8"
                                                                                                     width="19"
                                                                                                     height="19"
                                                                                                     viewBox="0 0 19 19"
@@ -5249,7 +5253,7 @@
                                                                                 </div>
                                                                                 <div class="py-2"
                                                                                     style="border-top: 1px solid #E8E8E8;">
-                                                                                    <div class="row g-0" onclick="hrCostum()" style="cursor: pointer">
+                                                                                    <div class="row g-0" onclick="terminCostum()" style="cursor: pointer">
                                                                                         <div
                                                                                             class="col-auto my-auto ps-3">
                                                                                             <div>
@@ -5273,31 +5277,21 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div id="hrCostum" style="display: none">
+                                                                                <div id="terminCostum" style="display: none">
                                                                                     <div class="py-2">
                                                                                         <div class="row g-0">
-                                                                                            {{-- <div class="col-auto my-auto ps-3">
-                                                                                                <div>
-                                                                                                    <span class="fs-6">Aus</span>
-                                                                                                </div>
-                                                                                            </div> --}}
                                                                                             <div class="col my-auto ps-2 pe-2">
                                                                                                 <div>
-                                                                                                    <input class="form-control" type="date" id="hrFrom">
+                                                                                                    <input class="form-control" type="date" id="terminFrom">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="pt-1">
                                                                                         <div class="row g-0">
-                                                                                            {{-- <div class="col-auto my-auto ps-3">
-                                                                                                <div>
-                                                                                                    <span class="fs-6">Zu</span>
-                                                                                                </div>
-                                                                                            </div> --}}
                                                                                             <div class="col my-auto ps-2 pe-2">
                                                                                                 <div>
-                                                                                                   <input class="form-control" type="date" id="hrTo">
+                                                                                                   <input class="form-control" type="date" id="terminTo">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -5675,7 +5669,14 @@
                 x.style.display = "block";
             }
         }
-
+        function openDropDownSelect8() {
+            var x = document.getElementById("dropdownSelectId8");
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
 
         function makeSelectActive(x, number) {
             dateFrom = document.getElementById('statusvomvertragFromm').value
@@ -6215,7 +6216,11 @@
         }
         function makeSelectActive8(x, number) {
 
-            axios.get('appointmentStat?number=' + number).then( response => {
+            dateFrom = document.getElementById('terminFrom').value
+            dateTo = document.getElementById('terminTo').value
+
+            axios.get('appointmentStat?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then( response => {
+                console.log(response.data)
 
                 Highcharts.chart('chart7', {
                     chart: {
@@ -6240,22 +6245,22 @@
                     series: [{
                         name: 'Delivered amount',
                         data: [
-                        ['Bananas', 8],
-                        ['Kiwi', 3],
-                        ['Mixed nuts', 1],
-                        ['Oranges', 6],
-                        ['Apples', 8],
-                        ['Pears', 4],
-                        ['Clementines', 4],
-                        ['Reddish (bag)', 1],
-                        ['Grapes (bunch)', 1]
+                            ['Acepted', response.date[0]],
+                            ['Pending', response.data[1]],
+                            ['Rejected', response.data[2]]
                         ]
                     }]
-        });
-
+                });
+                chart.updateSeries([response.data[0], response.data[1], response.data[2], response.data[3]])
             });
 
-           
+            var y = $(x).find("span").html();
+            var svg = $(x).find("svg");
+            var activeSvg = document.querySelector(".activeSvg8");
+            $(activeSvg).removeClass("activeSvg8");
+            $(svg).addClass("activeSvg8");
+            $("#activeDropDownItem8").html(y)
+            $("#dropdownSelectId8").hide()
 
         }
 
@@ -6512,6 +6517,10 @@
         function hrCostum(){
             $('#hrCostum').slideToggle()
             $("#activeDropDownItem7").html("Individueller Zeitraum")
+        }
+        function terminCostum(){
+            $('#terminCostum').slideToggle()
+            $("#activeDropDownItem8").html("Individueller Zeitraum")
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
