@@ -2239,7 +2239,7 @@ $urole = $user->getRoleNames()->toArray();
         height: 27rem;
         z-index: 999;
         width: 50rem;
-        box-shadow: 0px 4px 4px rgba(143, 143, 143, 0.25);
+        box-shadow: 0px 4px 40px rgba(143, 143, 143, 0.25);
     }
 
     .notification-divvv22 .dropup .dropdown-toggle::after {
@@ -2263,7 +2263,7 @@ $urole = $user->getRoleNames()->toArray();
         bottom: 30px;
         right: 30px;
         background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: 0px 4px 40px rgba(143, 143, 143, 0.25);
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         border-bottom-left-radius: 50px;
@@ -2284,6 +2284,7 @@ $urole = $user->getRoleNames()->toArray();
         border-bottom-left-radius: 50px;
         display: none;
         align-items: center;
+        padding-right: 2rem;
     }
 
     .txt-notif {
@@ -2341,7 +2342,7 @@ $urole = $user->getRoleNames()->toArray();
         }
         .notification-divvv22 .dropdown-menu {
             width: 99vw;
-            box-shadow: 0px 4px 4px rgba(143, 143, 143, 0.25);
+            box-shadow: 0px 4px 40px rgba(143, 143, 143, 0.25);
         }
 
         .notification-divvv22 {
