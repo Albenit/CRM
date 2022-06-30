@@ -19,7 +19,7 @@
                         <div class="p-3">
                             <label for="berater" class="fw-600">Berater</label>
                             <select name="berater" style="border: none" class="form-control">
-                                    
+                                    <option value="all">Alles</option>
                                 @foreach($beraters as $berater) 
                                     <option value="{{$berater->id}}">{{$berater->name}}</option>
                                 @endforeach
