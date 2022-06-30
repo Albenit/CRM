@@ -276,35 +276,35 @@ public function filterhrcalendar(Request  $req){
         $beraters = Admins::role(['fs'])->get();
         if($req->berater != null){
             if($req->status == 'all' && $req->berater == 'all'){
-                $leads = lead::where('assigned',1)->withTrashed()->get();
+                $leads = lead::withTrashed()->get();
             }elseif($req->status != 'all' && $req->berater == 'all'){
                 if ($req->status == 'Abschluss'){
-                    $leads = lead::where('assigned',1)->where('completed',1)->withTrashed()->get();
+                    $leads = lead::where('completed',1)->withTrashed()->get();
                 }elseif($req->status == 'Kein Abschluss'){
-                    $leads = lead::where('assigned',1)->where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
+                    $leads = lead::where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
                 }elseif($req->status == 'Folget'){
-                    $leads = lead::where('assigned',1)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
+                    $leads = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
                 }elseif($req->status == 'Pending'){
-                    $leads = lead::where('assigned',1)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
+                    $leads = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
                 }elseif($req->status == 'all'){
-                    $leads = lead::where('assigned',1)->withTrashed()->get();
+                    $leads = lead::withTrashed()->get();
                 }
             }else{
                 if ($req->status == 'Abschluss'){
-                $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',1)->withTrashed()->get();
+                $leads = lead::where('assign_to_id',$req->berater)->where('completed',1)->withTrashed()->get();
                 }elseif($req->status == 'Kein Abschluss'){
-                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
+                    $leads = lead::where('assign_to_id',$req->berater)->where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
                 }elseif($req->status == 'Folget'){
-                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
+                    $leads = lead::where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
                 }elseif($req->status == 'Pending'){
-                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
+                    $leads = lead::where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
                     dd($leads);
                 }elseif($req->status == 'all'){
-                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->withTrashed()->get();
+                    $leads = lead::where('assign_to_id',$req->berater)->withTrashed()->get();
                 }
             }
         }else{
-            $leads = lead::where('assigned',1)->withTrashed()->get();
+            $leads = lead::withTrashed()->get();
         }
 
 
