@@ -631,4 +631,8 @@ class CostumerFormController extends Controller
 
     }
 
+    public function savecostumer(Request $request){
+        
+    }
+
 }
