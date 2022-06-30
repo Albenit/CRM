@@ -23,6 +23,7 @@ use App\Http\Controllers\TasksController;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CostumerFormController;
 use App\Http\Controllers\TodoController;
 use App\Models\Admins;
 use App\Models\todo;
@@ -333,6 +334,10 @@ route::get('test',function (){
     return view('test',compact('admins','leads'));
 })->name('test');
 route::get('hrcalendar','App\Http\Controllers\AppointmentsController@hrcalendar')->name('hrcalendar');
+route::get('insertcostumer',function (){
+    return view('insertcostumer');
+})->name('insertcostumer');
+route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer');
 
 
 

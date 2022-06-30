@@ -871,7 +871,9 @@
 
                                     </div>
                                 </form>
+                                
                             </div>
+                            <a href="{{route('insertcostumer')}}">Insert Costumer</a>
                         </div>
                     </div>
                 @endif
