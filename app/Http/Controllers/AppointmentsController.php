@@ -232,6 +232,7 @@ public function filterhrcalendar(Request  $req){
             if($appointment){
                 Admins::role(['salesmanager'])->get()->each(function($item) use($input){
                 $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
+                
             });
                 Admins::find($input['id_user'])->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
 					Admins::role(['salesmanager'])->get()->each(function($item) use($input){
