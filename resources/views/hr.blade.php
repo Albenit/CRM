@@ -872,7 +872,7 @@
                             <div class="col-12 col-md-6 col-lg-3">
                                 <label class="fw-500" style="font-size: 16px !important;">Datum</label>
                                 <input type="date" class="form-control form-control-sm kalendarFormStyle py-2" name="date_in"
-                                       value="{!! $date_in->format('Y-m-d') !!}">
+                                       value="{!! $date_in->format('d.m.y') !!}">
                             </div>
 
                             <div class="col-12 col-md-6 col-lg-3">
