@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\SendNotification;
+use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\HumanResourcesController;
 use App\Models\CostumerProduktGrundversicherung;
 use App\Models\CostumerProduktRechtsschutz;
@@ -174,7 +175,7 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::post('folgepost/{id}',function ($id,Request $req){
         $id = Crypt::decrypt($id);
         $id = $id / 1244;
-        lead::find($id)->update(array('appointment_date' => $req->ndate,"time" => $req->time));
+        lead::find($id)->update(array('appointment_date' => $req->ndate,"time" => $req->time, 'folged' => 1,'folgeComment' => $req->folgecomment));
         Admins::role(['salesmanager'])->get()->each(function($item) use ($id,$req){
             $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Ein Termin von ' . lead::find($id)->admin->name . ' bei ' .  lead::find($id)->name . ' wurde auf den '. $req->ndate . ' verschoben</a>'));});
         return redirect()->route('dashboard');
@@ -213,10 +214,9 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('linkthat/{id}/{pid}','App\Http\Controllers\FamilyPersonsController@linkthat');
     route::get('updateperson/{id}',[UserController::class,'updateperson'])->name('updateperson');
     
-    route::get('historyTermine', function(){
-        $leads = lead::whereNotNull('assign_to_id')->withTrashed()->get();
-        return view('rejectedappointment', compact('leads'));
-    })->name('rejectedAppointment');
+
+
+    route::get('historyTermine', [AppointmentsController::class,'historyTermine'])->name('rejectedAppointment');
 
     include 'Hr.php';
     include 'webv2.php';

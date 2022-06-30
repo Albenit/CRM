@@ -278,7 +278,7 @@
                                             <label for="inputTxt4" class="col-form-label">Aktuelles Datum</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" name="current" value="{{Carbon\Carbon::createFromFormat('Y-m-d',$leads->appointment_date)->format('m-d-Y')}}">
+                                            <input type="text" class="form-control" name="current" value="{{Carbon\Carbon::createFromFormat('Y-m-d',$leads->appointment_date)->format('m-d-Y')}}" readonly>
                                         </div>
                                     </div>
 
@@ -313,7 +313,7 @@
                                             <label for="inputTxt4" class="col-form-label">Kommentar</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" name="grund">
+                                            <input type="text" class="form-control" name="folgecomment">
                                         </div>
                                     </div>
                                     <div class="decline-btn-div text-end mx-3 mx-sm-5">
