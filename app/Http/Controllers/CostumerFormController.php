@@ -19,6 +19,7 @@ use App\Models\LeadDataPrevention;
 use App\Models\LeadDataThings;
 use App\Models\newgegen;
 use App\Models\newnue;
+use App\Models\lead;
 use App\Notifications\SendNotificationn;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -631,8 +632,38 @@ class CostumerFormController extends Controller
 
     }
 
-    public function savecostumer(Request $request){
-        
+    public function savecostumer(Request $req){
+
+        $lead = new lead();
+        $lead->assign_to_id = auth()->id();
+        $lead->first_name = $req->fname;
+        $lead->last_name = $req->lname;
+        $lead->telephone = $req->phone;
+        $lead->campaign_id = random_int(1,3);
+        $lead->nationality = $req->country;
+        $lead->save();
+        $family = new family();
+        $family->first_name = filter_var($req->input('fname'),FILTER_SANITIZE_STRING);
+        $family->birthdate = filter_var($req->input('birthdate'),FILTER_SANITIZE_STRING);
+        $family->last_name = filter_var($req->input('lname'),FILTER_SANITIZE_STRING);
+        $family->leads_id = (int) $lead->id;
+        $family->status = "Done";
+        $family->status_of_produkts = 'Offen (Berater)';
+        $family->save();
+        Pendency::create(['admin_id' => auth()->user()->id,'family_id'=> $family->id,'p' => 0]);
+        \App\Models\LeadDataKK::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
+        \App\Models\LeadDataFahrzeug::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
+        \App\Models\LeadDataPrevention::create(['person_id'=> $family->id,'leads_id' => (int) $lead->id]);
+        \App\Models\LeadDataThings::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
+        \App\Models\LeadDataCounteroffered::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
+        \App\Models\LeadDataRech::create(['person_id' => $family->id, 'leads_id' => (int) $lead->id]);
+        \App\Models\CostumerProduktGrundversicherung::create(['person_id_PG'=> $family->id,'status_PG' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktZusatzversicherung::create(['person_id_PZ'=> $family->id,'status_PZ' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktAutoversicherung::create(['person_id_PA'=> $family->id,'status_PA' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        return redirect()->back();
     }
 
 }
