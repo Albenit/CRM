@@ -182,7 +182,7 @@ public function folgetermin($id){
      }
 
     public function addslead(Request $req){
-
+        
         $lead = new lead();
         $lead->first_name = filter_var($req->name, FILTER_SANITIZE_STRING);
         $lead->last_name = filter_var($req->lname, FILTER_SANITIZE_STRING);
