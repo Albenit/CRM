@@ -575,6 +575,9 @@
             z-index: 1;
             margin-left: -12%;
         }
+        #chart7 .apexcharts-legend {
+            display: none !important;
+        }
         /* new navbar styling */
         .rolle-style {
             border-radius: 0 !important;
@@ -4958,7 +4961,7 @@
                                                                     <div class="pt-3">
                                                                         <div class="row g-0">
                                                                             <div class="col-12 col-sm mx-auto" style="max-width: 300px;min-width: 270px;">
-                                                                                <canvas id="chart7"></canvas>
+                                                                                <div id="chart7"></div>
                                                                             </div>
                                                                             <div class="col-12 col-sm my-auto ps-0 ps-sm-5 pt-4 pt-sm-0">
                                                                                 <div>
@@ -5875,44 +5878,49 @@
                 document.getElementById('teraccepted').innerHTML = response.data[0]
                 document.getElementById('terpending').innerHTML = response.data[1]
                 document.getElementById('terrejected').innerHTML = response.data[2]
-                document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2]
-                console.log(response.data)
-                const data = {
-                labels: [
-                    'Acepted',
-                    'Rejected',
-                    'Pending'
-                ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: [response.data[0], response.data[2], response.data[1]],
-                    backgroundColor: [
-                    '#DBB4FF',
-                    '#7100A7',
-                    '#C86FE9'
-                    ],
-                    borderRadius: 15,
-                    spacing: 10,
-                    hoverOffset: 4
-                }]
-                };
-                
-                const config = {
-                    type: 'doughnut',
-                    data: data,
-                    options: {
-                        plugins: {
+                 document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2]
+                 if(response.data[0] + response.data[1] + response.data[2] == 0){
+                    document.querySelector("#chart7").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
+                                                '<div class="py-5">Keine Data</div></div>';
+                }else{
+
+                var options = {
+                    colors: ['','',''],
+                    series: [response.data[0], response.data[1], response.data[2]],
+                    chart: {
+                        width: "120%",
+                        type: 'pie',
+                    },
+                    fill: {
+                        colors: ['#DBB4FF', '#C86FE9', '#7100A7']
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    labels: ['Acepted','Pending','Rejected'],
+                    legend: {
+                        offsetY: 0,
+                    },
+                    stroke: {
+                        width: 0
+                    },
+                    responsive: [{
+                        breakpoint: 1250,
+                        options: {
+                            chart: {
+                                width: "100%",
+                            },
                             legend: {
-                                display: false,
-                                labels: {
-                                    color: 'rgb(255, 99, 132)'
-                                }
-                            }
-                        }
-                    }
-                    };
-            var myChart = new Chart(document.getElementById('chart7'),config
-            );
+                                show: true,
+                                position: "bottom"
+                            },
+                        },
+                    }]
+                };
+                var chart = new ApexCharts(document.querySelector("#chart7"), options);
+                chart.render();
+                chart.updateSeries([response.data[0], response.data[1], response.data[2]])
+            }
             })
            
             var y = $(x).find("span").html();

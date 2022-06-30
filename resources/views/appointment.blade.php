@@ -327,11 +327,7 @@
                 <div class="col text-center" style="margin-right: -17px;">
                     <span class="fs-5" style="font-weight: 600;color: #fff;font-family: 'Roboto';">Appointment</span>
                 </div>
-                <div class="col-auto my-auto" style="cursor: pointer" onclick='document.getElementById("change_fs").style.display = "block" ;'>
-                    <svg width="20" height="20" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.24 0.839305C16.359 1.95838 16.359 3.77275 15.24 4.89183L5.65584 14.4759C5.43412 14.6977 5.15838 14.8577 4.85587 14.9402L0.759282 16.0574C0.31094 16.1797 -0.100449 15.7683 0.0218259 15.32L1.13908 11.2234C1.22158 10.9209 1.3816 10.6451 1.60332 10.4234L11.1874 0.839305C12.3065 -0.279768 14.1209 -0.279768 15.24 0.839305ZM10.4111 3.31447L2.45268 11.2728C2.37878 11.3467 2.32544 11.4386 2.29794 11.5394L1.45723 14.622L4.53982 13.7813C4.64066 13.7538 4.73257 13.7005 4.80648 13.6266L12.7646 5.66799L10.4111 3.31447ZM12.0368 1.68867L11.2599 2.46483L13.6134 4.81915L14.3906 4.04246C15.0406 3.39248 15.0406 2.33865 14.3906 1.68867C13.7406 1.03869 12.6868 1.03869 12.0368 1.68867Z" fill="white"/>
-                    </svg>
-                </div>
+                
             </div>
         </div>
         <div class="p-4" style="background-color: #fff;border-radius: 0 0 15px 15px">
