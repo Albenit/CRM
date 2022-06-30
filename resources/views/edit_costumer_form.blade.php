@@ -1142,7 +1142,7 @@ if it's not present, don't show loader */
                                                             <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                         </div>
                                                         <div class="col">
-                                                            <span class="documentFormRightSpan">{{$costumer->birthdate}}</span>
+                                                            <span class="documentFormRightSpan">{{Carbon\Carbon::parse($costumer->birthdate)->format('d.m.Y')}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1271,7 +1271,7 @@ if it's not present, don't show loader */
                                                     </a>
                                                 @endif
                                                 @if($dataKK->kranken_file != null)
-                                                    <label for="">Kranken File</label>
+                                                    <label for="">Krankenkasse File</label>
                                                     <a style="text-decoration: none;" href="{{route('showfile',$dataKK->kranken_file)}}" target="_blank">
                                                         <input
                                                             type="text" class="form-control"

@@ -4,13 +4,13 @@
 <div>
     <div class="p-4">
         <div class="pb-3">
-            <span class="fs-5 spanColor fw-600">Historie Der Appointment</span>
+            <span class="fs-5 spanColor fw-600">Historie Der Termine</span>
         </div>
         <div style="overflow-x: auto;">
             <table class="table table-borderless kundenCustomTableStyle" border="0" cellpadding="0" cellspacing="0" style="background: #F9FAFC;box-shadow: 0px 4px 4px rgba(208, 208, 208, 0.25);border-radius: 8px">
                 <thead style="border-bottom: 0px solid #fff !important;border-radius: 8px">
                     <tr class="bg-color1" style="border: none; border-bottom: 0px #fff solid !important;border-radius: 8px">
-                        <th scope="col" class="header-styling">Appointment</th>
+                        <th scope="col" class="header-styling">Termine</th>
                         <th scope="col" class="header-styling">Datum</th>
                         <th scope="col" class="header-styling">Addres</th>
                         <th scope="col" class="header-styling">Personen</th>
@@ -41,7 +41,7 @@
                             <div  style="font-weight: 600 !important;">{{$lead->first_name}} {{$lead->last_name}}</div>
                         </td>
                         <td scope="row">
-                            <div>{{$lead->appointment_date}}</div>
+                            <div>{{Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y')}}</div>
                         </td>
                         <td>
                             <div>{{$lead->address}}</div>

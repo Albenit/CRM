@@ -129,10 +129,8 @@ public function folgetermin($id){
              $admin2->assignRole($req->input('role_name' . $i));
              $roles->push($req->input('role_name' . $i));
          }
-    
      }
-         
-        }
+ }
         else{
          $roles->push($req->input('role_name'));
          for($i = 1; $i <= $req->addedroles2; $i++){
@@ -330,7 +328,7 @@ public function folgetermin($id){
             }
             if(auth()->user()->hasRole('fs')){
                 Admins::role(['salesmanager'])->get()->each(function($item){
-                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem ' . auth()->user()->name .' importiert </a>"'));
+                    $item->notify(new SendNotificationn('<a href="' . route('Appointments') . '">ein Termin wurde von einem ' . auth()->user()->name .' importiert </a>'));
                  });
             }
             return redirect()->back()->with('success', 'Termin wurde erfolgreich hinzugefügt!');
@@ -376,9 +374,7 @@ public function folgetermin($id){
     public function addappointmentfile(Request $request)
     {
 
-        // $request->validate([
-        //     'file' => 'required|mimes:xlsx,xls,csv'
-        // ]);
+  
         $file = $request->file('costumerfile');
 
         if (\Maatwebsite\Excel\Facades\Excel::import(new LeadImport, $file)) {
@@ -409,13 +405,11 @@ public function folgetermin($id){
 
     public function asignlead(Request $req, $id)
     {
-
         $req->validate([
             'personen' => 'required',
             'apptime' => 'required',
             'appointmentdate' => 'required'
         ]);
-
 
         $lead = lead::find($id);
         $lead->berater =  $req->berater ?  filter_var($req->berater,FILTER_SANITIZE_STRING) : $lead->berater;
@@ -613,7 +607,7 @@ public function folgetermin($id){
         $appointments = lead::where('appointment_date', date('Y-m-d', strtotime($req->input('fbydate'))))->where('admin_id', Auth::guard('admins')->user()->id)->where('wantsonline', 0)->get();
 
         $leadscount = lead::where('assign_to_id', null)->where('assigned', 0)->get()->count();
-        $todayAppointCount = lead::where('assign_to_id', Auth::guard('admins')->user()->id)->where('appointmentdate', Carbon::now()->toDateString())->where('wantsonline', 0)->where('assigned', 1)->get()->count();
+        $todayAppointCount = lead::where('assign_to_id', Auth::guard('admins')->user()->id)->where('appointmentdate', Carbon::now()->format('Y-m-d'))->where('wantsonline', 0)->where('assigned', 1)->get()->count();
 
         return view('dashboard', compact('appointments', 'leadscount', 'todayAppointCount'));
     }
@@ -982,9 +976,9 @@ public function folgetermin($id){
                     }
                     if (in_array('fs',$urole) || in_array('digital',$urole)) {
                         if (in_array('fs',$urole)) {
-                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->toDateString())->where('wantsonline', 0)->where('assigned', 1)->get()->count();
+                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 0)->where('assigned', 1)->where('completed',0)->count();
                         } else {
-                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->toDateString())->where('wantsonline', 1)->where('assigned', 1)->get()->count();
+                            $todayAppointCount = lead::where('assign_to_id', $user->id)->where('appointment_date', Carbon::now()->format('Y-m-d'))->where('wantsonline', 1)->where('assigned', 1)->where('completed',0)->count();
                         }
 
                         $grundprov = 0;
@@ -1009,92 +1003,92 @@ public function folgetermin($id){
 
 
 
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_produkt_grundversicherung', 'costumer_produkt_grundversicherung.person_id_PG', 'family_person.id')
-                                     ->select('costumer_produkt_grundversicherung.status_PG','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PG == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_produkt_grundversicherung', 'costumer_produkt_grundversicherung.person_id_PG', 'family_person.id')
+                        //              ->select('costumer_produkt_grundversicherung.status_PG','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PG == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
 
-                        }
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_produkt_autoversicherung', 'costumer_produkt_autoversicherung.person_id_PA', 'family_person.id')
-                                     ->select('costumer_produkt_autoversicherung.status_PA','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PA == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
-                        }
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_podukt_zusatzversicherung', 'costumer_podukt_zusatzversicherung.person_id_PZ', 'family_person.id')
-                                     ->select('costumer_podukt_zusatzversicherung.status_PZ','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PZ == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
-                        }
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_produkt_hausrat', 'costumer_produkt_hausrat.person_id_PH', 'family_person.id')
-                                     ->select('costumer_produkt_hausrat.status_PH','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PH == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
+                        // }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_produkt_autoversicherung', 'costumer_produkt_autoversicherung.person_id_PA', 'family_person.id')
+                        //              ->select('costumer_produkt_autoversicherung.status_PA','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PA == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
+                        // }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_podukt_zusatzversicherung', 'costumer_podukt_zusatzversicherung.person_id_PZ', 'family_person.id')
+                        //              ->select('costumer_podukt_zusatzversicherung.status_PZ','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PZ == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
+                        // }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_produkt_hausrat', 'costumer_produkt_hausrat.person_id_PH', 'family_person.id')
+                        //              ->select('costumer_produkt_hausrat.status_PH','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PH == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
 
-                        }
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_produkt_rechtsschutz', 'costumer_produkt_rechtsschutz.person_id_PR', 'family_person.id')
-                                     ->select('costumer_produkt_rechtsschutz.status_PR','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PR == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
-                        }
-                        foreach (DB::table('family_person')
-                                     ->join('leads', 'family_person.leads_id', 'leads.id')
-                                     ->where('leads.assign_to_id', $user->id)
-                                     ->join('costumer_produkt_vorsorge', 'costumer_produkt_vorsorge.person_id_PV', 'family_person.id')
-                                     ->select('costumer_produkt_vorsorge.status_PV','family_person.id as fid')
-                                     ->get() as $status) {
-                            if ($status->status_PV == 'Provisionert') {
-                                if($provcnt->doesntContain($status->fid)){
-                                    $provcnt->push($status->fid);
-                                }
-                            }
-                        }
+                        // }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_produkt_rechtsschutz', 'costumer_produkt_rechtsschutz.person_id_PR', 'family_person.id')
+                        //              ->select('costumer_produkt_rechtsschutz.status_PR','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PR == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
+                        // }
+                        // foreach (DB::table('family_person')
+                        //              ->join('leads', 'family_person.leads_id', 'leads.id')
+                        //              ->where('leads.assign_to_id', $user->id)
+                        //              ->join('costumer_produkt_vorsorge', 'costumer_produkt_vorsorge.person_id_PV', 'family_person.id')
+                        //              ->select('costumer_produkt_vorsorge.status_PV','family_person.id as fid')
+                        //              ->get() as $status) {
+                        //     if ($status->status_PV == 'Provisionert') {
+                        //         if($provcnt->doesntContain($status->fid)){
+                        //             $provcnt->push($status->fid);
+                        //         }
+                        //     }
+                        // }
 
-
-                        // $provisionertCount = $vorsprov + $rechprov + $hausprov + $zusaprov + $autoprov + $grundprov;
-                        // $offenCount = $voroff + $rechoffen + $hausoffen + $zusaoffen + $autoffen + $grundoffen;
-                        // $aufgenomenCount = $vorauf + $rechauf + $hausauf + $zusauf + $autoauf + $grundauf;
-
-                        $fc = auth()->user()->kunden->count();
-                        if ($fc > 0) {
-                            $fmcount = (100 / $fc) * $provcnt->count();
-                        } else {
-                            $fmcount = 0;
+                        $leed = lead::where('assign_to_id',Auth::user()->id)->withTrashed()->count();
+                        if($leed > 0){
+                            $leadssAll = 100 / $leed;
+                            $leadsAbschlose = lead::where('assign_to_id',Auth::user()->id)->where('completed', 1)->where('rejected',0)->count();
+    
+                            $leadsAll = $leadsAbschlose * $leadssAll;
+                        }else{
+                            $leadsAll = 0;
                         }
+                        
+                        
 
                         $provisionertCount = $provcnt->count();
                         $offenCount = $eingerichtcnt->count();
@@ -1104,7 +1098,7 @@ public function folgetermin($id){
                             'provisionertCount' => $provisionertCount,
                             'offenCount' => $offenCount,
                             'aufgenomenCount' => $aufgenomenCount,
-                            'familyCount' => $fmcount
+                            'familyCount' => $leadsAll
                         ];
 
 
@@ -1131,7 +1125,7 @@ public function folgetermin($id){
 
                         $countconsultation = $consultation->count();
 
-                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->toDateString())->where('assigned', 1)->count();
+                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->where('completed',0)->count();
 
                         $admins = Admins::role(['fs','salesmanager'])->get();
                         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
@@ -1159,7 +1153,7 @@ public function folgetermin($id){
 
                         $admins =  Admins::all();
 
-                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->toDateString())->where('assigned', 1)->count();
+                        $todayAppointCount = lead::where('appointment_date', Carbon::now()->format('Y-m-d'))->where('assigned', 1)->where('completed',0)->count();
 
 
                         $provisionertCount = $provcnt->count();
@@ -1169,12 +1163,18 @@ public function folgetermin($id){
                         // $aufgenomenCount = $grundversicherungAuf + $retchsschutzAuf + $vorsorgeAuf + $zusatzversicherungAuf + $autoversicherungAuf + $hausratAuf;
                         $zuruckCount = $grundversicherungZ + $retchsschutzZ + $vorsorgeZ + $zusatzversicherungZ + $autoversicherungZ + $hausratZ;
                         $abgCount = $grundversicherungA + $retchsschutzA + $vorsorgeA + $zusatzversicherungA + $autoversicherungA + $hausratA;
-                       $fcount = family::count();
-                        if ($fcount > 0) {
-                            $fmcount = (100 / $fcount) * $provisionertCount;
-                        } else {
-                            $fmcount = 0;
+
+
+                        $leed = lead::withTrashed()->count();
+                        if($leed > 0){
+                            $leadssAll = 100 / $leed;
+                            $leadsAbschlose = lead::where('completed', 1)->where('rejected',0)->count();
+
+                            $leadsAll = $leadsAbschlose * $leadssAll;
+                        }else{
+                            $leadsAll = 0;
                         }
+                        
 
                         $counterat = [
                             'provisionertCount' => $provisionertCount,
@@ -1182,7 +1182,7 @@ public function folgetermin($id){
                             'aufgenomenCount' => $aufgenomenCount,
                             'abgCount' => $abgCount,
                             'zuruckCount' => $zuruckCount,
-                            'familyCount' => $fmcount
+                            'familyCount' => $leadsAll
                         ];
 
                         $tasks = lead::whereHas('family', function ($q){

@@ -23,6 +23,7 @@ use App\Http\Controllers\TasksController;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CostumerFormController;
 use App\Http\Controllers\TodoController;
 use App\Models\Admins;
 use App\Models\todo;
@@ -212,7 +213,7 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('linkthat/{id}/{pid}','App\Http\Controllers\FamilyPersonsController@linkthat');
     route::get('updateperson/{id}',[UserController::class,'updateperson'])->name('updateperson');
     
-    route::get('rejectedAppointment', function(){
+    route::get('historyTermine', function(){
         $leads = lead::whereNotNull('assign_to_id')->withTrashed()->get();
         return view('rejectedappointment', compact('leads'));
     })->name('rejectedAppointment');
@@ -248,10 +249,8 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('file/{file}',function($file,Request $request){
         if(Storage::disk('img')->exists($file)){
             ob_end_clean();
-            $file = Storage::disk('img')->get($file);
-            $response = Illuminate\Support\Facades\Response::make($file,200);
-            $response->header('Content-Type','file');
-            return $response;
+            return response()->file(Storage::disk('img')->path($file));
+        
 // return response()->download(storage_path('app/img/' . $file));
         }
     })->middleware('role:admin|backoffice|salesmanager|management|fs')->name('showfile');
@@ -335,6 +334,10 @@ route::get('test',function (){
     return view('test',compact('admins','leads'));
 })->name('test');
 route::get('hrcalendar','App\Http\Controllers\AppointmentsController@hrcalendar')->name('hrcalendar');
+route::get('insertcostumer',function (){
+    return view('insertcostumer');
+})->name('insertcostumer');
+route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer');
 
 
 

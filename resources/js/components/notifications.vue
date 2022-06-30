@@ -22,6 +22,7 @@
                 </svg>
             </button>
             <ul class="dropdown-menu px-2" aria-labelledby="dropdownFunct" style="border: none !important">
+            <div v-if="notifications != null">
                 <!-- <div class="fw-bold fs-5 py-2">Aktuelle Benachrichtigungen</div>
                 <hr class="my-1 g-0 p-0"> -->
                 <div class="overflow-div2212" >
@@ -45,6 +46,11 @@
                     </div>
                     </div>
                 </div>
+                </div>
+                <div v-else class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center">
+            Es gibt keine Benachrichtigungen
+                </div>
+                
             </ul>
         </div>
     </div>

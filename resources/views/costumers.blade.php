@@ -871,7 +871,9 @@
 
                                     </div>
                                 </form>
+                                
                             </div>
+                            <a href="{{route('insertcostumer')}}">Insert Costumer</a>
                         </div>
                     </div>
                 @endif
@@ -1003,24 +1005,24 @@
                                 @if(Auth::guard('admins')->user()->hasRole('fs') || Auth::guard('admins')->user()->hasRole('salesmanager'))
                                     @if($family_person[$i]->kundportfolio == 0)
                                         <div class="name-div" data-bs-toggle="modal" data-bs-target="#rejectmodali">
-                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2"> {{$data[$i]->birthdate}}</span></span>
+                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2"> {{Carbon\Carbon::createFromFormat('Y-m-d',$data[$i]->birthdate)->format('d.m.Y')}}</span></span>
                                         </div>
                                     @else
                                         <div class="name-div"
                                              onclick="window.location.href='{{route('costumer_form', $datId)}}'">
-                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2"> {{$data[$i]->birthdate}}</span></span>
+                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2">{{Carbon\Carbon::createFromFormat('Y-m-d',$data[$i]->birthdate)->format('d.m.Y')}}</span></span>
                                         </div>
                                     @endif
                                 @else
                                     @if($family_person[$i]->kundportfolio == 0)
                                         <div class="name-div"
                                              onclick="window.location.href='{{route('costumer_form', $datId)}}'">
-                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2"> {{$data[$i]->birthdate}}</span></span>
+                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}} <span style="font-weight: 400;font-size: 14px" class="ps-2">{{Carbon\Carbon::createFromFormat('Y-m-d',$data[$i]->birthdate)->format('d.m.Y')}}</span></span>
                                         </div>
                                     @else
                                         <div class="name-div"
                                              onclick="window.location.href='{{route('costumer_form', $datId)}}'">
-                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}}<span style="font-weight: 400;font-size: 14px" class="ps-2"> {{$data[$i]->birthdate}}</span></span>
+                                            <span class="fs-6">{{$data[$i]->first_name}} {{$data[$i]->last_name}}<span style="font-weight: 400;font-size: 14px" class="ps-2">{{Carbon\Carbon::createFromFormat('Y-m-d',$data[$i]->birthdate)->format('d.m.Y')}}</span></span>
                                         </div>
                                     @endif
                                 @endif

@@ -1149,9 +1149,9 @@
                                                 @foreach ( $absences as $appointmentAGG )
                                                     <tr>
                                                         <td scope="row">{{$appointmentAGG->admin->name}}</td>
-                                                        <td>{{$appointmentAGG->created_at->format('Y-m-d')}}</td>
-                                                        <td>{{$appointmentAGG->from}}</td>
-                                                        <td>{{$appointmentAGG->to}}</td>
+                                                        <td>{{$appointmentAGG->created_at->format('d.m.Y')}}</td>
+                                                        <td>{{Carbon\Carbon::parse($appointmentAGG->from)->format('d.m.Y')}}</td>
+                                                        <td>{{Carbon\Carbon::parse($appointmentAGG->to)->format('d.m.Y')}}</td>
                                                         <td>{{$appointmentAGG->description}}</td>
                                                         @if($appointmentAGG->type == 0)
                                                             <td>
@@ -1258,7 +1258,7 @@
                                                     @foreach ( $bestellungen as $appointmentAGG )
                                                         <tr>
                                                             <td scope="row">{{$appointmentAGG->admin->name}}</td>
-                                                            <td>{{$appointmentAGG->created_at->format('Y-m-d')}}</td>
+                                                            <td>{{$appointmentAGG->created_at->format('d.m.Y')}}</td>
                                                             @if (isset($appointmentAGG->item))
                                                                 <td>{{$appointmentAGG->item}}</td>
                                                             @else
@@ -2920,7 +2920,7 @@
                                                                 </span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="fw-500 hrBlackTextStyle">{{$personalData->birthdate}}</span>
+                                                                        <span class="fw-500 hrBlackTextStyle">{{Carbon\Carbon::parse($personalData->birthdate)->format('d.m.Y')}}</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="pb-4">
@@ -3463,9 +3463,9 @@
                                             @else
                                                 @foreach($absences as $absence)
                                                     <tr>
-                                                        <td>{{$absence->created_at->format('Y-m-d')}}</td>
-                                                        <td>{{$absence->from}}</td>
-                                                        <td>{{$absence->to}}</td>
+                                                        <td>{{$absence->created_at->format('d.m.Y')}}</td>
+                                                        <td>{{Carbon\Carbon::parse($absence->from)->format('d.m.Y')}}</td>
+                                                        <td>{{Carbon\Carbon::parse($absence->to)->format('d.m.Y')}}</td>
                                                         <td>{{$absence->description}}</td>
                                                         @if($absence->type == 0)
                                                             <td>
@@ -3535,7 +3535,7 @@
                                                 @else
                                                     @foreach ( $bestellungen as $bestellunge )
                                                         <tr>
-                                                            <td>{{$bestellunge->created_at->format('Y-m-d')}}</td>
+                                                            <td>{{$bestellunge->created_at->format('d.m.Y')}}</td>
                                                             @if (isset($bestellunge->item))
                                                                 <td>{{$bestellunge->item}}</td>
                                                             @else

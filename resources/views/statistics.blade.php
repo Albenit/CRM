@@ -37,51 +37,38 @@
             height: 100%;
             background: #f7f7f7;
         }
-
         .bluePageIndicator {
             visibility: hidden;
         }
-
         
-
         .activePage {
             visibility: visible;
-
         }
-
         .passiveSvg {
             stroke: #A7A4A4 !important;
             fill: #A7A4A4 !important;
         }
-
         .activeSvgIndicator svg {
             stroke: #2F60DC !important;
             /* fill: #2F60DC !important; */
-
         }
-
         .activePageIndicator {
             font-size: 17px;
             color: #2F60DC;
             font-weight: 500;
         }
-
         .passivePageIndicator {
             font-size: 17px;
             color: #A7A4A4;
             cursor: pointer;
             font-weight: 400;
-
         }
-
         .navbarFirstHr {
             background-color: rgba(196, 196, 196, 0.9);
         }
-
         .removeTextOnMobile {
             display: block;
         }
-
         @media (max-width: 991.98px) {
             .removeTextOnMobile {
                 display: none;
@@ -90,14 +77,11 @@
             margin-left: -0.25rem;
         }
         }
-
         @media (max-width: 767.98px) {
             .hideNavBarMobile {
                 display: none;
             }
-
         }
-
     </style>
     <style>
         div,
@@ -114,28 +98,22 @@
         a {
             font-family: 'Montserrat';
         }
-
         .notification-divvv22 a {
             color: black;
         }
-
         .nav-itemsss {
             height: 90vh !important;
             overflow-y: scroll !important;
-
             /* overflow-x: hidden !important; */
         }
-
         /* .nav-link {
         padding-right: 1.8rem !important;
         padding-left: 1.8rem !important;
     } */
-
         .nav-itemsss a:hover {
             background-color: #fff;
             color: #0C71C3;
         }
-
         .activeClassNav__,
         .activeClassNav__ span,
         .activeClassNav__ svg {
@@ -143,7 +121,6 @@
             color: #0C71C3 !important;
             fill: #0C71C3 !important;
         }
-
         .activeClassNavMob__,
         .activeClassNavMob__ svg path {
             background-color: transparent;
@@ -151,25 +128,19 @@
             fill: #2f60dc !important;
             stroke: #2f60dc !important;
         }
-
         .activeClassNavMob__ span circle {
             background-color: transparent;
             fill: #2f60dc !important;
         }
-
         .activeClassNavMob__ .active-dot {
             visibility: visible !important;
         }
-
-
         .nav-itemsss a:hover span {
             color: #0C71C3;
         }
-
         .nav-itemsss a:hover svg {
             fill: #0C71C3;
         }
-
         .nav-itemsss a:focus,
         .nav-itemsss a:focus svg,
         .nav-itemsss a:focus span {
@@ -177,290 +148,232 @@
             color: #0C71C3;
             fill: #0C71C3;
         }
-
         @media (max-width: 999.98px) {
             .nav-texttt {
                 display: none;
             }
-
             .navvv {
                 width: fit-content !important;
                 text-align: center !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
-
             /* .user-drop {
             position: fixed !important;
             bottom: 0;
             width: fit-content !important;
         } */
-
         }
-
         .dateee {
             border-radius: 15px;
             border: #4CC590 1px solid;
             color: #000;
             background-color: #fff;
         }
-
         .dateee:hover {
             background-color: #4CC590;
             border-radius: 15px;
             color: #fff;
         }
-
         .dateee:focus {
             background-color: #4CC590;
             border-radius: 15px;
             color: #fff;
         }
-
         .box-1 {
             background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='18' ry='18' stroke='black' stroke-width='1' stroke-dasharray='7%2c 11' stroke-dashoffset='63' stroke-linecap='square'/%3e%3c/svg%3e");
             border-radius: 18px;
         }
-
         /* overflow 1 */
         .overflow-div1::-webkit-scrollbar {
             width: 0px !important;
         }
-
         /* Track */
         .overflow-div1::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div1::-webkit-scrollbar-thumb {
             background: #c9cad8;
             border-radius: 10px;
         }
-
         .collapse2___::-webkit-scrollbar {
             width: 5pt !important;
         }
-
         /* Track */
         .collapse2___::-webkit-scrollbar-track {
             background: #E3E3E3 !important;
             border-radius: 5px;
         }
-
         /* Handle */
         .collapse2___::-webkit-scrollbar-thumb {
             background: #4EC590;
             border-radius: 10px;
         }
-
         .collapse23___::-webkit-scrollbar {
             width: 5pt !important;
         }
-
         /* Track */
         .collapse23___::-webkit-scrollbar-track {
             background: #E3E3E3 !important;
             border-radius: 5px;
         }
-
         /* Handle */
         .collapse23___::-webkit-scrollbar-thumb {
             background: #EF696A;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div1::-webkit-scrollbar-thumb:hover {
             background: #707070;
             border-radius: 10px;
         }
-
         .dateee {
             border-radius: 15px;
             border: #0C71C3 1px solid;
             color: #000;
             background-color: #fff;
         }
-
         .dateee:hover {
             background-color: #0C71C3;
             border-radius: 15px;
             color: #fff;
         }
-
         .dateee:focus {
             background-color: #0C71C3;
             border-radius: 15px;
             color: #fff;
         }
-
         .scroll-2 {
             height: 250px;
             overflow-x: auto;
             /* overflow-y: scroll; */
             /* overflow-x: hidden !important; */
         }
-
         .scroll-2::-webkit-scrollbar {
             width: 6px !important;
         }
-
         /* Track */
         .scroll-2::-webkit-scrollbar-track {
             background: #fff !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .scroll-2::-webkit-scrollbar-thumb {
             background: #0C71C3;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .scroll-2::-webkit-scrollbar-thumb:hover {
             background: #0C71C3;
         }
-
-
-
         .person-box {
             color: #fff;
             font-weight: 600;
             border-radius: 15px;
             background-color: #0C71C3;
-
         }
-
         .text-color123 {
             color: grey;
         }
-
         /* overflow 1 */
         .overflow-div1::-webkit-scrollbar {
             width: 8px;
         }
-
         /* Track */
         .overflow-div1::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div1::-webkit-scrollbar-thumb {
             background: #c9cad8;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div1::-webkit-scrollbar-thumb:hover {
             background: #707070;
             border-radius: 10px;
         }
-
         /* ........................................................... */
         /* overflow 2 */
-
         .overflow-div2::-webkit-scrollbar {
             width: 8px;
         }
-
         /* Track */
         .overflow-div2::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div2::-webkit-scrollbar-thumb {
             background: #fff;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div2::-webkit-scrollbar-thumb:hover {
             background: #fff1ff;
             border-radius: 10px;
         }
-
         /* ........................................................... */
         /* overflow 3 */
-
         .overflow-div3::-webkit-scrollbar {
             width: 8px;
         }
-
         /* Track */
         .overflow-div3::-webkit-scrollbar-track {
             background: #E3E3E3 !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div3::-webkit-scrollbar-thumb {
             background: #4EC590;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div3::-webkit-scrollbar-thumb:hover {
             background: #4EC590;
         }
-
         /* ...................................................... */
         /* overflow 4 */
-
         .overflow-div4::-webkit-scrollbar {
             width: 8px;
         }
-
         /* Track */
         .overflow-div4::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div4::-webkit-scrollbar-thumb {
             background: #c9cad8;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div4::-webkit-scrollbar-thumb:hover {
             background: #707070;
         }
-
-
         /* ................................................. */
-
         .collapsed .d-btnn {
             background-color: #c8ddd1;
             opacity: 0.4;
         }
-
         .d-btnn {
             opacity: 1;
         }
-
         .form-control:focus {
             border-color: #ced4da;
             box-shadow: none;
         }
-
         .accordion-button {
             color: #7DBF9A;
             font-weight: bold;
             border-radius: 15px !important;
         }
-
         .accordion-item {
             border-radius: 15px !important;
         }
-
         .hr-style {
             color: #fff !important;
             height: 3px !important;
@@ -468,24 +381,19 @@
             opacity: 1;
             display: none;
         }
-
         .border-left-div {
             border: none !important;
             border-left: 3px solid #fff !important;
-
         }
-
         @media (max-width: 991.98px) {
             .hr-style {
                 display: block;
             }
-
             .border-left-div {
                 border: none !important;
                 border-left: none !important;
             }
         }
-
         .dot-styleee {
             z-index: 999;
             top: 10px;
@@ -494,150 +402,112 @@
             border-radius: 50% !important;
             padding: 7px 10px;
         }
-
         .accepted-section {
             background-color: #7DBF9A;
             border-radius: 19px;
         }
-
         .decline-btn {
             border: 2px solid #FF0D13;
             border-radius: 13px !important;
             background-color: #fff;
             color: #FF0D13;
-
         }
-
         .decline-btn:hover {
             background-color: #FF0D13;
             color: #fff !important;
         }
-
         .accept-btn {
             border: 2px solid #63D4A4;
             border-radius: 13px !important;
             background-color: #fff;
             color: #63D4A4 !important;
         }
-
         .accept-btn:hover {
             border: 2px solid #63D4A4;
             background-color: #63D4A4;
             color: #fff !important;
         }
-
         .text-color-header1 {
             color: #fff;
         }
-
         .people-icon-div {
             background-color: #525353;
             margin: 3px;
         }
-
         .static-btn1 {
             background-color: #fff !important;
             border-radius: 8px !important;
         }
-
         .people-svg-span {
             border-radius: 8px;
         }
-
         .accordion-button:not(.collapsed) {
             color: #7DBF9A;
             background-color: #fff;
             box-shadow: none;
         }
-
         .accordion-button:not(.collapsed)::after {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
             background-color: transparent !important;
         }
-
         .accordion-button:focus {
             border-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
         }
-
         .priority-spnn {
             background-color: #ad2b2b;
             border-radius: 35px;
             color: #fff;
         }
-
         .open-task-box {
             border-radius: 35px !important;
             background-color: #fff;
             border: #707070 1px solid;
-
         }
-
         .pendzen-box {
             border-radius: 35px !important;
             background-color: #EAECF0;
             border: none;
-
         }
-
         .third-box {
             border-radius: 35px !important;
             background-color: #fff;
             border: #707070 1px solid;
-
         }
-
         .task-box {
             background-color: #F7F7F7;
             border-radius: 12px;
         }
-
         .name-spnnnn {
             font-weight: 600;
         }
-
         .fw-600 {
             font-weight: 600;
         }
-
         .spn-muted {
             color: #707070;
             font-weight: 600;
             font-size: 14px !important;
         }
-
         .spn-normal {
             font-weight: 600;
             font-size: 14px !important;
         }
-
         .nav-texttt {
             font-family: 'Poppins';
             color: #fff;
         }
-
         @media (max-width: 978px) {
             #logo__311 {
-
                 content: url('https://crm.kutiza.com/public/imgs/Logo%20gjys.png');
-
                 width: 20% !important;
             }
         }
-
-
-
-
         .openLeadsSpanText {
             font-size: 17px;
             font-weight: 500;
         }
-
-
-
-
-
         .redBorderDiv {
             border: 5px solid #FF6262;
             border-left: none;
@@ -646,10 +516,7 @@
             height: 100%;
             vertical-align: middle;
             background-color: white;
-
         }
-
-
         .receivedDiv {
             vertical-align: middle;
             text-align: center;
@@ -660,7 +527,6 @@
             font-weight: bold;
             font-size: 17px;
         }
-
         .assignedToDiv {
             vertical-align: middle;
             text-align: center;
@@ -671,7 +537,6 @@
             font-weight: bold;
             font-size: 17px;
         }
-
         .lostDiv {
             vertical-align: middle;
             text-align: center;
@@ -682,7 +547,6 @@
             font-weight: bold;
             font-size: 17px;
         }
-
         .wonDiv {
             vertical-align: middle;
             text-align: center;
@@ -692,51 +556,40 @@
             color: #fff;
             font-weight: bold;
         }
-
         .openLeadsFirstDiv {
             z-index: 5;
         }
-
         .receivedCol {
             z-index: 4;
             margin-left: -6%;
         }
-
         .assignedToCol {
             z-index: 3;
             margin-left: -9%;
         }
-
         .lostCol {
             z-index: 2;
             margin-left: -9%;
         }
-
         .wonCol {
             z-index: 1;
             margin-left: -12%;
         }
-
-
         /* new navbar styling */
         .rolle-style {
             border-radius: 0 !important;
             border-bottom: 1.5px solid white;
         }
-
         /* overflow 1 */
         .column-v::-webkit-scrollbar {
             width: 0px;
             height: 0pc;
-
         }
-
         /* Track */
         .column-v::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .column-v::-webkit-scrollbar-thumb {
             background-clip: padding-box;
@@ -744,19 +597,16 @@
             border-radius: 10px;
             border: 1px rgb(46, 31, 131) solid;
         }
-
         /* Handle on hover */
         .column-v::-webkit-scrollbar-thumb:hover {
             background: #39AAFF;
             border-radius: 10px;
         }
-
         .hr-1 {
             opacity: 1 !important;
             height: 2.5px;
             background-color: #fff;
         }
-
         .log-out-div {
             /* position: fixed; */
             /* display: flex; */
@@ -766,12 +616,10 @@
             background-color: #0C71C3;
             /* width: 215px; */
         }
-
         .logg {
             position: relative;
             width: 100%;
         }
-
         .logg button {
             background-color: transparent;
             box-shadow: none !important;
@@ -780,7 +628,6 @@
             border: none;
             /*border: 1.5px #fff solid;*/
         }
-
         .column-v {
             /* max-width: 200px; */
             padding-left: 10px;
@@ -794,14 +641,12 @@
             white-space: nowrap;
             overflow-x: visible;
         }
-
         .nav-styling {
             /* max-width: 215px; */
             /* width: 100% !important; */
             height: 100vh !important;
             background-color: #0C71C3;
         }
-
         .nav-link {
             padding-top: 0.8rem;
             padding-bottom: 0.8rem;
@@ -812,16 +657,13 @@
             border-bottom-left-radius: 10px;
             direction: initial;
         }
-
         /* .nav-link.active {
-
         color: #434343 !important;
         border-top-right-radius: 0px;
         border-top-left-radius: 10px;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 10px;
     } */
-
         .nav-link:hover {
             background-color: #39AAFF !important;
             border-top-right-radius: 0px;
@@ -829,8 +671,6 @@
             border-bottom-right-radius: 0px;
             border-bottom-left-radius: 10px;
         }
-
-
         .nav-link.activeClassNav__:hover {
             background-color: #fff !important;
             border-top-right-radius: 0px;
@@ -838,47 +678,34 @@
             border-bottom-right-radius: 0px;
             border-bottom-left-radius: 10px;
         }
-
-
         .img-normal {
             display: block;
         }
-
-
         .img-collapsed {
             display: none
         }
-
-
         body {
             font-family: 'Montserrat', sans-serif;
         }
-
         @media (max-width: 991.98px) {
             .column-v {
                 width: 80px;
                 margin-left: 0;
                 padding-left: 0;
-
             }
-
             .txt-dn {
                 display: none;
             }
-
             .nav-link:hover .txt-dn {
                 /* display: inline !important;
             justify-content: center;
             padding-top: 3px; */
                 display: none;
                 /* position: relative; */
-
             }
-
             .nav-link {
                 text-align: center;
             }
-
             .log-out-div:hover .txt-dn {
                 /* display: flex;
             justify-content: center;
@@ -887,40 +714,31 @@
                 /* position: relative; */
                 /* white-space: nowrap; */
             }
-
             .nav-styling {
                 width: 80px;
-
-
             }
-
             .log-out-div {
                 width: 80px;
             }
-
             .img-normal {
                 display: none;
             }
-
             .img-collapsed {
                 display: block;
             }
         }
-
         /* Paste this css to your style sheet file or under head tag */
         /* This only works with JavaScript,
     if it's not present, don't show loader */
         .no-js #loader {
             display: none;
         }
-
         .js #loader {
             display: block;
             position: absolute;
             left: 100px;
             top: 0;
         }
-
         .se-pre-con {
             position: fixed;
             left: 0px;
@@ -931,7 +749,6 @@
             background: url(https://c.tenor.com/b8F9BMmvXlcAAAAi/loading-round.gif) center no-repeat #fff;
             background-size: 200px;
         }
-
     </style>
     <style>
         /* .firstHr {
@@ -940,11 +757,9 @@
         transition: all 0.2s ease-in-out;
         text-align: center;
     }
-
     .m-burger:hover .firstHr {
         width: 20px;
     } */
-
         .bottom-burger-modal {
             width: 100%;
             height: 100%;
@@ -959,32 +774,26 @@
             animation: myfirst 0.6s;
             animation-direction: reverse;
         }
-
         @keyframes myfirst {
             0% {
                 left: 0px;
                 top: 0px;
             }
-
             100% {
                 left: 0px;
                 top: 100%;
             }
         }
-
         .item-nvm {
             border: none;
             border-bottom: 1px solid #a7a7a7
         }
-
         .item-nvm:hover {
             background-color: #f3f3f3;
         }
-
         .m-nav .dropup .dropdown-toggle::after {
             display: none !important;
         }
-
         .mobile-nav {
             z-index: 1000;
             background: #F1F1F1;
@@ -992,7 +801,6 @@
             bottom: 0;
             height: 65px;
             border: none;
-
             margin-top: auto !important;
             margin-bottom: auto !important;
             width: 100% !important;
@@ -1001,45 +809,34 @@
             justify-content: space-evenly !important;
             vertical-align: middle !important;
         }
-
         .mobile-nav a {
             text-decoration: none !important;
             color: #000;
         }
-
-
         .active-dot {
             visibility: hidden;
         }
-
         .mobile-nav {
             display: none;
         }
-
         .first-col1 {
             display: block;
         }
-
         @media (max-width: 767.98px) {
             .mobile-nav {
                 display: flex;
             }
         }
-
         @media (max-width: 575.99px) {
             .first-col1 {
                 display: none;
             }
-
-
             .se-pre-con {
                 background-size: 100px;
             }
-
             body {
                 padding-bottom: 65px;
             }
-
             .dot-styleee {
                 z-index: 999;
                 top: 5px;
@@ -1050,40 +847,30 @@
                 padding: 3px 6px;
             }
         }
-
         a {
             text-decoration: none;
-
         }
-
     </style>
     <style>
         /*Per Notification */
         .coloriii a {
             color: #7F00FF !important;
         }
-
         .grayyy1 {
             color: #88889D;
         }
-
         .assigned-leads-div {
             border-radius: 25px;
         }
-
         .t {
             color: #88889D;
         }
-
         .fw-600 {
             font-weight: 600;
-
         }
-
         .fw-500 {
             font-weight: 500;
         }
-
         .whiteee {
             background-color: #fff;
             border-bottom-left-radius: 0px !important;
@@ -1092,7 +879,6 @@
             border-top-right-radius: 30px !important;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
-
         .lead-offnen {
             background-color: #88889D;
             color: #fff;
@@ -1101,29 +887,24 @@
             border-top-left-radius: 0px !important;
             border-top-right-radius: 0px !important;
         }
-
         .overflow-divvv::-webkit-scrollbar {
             width: 0px;
         }
-
         /* Track */
         .overflow-divvv::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-divvv::-webkit-scrollbar-thumb {
             background: #c9cad8;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-divvv::-webkit-scrollbar-thumb:hover {
             background: #707070;
             border-radius: 10px;
         }
-
         /*.lead-statistics-header {*/
         /*    background-color: #F7F7F7;*/
         /*    border-bottom-left-radius: 0px !important;*/
@@ -1131,7 +912,6 @@
         /*    border-top-left-radius: 30px !important;*/
         /*    border-top-right-radius: 30px !important;*/
         /*}*/
-
         /*.lead-statistics {*/
         /*    background-color: #F7F7F7;*/
         /*    border-bottom-left-radius: 30px !important;*/
@@ -1139,14 +919,10 @@
         /*    border-top-left-radius: 0px !important;*/
         /*    border-top-right-radius: 0px !important;*/
         /*}*/
-
         .openLeadsSpanText {
             font-size: 17px;
             font-weight: 500;
         }
-
-
-
         .redBorderDiv {
             border: 5px solid #FF6262;
             border-left: none;
@@ -1155,10 +931,7 @@
             height: 100%;
             vertical-align: middle;
             background-color: #FF6262;
-
         }
-
-
         .receivedDiv {
             vertical-align: middle;
             text-align: center;
@@ -1168,9 +941,7 @@
             color: #fff;
             font-weight: bold;
             font-size: 17px;
-
         }
-
         .assignedToDiv {
             vertical-align: middle;
             text-align: center;
@@ -1181,7 +952,6 @@
             font-weight: bold;
             font-size: 17px;
         }
-
         .lostDiv {
             vertical-align: middle;
             text-align: center;
@@ -1192,7 +962,6 @@
             font-weight: bold;
             font-size: 17px;
         }
-
         .wonDiv {
             vertical-align: middle;
             text-align: center;
@@ -1202,94 +971,73 @@
             color: #fff;
             font-weight: bold;
         }
-
         .openLeadsFirstDiv {
             z-index: 5;
         }
-
         .receivedCol {
             z-index: 4;
             margin-left: -6%;
         }
-
         .assignedToCol {
             z-index: 3;
             margin-left: -9%;
         }
-
         .lostCol {
             z-index: 2;
             margin-left: -9%;
         }
-
         .wonCol {
             z-index: 1;
             margin-left: -12%;
         }
-
         .flexDirRow {
             flex-direction: row;
         }
-
         @media (max-width: 899.98px) {
             .flexDirRow {
                 flex-direction: column;
             }
-
             .openLeadsFirstDiv {
                 width: 100% !important;
             }
-
             .hideTextMob {
                 display: none;
             }
-
-
-
-
             .redBorderDiv {
                 border-radius: 0;
                 border-bottom-right-radius: 59px;
                 border-bottom-left-radius: 59px;
             }
-
-
             .receivedCol {
                 margin: auto;
                 width: 85%;
             }
-
             .assignedToCol {
                 margin: auto;
                 margin-top: -15%;
                 width: 85%;
             }
-
             .lostCol {
                 margin: auto;
                 margin-top: -15%;
                 width: 85%;
             }
-
             .wonCol {
                 margin: auto;
                 margin-top: -18%;
                 width: 85%;
             }
         }
-
     </style>
     <style>
         .nottif-item {
             border: #70707060 1px solid;
             border-radius: 5px;
         }
-
         .overflow-div2212 {
             max-height: 25rem;
             overflow: auto;
         }
-
         .notification-divvv22 .dropdown-menu {
             max-width: 50rem;
             height: 27rem;
@@ -1297,11 +1045,9 @@
             width: 50rem;
             box-shadow: 0px 4px 4px rgba(143, 143, 143, 0.25);
         }
-
         .notification-divvv22 .dropup .dropdown-toggle::after {
             display: none;
         }
-
         .notif-div-content {
             width: 340px;
             position: fixed;
@@ -1310,10 +1056,8 @@
             right: 30px;
             background-color: #fff;
         }
-
         .notification-divvv22 {
             z-index: 999;
-
             position: fixed;
             display: flex;
             bottom: 30px;
@@ -1325,7 +1069,6 @@
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
         }
-
         .rounded-notid-icon {
             background-color: #0C71C3;
             border-radius: 50px;
@@ -1333,7 +1076,6 @@
             padding: 20px;
             border: none;
         }
-
         .hover-visible-div {
             background-color: #fff;
             border-top-left-radius: 50px;
@@ -1342,101 +1084,79 @@
             align-items: center;
             padding-right: 2rem;
         }
-
         .txt-notif {
             padding-left: 25px;
             padding-right: 15px;
             font-weight: 500;
         }
-
         .notification-divvv22:hover .hover-visible-div {
             display: flex;
         }
-
         /* overflow 1 */
         .overflow-div2212::-webkit-scrollbar {
             width: 6px;
         }
-
         /* Track */
         .overflow-div2212::-webkit-scrollbar-track {
             background: transparent !important;
             border-radius: 10px;
         }
-
         /* Handle */
         .overflow-div2212::-webkit-scrollbar-thumb {
             background: #2F60DC80;
             border-radius: 10px;
         }
-
         /* Handle on hover */
         .overflow-div2212::-webkit-scrollbar-thumb:hover {
             background: #2F60DC;
             border-radius: 10px;
         }
-
         .notification-divvv22 .bluefont {
             background-color: #eaf5ff;
         }
-
         .notification-divvv22 .bluefont a {
             color: #0c71c3;
         }
-
         @media (max-width: 912.98px) {
             .notification-divvv22 .dropdown-menu {
                 width: 63vw;
             }
         }
-
         @media (max-width: 767.98px) {
             body {
                 padding-bottom: 30%;
             }
-
             .overflow-div2212 {
                 height: 47vh;
                 overflow: auto;
             }
-
             .notification-divvv22 .dropdown-menu {
                 width: 99vw;
-
                 box-shadow: 0px 4px 40px rgba(143, 143, 143, 0.25);
             }
-
             .notification-divvv22 {
                 position: fixed;
                 display: flex;
                 bottom: 80px;
                 right: 10px;
             }
-
-
             .rounded-notid-icon svg {
                 width: 25px;
             }
-
             .hover-visible-div {
                 display: none;
             }
-
             .notification-divvv22:hover .hover-visible-div {
                 display: none;
             }
-
             .rounded-notid-icon {
                 background-color: #0C71C350;
                 padding: 10px;
             }
-
             .rounded-notid-icon:hover {
                 background-color: #0C71C3;
             }
-
         }
-
     </style>
     {{-- endnav --}}
     <style>
@@ -1446,61 +1166,47 @@
             height: 100%;
             background: #f7f7f7;
         }
-
         .highcharts-title {
             font-family: montserrat;
             font-weight: bold;
             font-size: 20px !important;
         }
-
         .bluePageIndicator {
             visibility: hidden;
         }
-
         .activePage {
             visibility: visible;
-
         }
-
         .passiveSvg {
             stroke: #A7A4A4 !important;
             fill: #A7A4A4 !important;
         }
-
         .activeSvgIndicator svg {
             stroke: #2F60DC !important;
             /* fill: #2F60DC !important; */
-
         }
-
         .activePageIndicator {
             font-size: 17px;
             color: #2F60DC;
             font-weight: 500;
         }
-
         .passivePageIndicator {
             font-size: 17px;
             color: #A7A4A4;
             cursor: pointer;
             font-weight: 400;
-
         }
-
         .navbarFirstHr {
             background-color: rgba(196, 196, 196, 0.9);
         }
-
         .removeTextOnMobile {
             display: block;
         }
-
         @media (max-width: 991.98px) {
             .removeTextOnMobile {
                 display: none;
             }
         }
-
     </style>
     <style>
         .greyBgStats {
@@ -1508,12 +1214,10 @@
             box-shadow: 0px 4px 4px rgba(118, 118, 118, 0.17);
             border-radius: 23px;
         }
-
         .statsTitleSpan {
             font-weight: 700;
             color: rgba(0, 0, 0, 0.8);
         }
-
         .statsSelectStyle {
             border: 2px solid rgba(47, 96, 220, 0.28);
             border-radius: 6px;
@@ -1525,7 +1229,6 @@
             -ms-user-select: none;
             user-select: none;
         }
-
         .statsSelectStyleDropdown {
             border: 2px solid rgba(47, 96, 220, 0.28);
             border-radius: 6px;
@@ -1541,53 +1244,47 @@
             user-select: none;
             z-index: 5;
         }
-
         .activeSvg circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg1 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg2 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg3 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg4 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg5 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg6 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
         .activeSvg7 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
-
+        .activeSvg8 circle {
+            fill: #2F60DC;
+            stroke: #2F60DC;
+        }
         .greyBorderDivStats {
             border: 2px solid rgba(47, 96, 220, 0.1);
             box-sizing: border-box;
             border-radius: 6px;
         }
-
         .greySelectStats {
             background-color: rgba(196, 196, 196, 0.23);
             border-radius: 6px;
@@ -1600,7 +1297,6 @@
             user-select: none;
             z-index: 1;
         }
-
         .apexcharts-legend-text {
             font-weight: 500;
             font-size: 18px !important;
@@ -1608,157 +1304,127 @@
             line-height: 27px;
             letter-spacing: -1px;
         }
-
         .contractsWhiteBgDiv {
             background: #FFFFFF;
             border: 1px solid #EAE9E9;
             box-sizing: border-box;
             border-radius: 10px;
         }
-
         .contractsSecondSpan {
             font-weight: 600;
             line-height: 30px;
         }
-
         .whiteBgGraph {
             background: #FFFFFF;
             border: 1px solid #EAE9E9;
             box-sizing: border-box;
             border-radius: 10px;
         }
-
         .apexcharts-menu-icon {
             display: none !important;
         }
-
         .ltBlueSmallDiv {
             background: #AFD9F1;
             border-radius: 7px;
             color: #fff;
         }
-
         .ltPinkSmallDiv {
             background: #FFC9C9;
             border-radius: 7px;
             color: #fff;
         }
-
         .BlueSmallDiv {
             background: #92B4F9;
             border-radius: 7px;
             color: #fff;
         }
-
         .BlueSmallDiv {
             background: #92B4F9;
             border-radius: 7px;
             color: #fff;
         }
-
         .greenSmallDiv {
             background: #B5D7A9;
             border-radius: 7px;
             color: #fff;
         }
-
         .darkBlueSmallDiv {
             background: #576997;
             border-radius: 7px;
             color: #fff;
         }
-
         .orangeSmallDiv {
             background: #FBCA99;
             border-radius: 7px;
             color: #fff;
         }
-
-
-
         .greyBgImpressions {
             background: #BAC7D3;
             border-radius: 7px;
             color: #fff;
             line-height: 1.1;
         }
-
         .yellowClicksBg {
             background: #FEDC7B;
             border-radius: 7px;
             color: #fff;
             line-height: 1.1;
         }
-
         .highcharts-background {
             fill: transparent;
         }
-
         .canvasjs-chart-credit {
             display: none !important;
         }
-
         .apexcharts-canvas {
             margin: auto;
         }
-
         @media (max-width: 1399.98px) {
             .contractsWhiteBgDiv svg {
                 width: 60px;
             }
         }
-
         @media (max-width: 1199.98px) {
             .contractsWhiteBgDiv svg {
                 width: 55px;
             }
         }
-
         @media (max-width: 991.98px) {
             .contractsWhiteBgDiv svg {
                 width: 45px;
             }
-
             #chart6 {
                 margin: auto;
                 width: 70% !important;
             }
         }
-
         @media (max-width: 767.98px) {
             #chart6 {
                 margin: auto;
                 width: 80% !important;
             }
-
             .greyBgStats {
                 border-radius: 13px;
             }
         }
-
         @media (max-width: 575.98px) {
             .greyBgStats {
                 height: auto !important;
             }
-
             #chart6 {
                 margin: auto;
                 width: 100% !important;
             }
-
             #chart6 {
                 padding-top: 2rem;
             }
-
             .apexcharts-legend-text {
                 font-size: 14px !important;
             }
-
             #chart6 .apexcharts-legend {
                 padding: 0% !important;
             }
         }
-
     </style>
     <div class="row g-0 h-100">
         <div class="col-1 col-md-1 col-lg-2 h-100 hideNavBarMobile">
@@ -3177,7 +2843,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                             <div class="py-2">
                                                                 <div class="row g-0"
@@ -3334,7 +2999,6 @@
                                                                                 stroke-width="2" stroke-linecap="round"
                                                                                 stroke-linejoin="round" />
                                                                         </svg>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3355,7 +3019,6 @@
                                                                                 stroke-width="2" stroke-linecap="round"
                                                                                 stroke-linejoin="round" />
                                                                         </svg>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3367,7 +3030,6 @@
                                                                     d="M18.3312 17.2279L13.0046 11.8974C14.0547 10.6381 14.6863 9.02865 14.6863 7.27086C14.6863 3.26066 11.3952 0 7.34696 0C3.29871 0 0 3.26447 0 7.27467C0 11.2849 3.2911 14.5455 7.33935 14.5455C9.05909 14.5455 10.6419 13.9558 11.8974 12.9704L17.2431 18.316C17.5551 18.628 18.0193 18.628 18.3312 18.316C18.6432 18.004 18.6432 17.5399 18.3312 17.2279ZM1.55994 7.27467C1.55994 4.12434 4.15478 1.56375 7.33935 1.56375C10.5239 1.56375 13.1187 4.12434 13.1187 7.27467C13.1187 10.425 10.5239 12.9856 7.33935 12.9856C4.15478 12.9856 1.55994 10.4212 1.55994 7.27467Z"
                                                                     fill="#5E5A5A" />
                                                             </svg>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3377,12 +3039,10 @@
                                                     <div class="col-12">
                                                         <div class="whiteBgGraph p-4">
                                                             <div id="chart2">
-
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col">
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -3401,7 +3061,6 @@
                                                             <span class="statsTitleSpan fs-3">Marketing</span>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="row g-0 ">
@@ -3451,7 +3110,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                             <div class="py-2">
                                                                 <div class="row g-0"
@@ -3553,7 +3211,6 @@
                                                                                     d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
                                                                                     fill="black" />
                                                                             </svg>
-
                                                                         </div>
                                                                     </div>
                                                                     <div class="col my-auto ps-2 pe-5">
@@ -3564,7 +3221,6 @@
                                                                 </div>
                                                             </div> 
                                                         </div>
-
                                                     </div>
                                                     <div class="contractsWhiteBgDiv py-3 ps-4">
                                                         <div class="row g-0">
@@ -3583,7 +3239,6 @@
                                                                         stroke="#2E7914" stroke-width="2"
                                                                         stroke-linecap="round" stroke-linejoin="round" />
                                                                 </svg>
-
                                                             </div>
                                                             <div class="col-auto my-auto ps-4 ps-xl-5"
                                                                 style="line-height: 1.2;">
@@ -3610,8 +3265,6 @@
                                                                         stroke="black" stroke-width="3"
                                                                         stroke-linecap="round" />
                                                                 </svg>
-
-
                                                             </div>
                                                             <div class="col-auto my-auto ps-4 ps-xl-5"
                                                                 style="line-height: 1.2;">
@@ -3630,7 +3283,6 @@
                                                 </div>
                                                 <div class="col-12 col-md-6 pt-4 pt-md-0">
                                                     <div id="funnel" style="height: 250px;">
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -4188,7 +3840,6 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-
                                                                                 </div>
                                                                                 <div class="py-2">
                                                                                     <div class="row g-0"
@@ -4328,7 +3979,6 @@
                                                                                                         d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
                                                                                                         fill="black" />
                                                                                                 </svg>
-
                                                                                             </div>
                                                                                         </div>
                                                                                         <div
@@ -4340,7 +3990,6 @@
                                                                                     </div>
                                                                                 </div> --}}
                                                                             {{-- </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -4369,7 +4018,6 @@
                                                                     </div>
                                                                 </div>
                                                                 <div id="chart4" style="margin-left: -1.3rem;">
-
                                                                 </div>
                                                             </div>
                                                         </div> --}}
@@ -5017,7 +4665,7 @@
                                         <div style="position: relative;">
                                             <div class="col my-auto">
                                                 <div>
-                                                    <span class="statsTitleSpan fs-3">Appoinment</span>
+                                                    <span class="statsTitleSpan fs-3">Termine</span>
                                                 </div>
                                                 <div>
                                                     <div class="row g-0">
@@ -5040,7 +4688,7 @@
                                                                                     <div class="col ms-2">
                                                                                         <div>
                                                                                             <span
-                                                                                                id="activeDropDownItem7">
+                                                                                                id="activeDropDownItem8">
                                                                                                 Gesamter Zeitraum</span>
                                                                                         </div>
                                                                                     </div>
@@ -5062,7 +4710,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="statsSelectStyleDropdown"
-                                                                                id="dropdownSelectId7"
+                                                                                id="dropdownSelectId8"
                                                                                 style="display: none;right: 1rem;">
                                                                                 <div class="py-2">
                                                                                     <div class="row g-0"
@@ -5223,7 +4871,7 @@
                                                                                         <div
                                                                                             class="col-auto my-auto ps-3">
                                                                                             <div>
-                                                                                                <svg class="activeSvg7"
+                                                                                                <svg class="activeSvg8"
                                                                                                     width="19"
                                                                                                     height="19"
                                                                                                     viewBox="0 0 19 19"
@@ -5250,7 +4898,7 @@
                                                                                 </div>
                                                                                 <div class="py-2"
                                                                                     style="border-top: 1px solid #E8E8E8;">
-                                                                                    <div class="row g-0" onclick="hrCostum()" style="cursor: pointer">
+                                                                                    <div class="row g-0" onclick="terminCostum()" style="cursor: pointer">
                                                                                         <div
                                                                                             class="col-auto my-auto ps-3">
                                                                                             <div>
@@ -5274,31 +4922,21 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div id="hrCostum" style="display: none">
+                                                                                <div id="terminCostum" style="display: none">
                                                                                     <div class="py-2">
                                                                                         <div class="row g-0">
-                                                                                            {{-- <div class="col-auto my-auto ps-3">
-                                                                                                <div>
-                                                                                                    <span class="fs-6">Aus</span>
-                                                                                                </div>
-                                                                                            </div> --}}
                                                                                             <div class="col my-auto ps-2 pe-2">
                                                                                                 <div>
-                                                                                                    <input class="form-control" type="date" id="hrFrom">
+                                                                                                    <input class="form-control" type="date" id="terminFrom">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="pt-1">
                                                                                         <div class="row g-0">
-                                                                                            {{-- <div class="col-auto my-auto ps-3">
-                                                                                                <div>
-                                                                                                    <span class="fs-6">Zu</span>
-                                                                                                </div>
-                                                                                            </div> --}}
                                                                                             <div class="col my-auto ps-2 pe-2">
                                                                                                 <div>
-                                                                                                   <input class="form-control" type="date" id="hrTo">
+                                                                                                   <input class="form-control" type="date" id="terminTo">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -5334,7 +4972,7 @@
                                                                                             <span style="font-weight: 500;">Accepted</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="teraccepted"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5350,7 +4988,7 @@
                                                                                             <span style="font-weight: 500;">Pending</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="terpending"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5367,7 +5005,7 @@
                                                                                             <span style="font-weight: 500;">Rejeceted</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="terrejected"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5384,7 +5022,7 @@
                                                                                             <span style="font-weight: 500;">No feedback</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="ternofeedback"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5402,7 +5040,7 @@
                                                                                             <span style="font-weight: 500;">Total</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="">1</span>
+                                                                                            <span style="font-weight: 700;" id="tertotal"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>                               
@@ -5703,7 +5341,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect1() {
             var x = document.getElementById("dropdownSelectId1");
             if (x.style.display == "block") {
@@ -5712,7 +5349,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect2() {
             var x = document.getElementById("dropdownSelectId2");
             if (x.style.display == "block") {
@@ -5721,7 +5357,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect3() {
             var x = document.getElementById("dropdownSelectId3");
             if (x.style.display == "block") {
@@ -5730,7 +5365,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect4() {
             var x = document.getElementById("dropdownSelectId4");
             if (x.style.display == "block") {
@@ -5739,7 +5373,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect5() {
             var x = document.getElementById("dropdownSelectId5");
             if (x.style.display == "block") {
@@ -5748,7 +5381,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect6() {
             var x = document.getElementById("dropdownSelectId6");
             if (x.style.display == "block") {
@@ -5757,7 +5389,6 @@
                 x.style.display = "block";
             }
         }
-
         function openDropDownSelect7() {
             var x = document.getElementById("dropdownSelectId7");
             if (x.style.display == "block") {
@@ -5766,8 +5397,14 @@
                 x.style.display = "block";
             }
         }
-
-
+        function openDropDownSelect8() {
+            var x = document.getElementById("dropdownSelectId8");
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
         function makeSelectActive(x, number) {
             dateFrom = document.getElementById('statusvomvertragFromm').value
             dateTo = document.getElementById('statusvomvertragToo').value
@@ -5777,11 +5414,6 @@
                 document.getElementById('eingereicht').innerHTML = response.data[2]
                 document.getElementById('abgelehnt').innerHTML = response.data[3]
                 // document.getElementById('offenBerater').innerHTML = response.data[4]
-
-
-
-
-
                 for (let i = 0; i < 4; i++) {
                     if(response.data[i]==0){
                         response.data[i]=null;
@@ -5817,7 +5449,6 @@
                             //     y: response.data[4],
                             //     color: '#F79C42'
                             // },
-
                         ]
                     }];
                     window.mychart = Highcharts.chart('chart1', {
@@ -5838,7 +5469,6 @@
                                     connectorWidth: 0,
                                     enabled: false,
                                 },
-
                             }
                         },
                         title: {
@@ -5861,12 +5491,8 @@
                         window.mychart.redraw();
                     });
                 });
-
             }).catch((error) =>{console.log(error)})
-
     
-
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg");
@@ -5875,12 +5501,9 @@
             $("#activeDropDownItem").html(y)
             $("#dropdownSelectId").hide()
         }
-
         function statisticContrats() {
-
             model = document.getElementById('model')
             gesellschaft = document.getElementById('gesellschaft')
-
             axios.get('statistic?model=' + model.value + '&gesellschaft=' + gesellschaft.value).then(response => {
                 var totali = 0
                 if (response.data['Provisionert'] != null) {
@@ -5913,7 +5536,6 @@
                 // } else {
                 //     document.getElementById('offenBerater').innerHTML = 0
                 // }
-
                 $(function() {
                     var data = [{
                         "id": "idData",
@@ -5943,7 +5565,6 @@
                             //     y: response.data['Offen (Berater)'],
                             //     color: '#F79C42'
                             // },
-
                         ]
                     }];
                     window.mychart = Highcharts.chart('chart1', {
@@ -5964,7 +5585,6 @@
                                     connectorWidth: 0,
                                     enabled: false,
                                 },
-
                             }
                         },
                         title: {
@@ -5988,12 +5608,10 @@
                 });
             })
         }
-
         function makeSelectActive1(x, numberi) {
             dateFrom = document.getElementById('vertrageFrom').value
             dateTo = document.getElementById('vertrageTo').value
             axios.get('provisionert?numberi=' + numberi + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
-
                 $('#grund').html(response.data[0]);
                 $('#rechts').html(response.data[1]);
                 $('#vor').html(response.data[2]);
@@ -6001,7 +5619,6 @@
                 $('#zus').html(response.data[4]);
                 $('#haus').html(response.data[5]);
             })
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg1");
@@ -6010,13 +5627,10 @@
             $("#activeDropDownItem1").html(y)
             $("#dropdownSelectId1").hide()
         }
-
         function makeSelectActive2(x,number) {
-
             axios.get('costumersFilter?number=' + number).then( response => {
                 console.log(response.data)
             })
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg2");
@@ -6025,7 +5639,6 @@
             $("#activeDropDownItem2").html(y)
             $("#dropdownSelectId2").hide()
         }
-
         function makeSelectActive3(x) {
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
@@ -6035,7 +5648,6 @@
             $("#activeDropDownItem3").html(y)
             $("#dropdownSelectId3").hide()
         }
-
         function makeSelectActive4(x) {
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
@@ -6045,23 +5657,18 @@
             $("#activeDropDownItem4").html(y)
             $("#dropdownSelectId4").hide()
         }
-
         function makeSelectActive5(x, number) {
-
             dateFrom = document.getElementById('leadsFrom').value
             dateTo = document.getElementById('leadsTo').value
             axios.get('filterLead?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
                 // document.getElementById('notTerminated').innerHTML = response.data[0]
                 // document.getElementById('terminated').innerHTML = response.data[1]
-
                 if(response.data[0] + response.data[1] + response.data[2] == 0){
                     document.querySelector("#chart3").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
-
                 var options = {
                     colors: ['#001C62', '#3D66CE','#74A3E1'],
-
                     series: [response.data[1], response.data[0],response.data[2]],
                     chart: {
                         width: 380,
@@ -6069,21 +5676,14 @@
                     },
                     stroke: {
                         width: 0
-
                     },
                     fill: {
-
                         colors: ['#001C62', '#3D66CE','#74A3E1'],
-
                     },
                     dataLabels: {
                         enabled: false
                     },
-
-
                     labels: ['Abgeschlossen','Nicht abgeschlossen','Won Leads'],
-
-
                     legend: {
                         offsetY: -10,
                     },
@@ -6092,25 +5692,19 @@
                         options: {
                             chart: {
                                 width: "100%",
-
                             },
                             legend: {
                                 position: 'bottom',
                                 offsetY: 0,
-
                             }
                         }
                     }]
                 };
-
                 var chart = new ApexCharts(document.querySelector("#chart3"), options);
                 chart.render();
                 chart.updateSeries([response.data[1], response.data[0],response.data[2]]);
             }
-
             });
-
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg5");
@@ -6119,21 +5713,14 @@
             $("#activeDropDownItem5").html(y)
             $("#dropdownSelectId5").hide()
         }
-
-
         function makeSelectActive6(x, number) {
-
             dateFrom = document.getElementById('dauervomleadFrom').value
             dateTo = document.getElementById('dauervomleadTo').value
-
             axios.get('durationOfLead?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
-
                 if(response.data[0] + response.data[1] + response.data[2] + response.data[3] + response.data[4] + response.data[5] + response.data[6] + response.data[7] + response.data[8] + response.data[9] + response.data[10] + response.data[11] == 0){
-
                     document.querySelector("#chart5").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
-
                 var options = {
                     colors: ['#C74E46'],
                     series: [{
@@ -6143,7 +5730,6 @@
                             response.data[8], response.data[9], response.data[10], response.data[11]
                         ],
                         colors: ['#C74E46']
-
                     }],
                     chart: {
                         height: 200,
@@ -6153,14 +5739,11 @@
                             enabled: false
                         },
                         colors: ['#C74E46']
-
                     },
-
                     tooltip: {
                         colors: ['#C74E46'],
                         markers: {
                             colors: ['#C74E46'],
-
                         }
                     },
                     dataLabels: {
@@ -6177,7 +5760,6 @@
                     },
                     grid: {
                         borderColor: '#f4f4f4',
-
                         row: {
                             colors: ['#fff']
                         },
@@ -6195,13 +5777,11 @@
                             }
                         }
                     },
-
                     xaxis: {
                         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
                             'Nov', 'Dec'
                         ],
                         borderColor: '#F4F4F4',
-
                     },
                     responsive: [{
                         breakpoint: 991,
@@ -6214,9 +5794,7 @@
                             }
                         }
                     }]
-
                 }
-
                 var chart = new ApexCharts(document.querySelector("#chart5"), options);
                 chart.render();
                 chart.updateSeries([response.data[0], response.data[1], response.data[2], response.data[3],
@@ -6225,8 +5803,6 @@
             }
             
             })
-
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg6");
@@ -6235,23 +5811,17 @@
             $("#activeDropDownItem6").html(y)
             $("#dropdownSelectId6").hide()
         }
-
         async function makeSelectActive7(x, number) {
-
             dateFrom = document.getElementById('hrFrom').value
             dateTo = document.getElementById('hrTo').value
-
             await axios.get('holidayReason?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
-
                 if(response.data[0] + response.data[1] + response.data[2] + response.data[3] == 0){
                 
                     document.querySelector("#chart6").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
-
             }else{
                     var options = {
                     colors: ['#DB5437', '#F79C42', '#EBCB38', '#A2B969'],
-
                     series: [response.data[0], response.data[1], response.data[2], response.data[3]],
                     chart: {
                         width: "60%",
@@ -6267,7 +5837,6 @@
                     legend: {
                         offsetY: 0,
                     },
-
                     stroke: {
                         width: 0
                     },
@@ -6276,26 +5845,20 @@
                         options: {
                             chart: {
                                 width: "100%",
-
                             },
                             legend: {
                                 show: true,
                                 position: "bottom"
                             },
-
                         },
                     }]
                 };
-
                 var chart = new ApexCharts(document.querySelector("#chart6"), options);
                 chart.render();
                 chart.updateSeries([response.data[0], response.data[1], response.data[2], response.data[3]])
                 }
-
                 
             })
-
-
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");
             var activeSvg = document.querySelector(".activeSvg7");
@@ -6305,15 +5868,24 @@
             $("#dropdownSelectId7").hide()
         }
         function makeSelectActive8(x, number) {
-            const data = {
+            
+            dateFrom = document.getElementById('terminFrom').value
+            dateTo = document.getElementById('terminTo').value
+            axios.get('appointmentStat?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then( response => {
+                document.getElementById('teraccepted').innerHTML = response.data[0]
+                document.getElementById('terpending').innerHTML = response.data[1]
+                document.getElementById('terrejected').innerHTML = response.data[2]
+                document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2]
+                console.log(response.data)
+                const data = {
                 labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
+                    'Acepted',
+                    'Rejected',
+                    'Pending'
                 ],
                 datasets: [{
                     label: 'My First Dataset',
-                    data: [300, 50, 100],
+                    data: [response.data[0], response.data[2], response.data[1]],
                     backgroundColor: [
                     '#DBB4FF',
                     '#7100A7',
@@ -6324,7 +5896,7 @@
                     hoverOffset: 4
                 }]
                 };
-
+                
                 const config = {
                     type: 'doughnut',
                     data: data,
@@ -6339,13 +5911,18 @@
                         }
                     }
                     };
-
-            const myChart = new Chart(
-                document.getElementById('chart7'),
-                config
+            var myChart = new Chart(document.getElementById('chart7'),config
             );
+            })
+           
+            var y = $(x).find("span").html();
+            var svg = $(x).find("svg");
+            var activeSvg = document.querySelector(".activeSvg8");
+            $(activeSvg).removeClass("activeSvg8");
+            $(svg).addClass("activeSvg8");
+            $("#activeDropDownItem8").html(y)
+            $("#dropdownSelectId8").hide()
         }
-
         $(document).ready(function() {
             makeSelectActive(6, 0);
             makeSelectActive1(6, 0);
@@ -6353,8 +5930,6 @@
             makeSelectActive6(6, 0);
             makeSelectActive7(6, 0);
             makeSelectActive8(6,0);
-
-
         });
     </script>
 
@@ -6428,7 +6003,6 @@
                 }
             }]
         };
-
         var chart = new ApexCharts(document.querySelector("#chart2"), options);
         chart.render();
     </script>
@@ -6459,7 +6033,6 @@
                 curve: 'smooth',
                 width: 2
             },
-
             grid: {
                 borderColor: '#fff',
                 row: {
@@ -6501,23 +6074,19 @@
                 offsetX: -5
             }
         };
-
         var chart = new ApexCharts(document.querySelector("#chart4"), options);
         chart.render();
     </script>
     <script>
         window.onload = function() {
-
             var chart = new CanvasJS.Chart("funnel", {
                 animationEnabled: true,
                 credits: {
                     enabled: false,
                 },
-
                 title: {
                     text: ""
                 },
-
                 data: [{
                     type: "funnel",
                     indexLabel: "{label} - {y}",
@@ -6547,14 +6116,11 @@
                             y: 151,
                             label: "Filled"
                         },
-
                     ],
-
                 }]
             });
             calculatePercentage();
             chart.render();
-
             function calculatePercentage() {
                 var dataPoint = chart.options.data[0].dataPoints;
                 var total = dataPoint[0].y;
@@ -6566,7 +6132,6 @@
                     }
                 }
             }
-
         }
     </script>
 
@@ -6577,16 +6142,13 @@
         function openBurgerFunct() {
             $("#bottom-burger").slideToggle();
         }
-
         function statusvomvertragCostum(){
             $("#statusvomvertragCostum").slideToggle()
             $("#activeDropDownItem").html("Individueller Zeitraum")
         }
-
         function vertrageCostum(){
             $("#vertrageCostum").slideToggle()
             $("#activeDropDownItem1").html("Individueller Zeitraum")
-
         }
         function leadsCostum(){
             $('#leadsCostum').slideToggle()
@@ -6600,6 +6162,10 @@
             $('#hrCostum').slideToggle()
             $("#activeDropDownItem7").html("Individueller Zeitraum")
         }
+        function terminCostum(){
+            $('#terminCostum').slideToggle()
+            $("#activeDropDownItem8").html("Individueller Zeitraum")
+        }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -6608,3 +6174,4 @@
 
 
 </html>
+

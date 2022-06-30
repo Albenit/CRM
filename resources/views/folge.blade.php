@@ -76,6 +76,36 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
+                                        <div class="white-thingy">
+                                            <div class="text-div py-3 ps-4">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 fs-6 ">Nationalitat </span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$leads->nationality}} </span>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="white-thingy">
+                                            <div class="text-div py-3 ps-4">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 fs-6 ">Geburtstag</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{Carbon\Carbon::parse($leads->birthdate)->format('d.m.Y')}} </span>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
                                             <div class="row g-0">
@@ -131,36 +161,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="white-thingy">
-                                            <div class="text-div py-3 ps-4">
-                                            <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 fs-6 ">Nationalitat </span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$leads->nationality}} </span>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="white-thingy">
-                                            <div class="text-div py-3 ps-4">
-                                            <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 fs-6 ">Birthdate </span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$leads->birthdate}} </span>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                                    
                                     <div class="col-12 col-md-6">
                                     <div class="white-thingy">
                                             <div class="text-div py-3 ps-4">
@@ -180,7 +182,7 @@
                                             <div class="text-div py-3 ps-4">
                                             <div class="row g-0">
                                                     <div class="col-5 me-2">
-                                                        <span class="fw-600 fs-6 ">Tel. Privat </span> 
+                                                        <span class="fw-600 fs-6 ">Telefon</span> 
                                                     </div>
                                                     <div class="col">
                                                         <span class="fs-6">{{$leads->telephone}} </span>
@@ -205,13 +207,27 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="white-thingy">
+                                            <div class="text-div py-3 ps-4">
+                                            <div class="row g-0">
+                                                    <div class="col-5 me-2">
+                                                        <span class="fw-600 fs-6 ">aktuelle Krankenkasse</span> 
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="fs-6">{{$leads->zufriedenheit}} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="white-thingy">
                                                 <div class="text-div py-3 ps-4">
                                                 <div class="row g-0">
                                                         <div class="col-5 me-2">
                                                             <span class="fw-600 fs-6 ">Datum </span> 
                                                         </div>
                                                         <div class="col">
-                                                            <span class="fs-6">{{$leads->appointment_date}} </span>
+                                                            <span class="fs-6">{{Carbon\Carbon::parse($leads->appointment_date)->format('d.m.Y')}} </span>
                                                         </div>
                                                     </div>
                                             </div>
@@ -231,20 +247,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="white-thingy">
-                                            <div class="text-div py-3 ps-4">
-                                            <div class="row g-0">
-                                                    <div class="col-5 me-2">
-                                                        <span class="fw-600 fs-6 ">Zufriedenheit </span> 
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="fs-6">{{$leads->zufriedenheit}} </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="white-thingy mt-2">
                                     <div class="text-div py-3 ps-4">

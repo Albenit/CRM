@@ -14,7 +14,7 @@ class AddNrLeadTable extends Migration
     public function up()
     {
         Schema::table('leads', function (Blueprint $table) {
-            $table->integer('nr')->nullable();
+            $table->string('nr')->nullable();
         });
     }
 

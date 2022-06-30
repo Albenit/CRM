@@ -230,11 +230,11 @@ public function filterhrcalendar(Request  $req){
             $appointment = lead::where('id', $pieces['0'])
                 ->update(['assigned' => 1,'assign_to_id' => $input['id_user'],'rejected' => 0]);
             if($appointment){
-                Admins::role(['salesmanager'])->get()->each(function($item){
+                Admins::role(['salesmanager'])->get()->each(function($item) use($input){
                 $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
             });
                 Admins::find($input['id_user'])->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
-					Admins::role(['salesmanager'])->get()->each(function($item){
+					Admins::role(['salesmanager'])->get()->each(function($item) use($input){
                     $item->notify(new SendNotificationn('<a href="' . route('Appointments') .'">Es kam ein Termin von' . Admins::find($input['id_user'])->name . 'hinzu</a>'));
                 return "Der Termin wurde dem Berater erfolgreich hinzugefügt.";
             }); 

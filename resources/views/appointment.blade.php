@@ -79,9 +79,10 @@
       itemSelector: '.fc-event',
       eventData: function(eventEl) {
         return {
-          title: eventEl.innerText.trim(),
+            title: eventEl.innerText.trim(),
         }
-      }
+      },
+
     });
 
     /* initialize the calendar
@@ -131,7 +132,6 @@
 
               @foreach($absences as $appointmentAGG)
               @if($appointmentAGG->type == 1)
-          
         {      
                   aid: {!! $appointmentAGG->id !!},
                   resourceId: '{!! $appointmentAGG->admin->id !!}',
@@ -179,6 +179,7 @@
                 titlemodal: '{{ $appointmentAGG["first_name"] }} {{ $appointmentAGG["last_name"] }}'
               },
 	  @endforeach
+
               @foreach($personalApp as $appointmentAGG)
           {
               pid: '{!! $appointmentAGG["id"] !!}',
@@ -217,10 +218,6 @@
         console.log('drop date: ' + arg.dateStr)
 
         if (arg.resource) {
-          //console.log('drop resource: ' + arg.resource.id);
-
-		  //console.log('eventReceive',arg.draggedEl.innerText.trim());
-
 
 		  if (confirm("Wollen Sie den Termin ,,"+arg.draggedEl.innerText.trim()+"'' dem Berater ,,"+arg.resource.title+" hinzufügen")) {
 		  // Save it!
@@ -245,6 +242,9 @@
 		  arg.remove()
 		}
         }
+      },
+      eventDragStart: function(arg){
+        alert(arg);
       },
       eventReceive: function(arg) { // called when a proper external event is dropped
         //console.log('eventReceive', arg.event);
@@ -318,6 +318,209 @@
 
 </script>
 <!-- Modal -->
+@foreach($appointments_events as $app)
+<div class="modal fade" id="app{{$app->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document " style="max-width: 700px">
+    <div class="modal-content" style="border: none !important;border-radius: 15px !important;">
+        <div class="p-4" style="background-color: #219653;border-radius:15px 15px 0 0">
+            <div class="row g-0">
+                <div class="col text-center" style="margin-right: -17px;">
+                    <span class="fs-5" style="font-weight: 600;color: #fff;font-family: 'Roboto';">Appointment</span>
+                </div>
+                <div class="col-auto my-auto" style="cursor: pointer" onclick='document.getElementById("change_fs").style.display = "block" ;'>
+                    <svg width="20" height="20" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.24 0.839305C16.359 1.95838 16.359 3.77275 15.24 4.89183L5.65584 14.4759C5.43412 14.6977 5.15838 14.8577 4.85587 14.9402L0.759282 16.0574C0.31094 16.1797 -0.100449 15.7683 0.0218259 15.32L1.13908 11.2234C1.22158 10.9209 1.3816 10.6451 1.60332 10.4234L11.1874 0.839305C12.3065 -0.279768 14.1209 -0.279768 15.24 0.839305ZM10.4111 3.31447L2.45268 11.2728C2.37878 11.3467 2.32544 11.4386 2.29794 11.5394L1.45723 14.622L4.53982 13.7813C4.64066 13.7538 4.73257 13.7005 4.80648 13.6266L12.7646 5.66799L10.4111 3.31447ZM12.0368 1.68867L11.2599 2.46483L13.6134 4.81915L14.3906 4.04246C15.0406 3.39248 15.0406 2.33865 14.3906 1.68867C13.7406 1.03869 12.6868 1.03869 12.0368 1.68867Z" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="p-4" style="background-color: #fff;border-radius: 0 0 15px 15px">
+
+                <div class="row g-2">
+
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                        <svg width="19" height="20" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.5556 3H2.44444C1.6467 3 1 3.59695 1 4.33333V13.6667C1 14.403 1.6467 15 2.44444 15H12.5556C13.3533 15 14 14.403 14 13.6667V4.33333C14 3.59695 13.3533 3 12.5556 3Z" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M10 1V5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M5 1V5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M1 7H14" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Datum</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->appointment_date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                    <svg width="19" height="19" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.4216 3.94684C13.111 4.09714 12.981 4.47098 13.1313 4.78149C13.5419 5.62973 13.75 6.54404 13.75 7.5C13.75 10.9462 10.9462 13.75 7.5 13.75C4.0538 13.75 1.25 10.9462 1.25 7.5C1.25 4.0538 4.0538 1.25 7.5 1.25C8.92807 1.25 10.2696 1.71631 11.38 2.59842C11.6493 2.81342 12.0432 2.7684 12.2581 2.49817C12.4731 2.22809 12.4281 1.83472 12.1577 1.62003C10.8432 0.575256 9.189 0 7.5 0C3.36472 0 0 3.36472 0 7.5C0 11.6353 3.36472 15 7.5 15C11.6353 15 15 11.6353 15 7.5C15 6.35406 14.7498 5.25589 14.2563 4.23721C14.1063 3.92593 13.7312 3.79623 13.4216 3.94684Z" fill="white"/>
+                                        <path d="M7.5 2.5C7.155 2.5 6.875 2.78 6.875 3.125V7.5C6.875 7.845 7.155 8.125 7.5 8.125H10.625C10.97 8.125 11.25 7.845 11.25 7.5C11.25 7.155 10.97 6.875 10.625 6.875H8.125V3.125C8.125 2.78 7.845 2.5 7.5 2.5Z" fill="white"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Zeit</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->time}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                    <svg width="19" height="19" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.7083 11.6667C13.7439 11.6667 14.5833 12.5061 14.5833 13.5417V14.7933L14.5768 14.8837C14.3178 16.6555 12.7263 17.5075 10.0557 17.5075C7.39468 17.5075 5.77775 16.6653 5.42872 14.9138L5.41667 14.7917V13.5417C5.41667 12.5061 6.25613 11.6667 7.29167 11.6667H12.7083ZM12.7083 12.9167H7.29167C6.94649 12.9167 6.66667 13.1965 6.66667 13.5417V14.7253C6.89982 15.7257 7.95885 16.2575 10.0557 16.2575C12.1524 16.2575 13.1639 15.7314 13.3333 14.7443V13.5417C13.3333 13.1965 13.0535 12.9167 12.7083 12.9167ZM13.5363 6.66576L18.125 6.66667C19.1605 6.66667 20 7.50613 20 8.54167V9.79331L19.9934 9.8837C19.7345 11.6555 18.1429 12.5075 15.4723 12.5075L15.2099 12.5047C14.9641 11.9101 14.5126 11.4232 13.9445 11.1312C14.3735 11.2153 14.8817 11.2575 15.4723 11.2575C17.569 11.2575 18.5805 10.7314 18.75 9.7443V8.54167C18.75 8.19649 18.4702 7.91667 18.125 7.91667H13.75C13.75 7.47803 13.6747 7.05699 13.5363 6.66576ZM1.875 6.66667L6.4637 6.66576C6.34838 6.99178 6.27686 7.33851 6.25622 7.69887L6.25 7.91667H1.875C1.52982 7.91667 1.25 8.19649 1.25 8.54167V9.72531C1.48316 10.7257 2.54219 11.2575 4.63899 11.2575C5.15738 11.2575 5.60944 11.2254 5.99883 11.162C5.45653 11.4565 5.02663 11.9312 4.78862 12.5055L4.63899 12.5075C1.97801 12.5075 0.361084 11.6653 0.0120523 9.91381L0 9.79167V8.54167C0 7.50613 0.839466 6.66667 1.875 6.66667ZM10 5C11.6108 5 12.9167 6.30584 12.9167 7.91667C12.9167 9.5275 11.6108 10.8333 10 10.8333C8.38917 10.8333 7.08333 9.5275 7.08333 7.91667C7.08333 6.30584 8.38917 5 10 5ZM10 6.25C9.07953 6.25 8.33333 6.99619 8.33333 7.91667C8.33333 8.83714 9.07953 9.58333 10 9.58333C10.9205 9.58333 11.6667 8.83714 11.6667 7.91667C11.6667 6.99619 10.9205 6.25 10 6.25ZM15.4167 0C17.0275 0 18.3333 1.30584 18.3333 2.91667C18.3333 4.5275 17.0275 5.83333 15.4167 5.83333C13.8058 5.83333 12.5 4.5275 12.5 2.91667C12.5 1.30584 13.8058 0 15.4167 0ZM4.58333 0C6.19416 0 7.5 1.30584 7.5 2.91667C7.5 4.5275 6.19416 5.83333 4.58333 5.83333C2.9725 5.83333 1.66667 4.5275 1.66667 2.91667C1.66667 1.30584 2.9725 0 4.58333 0ZM15.4167 1.25C14.4962 1.25 13.75 1.99619 13.75 2.91667C13.75 3.83714 14.4962 4.58333 15.4167 4.58333C16.3371 4.58333 17.0833 3.83714 17.0833 2.91667C17.0833 1.99619 16.3371 1.25 15.4167 1.25ZM4.58333 1.25C3.66286 1.25 2.91667 1.99619 2.91667 2.91667C2.91667 3.83714 3.66286 4.58333 4.58333 4.58333C5.50381 4.58333 6.25 3.83714 6.25 2.91667C6.25 1.99619 5.50381 1.25 4.58333 1.25Z" fill="white"/>
+                                    </svg>
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Personen</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->number_of_persons}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                        <svg width="19" height="19" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 15.625V14C14 13.1381 13.6576 12.3114 13.0481 11.7019C12.4386 11.0924 11.612 10.75 10.75 10.75H4.25C3.38805 10.75 2.5614 11.0924 1.9519 11.7019C1.34241 12.3114 1 13.1381 1 14V15.625" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.5 7.5C9.29493 7.5 10.75 6.04493 10.75 4.25C10.75 2.45507 9.29493 1 7.5 1C5.70507 1 4.25 2.45507 4.25 4.25C4.25 6.04493 5.70507 7.5 7.5 7.5Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Vorname</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{ $app->first_name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                    <svg width="19" height="19" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.665 11.28V13.28C14.6657 13.4657 14.6277 13.6495 14.5533 13.8196C14.479 13.9897 14.3699 14.1424 14.233 14.2679C14.0962 14.3934 13.9347 14.489 13.7588 14.5485C13.5829 14.608 13.3966 14.6301 13.2117 14.6133C11.1602 14.3904 9.18966 13.6894 7.45833 12.5667C5.84755 11.5431 4.48189 10.1775 3.45833 8.56668C2.33165 6.82748 1.63049 4.84734 1.41166 2.78668C1.395 2.60233 1.41691 2.41652 1.47599 2.2411C1.53508 2.06567 1.63004 1.90447 1.75484 1.76776C1.87964 1.63105 2.03153 1.52182 2.20086 1.44703C2.37018 1.37224 2.55322 1.33352 2.73833 1.33335H4.73833C5.06187 1.33016 5.37552 1.44473 5.62084 1.6557C5.86615 1.86667 6.02638 2.15964 6.07166 2.48001C6.15608 3.12006 6.31263 3.7485 6.53833 4.35335C6.62802 4.59196 6.64744 4.85129 6.59427 5.1006C6.5411 5.34991 6.41757 5.57875 6.23833 5.76001L5.39166 6.60668C6.3407 8.27571 7.72263 9.65764 9.39166 10.6067L10.2383 9.76001C10.4196 9.58077 10.6484 9.45725 10.8977 9.40408C11.1471 9.35091 11.4064 9.37032 11.645 9.46001C12.2498 9.68571 12.8783 9.84227 13.5183 9.92668C13.8422 9.97237 14.1379 10.1355 14.3494 10.385C14.5608 10.6345 14.6731 10.9531 14.665 11.28Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle" >Telephon</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->telephone}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div hidden class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                    <svg width="19" height="19" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.5 0L7.96875 0.799065C7.96875 0.799065 7.61629 1.30637 7.27404 1.91355C7.10291 2.21846 6.94201 2.53651 6.80409 2.85981C6.66617 3.18312 6.53846 3.48014 6.53846 3.86916C6.53846 4.97576 7.42473 5.88785 8.5 5.88785C9.57527 5.88785 10.4615 4.97576 10.4615 3.86916C10.4615 3.48014 10.3338 3.18312 10.1959 2.85981C10.058 2.53651 9.89709 2.21846 9.72596 1.91355C9.38371 1.30637 9.03125 0.799065 9.03125 0.799065L8.5 0ZM8.5 5.88785H6.53846V8.57944H2.61538C1.16977 8.57944 0 9.78329 0 11.271C0 11.9544 0.245192 12.5827 0.653846 13.0584V18H16.3462V13.0584C16.7548 12.5827 17 11.9544 17 11.271C17 9.78329 15.8302 8.57944 14.3846 8.57944H10.4615V5.88785H8.5ZM8.5 2.43925C8.54342 2.51285 8.53831 2.50759 8.58173 2.58645C8.73753 2.86244 8.90355 3.15683 9.01082 3.40654C9.11809 3.65625 9.15385 3.88756 9.15385 3.86916C9.15385 4.24241 8.86268 4.54206 8.5 4.54206C8.13732 4.54206 7.84615 4.24241 7.84615 3.86916C7.84615 3.88756 7.88191 3.65625 7.98918 3.40654C8.09645 3.15683 8.26247 2.86244 8.41827 2.58645C8.46169 2.50759 8.45658 2.51285 8.5 2.43925ZM7.84615 7.23364H9.15385V8.57944H7.84615V7.23364ZM2.61538 9.92523H14.3846C15.1636 9.92523 15.6923 10.4693 15.6923 11.271C15.6923 12.0727 15.1636 12.6168 14.3846 12.6168C13.6056 12.6168 13.0769 12.0727 13.0769 11.271H11.7692C11.7692 12.0727 11.2405 12.6168 10.4615 12.6168C9.68254 12.6168 9.15385 12.0727 9.15385 11.271H7.84615C7.84615 12.0727 7.31746 12.6168 6.53846 12.6168C5.75947 12.6168 5.23077 12.0727 5.23077 11.271H3.92308C3.92308 12.0727 3.39438 12.6168 2.61538 12.6168C1.83639 12.6168 1.30769 12.0727 1.30769 11.271C1.30769 10.4693 1.83639 9.92523 2.61538 9.92523ZM4.57692 13.0584C5.05709 13.6157 5.75691 13.9626 6.53846 13.9626C7.32001 13.9626 8.01983 13.6157 8.5 13.0584C8.98017 13.6157 9.67999 13.9626 10.4615 13.9626C11.2431 13.9626 11.9429 13.6157 12.4231 13.0584C12.9032 13.6157 13.6031 13.9626 14.3846 13.9626C14.6119 13.9626 14.829 13.9127 15.0385 13.8575V16.6542H1.96154V13.8575C2.17097 13.9127 2.38807 13.9626 2.61538 13.9626C3.39694 13.9626 4.09675 13.6157 4.57692 13.0584Z" fill="white"/>
+                                    </svg>
+
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Geburstag</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->birthdate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div style="background: #219653;border-radius: 6px;padding: 0.75rem;">
+                                <div class="row g-0">
+                                    <div class="col-auto my-auto me-3">
+                                    <svg width="19" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 17.6028C13.4183 17.6028 17 14.0211 17 9.60278C17 5.18451 13.4183 1.60278 9 1.60278C4.58172 1.60278 1 5.18451 1 9.60278C1 14.0211 4.58172 17.6028 9 17.6028Z" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 9.60278H17" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 1.60278C10.876 3.79347 11.9421 6.63641 12 9.60278C11.9421 12.5692 10.876 15.4121 9 17.6028C7.12404 15.4121 6.05794 12.5692 6 9.60278C6.05794 6.63641 7.12404 3.79347 9 1.60278V1.60278Z" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+
+
+                                    </div>
+                                    <div class="col-auto pe-4 my-auto">
+                                        <span class="appointmentModalSpanStyle">Nationalität</span>
+                                    </div>
+                                    <div class="col my-auto">
+                                    <span class="appointmentModalSpanStyle1">{{$app->nationality}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                   
+                       
+
+                </div>
+        </div>
+      <div hidden class="modal-header">
+                <div class="col-md-4" style="text-align : left">
+                <h5 class="modal-title" id="">Termindetails</h5>
+                </div>
+                <div class="col-md-6" style="text-align : center">
+                <h4 style="text-align : center; "><B><span id='start' style="color : #e57e2d"></span></B>(<span ></span>personen)</h4>
+                </div>
+                <div class="col-md-2" style="text-align : right">
+                <h5 class="modal-title"><B>ID :</B><span></span></h5>
+            </div>
+      </div>
+
+      <div hidden class="modal-body">
+
+
+
+
+	    <p style="line-height :8px"><B>Vorname :</B><span></span></p>
+	    <p style="line-height :8px"><B>Telefon :</B><span></span></p>
+	    <p style="line-height :8px"><B>Geburtstag :</B><span></span></p>
+	    <p style="line-height :8px"><B>Nationalitet :</B><span></span></p>
+	    <p style="line-height :8px"><B>Status der Aufgabe :</B><span></span></p>
+		<hr>
+		<!--<p><B>address :</B><span id='address'></span></p> -->
+		<div class="row" >
+			<div class="col-md-6" style="text-align : left; ">
+			<a href="#" onclick='document.getElementById("change_fs").style.display = "block" ;' class="btn btn-info btn-sm"><i class="far fa-edit"></i> Bearbeiten</a>
+			</div>
+			<div class="col-md-6" style="text-align : right ;">
+
+			</div>
+			<hr>
+		</div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+@endforeach
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog " role="document " style="max-width: 700px">
     <div class="modal-content" style="border: none !important;border-radius: 15px !important;">
@@ -1024,7 +1227,7 @@
 	<div class="row justify-content-between">
             <div class="col-lg pb-3 pb-lg-0">
                 <label class="fw-500">Datum</label>
-                    <input type="date" class="form-control form-control-sm kalendarFormStyle py-2" name="date_in" value="{!! $date_in->format('Y-m-d') !!}">
+                    <input type="date" class="form-control form-control-sm kalendarFormStyle py-2" name="date_in" value="{!! $date_in->format('d.m.Y') !!}">
             </div>
 			<div class="col-lg pb-3 pb-lg-0">
 				<label class="fw-500">Region</label>
@@ -1111,9 +1314,16 @@
                                 </div>
                              </div>
                             <!-- <hr class="mx-2" style="height: 2px"> -->
+                            <script>
+                                function openmod(x){
+                                    let y = 'app' + x;
+                                    document.getElementById(y).style.display = "block";
+                                  
+                                }
+                                </script>
                             @foreach ( $appointments_events as $appointment )
                                 @if($appointment["rejected"] == 0)
-                                    <div class='fc-event p-2 m-2'
+                                    <div class='fc-event p-2 m-2'  data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
                                          style="margin: 10px 0; cursor: pointer;color:#fff;text-align: left; font-size: 14px; border-radius: 10px;  background: #0c71c3;">{!! $appointment["id"] !!}
                                         -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
                                             style="color:#fff">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
@@ -1121,7 +1331,7 @@
                                             {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
                                              style="color:#fff; border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Nicht zugeordnet</div>@endif</div>
                                 @else
-                                    <div class='fc-event  p-2 m-2'
+                                    <div class='fc-event  p-2 m-2' data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
                                          style="margin: 10px 0; cursor: pointer; text-align: left; color:#fff;border-radius: 10px; font-size: 14px;  background:#c40000;">{!! $appointment["id"] !!}
                                         -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
                                             style="color: #fff;">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
@@ -1131,6 +1341,7 @@
                                     </div>
                                 @endif
                             @endforeach
+                           
                             <div class="row g-0" style="position: absolute; bottom: 1.25rem;left: 1.25rem">
                                 <div class="col-auto my-auto me-2">
                                     <div>
@@ -1145,7 +1356,7 @@
                                 </div>
                                 <div class="col">
                                     <a href="{{route('rejectedAppointment')}}" style="text-decoration: none;">
-                                        <span class="underlinedFirstTxt">Historie Der Appointments</span>
+                                        <span class="underlinedFirstTxt">Historie Der Termine</span>
                                     </a>
                                 </div>
                             </div>

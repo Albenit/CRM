@@ -876,7 +876,7 @@ $urole = $urole->toArray();
                                                 <span class="documentFormLeftSpan">GEBURSTAG</span>
                                             </div>
                                             <div class="col">
-                                                <span class="documentFormRightSpan">{{$lead->birthdate}}</span>
+                                                <span class="documentFormRightSpan">{{Carbon\Carbon::parse($lead->birthdate)->format('d.m.Y')}}</span>
                                             </div>
                                         </div>
                                     </div>

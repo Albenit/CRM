@@ -199,7 +199,7 @@
                                         </span>
                                     </div>
                                     <div>
-                                        <span class="fw-500 hrBlackTextStyle">{{ $personalData->birthdate }}</span>
+                                        <span class="fw-500 hrBlackTextStyle">{{Carbon\Carbon::parse($personalData->birthdate)->format('d.m.Y')}}</span>
                                     </div>
                                 </div>
                                 <div class="pb-4">
