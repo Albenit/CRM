@@ -213,9 +213,6 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('fmembers/{family}/{lid}','App\Http\Controllers\FamilyPersonsController@fmembers')->middleware('role:fs|admin|backoffice');
     route::get('linkthat/{id}/{pid}','App\Http\Controllers\FamilyPersonsController@linkthat');
     route::get('updateperson/{id}',[UserController::class,'updateperson'])->name('updateperson');
-    
-
-
     route::get('historyTermine', [AppointmentsController::class,'historyTermine'])->name('rejectedAppointment');
 
     include 'Hr.php';
@@ -274,10 +271,10 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('rleads',[UserController::class,'rleads'])->name('rleads');
     route::get('leadhistory',function(Request $request){
         if(!Auth::user()->hasRole('fs')){
-            $leads = lead::with('info')->with('admin')->orderBy('created_at','desc')->withTrashed()->get();
+            $leads = lead::with('info')->with('admin')->orderBy('created_at','desc')->where('insertedManualy', null)->withTrashed()->get();
         }
         else{
-            $leads = lead::with('info')->with('admin')->where('assign_to_id',Auth::user()->id)->orderBy('created_at','desc')->withTrashed()->get();
+            $leads = lead::with('info')->with('admin')->where('assign_to_id',Auth::user()->id)->orderBy('created_at','desc')->where('insertedManualy', null)->withTrashed()->get();
         }
         return view('leadshistory',compact('leads'));
     })->name('leadshistory');

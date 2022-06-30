@@ -641,6 +641,7 @@ class CostumerFormController extends Controller
         $lead->telephone = $req->phone;
         $lead->campaign_id = random_int(1,3);
         $lead->nationality = $req->country;
+        $lead->insertedManualy = 1;
         $lead->save();
         $family = new family();
         $family->first_name = filter_var($req->input('fname'),FILTER_SANITIZE_STRING);
@@ -663,7 +664,9 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        return redirect()->back();
+
+
+        return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
 
 }

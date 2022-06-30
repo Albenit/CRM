@@ -776,8 +776,9 @@
                             </tbody>
 
                         </table>
-
+                        
                     </div>
+                    
                     <div class="d-flex justify-content-end py-3" style="background-color: transparent;display: none !important;">
                         <div class="prev-nxt-btn d-flex">
                             <div class="prev-btn border p-2 bg-light m-2 rounded">
@@ -798,6 +799,26 @@
                     </div>
 
                 </div>
+                <div class="pt-4">
+                    <a href="{{route('insertcostumer')}}">
+                        <div class="row g-0 justify-content-center pt-3 pt-md-0">
+                            <div class="col-auto my-auto">
+                            <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.4961 35.0005C8.84807 35.0005 0.996094 27.1485 0.996094 17.5005C0.996094 7.85246 8.84807 0.000488281 18.4961 0.000488281C28.1441 0.000488281 35.9961 7.85246 35.9961 17.5005C35.9961 27.1485 28.1441 35.0005 18.4961 35.0005Z" fill="#5288F5"/>
+                                <path d="M26.0549 19.0005H11.9373C11.4171 19.0005 10.9961 18.5531 10.9961 18.0005C10.9961 17.4479 11.4171 17.0005 11.9373 17.0005H26.0549C26.575 17.0005 26.9961 17.4479 26.9961 18.0005C26.9961 18.5531 26.575 19.0005 26.0549 19.0005Z" fill="white"/>
+                                <path d="M18.9961 26.0005C18.4435 26.0005 17.9961 25.5794 17.9961 25.0593V18.0005V10.9417C17.9961 10.4215 18.4435 10.0005 18.9961 10.0005C19.5487 10.0005 19.9961 10.4215 19.9961 10.9417V25.0593C19.9961 25.5794 19.5487 26.0005 18.9961 26.0005Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="col-auto my-auto ps-2">
+                                    <div>
+                                        <span class="text-dark">Insert Costumer</span>
+                                    </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                
                 @if(auth()->user()->hasRole('admin'))
                     <div class="container-fluid p-0">
 
@@ -873,7 +894,7 @@
                                 </form>
                                 
                             </div>
-                            <a href="{{route('insertcostumer')}}">Insert Costumer</a>
+                            
                         </div>
                     </div>
                 @endif

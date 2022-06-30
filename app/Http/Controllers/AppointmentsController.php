@@ -271,6 +271,8 @@ public function filterhrcalendar(Request  $req){
               ->update(['assign_to_id' => $input['ts_id']]);
 		if($appointment){session(['msg' => 'Erfolgreich !!!']);  return redirect()->back();} else {return "ERROR !!!";}
 	}
+
+    
     public function historyTermine(Request $req){
         $beraters = Admins::role(['fs'])->get();
         if($req->berater != null){
@@ -284,20 +286,23 @@ public function filterhrcalendar(Request  $req){
                 }elseif($req->status == 'Folget'){
                     $leads = lead::where('assigned',1)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
                 }elseif($req->status == 'Pending'){
-                    $leads = lead::where('assigned',1)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->where('appointment_date','<>',null)->withTrashed()->get();
+                    $leads = lead::where('assigned',1)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
                 }elseif($req->status == 'all'){
                     $leads = lead::where('assigned',1)->withTrashed()->get();
                 }
-            }elseif ($req->status == 'Abschluss'){
+            }else{
+                if ($req->status == 'Abschluss'){
                 $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',1)->withTrashed()->get();
-            }elseif($req->status == 'Kein Abschluss'){
-                $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
-            }elseif($req->status == 'Folget'){
-                $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
-            }elseif($req->status == 'Pending'){
-                $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->where('appointment_date','<>',null)->withTrashed()->get();
-            }elseif($req->status == 'all'){
-                $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->withTrashed()->get();
+                }elseif($req->status == 'Kein Abschluss'){
+                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('assign_to_id','<>', null)->where('deleted_at','<>',null)->withTrashed()->get();
+                }elseif($req->status == 'Folget'){
+                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
+                }elseif($req->status == 'Pending'){
+                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
+                    dd($leads);
+                }elseif($req->status == 'all'){
+                    $leads = lead::where('assigned',1)->where('assign_to_id',$req->berater)->withTrashed()->get();
+                }
             }
         }else{
             $leads = lead::where('assigned',1)->withTrashed()->get();

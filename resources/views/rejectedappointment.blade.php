@@ -78,7 +78,7 @@
                                         <div>{{ Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y') }}</div>
                                     </td>
                                     <td>
-                                        <div>{{ $lead->assign_to_id == null ? '' : $lead->admin->name }}</div>
+                                        <div>{{ $lead->assign_to_id == null ? 'Nicht zugeordnet' : $lead->admin->name }}</div>
                                     </td>
                                     <td scope="row">
                                         <div style="font-weight: 600 !important;">{{ ucfirst($lead->first_name) }}{{ $lead->last_name }}</div>
@@ -119,7 +119,7 @@
                                         @if ($lead->begrundung != null || $lead->begrundung2 != null)
                                             <div>{{ $lead->begrundung }} {{ $lead->begrundung2 }}</div>
                                         @else
-                                            <div class="text-center fs-6 fw-400" style="color: #9F9F9F">keine Begründung
+                                            <div class=" fs-6 fw-400" style="color: #9F9F9F">keine Begründung
                                             </div>
                                         @endif
                                     </td>
@@ -130,13 +130,13 @@
                                             <div>
                                                 <a style="text-decoration: none"
                                                     href="{{ route('showfile2', $lead->begrundungfile2) }}" target="_blank">
-                                                    <input type="text" class="form-control text-center" id="begrundung"
+                                                    <input type="text" class="form-control" id="begrundung"
                                                         disabled style="background:transparent; border:none;"
-                                                        value="{{ $lead->begrundungfile2 }}">
+                                                        value="{{$lead->begrundungfile2}}">
                                                 </a>
                                             </div>
                                         @else
-                                            <div class="text-center fs-6 fw-400" style="color: #9F9F9F">keine Kommentar</div>
+                                            <div class="fs-6 fw-400" style="color: #9F9F9F">keine Kommentar</div>
                                         @endif
                                     </td>
                                     <td>
