@@ -1317,26 +1317,28 @@
                                   
                                 }
                                 </script>
-                            @foreach ( $appointments_events as $appointment )
-                                @if($appointment["rejected"] == 0)
-                                    <div class='fc-event p-2 m-2'  data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
-                                         style="margin: 10px 0; cursor: pointer;color:#fff;text-align: left; font-size: 14px; border-radius: 10px;  background: #0c71c3;">{!! $appointment["id"] !!}
-                                        -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
-                                            style="color:#fff">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
-                                            ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
-                                            {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
-                                             style="color:#fff; border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Nicht zugeordnet</div>@endif</div>
-                                @else
-                                    <div class='fc-event  p-2 m-2' data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
-                                         style="margin: 10px 0; cursor: pointer; text-align: left; color:#fff;border-radius: 10px; font-size: 14px;  background:#c40000;">{!! $appointment["id"] !!}
-                                        -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
-                                            style="color: #fff;">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
-                                            ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
-                                            {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
-                                             style="color:#fff;border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Abgelehnt </div>@endif
-                                    </div>
-                                @endif
-                            @endforeach
+                            <div class="overflow-11" style="overflow-x: auto;height: 500px">
+                                @foreach ( $appointments_events as $appointment )
+                                    @if($appointment["rejected"] == 0)
+                                        <div class='fc-event p-2 m-2'  data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
+                                            style="margin: 10px 0; cursor: pointer;color:#fff;text-align: left; font-size: 14px; border-radius: 10px;  background: #0c71c3;">{!! $appointment["id"] !!}
+                                            -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
+                                                style="color:#fff">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
+                                                ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
+                                                {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
+                                                style="color:#fff; border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Nicht zugeordnet</div>@endif</div>
+                                    @else
+                                        <div class='fc-event  p-2 m-2' data-bs-toggle="modal" data-bs-target="#app{{$appointment->id}}"
+                                            style="margin: 10px 0; cursor: pointer; text-align: left; color:#fff;border-radius: 10px; font-size: 14px;  background:#c40000;">{!! $appointment["id"] !!}
+                                            -{!! $appointment['first_name'] !!} {!! $appointment['last_name'] !!}<br><B
+                                                style="color: #fff;">{!! date("d/M/Y H:i", strtotime($appointment["appointment_date"]." ".$appointment["time"])) !!}
+                                                ( {!! $appointment["number_of_persons"]!!} {!! $appointment["number_of_persons"] == 1 ? 'Person' : 'Personen'!!}
+                                                {!! $appointment["address"]  . "," . $appointment["postal_code"] . "," . $appointment["city"] !!})</B><br>@if($appointment["assigned"] == '0')<div
+                                                style="color:#fff;border:1px solid #fff;border-radius: 4px;padding-left: 2px;padding-right: 2px;">Abgelehnt </div>@endif
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                            
                             <div class="row g-0" style="position: absolute; bottom: 1.25rem;left: 1.25rem">
                                 <div class="col-auto my-auto me-2">
@@ -2264,6 +2266,9 @@ You don't have permission // {!! $admini->hasRole('admin') !!} ---  {!! $admini-
     .fc .fc-scroller::-webkit-scrollbar-track {
     background: transparent;
     }
+    .overflow-11::-webkit-scrollbar {
+            width: 5px;
+        }
 
     .fc .fc-scroller::-webkit-scrollbar-thumb {
     background: #2F60DC95;
