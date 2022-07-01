@@ -1220,8 +1220,19 @@ if it's not present, don't show loader */
                                                         <span class="documentFormLeftSpan">Quelle</span>
                                                     </div>
                                                     <div class="col">
-                                                        <span class="documentFormRightSpan">{{$costumer->lead->admin->hasRole('callagent') ? 'Call Agent' : 'Lead'}}</span>
-                                                    </div>
+                                                    
+                                                        @if ($costumer->lead->admin->hasRole('callagent'))
+                                                            <span class="documentFormRightSpan">Call Agent</span>
+                                                        @elseif ($costumer->lead->insertedManualy == 1)
+                                                            <span class="documentFormRightSpan">Manualy Inserted</span>
+                                                        @elseif ($costumer->lead->apporlead == 'appointment')
+                                                            <span class="documentFormRightSpan">Termine</span>
+                                                        @else
+                                                            <span class="documentFormRightSpan">Lead</span>
+                                                        @endif
+                                                        
+                                                    
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="pb-2">
