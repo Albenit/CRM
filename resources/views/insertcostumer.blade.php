@@ -44,11 +44,16 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
-                                        <label for="exampleFormControlTextarea1" class="form-label mb-1">Bemerkung</label>
-                                        <textarea class="form-control GrundversicherungInput" name="bemerkung" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                        <label for="" class="mb-1">Berater</label>
+                                        <select name="berater" class="form-control" required>
+                                            @foreach($admins as $admin)
+                                            <option value="{{$admin->id}}">{{$admin->name}}</option>
+                                            @endforeach
+</select>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="col-12 col-lg-5 col-xl-4">
                             <div class="my-4 mx-3">

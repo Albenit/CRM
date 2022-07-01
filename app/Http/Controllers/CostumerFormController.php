@@ -635,7 +635,7 @@ class CostumerFormController extends Controller
     public function savecostumer(Request $req){
 
         $lead = new lead();
-        $lead->assign_to_id = auth()->id();
+        $lead->assign_to_id = $req->berater;
         $lead->first_name = $req->fname;
         $lead->last_name = $req->lname;
         $lead->telephone = $req->phone;
