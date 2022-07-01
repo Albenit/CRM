@@ -1500,7 +1500,7 @@ $urole = $urole->toArray();
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-6 col-lg-5 ps-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openKrankenDropdownStep22()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -1518,7 +1518,7 @@ $urole = $urole->toArray();
                                                 </div>
 
                                             </div>
-                                            <div class="Zusatzversicherung mt-4" id="Zusatzversicherung">
+                                            <div class="Zusatzversicherung mt-3" id="Zusatzversicherung">
                                                     <div class="p-4">
                                                         <div class="pb-2">
                                                             <div>
@@ -1656,7 +1656,7 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-5 pe-0 ps-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openKrankenDropdownStep2()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -1673,7 +1673,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Grundversicherung" class="Grundversicherung mt-4">
+                                            <div id="Grundversicherung" class="Grundversicherung mt-3">
                                                 @php
                                                     $count = 1;
                                                 @endphp
@@ -2080,7 +2080,7 @@ $urole = $urole->toArray();
                                         <div>  
                                             <div class="row g-4 justify-content-center pb-5">
                                                 <div class="col-12 col-md-4 ps-0 ps-md-2">
-                                                    <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                                    <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                         onclick="openGesellschaftDropdownStep()">
                                                         <div class="row g-0">
                                                             <div class="col my-auto">
@@ -2098,7 +2098,7 @@ $urole = $urole->toArray();
                                                         </div>
         
                                                     </div>
-                                                    <div id="Gesellschaft" class="Grundversicherung mt-4">
+                                                    <div id="Gesellschaft" class="Grundversicherung mt-3">
                                                         <div class="p-4">
                                                             <div class="">
                                                                 <div class="mb-3">
@@ -2226,7 +2226,7 @@ $urole = $urole->toArray();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="Zusatzversicherung mt-4" id="Gesellschaft">
+                                                    {{-- <div class="Zusatzversicherung mt-3" id="Gesellschaft">
                                                         <div class="p-4">
                                                             <div class="">
                                                                 <div class="mb-3">
@@ -2252,7 +2252,7 @@ $urole = $urole->toArray();
                                                     </div> --}}
                                                 </div>
                                                 <div class="col-12 col-md-4 ps-0 ps-md-2">
-                                                    <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                                    <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                         onclick="openPreisDropdownStep()">
                                                         <div class="row g-0">
                                                             <div class="col my-auto">
@@ -2270,7 +2270,7 @@ $urole = $urole->toArray();
                                                         </div>
         
                                                     </div>
-                                                    <div class="Zusatzversicherung mt-4" id="Preis">
+                                                    <div class="Zusatzversicherung mt-3" id="Preis">
                                                         <div class="p-4">
                                                             <div class="">
                                                                 ...
@@ -2377,7 +2377,7 @@ $urole = $urole->toArray();
                             </div>
                                 <div class="row g-0 justify-content-center pt-0 pt-md-4">
                                     <div class="col-12 col-md-6 col-lg-4 pe-0 pe-md-2">
-                                        <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                        <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                              onclick="openAutoDropdownStep2()">
                                             <div class="row g-0">
                                                 <div class="col my-auto">
@@ -2855,7 +2855,7 @@ $urole = $urole->toArray();
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-8 ps-0 ps-md-2">
-                                        <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                        <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                              onclick="openAutoDropdownStep22()">
                                             <div class="row g-0">
                                                 <div class="col my-auto">
@@ -7142,7 +7142,7 @@ $urole = $urole->toArray();
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-8 col-lg-6 pe-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openAutoDropdownStep222()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -7159,7 +7159,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Autoversicherung" class="Grundversicherung mt-4">
+                                            <div id="Autoversicherung" class="Grundversicherung mt-3">
                                                 @php $cnt = 1 @endphp
                                                 @foreach($autoversicherungP as $autoversicherungPP)
                                                     <div class="p-4">
@@ -8904,7 +8904,7 @@ $urole = $urole->toArray();
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-10 col-lg-8 col-xl-6 pe-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openVorsorgeDropdownStep2()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -8921,7 +8921,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Vorsorge" class="Grundversicherung mt-4">
+                                            <div id="Vorsorge" class="Grundversicherung mt-3">
                                                 <div class="p-4">
                                                     <div class="mb-3">
                                                         <div
@@ -9212,7 +9212,7 @@ $urole = $urole->toArray();
                                 <div class="row g-0 justify-content-center pt-0 pt-md-5">
                                     <div class="row g-0">
                                         <div class="col-12 col-md-6 col-xl-4 pe-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openSachenDropdownStep2()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -9229,7 +9229,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Gegenofertensachen" class="Grundversicherung mt-4">
+                                            <div id="Gegenofertensachen" class="Grundversicherung mt-3">
                                                 <div class="p-4">
                                                     <div class="">
                                                         <div class="pb-2">
@@ -9439,7 +9439,7 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-xl-4 ps-0 ps-md-0">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openSachenDropdownStep22()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -9457,7 +9457,7 @@ $urole = $urole->toArray();
                                                 </div>
 
                                             </div>
-                                            <div class="Zusatzversicherung mt-4" id="NeuesSachen">
+                                            <div class="Zusatzversicherung mt-3" id="NeuesSachen">
                                                 <div class="p-4">
                                                     <div class="">
                                                         <div class="row g-0">
@@ -9661,7 +9661,7 @@ $urole = $urole->toArray();
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6 col-xl-4 ps-0 ps-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openSachenDropdownStep222()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto ">
@@ -9679,7 +9679,7 @@ $urole = $urole->toArray();
                                                 </div>
 
                                             </div>
-                                            <div class="Zusatzversicherung mt-4" id="GesellschaftSachen">
+                                            <div class="Zusatzversicherung mt-3" id="GesellschaftSachen">
                                                 <div class="p-4">
                                                     <div class="">
                                                         <div class="row mx-0 g-0">
@@ -9937,7 +9937,7 @@ $urole = $urole->toArray();
                                 <div class="">
                                     <div class="row g-0 justify-content-center">
                                         {{-- <div class="col-12 col-md-4 pe-0 pe-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openSachenDropdownStep2222()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -9954,7 +9954,7 @@ $urole = $urole->toArray();
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Rechtsschutz" class="Grundversicherung mt-4">
+                                            <div id="Rechtsschutz" class="Grundversicherung mt-3">
                                                 <div class="p-4">
                                                     <div class="">
                                                         <div class="mb-3">
@@ -10084,7 +10084,7 @@ $urole = $urole->toArray();
                                             </div>
                                         </div> --}}
                                         <div class="col-12 col-md-4 ps-0 ps-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 p-2 mt-4"
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openSachenDropdownStep22222()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -10102,7 +10102,7 @@ $urole = $urole->toArray();
                                                 </div>
 
                                             </div>
-                                            <div class="Zusatzversicherung mt-4" id="Hausrat">
+                                            <div class="Zusatzversicherung mt-3" id="Hausrat">
                                                 <div class="p-4">
                                                     <div class="">
                                                         <div class="mb-3">
@@ -13089,7 +13089,7 @@ $urole = $user->getRoleNames()->toArray();
     }
 
 
-    function openKrankenDropdownStep2() {
+    /* function openKrankenDropdownStep2() {
         $("#Grundversicherung").slideToggle();
     }
     function openKrankenDropdownStep22() {
@@ -13130,7 +13130,7 @@ $urole = $user->getRoleNames()->toArray();
     }
     function openPreisDropdownStep(){
         $("#Preis").slideToggle();
-    }
+    } */
 
     //per javascript
     function yesBtnLeasingClickedx(x) {
@@ -13584,10 +13584,12 @@ $urole = $user->getRoleNames()->toArray();
         font-weight: 400;
         font-size: 16px;
         color: #1D2346;
-        border: 1px solid #DCE4F9;
-        border-radius: 11px;
+        /* border: 1px solid #DCE4F9; */
+        /* border-radius: 11px; */
     }
-
+    .list-choice-title svg {
+        display: none !important;
+    }
     .list-choice-objects {
         font-weight: 400;
         font-size: 16px;
@@ -13769,7 +13771,7 @@ $urole = $user->getRoleNames()->toArray();
         border: 1px solid #EDEDED;
         box-sizing: border-box;
         border-radius: 11px;
-        display: block;
+        display: block !important;
     }
 
     .GrundversicherungSpans {

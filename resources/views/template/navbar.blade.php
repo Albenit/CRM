@@ -942,15 +942,13 @@ $urole = $user->getRoleNames()->toArray();
         }
     </style>
     <section>
-
+    
     <div class="row g-0 h-100 ">
-
-
-        <div class="col-1 col-md-1 col-lg-2 h-100 hideNavBarMobile">
-            <div class="sideBarStyle col-1 col-md-1 col-lg-2 px-1 px-lg-0">
+        <div class="col-1 col-md-1 col-lg-2 h-100 hideNavBarMobile" id="navbarId">
+            <div class="sideBarStyle col-1 col-md-1 col-lg-2 px-1 px-lg-0" id="underNavbarId">
                 <div class="mx-4 mx-md-0">
                     <div class="text-center mx-auto py-4 d-flex justify-content-center">
-                        <svg style="min-width: 40px; max-width: 80px" class="img-fluid" viewBox="0 0 82 67" fill="none"
+                        <svg style="min-width: 40px; max-width: 80px;cursor: pointer;" class="img-fluid" onclick="toggleNavSize()" viewBox="0 0 82 67" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.9994 23.0175L60.3103 55.386H21.6886L40.9994 23.0175Z" fill="#2F60DC" />
                             <path d="M62.5789 50.3509L45.7598 21.2193L79.3981 21.2193L62.5789 50.3509Z"
