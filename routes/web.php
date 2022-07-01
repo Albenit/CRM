@@ -337,10 +337,13 @@ route::get('insertcostumer',function (){
 })->name('insertcostumer');
 route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer')->middleware('role:backoffice|admin');
 route::get('haha',function(){
-    $number = random_int(1111,9999);
-    // $twilio = new \Aloha\Twilio\Twilio(env('TWILIO_SID'), env('TWILIO_TOKEN'), env('TWILIO_FROM'));
-    // $twilio->message('+38345917726', $number);
-    \Mail::to(auth()->user()->email)->send(new confirmcodee($number));
+    $authyUser = app('rinvex.authy.user');
+    $user = $authyUser->register('bulzarti@gmail.com', '+38345917726', '59'); // Register user
+    dd($user);
+    $authyToken = app('rinvex.authy.token');
+    $tokenVerified = $authyToken->verify('4135553', auth()->user()->authy_id);
+   dd($tokenVerified);
+
 });
 
 

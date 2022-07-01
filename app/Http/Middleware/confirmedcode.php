@@ -20,6 +20,7 @@ class confirmedcode
     {
         $user = auth();
         if ($user->check()) {
+
         //   if ($user->user()->confirmed == 0) {
         //     $number = random_int(1111,9999);
         //     $twilio = new \Aloha\Twilio\Twilio(env('TWILIO_SID'), env('TWILIO_TOKEN'), env('TWILIO_FROM'));
@@ -30,6 +31,7 @@ class confirmedcode
         //    } else {
         //        return $next($request);
         //    }
+
 
             return $next($request);
         }

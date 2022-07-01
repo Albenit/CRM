@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55ca1d42db1542797004fe626ffd5987",
+    "content-hash": "dad9331ea26fc7f28ae0e95f94644e5b",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -6055,6 +6055,172 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "rinvex/authy",
+            "version": "v5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/authy.git",
+                "reference": "c9b0e58801e12183deb66990f2649e9a09219307"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/authy/zipball/c9b0e58801e12183deb66990f2649e9a09219307",
+                "reference": "c9b0e58801e12183deb66990f2649e9a09219307",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2.0",
+                "php": "^7.4.0 || ^8.0.0",
+                "psr/http-message": "^1.0.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.30.0",
+                "mockery/mockery": "^1.4.0",
+                "phpunit/phpunit": "^9.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rinvex\\Authy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous Laravel Community",
+                    "homepage": "https://github.com/rinvex/authy/contributors"
+                }
+            ],
+            "description": "Rinvex Authy is a simple wrapper for Authy TOTP API, the best rated Two-Factor Authentication service for consumers, simplest 2fa Rest API for developers and a strong authentication platform for the enterprise.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "Authentication",
+                "authy",
+                "automated",
+                "call",
+                "message",
+                "phone",
+                "register",
+                "rinvex",
+                "security",
+                "sms",
+                "token",
+                "twofactor",
+                "verification"
+            ],
+            "support": {
+                "docs": "https://github.com/rinvex/authy/README.md",
+                "email": "help@rinvex.com",
+                "issues": "https://github.com/rinvex/authy/issues",
+                "source": "https://github.com/rinvex/authy"
+            },
+            "time": "2020-12-25T01:34:01+00:00"
+        },
+        {
+            "name": "rinvex/laravel-authy",
+            "version": "v8.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rinvex/laravel-authy.git",
+                "reference": "235b3e3bad78a7a73f969b7b075550d0ef1059cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rinvex/laravel-authy/zipball/235b3e3bad78a7a73f969b7b075550d0ef1059cc",
+                "reference": "235b3e3bad78a7a73f969b7b075550d0ef1059cc",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2.0",
+                "illuminate/support": "^8.0.0 || ^9.0.0",
+                "php": "^7.4.0 || ^8.0.0",
+                "rinvex/authy": "^5.1.0"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.30.0",
+                "illuminate/container": "^8.0.0 || ^9.0.0",
+                "phpunit/phpunit": "^9.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rinvex\\Authy\\Providers\\AuthyServiceProvider"
+                    ],
+                    "aliases": {
+                        "AuthyApp": "Rinvex\\Authy\\Facades\\AuthyApp",
+                        "AuthyUser": "Rinvex\\Authy\\Facades\\AuthyUser",
+                        "AuthyToken": "Rinvex\\Authy\\Facades\\AuthyToken"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rinvex\\Authy\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rinvex LLC",
+                    "email": "help@rinvex.com",
+                    "homepage": "https://rinvex.com"
+                },
+                {
+                    "name": "Abdelrahman Omran",
+                    "email": "me@omranic.com",
+                    "homepage": "https://omranic.com",
+                    "role": "Project Lead"
+                },
+                {
+                    "name": "The Generous Laravel Community",
+                    "homepage": "https://github.com/rinvex/laravel-authy/contributors"
+                }
+            ],
+            "description": "Rinvex Authy is a simple wrapper for Authy TOTP, the best rated Two-Factor Authentication service for consumers, simplest 2fa Rest API for developers and a strong authentication platform for the enterprise.",
+            "homepage": "https://rinvex.com",
+            "keywords": [
+                "Authentication",
+                "authy",
+                "automated",
+                "call",
+                "laravel",
+                "message",
+                "phone",
+                "register",
+                "rinvex",
+                "security",
+                "sms",
+                "token",
+                "twofactor",
+                "verification"
+            ],
+            "support": {
+                "docs": "https://github.com/rinvex/laravel-authy/README.md",
+                "email": "help@rinvex.com",
+                "issues": "https://github.com/rinvex/laravel-authy/issues",
+                "source": "https://github.com/rinvex/laravel-authy"
+            },
+            "time": "2020-12-25T01:40:15+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
