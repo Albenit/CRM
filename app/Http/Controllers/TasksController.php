@@ -340,6 +340,7 @@ class TasksController extends Controller
     }
     public function costumers(Request $request)
     {
+
         $beraters = Admins::role(['fs'])->get();
         $grundversicherungP = null;
         $retchsschutzP = null;
@@ -392,7 +393,7 @@ class TasksController extends Controller
                 });
             }
             
-   $data = $family->get();
+            $data = $family->paginate(50);
 
             $cnt = 0;
 
@@ -463,7 +464,8 @@ class TasksController extends Controller
                         $query->where('status_PG',$request->status);
                     });
                 }
-                $data = $family->get();
+                $data = $family->paginate(50);
+
 
             $cnt = 0;
 

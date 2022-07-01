@@ -93,9 +93,9 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
         $urole = $user->getRoleNames();
 
         if ($urole->contains('admin') || $urole->contains('salesmanager')) {
-            $leads['leads'] = lead::with('campaign')->with('info')->where('completed', '0')->where('assigned', 0)->where('assign_to_id', null)->where('wantsonline',0)->where('rejected',0)->orderBy('updated_at','asc')->paginate(100);
+            $leads['leads'] = lead::with('campaign')->with('info')->where('completed', '0')->where('assigned', 0)->where('assign_to_id', null)->where('wantsonline',0)->where('rejected',0)->whereNull('appointment_date')->orderBy('updated_at','asc')->paginate(100);
         } elseif ($urole->contains('fs')) {
-            $leads['leads'] = lead::with('campaign')->with('info')->where('completed', '0')->where('assigned', 0)->orderBy('updated_at','asc')->where('leads.assign_to_id',Auth::user()->id)->where('wantsonline',0)->where('rejected',0)->paginate(100);
+            $leads['leads'] = lead::with('campaign')->with('info')->where('completed', '0')->where('assigned', 0)->orderBy('updated_at','asc')->where('leads.assign_to_id',Auth::user()->id)->where('wantsonline',0)->where('rejected',0)->whereNull('appointment_date')->paginate(100);
         }
         $instagram = 0;
         $sanascout = 0;
