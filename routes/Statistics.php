@@ -25,6 +25,6 @@ route::get('durationOfLead',[\App\Http\Controllers\StatisticController::class,'d
 route::get('holidayReason',[\App\Http\Controllers\StatisticController::class,'holidayReason']);
 route::get('costumersFilter',[\App\Http\Controllers\StatisticController::class,'costumersFilter']);
 
-route::get('appointmentStat',[\App\Http\Controllers\StatisticController::class,'appointmegtntStat']);
+route::get('appointmentStat',[\App\Http\Controllers\StatisticController::class,'appointmentStat']);
 
 ?>
