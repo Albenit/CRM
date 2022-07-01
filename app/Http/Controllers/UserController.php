@@ -840,6 +840,76 @@ public function folgetermin($id){
                 });
 
 
+                $offenBeratercnt = collect();
+                $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PG)){
+                        $offenBeratercnt->push($item->person_id_PG);
+                    }
+                });
+                $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PR)){
+                        $offenBeratercnt->push($item->person_id_PR);
+                    }
+                });
+                $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PV)){
+                        $offenBeratercnt->push($item->person_id_PV);
+                    }
+                });
+                $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PZ)){
+                        $offenBeratercnt->push($item->person_id_PZ);
+                    }
+                });
+                $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PA)){
+                        $offenBeratercnt->push($item->person_id_PA);
+                    }
+                });
+                $hausratP = CostumerProduktHausrat::where('status_PH', 'Offen (Berater)')->get()->each(function ($item) use ($offenBeratercnt){
+                    if(!$offenBeratercnt->contains($item->person_id_PH)){
+                        $offenBeratercnt->push($item->person_id_PH);
+                    }
+                });
+
+
+                $offeniddentineiestcnt = collect();
+                $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PG)){
+                        $offeniddentineiestcnt->push($item->person_id_PG);
+                    }
+                });
+                $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PR)){
+                        $offeniddentineiestcnt->push($item->person_id_PR);
+                    }
+                });
+                $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PV)){
+                        $offeniddentineiestcnt->push($item->person_id_PV);
+                    }
+                });
+                $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PZ)){
+                        $offeniddentineiestcnt->push($item->person_id_PZ);
+                    }
+                });
+                $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PA)){
+                        $offeniddentineiestcnt->push($item->person_id_PA);
+                    }
+                });
+                $hausratP = CostumerProduktHausrat::where('status_PH', 'Offen (Innendienst)')->get()->each(function ($item) use ($offeniddentineiestcnt){
+                    if(!$offeniddentineiestcnt->contains($item->person_id_PH)){
+                        $offeniddentineiestcnt->push($item->person_id_PH);
+                    }
+                });
+
+
+
+
+
+
                 $grundversicherungOffen = CostumerProduktGrundversicherung::where('status_PG', 'Offen (Berater)')->count();
                 $retchsschutzOffen = CostumerProduktRechtsschutz::where('status_PR', 'Offen (Berater)')->count();
                 $vorsorgeOffen = CostumerProduktVorsorge::where('status_PV', 'Offen (Berater)')->count();
@@ -1097,12 +1167,14 @@ public function folgetermin($id){
                         $provisionertCount = $provcnt->count();
                         $offenCount = $eingerichtcnt->count();
                         $aufgenomenCount = $aufgenomencnt->count();
+                        $offens = $offenBeratercnt->count() + $offeniddentineiestcnt->count();
 
                         $counterat = [
                             'provisionertCount' => $provisionertCount,
                             'offenCount' => $offenCount,
                             'aufgenomenCount' => $aufgenomenCount,
-                            'familyCount' => $leadsAll
+                            'familyCount' => $leadsAll,
+                            'offens' => $offens
                         ];
 
 
@@ -1163,6 +1235,7 @@ public function folgetermin($id){
                         $provisionertCount = $provcnt->count();
                         $offenCount = $eingerichtcnt->count();
                         $aufgenomenCount = $aufgenomencnt->count();
+                        $offens = $offenBeratercnt->count() + $offeniddentineiestcnt->count();
                         // $offenCount = $grundversicherungOffen + $retchsschutzOffen + $vorsorgeOffen + $zusatzversicherungOffen + $autoversicherungOffen + $hausratOffen;
                         // $aufgenomenCount = $grundversicherungAuf + $retchsschutzAuf + $vorsorgeAuf + $zusatzversicherungAuf + $autoversicherungAuf + $hausratAuf;
                         $zuruckCount = $grundversicherungZ + $retchsschutzZ + $vorsorgeZ + $zusatzversicherungZ + $autoversicherungZ + $hausratZ;
@@ -1186,7 +1259,8 @@ public function folgetermin($id){
                             'aufgenomenCount' => $aufgenomenCount,
                             'abgCount' => $abgCount,
                             'zuruckCount' => $zuruckCount,
-                            'familyCount' => $leadsAll
+                            'familyCount' => $leadsAll,
+                            'offens' => $offens
                         ];
 
                         $tasks = lead::whereHas('family', function ($q){

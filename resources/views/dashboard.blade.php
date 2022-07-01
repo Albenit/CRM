@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="text-end textDivDash">
                                     <div>
-                                        <span class="bigTitleDash">{{$counterat['aufgenomenCount']}}</span>
+                                        <span class="bigTitleDash">{{$counterat['offens']}}</span>
                                     </div>
                                     <div>
                                         <span class="smallTitleDash">Hänging</span>
