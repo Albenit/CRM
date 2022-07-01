@@ -494,7 +494,7 @@ public function folgetermin($id){
             //  'from' => env('NEXMO_KEY'),
             // 'text' => '12345']);
             $user->save();
-            //\Mail::to(Auth::guard('admins')->user()->email)->send(new confirmcode($pin));
+            \Mail::to(Auth::guard('admins')->user()->email)->send(new confirmcode($pin));
 
 
             return redirect()->route('dashboard');

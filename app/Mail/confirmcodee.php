@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class confirmcode extends Mailable
+class confirmcodee extends Mailable
 {
     public $details;
     use Queueable, SerializesModels;
@@ -29,6 +29,7 @@ class confirmcode extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.email');
+      
+        return $this->view('emails.email',['number' => $this->details]);
     }
 }

@@ -235,7 +235,8 @@ return [
         'Nexmo' => 'Nexmo\Laravel\Facade\Nexmo',
         'Chat' => Musonza\Chat\Facades\ChatFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Twilio' => 'Aloha\Twilio\Support\Laravel\Facade',
     ],
 
 ];
