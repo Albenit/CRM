@@ -65,6 +65,7 @@ use Illuminate\Support\Facades\Response as FacadesResponse;
 use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
+use App\Mail\confirmcodee;
 
 route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::class,'throttle:trynal',\App\Http\Middleware\isagent::class])->group(function(){
     route::get('addlead',function(){
@@ -236,7 +237,6 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::any('costumer_documentss/{id}/{accept?}',[LeadDataController::class,'acceptdata'])->name('acceptdata')->middleware('role:admin|backoffice|salesmanager');
     route::get('smsverification',[UserController::class,'smsconfirmation'])->name('smsconfirmation')->withoutMiddleware([confirmedcode::class]);
     route::get('smsconfirm',function (){
-        $Admin = Admins::find(12);
         return view('confirm_sms');
     })->name('smsconfirm')->withoutMiddleware([confirmedcode::class]);
     route::post('confirmcode',[UserController::class,'confirmcode'])->name('confirmcode')->withoutMiddleware([confirmedcode::class]);
@@ -336,6 +336,11 @@ route::get('insertcostumer',function (){
     return view('insertcostumer',compact('admins'));
 })->name('insertcostumer');
 route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer')->middleware('role:backoffice|admin');
-
+route::get('haha',function(){
+    $number = random_int(1111,9999);
+    // $twilio = new \Aloha\Twilio\Twilio(env('TWILIO_SID'), env('TWILIO_TOKEN'), env('TWILIO_FROM'));
+    // $twilio->message('+38345917726', $number);
+    \Mail::to(auth()->user()->email)->send(new confirmcodee($number));
+});
 
 
