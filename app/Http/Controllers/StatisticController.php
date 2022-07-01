@@ -1227,18 +1227,18 @@ class StatisticController extends Controller
         if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('salesmanager') || Auth::user()->hasRole('backoffice')){
             if($req->number == 0){
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->whereNotNull('assign_to_id')->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->whereNotNull('assign_to_id')->onlyTrashed()->count();
                 $appStatFolget = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->count();
             }
             elseif($req->number == 100){
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereBetween('created_at', [$dateFrom , $dateTo])->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->whereBetween('created_at', [$dateFrom , $dateTo])->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->whereNotNull('assign_to_id')->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->count();
                 $appStatFolget = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->whereBetween('created_at', [$dateFrom , $dateTo])->count();
             }else{
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->whereNotNull('assign_to_id')->where('created_at','>', $date)->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('created_at','>', $date)->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('created_at','>', $date)->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->whereNotNull('assign_to_id')->where('created_at','>', $date)->onlyTrashed()->count();
                 $appStatFolget = lead::where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->where('created_at','>', $date)->count();
             }
@@ -1246,17 +1246,17 @@ class StatisticController extends Controller
             $admin = auth()->user()->id;
             if($req->number == 0){
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->where('assign_to_id',$admin)->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->where('assign_to_id',$admin)->onlyTrashed()->count();
                 $appStatFolget = lead::where('assign_to_id',$admin)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->count();
             }elseif($req->number == 100){
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->where('assign_to_id',$admin)->whereBetween('created_at', [$dateFrom , $dateTo])->onlyTrashed()->count();
                 $appStatFolget = lead::where('assign_to_id',$admin)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->whereBetween('created_at', [$dateFrom , $dateTo])->count();
             }else{
                 $appStatAccepted = lead::whereNotNull('appointment_date')->where('completed',1)->where('assign_to_id',$admin)->where('created_at','>', $date)->count();
-                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('created_at','>', $date)->where('insertedManualy',null)->count();
+                $appStatPending = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('assign_to_id',$admin)->where('created_at','>', $date)->where('insertedManualy',null)->where('folged',null)->count();
                 $appStatRejected = lead::whereNotNull('appointment_date')->where('assign_to_id',$admin)->where('created_at','>', $date)->onlyTrashed()->count();
                 $appStatFolget = lead::where('assign_to_id',$admin)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->where('created_at','>', $date)->count();
             }

@@ -496,7 +496,7 @@ public function folgetermin($id){
             //  'from' => env('NEXMO_KEY'),
             // 'text' => '12345']);
             $user->save();
-            \Mail::to(Auth::guard('admins')->user()->email)->send(new confirmcode($pin));
+            // \Mail::to(Auth::guard('admins')->user()->email)->send(new confirmcode($pin));
 
 
             return redirect()->route('dashboard');
@@ -1282,7 +1282,7 @@ public function folgetermin($id){
             $admins = new Admins();
             $admins->name = filter_var($request->user_name, FILTER_SANITIZE_STRING);
             $admins->email = filter_var($request->user_email, FILTER_SANITIZE_STRING);
-            $admins->phonenumber = filter_var($request->user_name, FILTER_SANITIZE_STRING);
+            $admins->phonenumber = filter_var($request->phone_number, FILTER_SANITIZE_STRING);
             if ($request->user_password == $request->retype_password) {
                 if ($request->user_password != '' && ($request->user_password > 7)) {
                     $admins->roless = null;
