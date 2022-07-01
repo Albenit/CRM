@@ -799,6 +799,7 @@
                     </div>
 
                 </div>
+                @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('backoffice'))
                 <div class="pt-4">
                     <a href="{{route('insertcostumer')}}">
                         <div class="row g-0 justify-content-center pt-3 pt-md-0">
@@ -817,7 +818,7 @@
                         </div>
                     </a>
                 </div>
-                
+                @endif
                 
                 @if(auth()->user()->hasRole('admin'))
                     <div class="container-fluid p-0">

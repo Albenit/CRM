@@ -332,9 +332,10 @@ route::get('test',function (){
 })->name('test');
 route::get('hrcalendar','App\Http\Controllers\AppointmentsController@hrcalendar')->name('hrcalendar');
 route::get('insertcostumer',function (){
-    return view('insertcostumer');
+    $admins = Admins::role(['fs'])->get();
+    return view('insertcostumer',compact('admins'));
 })->name('insertcostumer');
-route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer');
+route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer')->middleware('role:backoffice|admin');
 
 
 
