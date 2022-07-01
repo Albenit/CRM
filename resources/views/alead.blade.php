@@ -65,7 +65,7 @@
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">PLZ</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->postal_code}}" name="postal" required>
+                                    <input type="number" class="form-control GrundversicherungInput" value="{{$lead->postal_code}}" name="postal" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
