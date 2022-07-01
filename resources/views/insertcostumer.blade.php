@@ -44,12 +44,31 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="mb-2">
+                                        <label for="" class="mb-1">Strasse</label>
+                                        <input type="text" name="address" class="form-control GrundversicherungInput" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2">
+                                        <label for="" class="mb-1">PLZ</label>
+                                        <input type="number" name="postal_code" class="form-control GrundversicherungInput" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2">
+                                        <label for="" class="mb-1">Ort</label>
+                                        <input type="text" name="city" class="form-control GrundversicherungInput" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2">
                                         <label for="" class="mb-1">Berater</label>
                                         <select name="berater" class="form-control" required>
                                             @foreach($admins as $admin)
                                             <option value="{{$admin->id}}">{{$admin->name}}</option>
                                             @endforeach
-</select>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

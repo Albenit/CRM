@@ -33,6 +33,7 @@ class CostumerImport implements ToModel
 
 
         $lead = new lead();
+        $lead->insertedManualy = 1;
         $lead->assign_to_id = Auth::user()->id;
         $lead->first_name = $row[0];
         $lead->last_name = $row[1];

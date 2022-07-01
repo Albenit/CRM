@@ -642,6 +642,9 @@ class CostumerFormController extends Controller
         $lead->campaign_id = random_int(1,3);
         $lead->nationality = $req->country;
         $lead->insertedManualy = 1;
+        $lead->city =$req->city;
+        $lead->postal_code = $req->postal_code;
+        $lead->address = $req->address;
         $lead->save();
         $family = new family();
         $family->first_name = filter_var($req->input('fname'),FILTER_SANITIZE_STRING);
