@@ -24,7 +24,8 @@ class leadinfo implements ToModel
             'grund' => filter_var($row[8],FILTER_SANITIZE_STRING),
             'krankenkasse' => filter_var($row[9],FILTER_SANITIZE_STRING),
             'bewertung' => filter_var($row[10],FILTER_SANITIZE_STRING),
-            'wichtig' => filter_var($row[11],FILTER_SANITIZE_STRING)
+            'wichtig' => filter_var($row[11],FILTER_SANITIZE_STRING),
+            'apporlead' => 'lead'
         ]);
 
    

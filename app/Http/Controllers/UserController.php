@@ -276,6 +276,7 @@ public function folgetermin($id){
         $lead->number_of_persons = (int)$req->input('count');
         $lead->campaign_id = (int)$req->input('campaign');
         $lead->assigned = 1;
+        $lead->apporlead = 'appointment';
         $campaign = campaigns::where('id', $req->input('campaign'))->get();
         if ($req->input('online') == 'yes') {
             $lead->wantsonline = 1;
@@ -433,6 +434,7 @@ public function folgetermin($id){
         $lead->sprache = $req->sprache ?  filter_var($req->sprache,FILTER_SANITIZE_STRING) : $lead->sprache;
         $lead->agent = $req->agent ?  filter_var($req->agent,FILTER_SANITIZE_STRING) : $lead->agent;
         $lead->duration_time = Carbon::now();
+        // $lead->apporlead = 'appointment';
 
 
         if ($lead->save()) {
@@ -606,7 +608,7 @@ public function folgetermin($id){
 
         $appointments = lead::where('appointment_date', date('Y-m-d', strtotime($req->input('fbydate'))))->where('admin_id', Auth::guard('admins')->user()->id)->where('wantsonline', 0)->get();
 
-        $leadscount = lead::where('assign_to_id', null)->where('assigned', 0)->get()->count();
+        $leadscount = lead::where('assign_to_id', null)->where('assigned', 0)->get()->count() ;
         $todayAppointCount = lead::where('assign_to_id', Auth::guard('admins')->user()->id)->where('appointmentdate', Carbon::now()->format('Y-m-d'))->where('wantsonline', 0)->where('assigned', 1)->get()->count();
 
         return view('dashboard', compact('appointments', 'leadscount', 'todayAppointCount'));
@@ -968,9 +970,11 @@ public function folgetermin($id){
 
                             $leadscount = DB::table('leads')
                                 ->whereNull('assign_to_id')
-                                ->where('assigned', 0)->where('completed', 0)
+                                ->where('assigned', 0)
+                                ->where('completed', 0)
                                 ->where('rejected', 0)
                                 ->where('wantsonline', 0)
+                                ->where('apporlead','lead')
                                 ->count();
                         }
                     }

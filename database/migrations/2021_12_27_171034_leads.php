@@ -42,6 +42,7 @@ class Leads extends Migration
             $table->string('folged')->nullable();
             $table->string('folgeComment')->nullable();
             $table->string('insertedManualy')->nullable();
+            $table->string('apporlead')->nullable();
         });
     }
 

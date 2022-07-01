@@ -4968,11 +4968,11 @@
                                                                                     <div class="row g-0 pb-2">
                                                                                         <div class="col-auto my-auto me-2">
                                                                                             <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                                <rect width="26" height="9" rx="4.5" fill="#DBB4FF"/>
+                                                                                                <rect width="26" height="9" rx="4.5" fill="#79B887"/>
                                                                                             </svg>
                                                                                         </div>
                                                                                         <div class="col">
-                                                                                            <span style="font-weight: 500;">Accepted</span>
+                                                                                            <span style="font-weight: 500;">Abschluss</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
                                                                                             <span style="font-weight: 700;" id="teraccepted"></span>
@@ -4983,7 +4983,7 @@
                                                                                     <div class="row g-0 pb-2">
                                                                                         <div class="col-auto my-auto me-2">
                                                                                         <svg width="26" height="10" viewBox="0 0 26 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <rect width="26" height="10" rx="5" fill="#C86FE9"/>
+                                                                                        <rect width="26" height="10" rx="5" fill="#d9d9d9"/>
                                                                                         </svg>
 
                                                                                         </div>
@@ -4996,36 +4996,34 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <div class="row g-0">
+                                                                                    <div class="row g-0 pb-2">
                                                                                         <div class="col-auto my-auto me-2">
                                                                                         <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <rect width="26" height="9" rx="4.5" fill="#7100A7"/>
+                                                                                        <rect width="26" height="9" rx="4.5" fill="#C74E46"/>
                                                                                         </svg>
 
 
                                                                                         </div>
                                                                                         <div class="col">
-                                                                                            <span style="font-weight: 500;">Rejeceted</span>
+                                                                                            <span style="font-weight: 500;">Kein Abschluss                                                                                            </span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
                                                                                             <span style="font-weight: 700;" id="terrejected"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="pt-3">
+                                                                                <div class="pb-3">
                                                                                     <div class="row g-0 pb-2">
                                                                                         <div class="col-auto my-auto me-2">
                                                                                         <svg width="26" height="9" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <rect width="26" height="9" rx="4.5" fill="#040404"/>
+                                                                                        <rect width="26" height="9" rx="4.5" fill="#FFBF00"/>
                                                                                         </svg>
-
-
                                                                                         </div>
                                                                                         <div class="col">
-                                                                                            <span style="font-weight: 500;">No feedback</span>
+                                                                                            <span style="font-weight: 500;">Folget</span>
                                                                                         </div>
                                                                                         <div class="col-2 text-end">
-                                                                                            <span style="font-weight: 700;" id="ternofeedback"></span>
+                                                                                            <span style="font-weight: 700;" id="terfolget"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -5878,26 +5876,27 @@
                 document.getElementById('teraccepted').innerHTML = response.data[0]
                 document.getElementById('terpending').innerHTML = response.data[1]
                 document.getElementById('terrejected').innerHTML = response.data[2]
-                 document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2]
-                 if(response.data[0] + response.data[1] + response.data[2] == 0){
+                document.getElementById('terfolget').innerHTML = response.data[3]
+                 document.getElementById('tertotal').innerHTML = response.data[0] + response.data[1] + response.data[2] + response.data[3]
+                 if(response.data[0] + response.data[1] + response.data[2] + response.data[3] == 0){
                     document.querySelector("#chart7").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
 
                 var options = {
                     colors: ['','',''],
-                    series: [response.data[0], response.data[1], response.data[2]],
+                    series: [response.data[0], response.data[1], response.data[2],response.data[3]],
                     chart: {
                         width: "120%",
                         type: 'pie',
                     },
                     fill: {
-                        colors: ['#DBB4FF', '#C86FE9', '#7100A7']
+                        colors: ['#79B887', '#d9d9d9', '#C74E46','#FFBF00']
                     },
                     dataLabels: {
                         enabled: false
                     },
-                    labels: ['Acepted','Pending','Rejected'],
+                    labels: ['Abschluss','Pending','Kein Abschluss','Folget'],
                     legend: {
                         offsetY: 0,
                     },
@@ -5919,7 +5918,7 @@
                 };
                 var chart = new ApexCharts(document.querySelector("#chart7"), options);
                 chart.render();
-                chart.updateSeries([response.data[0], response.data[1], response.data[2]])
+                chart.updateSeries([response.data[0], response.data[1], response.data[2],response.data[3]])
             }
             })
            

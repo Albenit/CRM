@@ -37,7 +37,8 @@ class newlead implements ToModel
             'address' => $row[5],
             'telephone' => $row[6],
             'wantsonline' => $row[12],
-            'slug' => $this->slug()
+            'slug' => $this->slug(),
+            'apporlead' => 'lead'
                   ]);
     }
 }

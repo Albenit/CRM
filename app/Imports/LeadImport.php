@@ -78,7 +78,8 @@ public function author(){
          'assign_to_id' => $this->author(),
          'latitude' => $this->latitude,
          'longitude' => $this->longitude,
-         'slug' => Str::random(7)
+         'slug' => Str::random(7),
+         'apporlead' => 'appointment'
         ]);
     }
 }

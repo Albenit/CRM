@@ -636,7 +636,7 @@ if it's not present, don't show loader */
                                     </div>
                                     <div class="col">
                                         <div class="fs-4" style="font-weight: 500;color: #434343">
-                                            {{$costumer->first_name}} {{$costumer->last_name}}
+                                            {{$costumer->first_name}} {{$costumer->last_name}} (Berater: {{$costumer->lead->admin->name}})
                                         </div>
                                     </div>
                                 </div>

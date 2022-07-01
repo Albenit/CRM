@@ -393,7 +393,7 @@ class TasksController extends Controller
                 });
             }
             
-            $data = $family->paginate(50);
+            $data = $family->paginate(30);
 
             $cnt = 0;
 
@@ -464,7 +464,7 @@ class TasksController extends Controller
                         $query->where('status_PG',$request->status);
                     });
                 }
-                $data = $family->paginate(50);
+                $data = $family->paginate(30);
 
 
             $cnt = 0;

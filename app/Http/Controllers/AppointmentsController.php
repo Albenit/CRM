@@ -276,7 +276,7 @@ public function filterhrcalendar(Request  $req){
         $beraters = Admins::role(['fs'])->get();
         if($req->berater != null){
             if($req->status == 'all' && $req->berater == 'all'){
-                $leads = lead::whereNotNull('appointment_date')->withTrashed()->get();
+                $leads = lead::whereNotNull('appointment_date') ->withTrashed()->get();
             }elseif($req->status != 'all' && $req->berater == 'all'){
                 if ($req->status == 'Abschluss'){
                     $leads = lead::whereNotNull('appointment_date')->where('completed',1)->withTrashed()->get();
