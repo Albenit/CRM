@@ -558,7 +558,7 @@
                                                                     </div> --}}
                                                             <div class="col my-auto ps-2 pe-2">
                                                                 <div>
-                                                                    <input class="form-control" type="date" id="statusvomvertragFromm" name="statusvomvertragFrom">
+                                                                    <input class="form-control" type="date" id="dFrom">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -572,7 +572,7 @@
                                                                     </div> --}}
                                                             <div class="col my-auto ps-2 pe-2">
                                                                 <div>
-                                                                    <input class="form-control" type="date" id="statusvomvertragToo" name="statusvomvertragTo">
+                                                                    <input class="form-control" type="date" id="dTo">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -836,15 +836,17 @@
     }
 
     function makeSelectActive(x, numberi,empID) {
-        console.log(empID)
-        axios.get('http://127.0.0.1:8000/soldProducts?numberi=' + numberi + '&empID=' + empID).then( response => {
+        dateFrom = document.getElementById('dFrom').value
+        dateTo = document.getElementById('dTo').value
+
+        axios.get('http://127.0.0.1:8000/soldProducts?numberi=' + numberi + '&empID=' + empID + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then( response => {
             console.log(response.data)
             $('#grund').html(response.data[0]);
-                $('#rechts').html(response.data[1]);
-                $('#vor').html(response.data[2]);
-                $('#auto').html(response.data[3]);
-                $('#zus').html(response.data[4]);
-                $('#haus').html(response.data[5]);
+            $('#rechts').html(response.data[1]);
+            $('#vor').html(response.data[2]);
+            $('#auto').html(response.data[3]);
+            $('#zus').html(response.data[4]);
+            $('#haus').html(response.data[5]);
         })
 
         var y = $(x).find("span").html();

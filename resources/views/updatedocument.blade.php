@@ -2615,7 +2615,7 @@ $urole = $urole->toArray();
                                                     @php $gcnt = 1; @endphp
                                                     @foreach(\App\Models\newgegen::where('person_id',$id)->get() as $newg)
                                                         <div class="" id="g{{$gcnt}}">
-                                                            <div class="GrundversicherungSpans pb-2">
+                                                            {{-- <div class="GrundversicherungSpans pb-2">
                                                                 <span class="">
                                                                     Police Hochladen:
                                                                 </span>
@@ -2727,7 +2727,7 @@ $urole = $urole->toArray();
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                             <div class="">
                                                                 <div class="mb-3 mt-3">
                                                                     <label for="exampleFormControlTextarea1"
