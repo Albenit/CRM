@@ -117,8 +117,10 @@ else{
         }
         $rroga2 = $rroga;
         $rroga += $person->salary->expenses + $person->salary->salary;
+        $employeID = $id;
 
-        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga'));
+
+        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID'));
 
     })->name('employeProfile');
 

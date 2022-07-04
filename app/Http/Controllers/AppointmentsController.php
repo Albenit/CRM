@@ -285,7 +285,7 @@ public function filterhrcalendar(Request  $req){
                 }elseif($req->status == 'Folget'){
                     $leads = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
                 }elseif($req->status == 'Pending'){
-                    $leads = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
+                    $leads = lead::whereNotNull('appointment_date')->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',null)->withTrashed()->get();
                 }elseif($req->status == 'all'){
                     $leads = lead::whereNotNull('appointment_date')->withTrashed()->get();
                 }
@@ -297,8 +297,7 @@ public function filterhrcalendar(Request  $req){
                 }elseif($req->status == 'Folget'){
                     $leads = lead::whereNotNull('appointment_date')->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',1)->withTrashed()->get();
                 }elseif($req->status == 'Pending'){
-                    $leads = lead::whereNotNull('appointment_date')->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',0)->whereNotNull('appointment_date')->withTrashed()->get();
-                    dd($leads);
+                    $leads = lead::whereNotNull('appointment_date')->where('assign_to_id',$req->berater)->where('completed',0)->where('rejected',0)->where('deleted_at',null)->where('folged',null)->withTrashed()->get();
                 }elseif($req->status == 'all'){
                     $leads = lead::whereNotNull('appointment_date')->where('assign_to_id',$req->berater)->withTrashed()->get();
                 }
