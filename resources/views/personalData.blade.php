@@ -1,5 +1,8 @@
 @extends('template.navbar')
 @section('content')
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
 <title>HR Kunde</title>
 <div class="row g-0">
 
@@ -404,7 +407,7 @@
                                     <div class="row g-0" style="position: relative;">
                                         <div class="col">
                                             <div>
-                                                <span class="fs-5 fw-600">Sold products</span>
+                                                <span class="fs-5 fw-600">Verträge</span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -426,7 +429,7 @@
                                             </div>
                                             <div class="statsSelectStyleDropdown" id="dropdownSelectId" style="display: none;">
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,1)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,1,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -444,7 +447,7 @@
 
                                                 </div>
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,7)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,7,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg class="" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -461,7 +464,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,30)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,30,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -478,7 +481,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,120)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,120,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -495,7 +498,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,365)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,365,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -512,7 +515,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="py-2">
-                                                    <div class="row g-0" onclick="makeSelectActive(this,0)">
+                                                    <div class="row g-0" onclick="makeSelectActive(this,0,{{$employeID}})">
                                                         <div class="col-auto my-auto ps-3">
                                                             <div>
                                                                 <svg class="activeSvg" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -578,7 +581,7 @@
                                                         <div class="row g-0">
                                                             <div class="col my-auto ps-2 pe-2">
                                                                 <div>
-                                                                    <input onclick="makeSelectActive(this,100)" class="col-12 py-1" type="button" value="Suche" style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
+                                                                    <input onclick="makeSelectActive(this,100,{{$employeID}})" class="col-12 py-1" type="button" value="Suche" style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -614,7 +617,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="grund"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -641,7 +644,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="zus"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -667,7 +670,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="auto"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -694,7 +697,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="vor"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -723,7 +726,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="rechts"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -756,7 +759,7 @@
                                                             </div>
                                                             <div class="col-auto my-auto">
                                                                 <div class="text-end">
-                                                                    <span class="contractsSecondSpan fs-4" id="">1</span>
+                                                                    <span class="contractsSecondSpan fs-4" id="haus"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -826,12 +829,24 @@
 </div>
 </div>
 <script>
+
     function statusvomvertragCostum() {
         $("#statusvomvertragCostum").slideToggle()
         $("#activeDropDownItem").html("Individueller Zeitraum")
     }
 
-    function makeSelectActive(x, numberi) {
+    function makeSelectActive(x, numberi,empID) {
+        console.log(empID)
+        axios.get('http://127.0.0.1:8000/soldProducts?numberi=' + numberi + '&empID=' + empID).then( response => {
+            console.log(response.data)
+            $('#grund').html(response.data[0]);
+                $('#rechts').html(response.data[1]);
+                $('#vor').html(response.data[2]);
+                $('#auto').html(response.data[3]);
+                $('#zus').html(response.data[4]);
+                $('#haus').html(response.data[5]);
+        })
+
         var y = $(x).find("span").html();
         var svg = $(x).find("svg");
         var activeSvg = document.querySelector(".activeSvg");
@@ -841,6 +856,7 @@
         $("#dropdownSelectId").hide()
     }
 
+
     function openDropDownSelect() {
         var x = document.getElementById("dropdownSelectId");
         if (x.style.display == "block") {
@@ -849,6 +865,11 @@
             x.style.display = "block";
         }
     }
+
+    $(document).ready(function() {
+            makeSelectActive(6, 0,{{$employeID}});
+
+        });
 </script>
 @endsection
 <style>

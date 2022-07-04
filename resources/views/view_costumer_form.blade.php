@@ -1205,7 +1205,7 @@
                                                         @if ($costumer->lead->admin->hasRole('callagent'))
                                                             <span class="documentFormRightSpan">Call Agent</span>
                                                         @elseif ($costumer->lead->insertedManualy == 1)
-                                                            <span class="documentFormRightSpan">Manualy Inserted</span>
+                                                            <span class="documentFormRightSpan">Vom Innendienst erfasst</span>
                                                         @elseif ($costumer->lead->apporlead == 'appointment')
                                                             <span class="documentFormRightSpan">Termine</span>
                                                         @else

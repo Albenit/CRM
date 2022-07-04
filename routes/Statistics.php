@@ -27,4 +27,6 @@ route::get('costumersFilter',[\App\Http\Controllers\StatisticController::class,'
 
 route::get('appointmentStat',[\App\Http\Controllers\StatisticController::class,'appointmentStat']);
 
+route::get('soldProducts',[\App\Http\Controllers\StatisticController::class,'soldProducts']);
+
 ?>
