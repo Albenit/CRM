@@ -14,7 +14,7 @@ class AddAuthyId extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->integer('authy_id');
+            $table->integer('authy_id')->nullable();
         });
     }
 
