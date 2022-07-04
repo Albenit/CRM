@@ -820,6 +820,177 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="col-12">
+                            <div class="hrGreyBackground p-4">
+                                <div class="">
+                                    <div class="row g-0" style="position: relative;">
+                                        <div class="col">
+                                            <div>
+                                                <span class="fs-5 fw-600">Contract Income</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="pt-4">
+                                        <div class="px-2">
+                                            <div class="row g-3">
+                                                <div class="col-12 col-md-4 col-xxl-4">
+                                                    <div class="contractsWhiteBgDiv h-100 p-3">
+                                                        <div style="position: relative;">
+                                                            <div style="top:-3.1rem; left: -3.45rem;position: relative">
+                                                                <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g filter="url(#filter0_d_28_428)">
+                                                                        <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
+                                                                    </g>
+                                                                    <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
+                                                                    <defs>
+                                                                        <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                                                            <feOffset dy="4" />
+                                                                            <feGaussianBlur stdDeviation="18.5" />
+                                                                            <feComposite in2="hardAlpha" operator="out" />
+                                                                            <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
+                                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
+                                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
+                                                                        </filter>
+                                                                    </defs>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div style="margin-top: -4rem;">
+                                                            <div>
+                                                                <div class="row g-3">
+                                                                    <div class="col-auto">
+                                                                        <span style="color: #C3C0C0;font-weight: 500">Total earnings</span>
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M26.001 9.57179V1.00037H17.4297" stroke="#219653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                            <path d="M1 16.7143L8.38464 7.78571L15.4176 12.0714L26 1" stroke="#219653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-2">
+                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4 col-xxl-4">
+                                                    <div class="contractsWhiteBgDiv h-100 p-3">
+                                                        <div style="position: relative;">
+                                                            <div style="top:-3.1rem; left: -3.45rem;position: relative">
+                                                                <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g filter="url(#filter0_d_28_428)">
+                                                                        <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
+                                                                    </g>
+                                                                    <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
+                                                                    <defs>
+                                                                        <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                                                            <feOffset dy="4" />
+                                                                            <feGaussianBlur stdDeviation="18.5" />
+                                                                            <feComposite in2="hardAlpha" operator="out" />
+                                                                            <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
+                                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
+                                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
+                                                                        </filter>
+                                                                    </defs>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div style="margin-top: -4rem;">
+                                                            <div>
+                                                                <div class="row g-3">
+                                                                    <div class="col-auto">
+                                                                        <span style="color: #C3C0C0;font-weight: 500">Total Spendings</span>
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M0.998955 8.42821L0.998955 16.9996L9.57031 16.9996" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                            <path d="M26 1.28572L18.6154 10.2143L11.5824 5.92857L0.999999 17" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-2">
+                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4 col-xxl-4">
+                                                    <div class="contractsWhiteBgDiv h-100 p-3">
+                                                        <div style="position: relative;">
+                                                            <div style="top:-3.1rem; left: -3.45rem;position: relative">
+                                                                <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g filter="url(#filter0_d_28_428)">
+                                                                        <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
+                                                                    </g>
+                                                                    <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                    <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
+                                                                    <defs>
+                                                                        <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                                                            <feOffset dy="4" />
+                                                                            <feGaussianBlur stdDeviation="18.5" />
+                                                                            <feComposite in2="hardAlpha" operator="out" />
+                                                                            <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
+                                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
+                                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
+                                                                        </filter>
+                                                                    </defs>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div style="margin-top: -4rem;">
+                                                            <div>
+                                                                <div class="row g-3">
+                                                                    <div class="col-auto">
+                                                                        <span style="color: #C3C0C0;font-weight: 500">Goal this month</span>
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M26.001 9.57179V1.00037H17.4297" stroke="#219653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                            <path d="M1 16.7143L8.38464 7.78571L15.4176 12.0714L26 1" stroke="#219653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-2">
+                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
