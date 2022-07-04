@@ -2,6 +2,7 @@
 @extends('template.navbar')
 @section('content')
 <title>Finanzen</title>
+@if(auth()->user()->hasRole('admin'))
     <div class="provisionModal1" id="provisionModal1">
         <div class="provisionModalContent p-4 mx-4">
             <div class="px-3">
@@ -94,6 +95,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="row g-0">
         <div class="col">
             <div class="p-4 p-lg-5">
@@ -155,7 +157,7 @@
                                 @endforeach
                             </div>
                         </div>
-
+@if(auth()->user()->hasRole('admin'))
                         <div class="row g-0 justify-content-start">
                             <div class="col-auto my-auto pe-2" style="cursor: pointer;"
                                  onclick="openProvisionModal1()">
@@ -177,6 +179,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endif
 
                 @if(!auth()->user()->hasRole('fs'))
@@ -329,6 +332,7 @@
                                 @endforeach
                             </div>
                         </div>
+                        @if(auth()->user()->hasRole('admin'))
                         <div class="pt-3">
                             <div class="row g-0 justify-content-start">
                                 <div class="col-auto my-auto pe-2" style="cursor: pointer;"
@@ -351,6 +355,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                         <div class="col-12 col-md-6">
                             <div class="pb-3 ps-3 pt-5 pt-md-0">
@@ -409,7 +414,7 @@
                                     @endforeach
                                 </div>
                             </div>
-
+                            @if(auth()->user()->hasRole('admin'))
                             <div class="row g-0 justify-content-start pt-3">
                                 <div class="col-auto my-auto pe-2 " style="cursor: pointer;"
                                      onclick="openProvisionModal1()">
@@ -430,6 +435,7 @@
                                     <span class="addMoreBtn">Hinzufügen</span>
                                 </div>
                             </div>
+                            @endif
                         </div>
 
                 </div>
@@ -441,6 +447,7 @@
 
 
     <!-- ------------------modal-------------- -->
+    @if(auth()->user()->hasRole('admin'))
     <div class="provisionModal" id="provisionModal">
         <div class="provisionModalContent p-4 mx-4">
             <div class="px-3">
@@ -578,6 +585,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 <script>
     

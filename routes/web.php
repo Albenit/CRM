@@ -345,5 +345,3 @@ route::get('haha',function(){
    dd($tokenVerified);
 
 });
-
-
