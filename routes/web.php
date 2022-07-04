@@ -336,12 +336,13 @@ route::get('insertcostumer',function (){
     return view('insertcostumer',compact('admins'));
 })->name('insertcostumer');
 route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name('savecostumer')->middleware('role:backoffice|admin');
-route::get('haha',function(){
-    $authyUser = app('rinvex.authy.user');
-    $user = $authyUser->register('bulzarti@gmail.com', '+38345917726', '59'); // Register user
-    dd($user);
-    $authyToken = app('rinvex.authy.token');
-    $tokenVerified = $authyToken->verify('4135553', auth()->user()->authy_id);
-   dd($tokenVerified);
+// route::get('haha',function(){
+//     $authyUser = app('rinvex.authy.user');
+//     $user = $authyUser->register('bulzarti@gmail.com', '38345917726', '54'); // Register user
+//     dd($user);
+//     $authyToken = app('rinvex.authy.token');
+//     $smsTokenSent = $authyToken->send(auth()->user()->authy_id, 'sms');
+    
+//     $tokenVerified = $authyToken->verify('4135553', auth()->user()->authy_id);
 
-});
+// });
