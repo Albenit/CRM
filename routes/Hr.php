@@ -125,10 +125,28 @@ else{
         $allCosumersPerEmp = $admini->kunden(function($query){
             $query->whereIn('status', ['Done']); 
         })->count();
-
         $monthlyCosumersPerEmp = $admini->kunden()->get()->where('created_at','>',Carbon::now()->subDay(30))->count();
 
-        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID','allCosumersPerEmp','monthlyCosumersPerEmp'));
+        $totalErnings = $admini->kunden(function($query){
+            $query->whereIn('status', ['Done']); 
+        })->with('grund')->with('rech')->with('zus')->get();
+        $totali = 0;
+        foreach($totalErnings as $total){
+
+            foreach($total->grund as $grunding){
+                $totali += getsalary($grunding->society_PG,'Grund',$grunding->total_commisions_PG,$grunding->prov_id);
+            }
+            foreach($total->rech as $rechts){
+                $totali += getsalary($rechts->society_PR,'Ru',$rechts->total_commisions_PR,$rechts->prov_id);
+            }
+            foreach($total->zus as $zuzati){
+                $totali += getsalary($zuzati->society_PZ,'Zusat',$zuzati->total_commisions_PZ,$zuzati->prov_id);
+            }
+        }
+    
+
+
+        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID','allCosumersPerEmp','monthlyCosumersPerEmp','totali'));
 
     })->name('employeProfile');
 
