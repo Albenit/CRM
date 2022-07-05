@@ -364,7 +364,9 @@ class TasksController extends Controller
         $searchname = $request->searchname ? $request->searchname : '';
         $user = auth()->user();
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
-            $family = auth()->user()->kunden(function($query){$query->whereIn('status', ['Done']); })->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto');
+            $family = auth()->user()->kunden(function($query){
+                $query->whereIn('status', ['Done']); 
+            })->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto');
             if (isset($request->searchdate1) && isset($request->searchdate2)) {
                 $family->whereBetween('family_person.created_at', [$date1, $date2]);
             }

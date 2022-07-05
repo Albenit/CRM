@@ -775,7 +775,7 @@
                             <div class="hrGreyBackground h-100 p-4">
                                 <div class="">
                                     <div>
-                                        <span class="fs-5 fw-600">Clients number</span>
+                                        <span class="fs-5 fw-600">Kundennummer</span>
                                     </div>
                                     <div class="pt-4">
                                         <div class="pb-2">
@@ -828,7 +828,7 @@
                                     <div class="row g-0" style="position: relative;">
                                         <div class="col">
                                             <div>
-                                                <span class="fs-5 fw-600">Contract Income</span>
+                                                <span class="fs-5 fw-600"></span>
                                             </div>
                                         </div>
 
@@ -881,7 +881,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="pt-2">
-                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                                <span class="fs-5" style="color: #333; font-weight: 600">{{$totali}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
