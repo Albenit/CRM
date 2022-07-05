@@ -5184,10 +5184,11 @@ $urole = $urole->toArray();
                                                                                             value="{{$nue->leasing_name}}">
                                                                                             {{$nue->leasing_name}}
                                                                                         </option>
+                                                                                        <option value="Zurich">Zurich</option>
+                                                                                        <option value="Wefox">Wefox</option>
                                                                                     @else
-                                                                                        <option value="Gesellschaft">
-                                                                                            Gesellschaft
-                                                                                        </option>
+                                                                                        <option value="Zurich">Zurich</option>
+                                                                                        <option value="Wefox">Wefox</option>
                                                                                     @endif
                                                                                 </select>
                                                                             </div>
@@ -11658,9 +11659,7 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                                <div class="pt-3">'+
             '                                                                                    <select name="leasing_name' + newncnt + '"'+
             '                                                                                            class="w-100 form-control GrundversicherungInput" id="">'+
-            '                                                                                            <option value="Gesellschaft">'+
-            '                                                                                                Gesellschaft'+
-            '                                                                                            </option>'+
+            '                                                                                            <option value="Zurich">Zurich</option> <option value="Wefox">Wefox</option>'+
             '                                                                                    </select>'+
             '                                                                                </div>'+
             '                                                                            </div>'+

@@ -793,7 +793,7 @@
                                         </div>
                                         <div class="contractsWhiteBgDiv p-2">
                                             <div>
-                                                <span>120 Kunden</span>
+                                                <span>{{$monthlyCosumersPerEmp}} Kunden</span>
                                             </div>
                                         </div>
                                     </div>
@@ -807,13 +807,13 @@
 
                                                 </div>
                                                 <div class="col">
-                                                    <span style="color: #686868;" class="hrGreyTextStyle">Per Year</span>
+                                                    <span style="color: #686868;" class="hrGreyTextStyle">Alle</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="contractsWhiteBgDiv p-2">
                                             <div>
-                                                <span>120 Kunden</span>
+                                                <span>{{$allCosumersPerEmp}} Kunden</span>
                                             </div>
                                         </div>
                                     </div>

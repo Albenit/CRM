@@ -823,7 +823,8 @@ class LeadDataController extends Controller
             foreach($garray as $gofert){
                 $newg = newgegen::find($gofert);
                 if($newg){
-                    $newg->delete();}
+                    $newg->delete();
+                }
             }
         }
         $gegen = newgegen::where('person_id',$personId)->get();
