@@ -4,6 +4,7 @@ use App\Models\Absence;
 use App\Models\Admins;
 use App\Models\bestellungen;
 use App\Models\EmployeePersonalData;
+use App\Models\family;
 use App\Models\Provisions;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -119,9 +120,15 @@ else{
         $rroga += $person->salary->expenses + $person->salary->salary;
 
         $employeID = $id;
-        
+        $admini =  Admins::find($id);
 
-        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID'))    ;
+        $allCosumersPerEmp = $admini->kunden(function($query){
+            $query->whereIn('status', ['Done']); 
+        })->count();
+
+        $monthlyCosumersPerEmp = $admini->kunden()->get()->where('created_at','>',Carbon::now()->subDay(30))->count();
+
+        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID','allCosumersPerEmp','monthlyCosumersPerEmp'));
 
     })->name('employeProfile');
 
