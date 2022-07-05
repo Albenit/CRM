@@ -29,7 +29,7 @@ use App\Models\Admins;
 use App\Models\LeadDataKK;
 use App\Models\Pendency;
 use Database\Seeders\AdminSeeder;
-
+use App\Models\Activity;
 class CostumerFormController extends Controller
 {
     public function costumer_form($id){
@@ -362,8 +362,9 @@ class CostumerFormController extends Controller
                 family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert]);
 
 
-
-                return redirect()->route('costumer_form', Crypt::encrypt($id * 1244))->with('success', 'Aktion erfolgreich durchgeführt');
+            Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Inserted"]);
+            
+            return redirect()->route('costumer_form', Crypt::encrypt($id * 1244))->with('success', 'Aktion erfolgreich durchgeführt');
     }
 
     public function edit_costumer_kundportfolio(Request $request, $id){
@@ -628,6 +629,7 @@ class CostumerFormController extends Controller
             $famely->provisionert = 1;
             $famely->save();
         }
+        Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
         return back();
 
     }
@@ -668,7 +670,7 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
 
-
+        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => "Kunden added"]);
         return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
 

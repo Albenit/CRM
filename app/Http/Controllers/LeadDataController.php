@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
 use Svg\Tag\Rect;
-
+use App\Models\Activity;
 class LeadDataController extends Controller
 {
     use FileManagerTrait;
@@ -1083,7 +1083,7 @@ class LeadDataController extends Controller
 
 
 
-
+        Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Form Updated"]);
         return redirect()->route('costumers')->with('success', 'Aufgabe erfolgreich übermittelt');
     }
 
