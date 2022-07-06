@@ -638,8 +638,8 @@ class CostumerFormController extends Controller
 
         $lead = new lead();
         $lead->assign_to_id = $req->berater;
-        $lead->first_name = $req->fname;
-        $lead->last_name = $req->lname;
+        $lead->first_name = $req->fname[0];
+        $lead->last_name = $req->lname[0];
         $lead->telephone = $req->phone;
         $lead->campaign_id = random_int(1,3);
         $lead->nationality = $req->country;
@@ -648,10 +648,11 @@ class CostumerFormController extends Controller
         $lead->postal_code = $req->postal_code;
         $lead->address = $req->address;
         $lead->save();
+        for($i = 0; $i < (int) $req->cnt; $i++){
         $family = new family();
-        $family->first_name = filter_var($req->input('fname'),FILTER_SANITIZE_STRING);
-        $family->birthdate = filter_var($req->input('birthdate'),FILTER_SANITIZE_STRING);
-        $family->last_name = filter_var($req->input('lname'),FILTER_SANITIZE_STRING);
+        $family->first_name = filter_var($req->input('fname')[$i],FILTER_SANITIZE_STRING);
+        $family->birthdate = filter_var($req->input('birthdate')[$i],FILTER_SANITIZE_STRING);
+        $family->last_name = filter_var($req->input('lname')[$i],FILTER_SANITIZE_STRING);
         $family->leads_id = (int) $lead->id;
         $family->status = "Done";
         $family->status_of_produkts = 'Offen (Berater)';
@@ -669,7 +670,7 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => "Kunden added"]);
+        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => "Kunden added"]);}
         return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
 
