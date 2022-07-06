@@ -1842,7 +1842,10 @@ $urole = $urole->toArray();
                                     </script>
                                 
                             
-                            @else
+                            
+   
+                            
+                @else
                             <div class="" style="position: relative">
                                 <div class="cornerSvgDiv">
                                     <svg class="cornerSvg" viewBox="0 0 242 215" fill="none"
@@ -1884,10 +1887,288 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row g-0 justify-content-center" style="display: none">
+                                <div class="col-12 col-md-6 col-lg-5 ps-0 pe-md-2">
+                                    <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
+                                         onclick="openKrankenDropdownStep22()">
+                                        <div class="row g-0">
+                                            <div class="col my-auto">
+                                                <span>Zusatzversicherung</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                    <path
+                                                        d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                        fill="white" />
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="Zusatzversicherung mt-3" id="Zusatzversicherung">
+                                            <div class="p-4">
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Abschlussdatum</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->graduation_date_PZ}}" type="date" name="graduation_date_PZ" min="1900-01-01" max="9999-12-31">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Gesellschaft</span>
+                                                    </div>
+                                                    <div>
+                                                        <select class="GrundversicherungInput form-control py-1" name="society_PZ">
+                                                            @if($zusatzversicherungP->society_PZ != null && $zusatzversicherungP->society_PZ != '')
+                                                                <option selected value="{{$zusatzversicherungP->society_PZ}}">{{$zusatzversicherungP->society_PZ}}</option>
+                                                            @else
+                                                                <option value=""></option>
+                                                                <option value="Sympany">Sympany
+                                                                </option>
+                                                                <option value="Helsana">Helsana
+                                                                </option>
+                                                                <option value="Swica">Swica</option>
+                                                                <option value="GM">GM</option>
+                                                            @endif
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Produkt</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->produkt_PZ}}" type="text" name="produkt_PZ">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-3">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">VVG Pramie</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->vvg_premium_PZ}}"  type="text" name="vvg_premium_PZ">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="ZusatzversicherungTitle">Laufzeit</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">From</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_from_PZ}}" type="date" name="duration_from_PZ" min="1900-01-01" max="9999-12-31">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">To</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_to_PZ}}" type="date" name="duration_to_PZ" min="1900-01-01" max="9999-12-31">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Status</span>
+                                                    </div>
+                                                    <div>
+                                                        <select class="GrundversicherungInput form-control py-1" name="status_PZ" id="zusStatusi" onchange="zusStatus()">
+                                                            @if($zusatzversicherungP->status_PZ == 'Offen (Berater)')
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                                <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                            @elseif($zusatzversicherungP->status_PZ == 'Offen (Innendienst)')
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                                <option value="Eingereicht">Eingereicht</option>
+                                                            @elseif($zusatzversicherungP->status_PZ == 'Eingereicht')
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                                <option value="Aufgenommen">Aufgenommen</option>
+                                                                <option value="Abgelehnt">Abgelehnt</option>
+                                                            @elseif($zusatzversicherungP->status_PZ == 'Aufgenommen')
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                                <option value="Provisionert">Provisionert</option>
+                                                            @elseif($zusatzversicherungP->status_PZ == 'Abgelehnt')
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                            @elseif($zusatzversicherungP->status_PZ == 'Provisionert' && $zusatzversicherungP->stoiner_PZ == null)
+                                                                <option selected value="{{$zusatzversicherungP->status_PZ}}">{{$zusatzversicherungP->status_PZ}}</option>
+                                                                <option value="Storniert">Storniert</option>
+                                                            @elseif($zusatzversicherungP->stoiner_PZ == 'Storniert')
+                                                                <option selected value="{{$zusatzversicherungP->stoiner_PZ}}">{{$zusatzversicherungP->stoiner_PZ}}</option>
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Letze Anpassung</span>
+                                                    </div>
+                                                    <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                        <span>{{Carbon\Carbon::parse($zusatzversicherungP->last_adjustment_PZ)->format('d.m.Y')}}</span>
+                                                    </div>
+
+                                                </div>
+                                                {{-- <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Provision</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->provision_PZ}}" type="text" name="provision_PZ">
+                                                    </div>
+                                                </div> --}}
+                                                <div class="mb-3" id="zusProvision" style="display: none">
+                                                    <div class="input-div1 input-groupp justify-content-between">
+                                                        <div class="pe-3">
+                                                        <span class="GrundversicherungSpans">
+                                                            Gesamtprovision:
+                                                        </span>
+                                                        </div>
+                                                        <input class="GrundversicherungInput form-control py-1" type="number" name="total_commisions_PZ" id="">
+                                                    </div>
+                                                </div>
+                                                @if($zusatzversicherungP->status_PZ == 'Provisionert')
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Gesamtprovision</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->total_commisions_PZ}}" type="number" name="total_commisions_PZ">
+                                                    </div>
+                                                </div>
+                                                    @endif
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-5 pe-0 ps-md-2">
+                                    <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
+                                         onclick="openKrankenDropdownStep2()">
+                                        <div class="row g-0">
+                                            <div class="col my-auto">
+                                                <span>Grundversicherung</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                    <path
+                                                        d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                        fill="white" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Grundversicherung" class="Grundversicherung mt-3">
+                                        @php
+                                            $count = 1;
+                                        @endphp
+                                        @foreach($grundversicherungP as $grundversicherungPP)
+                                            <div class="p-4">
+
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Abschlussdatum</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Gesellschaft</span>
+                                                    </div>
+                                                    <div>
+                                                        <select class="GrundversicherungInput form-control py-1" name="society_PG{{$count}}">
+                                                            <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
+                                                            <option value="Sympany">Sympany</option>
+                                                            <option value="Helsana">Helsana</option>
+                                                            <option value="Swica">Swica</option>
+                                                            <option value="GM">GM</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Produkt</span>
+                                                    </div>
+                                                    <div>
+                                                        <input class="GrundversicherungInput form-control py-1" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Status</span>
+                                                    </div>
+                                                    <div>
+                                                        <select class="GrundversicherungInput form-control py-1" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
+                                                            @if($grundversicherungPP->status_PG == 'Offen (Berater)')
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                            @elseif($grundversicherungPP->status_PG == 'Offen (Innendienst)')
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                <option value="Eingereicht">Eingereicht</option>
+                                                            @elseif($grundversicherungPP->status_PG == 'Eingereicht')
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                <option value="Aufgenommen">Aufgenommen</option>
+                                                                <option value="Abgelehnt">Abgelehnt</option>
+                                                            @elseif($grundversicherungPP->status_PG == 'Aufgenommen')
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                <option value="Provisionert">Provisionert</option>
+                                                            @elseif($grundversicherungPP->status_PG == 'Abgelehnt')
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                            @elseif($grundversicherungPP->status_PG == 'Provisionert' && $grundversicherungPP->stoiner_PG == null)
+                                                                <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                <option value="Storniert">Storniert</option>
+                                                            @elseif($grundversicherungPP->stoiner_PG == 'Storniert')
+                                                                <option selected value="{{$grundversicherungPP->stoiner_PG}}">{{$grundversicherungPP->stoiner_PG}}</option>
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="pb-2">
+                                                    <div>
+                                                        <span class="GrundversicherungSpans">Letze Anpassung</span>
+                                                    </div>
+                                                    <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                        <span>{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="mb-3" id="grundProvision" style="display: none">
+                                                    <div class="input-div1 input-groupp justify-content-between">
+                                                        <div class="pe-3">
+                                                    <span class="GrundversicherungSpans">
+                                                        Gesamtprovision:
+                                                    </span>
+                                                        </div>
+                                                        <input class="py-1 form-control" type="number" name="total_commisions_PG{{$count}}">
+                                                    </div>
+                                               </div>
+                                                @if($grundversicherungPP->status_PG == 'Provisionert')
+                                                    <div class="pb-2">
+                                                        <div>
+                                                            <span class="GrundversicherungSpans">Gesamtprovision</span>
+                                                        </div>
+                                                        <div>
+                                                            <input class="GrundversicherungInput form-control py-1" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            @php $count++ @endphp
+                                        @endforeach
+                                    </div>
+
+                                </div>  
+                            </div>
                             @endif
                         </div>
 
-                        <div id="rechtsschutzModal" class="documentsFormModals mb-5">
+                            <div id="rechtsschutzModal" class="documentsFormModals mb-5">
                             <div class="stepsBgColor px-4">                  
                                 <div class="" style="position: relative;">
                                     <div class="cornerSvgDiv">
@@ -2900,9 +3181,9 @@ $urole = $urole->toArray();
                                                                                     <div id="beforeUploadTextKranken">
                                                                                         <div class="mb-2">
                                                                                         <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-<path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
-</svg>
+                                                                                            <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                                            <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                                            </svg>
                                                                                         </div>
                                                                                         <div>
                                                                                             <span class="fileInputSecondTitle">Durchsuchen</span>
