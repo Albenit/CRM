@@ -2612,7 +2612,7 @@ $urole = $urole->toArray();
                                                         </div>
                                                     @endif
                                                     <div class="py-2"><hr></div>
-                                                    @php $gcnt = 1; @endphp
+                                                    @php $gcnt = 0; @endphp
                                                     @foreach(\App\Models\newgegen::where('person_id',$id)->get() as $newg)
                                                         <div class="" id="g{{$gcnt}}">
                                                             {{-- <div class="GrundversicherungSpans pb-2">

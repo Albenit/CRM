@@ -23,7 +23,7 @@
             <div class="row g-0">
                 <div class="col-auto pt-3 pe-3" v-for="fam in family" :value="fam.id">
                     <label class="container1">{{fam.first_name}} {{fam.last_name}}
-                        <input type="radio" name="radio" :value="fam.id" v-model="val" @click="linkthat">
+                        <input type="radio" name="radio" :value="fam.id" v-model="val" @click="linkthat(fam.id)">
                         <span class="checkmark1"></span>
                     </label>
                 </div>
@@ -62,8 +62,8 @@ export default {
             
             });
         },
-        linkthat:function(){
-            axios.get(this.url + 'linkthat/' + this.val + '/' + this.fam_id).then(this.getfamily());
+        linkthat:function(x){
+            axios.get(this.url + 'linkthat/' + this.lead_id + '/' + this.val).then(this.getfamily());
         },
         onChangeSelect(event) {
             this.val = parseInt(event.target.value)

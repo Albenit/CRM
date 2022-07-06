@@ -6556,8 +6556,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.val = response.data[0].id;
       });
     },
-    linkthat: function linkthat() {
-      axios.get(this.url + 'linkthat/' + this.val + '/' + this.fam_id).then(this.getfamily());
+    linkthat: function linkthat(x) {
+      axios.get(this.url + 'linkthat/' + this.lead_id + '/' + this.val).then(this.getfamily());
     },
     onChangeSelect: function onChangeSelect(event) {
       this.val = parseInt(event.target.value);
@@ -34766,7 +34766,9 @@ var render = function () {
                   attrs: { type: "radio", name: "radio" },
                   domProps: { value: fam.id, checked: _vm._q(_vm.val, fam.id) },
                   on: {
-                    click: _vm.linkthat,
+                    click: function ($event) {
+                      return _vm.linkthat(fam.id)
+                    },
                     change: function ($event) {
                       _vm.val = fam.id
                     },
