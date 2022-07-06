@@ -6602,7 +6602,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get(this.url + 'linkthat/' + x + '/' + this.val);
+                return axios.get(this.url + 'linkthat/' + x + '/' + this.fam_id);
 
               case 2:
                 _context2.next = 4;

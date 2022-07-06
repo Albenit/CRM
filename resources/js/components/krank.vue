@@ -62,7 +62,7 @@ export default {
             });
         },
         linkthat:async function(x){
-            await axios.get(this.url + 'linkthat/' + x + '/' + this.val);
+            await axios.get(this.url + 'linkthat/' + x + '/' + this.fam_id);
             await this.getfamily()
         },
         onChangeSelect(event) {
