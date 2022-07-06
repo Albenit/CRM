@@ -828,7 +828,7 @@
                             </div>
                             <div class="col-auto my-auto ps-2">
                                     <div>
-                                        <span class="text-dark">Insert Costumer</span>
+                                        <span class="text-dark">Neuen Kunden erfassen</span>
                                     </div>
                             </div>
                         </div>

@@ -36,6 +36,7 @@ class FamilyPersonsController extends Controller
             LeadDataKK::firstWhere('person_id',$id)->update(['leads_id' => family::find($id)->lead->id, 'skiped' => 1,'krank_id' => $pid]);
             family::where('id',$id)->update(['krank_id' => $pid]);
             $pend = Pendency::where('family_id', $pid)->first();
+
    
     }
     public function family_persons($id,Request $req,$admin_id = null)
