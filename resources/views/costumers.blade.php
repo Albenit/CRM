@@ -774,11 +774,8 @@
                                     @endfor
                                 @endif
                             </tbody>
-
                         </table>
-                        
                     </div>
-                    
                     <div class="d-flex justify-content-end py-3" style="background-color: transparent;display: none !important;">
                         <div class="prev-nxt-btn d-flex">
                             <div class="prev-btn border p-2 bg-light m-2 rounded">
