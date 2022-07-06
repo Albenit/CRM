@@ -1152,7 +1152,7 @@ public function folgetermin($id){
                         //     }
                         // }
 
-                        $leed = lead::where('assign_to_id',Auth::user()->id)->withTrashed()->count();
+                        $leed = lead::where('assign_to_id',Auth::user()->id)->whereNull('insertedManualy')->where('apporlead','appointment')->withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
                             $leadsAbschlose = lead::where('assign_to_id',Auth::user()->id)->where('completed', 1)->where('rejected',0)->count();
@@ -1242,7 +1242,7 @@ public function folgetermin($id){
                         $abgCount = $grundversicherungA + $retchsschutzA + $vorsorgeA + $zusatzversicherungA + $autoversicherungA + $hausratA;
 
 
-                        $leed = lead::withTrashed()->count();
+                        $leed = lead::whereNull('insertedManualy')->where('apporlead','appointment')->withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
                             $leadsAbschlose = lead::where('completed', 1)->where('rejected',0)->count();
