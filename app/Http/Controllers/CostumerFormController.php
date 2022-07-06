@@ -362,7 +362,7 @@ class CostumerFormController extends Controller
                 family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert]);
 
 
-            Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Inserted"]);
+            Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
             
             return redirect()->route('costumer_form', Crypt::encrypt($id * 1244))->with('success', 'Aktion erfolgreich durchgeführt');
     }
@@ -669,7 +669,6 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
-
         Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => "Kunden added"]);
         return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
