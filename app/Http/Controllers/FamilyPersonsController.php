@@ -29,7 +29,7 @@ class FamilyPersonsController extends Controller
         $user = auth()->user();
         $urole = $user->getRoleNames()->toArray();
         if($lid->assign_to_id == $user->id || in_array('backoffice',$urole) || in_array('admin',$urole)) {
-            return $lid->family()->where('krank_id',0)->get()->toArray();
+            return $lid->family()->where('krank_id',0)->where('id','<>',$family)->get()->toArray();
         }
     }
     public function linkthat($id,$pid){
@@ -37,7 +37,6 @@ class FamilyPersonsController extends Controller
             family::where('id',$id)->update(['krank_id' => $pid]);
             $pend = Pendency::where('family_id', $pid)->first();
 
-   
     }
     public function family_persons($id,Request $req,$admin_id = null)
     {
