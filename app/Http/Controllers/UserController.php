@@ -34,6 +34,7 @@ use App\Models\chat;
 use App\Models\Costumer;
 use App\Models\family;
 use App\Models\lead;
+use App\Models\Activity;
 use App\Models\notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -374,8 +375,6 @@ public function folgetermin($id){
 
     public function addappointmentfile(Request $request)
     {
-
-  
         $file = $request->file('costumerfile');
 
         if (\Maatwebsite\Excel\Facades\Excel::import(new LeadImport, $file)) {
@@ -434,8 +433,6 @@ public function folgetermin($id){
         $lead->sprache = $req->sprache ?  filter_var($req->sprache,FILTER_SANITIZE_STRING) : $lead->sprache;
         $lead->agent = $req->agent ?  filter_var($req->agent,FILTER_SANITIZE_STRING) : $lead->agent;
         $lead->duration_time = Carbon::now();
-        // $lead->apporlead = 'appointment';
-
 
         if ($lead->save()) {
             Admins::role(['salesmanager'])->get()->each(function($admin){
@@ -590,6 +587,7 @@ public function folgetermin($id){
                 CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
             }
         }
+        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => $cnt . "Kunden added"]);
         $bo = Admins::role(['backoffice', 'admin'])->get();
         foreach ($bo as $b) {
             $url = '<a href="' . route("tasks") . '">' . $pcnt . ' Personen wurden aus einem Termin hinzugefügt </a>';

@@ -55,15 +55,15 @@ export default {
         url:{},
     },
     methods:{
-        getfamily :function(){
-            axios.get(this.url + 'fmembers/' + this.fam_id + '/' + this.lead_id).then((response) => {
+        getfamily :async function(){
+            await axios.get(this.url + 'fmembers/' + this.fam_id + '/' + this.lead_id).then((response) => {
                 this.family = response.data;
                 this.val = response.data[0].id;
-            
             });
         },
-        linkthat:function(x){
-            axios.get(this.url + 'linkthat/' + this.lead_id + '/' + this.val).then(this.getfamily());
+        linkthat:async function(x){
+            await axios.get(this.url + 'linkthat/' + x + '/' + this.fam_id);
+            await this.getfamily()
         },
         onChangeSelect(event) {
             this.val = parseInt(event.target.value)
