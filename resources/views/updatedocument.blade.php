@@ -1522,6 +1522,126 @@ $urole = $urole->toArray();
                                     <div class="row g-0 justify-content-center">
                                         <div class="col-12 col-md-6 col-lg-5 ps-0 pe-md-2">
                                             <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
+                                                 onclick="openKrankenDropdownStep2()">
+                                                <div class="row g-0">
+                                                    <div class="col my-auto">
+                                                        <span>Grundversicherung</span>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
+                                                            <path
+                                                                d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
+                                                                fill="white" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="Grundversicherung" class="Grundversicherung mt-3">
+                                                @php
+                                                    $count = 1;
+                                                @endphp
+                                                @foreach($grundversicherungP as $grundversicherungPP)
+                                                    <div class="p-4">
+
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Abschlussdatum</span>
+                                                            </div>
+                                                            <div>
+                                                                <input class="GrundversicherungInput form-control py-1" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Gesellschaft</span>
+                                                            </div>
+                                                            <div>
+                                                                <select class="GrundversicherungInput form-control py-1" name="society_PG{{$count}}">
+                                                                    <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
+                                                                    <option value="Sympany">Sympany</option>
+                                                                    <option value="Helsana">Helsana</option>
+                                                                    <option value="Swica">Swica</option>
+                                                                    <option value="GM">GM</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Produkt</span>
+                                                            </div>
+                                                            <div>
+                                                                <input class="GrundversicherungInput form-control py-1" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Status</span>
+                                                            </div>
+                                                            <div>
+                                                                <select class="GrundversicherungInput form-control py-1" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
+                                                                    @if($grundversicherungPP->status_PG == 'Offen (Berater)')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Offen (Innendienst)">Offen (Innendienst)</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Offen (Innendienst)')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Eingereicht">Eingereicht</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Eingereicht')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Aufgenommen">Aufgenommen</option>
+                                                                        <option value="Abgelehnt">Abgelehnt</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Aufgenommen')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Provisionert">Provisionert</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Abgelehnt')
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                    @elseif($grundversicherungPP->status_PG == 'Provisionert' && $grundversicherungPP->stoiner_PG == null)
+                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
+                                                                        <option value="Storniert">Storniert</option>
+                                                                    @elseif($grundversicherungPP->stoiner_PG == 'Storniert')
+                                                                        <option selected value="{{$grundversicherungPP->stoiner_PG}}">{{$grundversicherungPP->stoiner_PG}}</option>
+                                                                    @endif
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pb-2">
+                                                            <div>
+                                                                <span class="GrundversicherungSpans">Letze Anpassung</span>
+                                                            </div>
+                                                            <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
+                                                                <span>{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="mb-3" id="grundProvision" style="display: none">
+                                                            <div class="input-div1 input-groupp justify-content-between">
+                                                                <div class="pe-3">
+                                                            <span class="GrundversicherungSpans">
+                                                                Gesamtprovision:
+                                                            </span>
+                                                                </div>
+                                                                <input class="py-1 form-control" type="number" name="total_commisions_PG{{$count}}">
+                                                            </div>
+                                                       </div>
+                                                        @if($grundversicherungPP->status_PG == 'Provisionert')
+                                                            <div class="pb-2">
+                                                                <div>
+                                                                    <span class="GrundversicherungSpans">Gesamtprovision</span>
+                                                                </div>
+                                                                <div>
+                                                                    <input class="GrundversicherungInput form-control py-1" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    @php $count++ @endphp
+                                                @endforeach
+                                            </div>
+
+                                        </div> 
+                                        <div class="col-12 col-md-6 col-lg-5 pe-0 ps-md-2">
+                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
                                                  onclick="openKrankenDropdownStep22()">
                                                 <div class="row g-0">
                                                     <div class="col my-auto">
@@ -1675,126 +1795,7 @@ $urole = $urole->toArray();
                                                     </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6 col-lg-5 pe-0 ps-md-2">
-                                            <div class="list-choice-title list-choice-title-step2 mt-5 ps-4"
-                                                 onclick="openKrankenDropdownStep2()">
-                                                <div class="row g-0">
-                                                    <div class="col my-auto">
-                                                        <span>Grundversicherung</span>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="15.2314" cy="15.1093" r="15" fill="#2F60DC" />
-                                                            <path
-                                                                d="M8.90704 13.1784C8.90681 13.0023 8.96701 12.8254 9.09028 12.6813C9.3644 12.3601 9.84662 12.322 10.1674 12.5968L15.0229 16.746L19.8676 12.5818C20.1876 12.306 20.67 12.3425 20.9449 12.6629C21.2187 12.9825 21.1832 13.4652 20.8635 13.7395L15.5222 18.3312C15.2364 18.5771 14.8142 18.5777 14.5278 18.3327L9.17449 13.7576C8.99823 13.6072 8.90732 13.3932 8.90704 13.1784Z"
-                                                                fill="white" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="Grundversicherung" class="Grundversicherung mt-3">
-                                                @php
-                                                    $count = 1;
-                                                @endphp
-                                                @foreach($grundversicherungP as $grundversicherungPP)
-                                                    <div class="p-4">
-
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Abschlussdatum</span>
-                                                            </div>
-                                                            <div>
-                                                                <input class="GrundversicherungInput form-control py-1" type="date" value="{{$grundversicherungPP->graduation_date_PG}}"  name="graduation_date_PG{{$count}}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Gesellschaft</span>
-                                                            </div>
-                                                            <div>
-                                                                <select class="GrundversicherungInput form-control py-1" name="society_PG{{$count}}">
-                                                                    <option value="{{$grundversicherungPP->society_PG}}">{{$grundversicherungPP->society_PG}}</option>
-                                                                    <option value="Sympany">Sympany</option>
-                                                                    <option value="Helsana">Helsana</option>
-                                                                    <option value="Swica">Swica</option>
-                                                                    <option value="GM">GM</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Produkt</span>
-                                                            </div>
-                                                            <div>
-                                                                <input class="GrundversicherungInput form-control py-1" type="text" value="{{$grundversicherungPP->product_PG}}" name="product_PG{{$count}}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Status</span>
-                                                            </div>
-                                                            <div>
-                                                                <select class="GrundversicherungInput form-control py-1" name="status_PG{{$count}}" id="grundStatusi" onchange="grundStatus()">
-                                                                    @if($grundversicherungPP->status_PG == 'Offen (Berater)')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Offen (Innendienst)">Offen (Innendienst)</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Offen (Innendienst)')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Eingereicht">Eingereicht</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Eingereicht')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Aufgenommen">Aufgenommen</option>
-                                                                        <option value="Abgelehnt">Abgelehnt</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Aufgenommen')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Provisionert">Provisionert</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Abgelehnt')
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                    @elseif($grundversicherungPP->status_PG == 'Provisionert' && $grundversicherungPP->stoiner_PG == null)
-                                                                        <option selected value="{{$grundversicherungPP->status_PG}}">{{$grundversicherungPP->status_PG}}</option>
-                                                                        <option value="Storniert">Storniert</option>
-                                                                    @elseif($grundversicherungPP->stoiner_PG == 'Storniert')
-                                                                        <option selected value="{{$grundversicherungPP->stoiner_PG}}">{{$grundversicherungPP->stoiner_PG}}</option>
-                                                                    @endif
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pb-2">
-                                                            <div>
-                                                                <span class="GrundversicherungSpans">Letze Anpassung</span>
-                                                            </div>
-                                                            <div class="GrundversicherungInput form-control" style="background-color: #f3f1f1"> 
-                                                                <span>{{Carbon\Carbon::parse($grundversicherungPP->last_adjustment_PG)->format('d.m.Y')}}</span>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="mb-3" id="grundProvision" style="display: none">
-                                                            <div class="input-div1 input-groupp justify-content-between">
-                                                                <div class="pe-3">
-                                                            <span class="GrundversicherungSpans">
-                                                                Gesamtprovision:
-                                                            </span>
-                                                                </div>
-                                                                <input class="py-1 form-control" type="number" name="total_commisions_PG{{$count}}">
-                                                            </div>
-                                                       </div>
-                                                        @if($grundversicherungPP->status_PG == 'Provisionert')
-                                                            <div class="pb-2">
-                                                                <div>
-                                                                    <span class="GrundversicherungSpans">Gesamtprovision</span>
-                                                                </div>
-                                                                <div>
-                                                                    <input class="GrundversicherungInput form-control py-1" value="{{$grundversicherungPP->total_commisions_PG}}" type="number" name="total_commisions_PG{{$count}}">
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    @php $count++ @endphp
-                                                @endforeach
-                                            </div>
-
-                                        </div>  
+                                         
                                     </div>
                                     </div>
                                     <div class="py-4">
