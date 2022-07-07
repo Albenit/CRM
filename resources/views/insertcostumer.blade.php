@@ -86,7 +86,7 @@
                     </div>
                     </div>
                     
-                    <div class="pt-4" style="cursor: pointer;">
+                    <div class="pt-4" style="cursor: pointer;" onclick="insertanother()">
                         <div class="row g-0 justify-content-center pt-3 pt-md-0">
                             <div class="col-auto my-auto">
                             <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,7 @@
                                 </svg>
                             </div>
                             <div class="col-auto my-auto ps-2">
-                                    <div onclick="insertanother()">
+                                    <div>
                                         <span class="text-dark">Neue</span>
                                     </div>
                             </div>

@@ -32,6 +32,16 @@ $urole = $urole->toArray();
     body {
         font-family: 'Montserrat', sans-serif;
     }
+    .checkmarkLeads {
+        position: absolute;
+        top: -10px;
+        left: 5;
+        height: 25px;
+        width: 25px;
+        background-color: #fff;
+        border: 1px solid #E6E6E6;
+        border-radius: 5px;
+    }
     /* Paste this css to your style sheet file or under head tag */
     /* This only works with JavaScript,
     if it's not present, don't show loader */
