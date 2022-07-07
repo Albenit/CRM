@@ -72,7 +72,14 @@
                                         <label for="" class="mb-1">Berater</label>
                                         <select name="berater" class="form-control" required>
                                             @foreach($admins as $admin)
-                                            <option value="{{$admin->id}}">{{$admin->name}}</option>
+
+                                            @if ($admin->admin_id == null)
+                                        
+                                                <option value="{{$admin->id}}">{{ucfirst($admin->personaldata->name)}} {{ucfirst($admin->personaldata->prename)}}</option>
+                                            @else
+                                                <option value="{{$admin->id}}">{{ucfirst($admin->headadmin->personaldata->name)}} {{ucfirst($admin->headadmin->personaldata->prename)}}</option>
+                                            @endif
+        
                                             @endforeach
                                         </select>
                                     </div>

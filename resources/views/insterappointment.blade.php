@@ -169,7 +169,13 @@
                                         <select name="admin" class="form-select" style="border: 1px solid #EDEDED !important;border-radius:11px !important;">
                                             @foreach($admins as $admin)
                                                 @if(!$admin->hasRole('digital'))
-                                                    <option value="{{$admin->id}}">{{$admin->name}}</option>
+
+                                                @if ($admin->admin_id == null)
+                                                    <option value="{{$admin->id}}">{{ucfirst($admin->personaldata->name)}} {{ucfirst($admin->personaldata->prename)}}</option>
+                                                @else
+                                                    <option value="{{$admin->id}}">{{ucfirst($admin->headadmin->personaldata->name)}} {{ucfirst($admin->headadmin->personaldata->prename)}}</option>
+                                                @endif
+                                                    
                                                 @endif
                                             @endforeach
                                             @endif

@@ -43,8 +43,13 @@ public function childrens(){
         return $this->hasMany(Pendency::class,'admin_id');
     }
     public function personaldata(){
-    
+        if ($this->admin_id == null){
             return $this->hasOne(EmployeePersonalData::class,'admin_id');
+        }else{
+            return $this->headadmin->hasOne(EmployeePersonalData::class,'admin_id');
+        }
+    
+            
         
         
     }

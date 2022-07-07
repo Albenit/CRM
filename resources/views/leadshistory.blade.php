@@ -184,7 +184,7 @@
                                                                         </div>
                                                                         <div class="py-1">
                                                             <span style="color: #434343; font-weight: 600;">Assigned To:
-                                                                <span style="color: #88889D;font-weight: 500">{{$lead->assign_to_id == null ? '' : $lead->admin->name }}</span></span><br>
+                                                                <span style="color: #88889D;font-weight: 500">{{$lead->assign_to_id == null ? '' : ucfirst($lead->admin->name) }}</span></span><br>
                                                                         </div>
                                                                         <div class="py-1">
                                                             <span

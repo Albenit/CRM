@@ -77,7 +77,7 @@
                                         </div>
                                         @foreach ($group->members()->whereNull('admin_id')->get() as $member)
                                             <div class="pb-2">
-                                                <span class="fw-500">{{$member->name}}</span>
+                                                <span class="fw-500">{{ucfirst($member->name)}}</span>
                                             </div>
                                         @endforeach
                                     </div>
