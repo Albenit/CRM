@@ -653,13 +653,13 @@
                                     <div class="col-4">
                                         <div>
                                             <span
-                                                class="anfragenFieldsSpan fs-6">{{$more['person']->pendency->adminpend->name}}</span>
+                                                class="anfragenFieldsSpan fs-6">{{ucfirst($more['person']->pendency->adminpend->name)}}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div>
                                             <span
-                                                class="anfragenFieldsSpan fs-6">{{$more['person']->first_name}} {{$more['person']->last_name}}</span>
+                                                class="anfragenFieldsSpan fs-6">{{ucfirst($more['person']->first_name)}} {{ucfirst($more['person']->last_name)}}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">

@@ -593,12 +593,12 @@
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->name}}   
+                                                                    {{ucfirst($admins[$i]->group->name)}}   
                                                                 </span>
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->provision->name}}  
+                                                                    {{ucfirst($admins[$i]->group->provision->name)}}  
                                                                 </span>
                                                             </div>
                                                             <div class="col-12 col-sm-auto pt-3 pt-sm-0 my-auto">
@@ -666,12 +666,12 @@
                                                             
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->name}}   
+                                                                    {{ucfirst($admins[$i]->group->name)}}   
                                                                 </span>
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->provision->name}}  
+                                                                    {{ucfirst($admins[$i]->group->provision->name)}}  
                                                                 </span>
                                                             </div>
                                                             <div class="col-12 col-sm-auto pt-3 pt-sm-0 my-auto">
@@ -882,14 +882,14 @@
                                     @foreach ( $admins as $admin)
                                         @if(isset($admini))
                                             @if($admin->id == $admini->id)
-                                                <option value="{{ $admin->id }}">{{ $admin->name }}selected
+                                                <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}selected
                                                 </option>
                                             @else
-                                                <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                                                <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
                                             @endif
-                                        @else
-                                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
-                                        @endif
+                                            @else
+                                                <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
+                                            @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -1147,7 +1147,7 @@
                                             @else
                                                 @foreach ( $absences as $appointmentAGG )
                                                     <tr>
-                                                        <td scope="row">{{$appointmentAGG->admin->name}}</td>
+                                                        <td scope="row">{{ucfirst($appointmentAGG->admin->name)}}</td>
                                                         <td>{{$appointmentAGG->created_at->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($appointmentAGG->from)->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($appointmentAGG->to)->format('d.m.Y')}}</td>
@@ -1256,7 +1256,7 @@
                                                 @else
                                                     @foreach ( $bestellungen as $appointmentAGG )
                                                         <tr>
-                                                            <td scope="row">{{$appointmentAGG->admin->name}}</td>
+                                                            <td scope="row">{{ucfirst($appointmentAGG->admin->name)}}</td>
                                                             <td>{{$appointmentAGG->created_at->format('d.m.Y')}}</td>
                                                             @if (isset($appointmentAGG->item))
                                                                 <td>{{$appointmentAGG->item}}</td>
@@ -1361,7 +1361,7 @@
                                                                 <span class="fw-500" style="font-size: 16px;">Person</span>
                                                             </div>
                                                             <div class="col">
-                                                                {{$appointmentAGG->admin->name}}
+                                                                {{ucfirst($appointmentAGG->admin->name)}}
                                                             </div>
                                                         </div>
                                                         <div class="row g-0 pb-3">
@@ -1481,7 +1481,7 @@
                                                                         <span class="fw-500" style="font-size: 16px;">Person</span>
                                                                     </div>
                                                                     <div class="col">
-                                                                        {{$appointmentAGG->admin->name}}
+                                                                        {{ucfirst($appointmentAGG->admin->name)}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="row g-0 pb-3">
@@ -2016,12 +2016,12 @@
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->name}}   
+                                                                    {{ucfirst($admins[$i]->group->nam)}}   
                                                                 </span>
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->provision->name}}  
+                                                                    {{ucfirst($admins[$i]->group->provision->name)}}  
                                                                 </span>
                                                             </div>
                                                             <div class="col-12 col-sm-auto pt-3 pt-sm-0 my-auto">
@@ -2092,12 +2092,12 @@
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->name}}   
+                                                                    {{ucfirst($admins[$i]->group->name)}}   
                                                                 </span>
                                                             </div>
                                                             <div class="col-2 d-none d-lg-block my-auto">
                                                                 <span class="fs-6" style="font-weight: 500;">
-                                                                    {{$admins[$i]->group->provision->name}}  
+                                                                    {{ucfirst($admins[$i]->group->provision->name)}}  
                                                                 </span>
                                                             </div>
                                                             <div class="col-12 col-sm-auto pt-3 pt-sm-0 my-auto">
@@ -2133,13 +2133,13 @@
                                                     @foreach ( $admins as $admin)
                                                         @if(isset($admini))
                                                             @if($admin->id == $admini->id)
-                                                                <option selected value="{{ $admin->id }}">{{ $admin->name }}
+                                                                <option selected value="{{ $admin->id }}">{{ ucfirst($admin->name) }}
                                                                 </option>
                                                             @else
-                                                                <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                                                                <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
                                                             @endif
                                                         @else
-                                                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                                                            <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
                                                         @endif
                                                     @endforeach
 
@@ -2423,7 +2423,7 @@
                                                             @else
                                                                 @foreach ( $absences as $appointmentAGG )
                                                                     <tr>
-                                                                        <td scope="row">{{$appointmentAGG->admin->name}}</td>
+                                                                        <td scope="row">{{ucfirst($appointmentAGG->admin->name)}}</td>
                                                                         <td>{{$appointmentAGG->created_at->format('Y-m-d')}}</td>
                                                                         <td>{{$appointmentAGG->from}}</td>
                                                                         <td>{{$appointmentAGG->to}}</td>
@@ -2548,7 +2548,7 @@
                                                                 @else
                                                                     @foreach ( $bestellungen as $appointmentAGG )
                                                                         <tr>
-                                                                            <td scope="row">{{$appointmentAGG->admin->name}}</td>
+                                                                            <td scope="row">{{ucfirst($appointmentAGG->admin->name)}}</td>
                                                                             <td>{{$appointmentAGG->created_at->format('Y-m-d')}}</td>
                                                                             @if (isset($appointmentAGG->item))
                                                                                 <td>{{$appointmentAGG->item}}</td>
@@ -2654,7 +2654,7 @@
                                                                                 <span class="fw-500" style="font-size: 16px;">Person</span>
                                                                             </div>
                                                                             <div class="col">
-                                                                                {{$appointmentAGG->admin->name}}
+                                                                                {{ucfirst($appointmentAGG->admin->name)}}
                                                                             </div>
                                                                         </div>
                                                                         <div class="row g-0 pb-3">
@@ -2774,7 +2774,7 @@
                                                                                     <span class="fw-500" style="font-size: 16px;">Person</span>
                                                                                 </div>
                                                                                 <div class="col">
-                                                                                    {{$appointmentAGG->admin->name}}
+                                                                                    {{ucfirst($appointmentAGG->admin->name)}}
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row g-0 pb-3">
@@ -4238,12 +4238,12 @@
                                 {
                                     id: '{!! $appointmentAGG["id"] !!}',
                                     resourceId: '{!! $appointmentAGG["employee_id"] !!}',
-                                    title: '{!! $appointmentAGG->admin->name !!}',
+                                    title: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                                     start: new Date('{!! date("d/M/Y", strtotime($appointmentAGG->from)) !!}'),
                                     end: new Date('{!! date("d/M/Y", strtotime($appointmentAGG->to)) !!}'),
                                     user_to: '{!! $appointmentAGG->admin["id"] !!}',
                                     to: '{!! $appointmentAGG->to !!}',
-                                    admin: '{!! $appointmentAGG->admin->name !!}',
+                                    admin: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                                     @if($appointmentAGG->type == 0)
                                     status: 'Offen',
                                     @elseif($appointmentAGG->type == 1)

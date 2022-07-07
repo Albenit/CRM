@@ -380,7 +380,7 @@
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Von</span>
-                                                                <span class="fs-6">{{App\Models\Admins::find($perApp->assignfrom)->name}}</span>
+                                                                <span class="fs-6">{{ucfirst(App\Models\Admins::find($perApp->assignfrom)->name)}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -593,12 +593,12 @@
                                                         <div data-bs-toggle="modal" data-bs-target="#pendadmin{{$pendency->id}}" class="row g-0 text-start ps-2">
                                                             <div class="col-3">
                                                                 <div>
-                                                                    <span class="anfragenFieldsSpan fs-6">{{$pendency->adminpend->name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ucfirst($pendency->adminpend->name)}}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div>
-                                                                    <span class="anfragenFieldsSpan fs-6">{{$pendency->first_name}} {{$pendency->last_name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ucfirst($pendency->first_name)}} {{ucfirst($pendency->last_name)}}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
@@ -1115,7 +1115,7 @@
                                                             </div>
                                                             <div>
                                                                 <span class="birthDayFirstSpan">Von</span>
-                                                                <span class="fs-6">{{App\Models\Admins::find($perApp->assignfrom)->name}}</span>
+                                                                <span class="fs-6">{{ucfirst(App\Models\Admins::find($perApp->assignfrom)->name)}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1905,7 +1905,7 @@
                                                     <div data-bs-toggle="modal" data-bs-target="#pend{{$pendency->id}}" class="row g-0 text-start ps-2">
                                                         <div class="col-3">
                                                             <div>
-                                                                <span class="anfragenFieldsSpan fs-6">{{$pendency->adminpend->name}}</span>
+                                                                <span class="anfragenFieldsSpan fs-6">{{ucfirst($pendency->adminpend->name)}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-3">

@@ -144,11 +144,11 @@
                                             <label hidden for="" class="mb-1">Zuweisen</label>
                                             @if(in_array('fs',$user) || in_array('callagent',$user))
                                                 <select hidden name="admin" class="form-control GrundversicherungInput" disabled>
-                                                    <option value="{{$admins->id}}">{{$admins->name}}</option>
+                                                    <option value="{{$admins->id}}">{{ucfirst($admins->name)}}</option>
                                                 </select>
                                             @else
                                                 <select name="admin" class="form-control GrundversicherungInput">
-                                                    <option value="{{$admins->id}}">{{$admins->name}}</option>
+                                                    <option value="{{$admins->id}}">{{ucfirst($admins->name)}}</option>
                                                 </select>
                                             @endif
                                         @elseif(Auth::user()->hasRole('salesmanager'))

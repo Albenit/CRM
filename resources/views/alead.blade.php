@@ -23,19 +23,19 @@
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">Qualität</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$admin->name}}" name="berater" >
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{ucfirst($admin->name)}}" name="berater" >
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                         <label for="" class="mb-1">Vorname</label>
-                                        <input type="text" name="name" class="form-control GrundversicherungInput" value="{{$lead->first_name}}" required>
+                                        <input type="text" name="name" class="form-control GrundversicherungInput" value="{{ucfirst($lead->first_name)}}" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">Nachname</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{$lead->last_name}}" name="lname" required>
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{ucfirst($lead->last_name)}}" name="lname" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
