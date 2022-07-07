@@ -6551,6 +6551,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     this.getfamily();
@@ -35566,110 +35573,106 @@ var render = function () {
         "div",
         { staticClass: "row g-0" },
         _vm._l(_vm.family, function (fam) {
-          return _c(
-            "div",
-            { staticClass: "col-auto pt-3 pe-1", attrs: { value: fam.id } },
-            [
-              _c(
-                "label",
-                { staticClass: "container1", attrs: { for: "fam" + fam.id } },
-                [_vm._v(_vm._s(fam.first_name) + " " + _vm._s(fam.last_name))]
-              ),
-              _vm._v(" "),
-              fam.krank_id == 0
-                ? _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.val,
-                        expression: "val",
-                      },
-                    ],
-                    attrs: {
-                      type: "checkbox",
-                      id: "fam" + fam.id,
-                      name: "fam" + fam.id,
+          return _c("span", { attrs: { value: fam.id } }, [
+            fam.krank_id == 0
+              ? _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.val,
+                      expression: "val",
                     },
-                    domProps: {
-                      value: fam.id,
-                      checked: Array.isArray(_vm.val)
-                        ? _vm._i(_vm.val, fam.id) > -1
-                        : _vm.val,
+                  ],
+                  attrs: {
+                    type: "checkbox",
+                    id: "fam" + fam.id,
+                    name: "fam" + fam.id,
+                  },
+                  domProps: {
+                    value: fam.id,
+                    checked: Array.isArray(_vm.val)
+                      ? _vm._i(_vm.val, fam.id) > -1
+                      : _vm.val,
+                  },
+                  on: {
+                    click: function ($event) {
+                      return _vm.linkthat(fam.id)
                     },
-                    on: {
-                      click: function ($event) {
-                        return _vm.linkthat(fam.id)
-                      },
-                      change: function ($event) {
-                        var $$a = _vm.val,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = fam.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.val = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.val = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
+                    change: function ($event) {
+                      var $$a = _vm.val,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = fam.id,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.val = $$a.concat([$$v]))
                         } else {
-                          _vm.val = $$c
+                          $$i > -1 &&
+                            (_vm.val = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
                         }
-                      },
+                      } else {
+                        _vm.val = $$c
+                      }
                     },
-                  })
-                : _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.val,
-                        expression: "val",
-                      },
-                    ],
-                    attrs: {
-                      type: "checkbox",
-                      id: "fam" + fam.id,
-                      name: "fam" + fam.id,
-                      checked: "",
+                  },
+                })
+              : _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.val,
+                      expression: "val",
                     },
-                    domProps: {
-                      value: fam.id,
-                      checked: Array.isArray(_vm.val)
-                        ? _vm._i(_vm.val, fam.id) > -1
-                        : _vm.val,
+                  ],
+                  attrs: {
+                    type: "checkbox",
+                    id: "fam" + fam.id,
+                    name: "fam" + fam.id,
+                    checked: "",
+                  },
+                  domProps: {
+                    value: fam.id,
+                    checked: Array.isArray(_vm.val)
+                      ? _vm._i(_vm.val, fam.id) > -1
+                      : _vm.val,
+                  },
+                  on: {
+                    click: function ($event) {
+                      return _vm.linkthat(fam.id)
                     },
-                    on: {
-                      click: function ($event) {
-                        return _vm.linkthat(fam.id)
-                      },
-                      change: function ($event) {
-                        var $$a = _vm.val,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = fam.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.val = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.val = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
+                    change: function ($event) {
+                      var $$a = _vm.val,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = fam.id,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.val = $$a.concat([$$v]))
                         } else {
-                          _vm.val = $$c
+                          $$i > -1 &&
+                            (_vm.val = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
                         }
-                      },
+                      } else {
+                        _vm.val = $$c
+                      }
                     },
-                  }),
-            ]
-          )
+                  },
+                }),
+            _vm._v(" "),
+            _c("span", { staticClass: "checkbox-label" }, [
+              _vm._v(_vm._s(fam.first_name) + " " + _vm._s(fam.last_name)),
+            ]),
+            _vm._v(" "),
+            _c("br"),
+          ])
         }),
         0
       ),

@@ -524,7 +524,7 @@
                                                         <div data-bs-toggle="modal" data-bs-target="#pendadmin{{$pendency->id}}" class="row g-0 text-start ps-2">
                                                             <div class="col-3">
                                                                 <div>
-                                                                    <span class="anfragenFieldsSpan fs-6">{{$pendency->adminpend->name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ucfirst($pendency->adminpend->name)}}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
@@ -731,7 +731,7 @@
                                                             </div>
                                                             <div class="col-3">
                                                                 <div onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
-                                                                    <span class="anfragenFieldsSpan fs-6">{{$family->family->lead->admin->name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ucfirst($family->family->lead->admin->name)}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1178,7 +1178,7 @@
                                                                 <span class="fw-600">Berater</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span style="font-weight: 400">{{$task->family->lead->admin->name}}</span>
+                                                                <span style="font-weight: 400">{{ucfirst($task->family->lead->admin->name)}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="row g-0">
@@ -1326,7 +1326,7 @@
                                                         <span class="fw-600">Berater</span>
                                                     </div>
                                                     <div class="col">
-                                                        <span style="font-weight: 400">{{$task->adminpend->name}}</span>
+                                                        <span style="font-weight: 400">{{ucfirst($task->adminpend->name)}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="row g-0">
@@ -1446,7 +1446,7 @@
                                                 <span class="fw-600">Berater</span>
                                             </div>
                                             <div class="col">
-                                                <span style="font-weight: 400">{{$task->adminpend->name}}</span>
+                                                <span style="font-weight: 400">{{ucfirst($task->adminpend->name)}}</span>
                                             </div>
                                         </div>
                                         <div class="row g-0">
@@ -1695,7 +1695,7 @@
                                                             </div>
                                                             <div class="col-3">
                                                                 <div onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
-                                                                    <span class="anfragenFieldsSpan fs-6">{{$family->family->lead->admin->name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-6">{{ucfirst($family->family->lead->admin->name)}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1836,7 +1836,7 @@
                                                     <div data-bs-toggle="modal" data-bs-target="#pend{{$pendency->id}}" class="row g-0 text-start ps-2">
                                                         <div class="col-3">
                                                             <div>
-                                                                <span class="anfragenFieldsSpan fs-6">{{$pendency->adminpend->name}}</span>
+                                                                <span class="anfragenFieldsSpan fs-6">{{ucfirst($pendency->adminpend->name)}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-3">

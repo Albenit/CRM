@@ -546,7 +546,7 @@
                                                     <div
                                                         onclick="window.location.href='{{route('leadfamilyperson',[$taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}'">
                                                         <span
-                                                            class="anfragenFieldsSpan fs-6">{{$family->family->lead->admin->name}}</span>
+                                                            class="anfragenFieldsSpan fs-6">{{ucfirst($family->family->lead->admin->name)}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -839,7 +839,7 @@
                                 <div class="row g-0 text-start ps-3 ps-2">
                                     <div class="col-4">
                                         <div data-bs-toggle="modal" data-bs-target="#pen{{$pending->id}}">
-                                            <span class="anfragenFieldsSpan fs-6">{{$pending->adminpend->name}}</span>
+                                            <span class="anfragenFieldsSpan fs-6">{{ucfirst($pending->adminpend->name)}}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
@@ -931,7 +931,7 @@
                                 </div>
 
                                 <div class="col-auto my-auto ms-1">
-                                    <span class=" fs-6">{{$appointmentAGG->admin->name}}</span>
+                                    <span class=" fs-6">{{ucfirst($appointmentAGG->admin->name)}}</span>
                                 </div>
                             </div>
                             <div class="row g-0 ps-2 pb-2">
@@ -1251,7 +1251,7 @@
                                                     </svg>
                                                 </div>
                                                 <span class=" fs-6">
-                                                        {{App\Models\Admins::find($item->user_id)->name}} 
+                                                        {{ucfirst(App\Models\Admins::find($item->user_id)->name)}} 
                                                 </span>
                                             </div>
                                         </li>
@@ -1405,7 +1405,7 @@
     
         @foreach($admins as $admin)
         <label for="checkbox1{{$admin->id}}" class="memberLabel">
-            <input onchange="checkboxes()" id="checkbox1{{$admin->id}}" value="{{$admin->id}}" class="memberCheckmarkselect1" type="checkbox" name="roleid[]">{{$admin->name}}
+            <input onchange="checkboxes()" id="checkbox1{{$admin->id}}" value="{{$admin->id}}" class="memberCheckmarkselect1" type="checkbox" name="roleid[]">{{ucfirst($admin->name)}}
             <span class="memberCheckmark"></span>
         </label>
       @endforeach
@@ -1776,7 +1776,7 @@
                                                                                         aria-label="Default select example" name="berater" id="berater">
                                                                                     <option value="all">Alle</option>
                                                                                     @foreach($adminsStat as $admin)
-                                                                                        <option value="{{$admin->id}}">{{$admin->name}}</option>
+                                                                                        <option value="{{$admin->id}}">{{ucfirst($admin->name)}}</option>
                                                                                     @endforeach
                                                                                 </select>
                                                                             </div>
@@ -2762,7 +2762,7 @@
                                                                     fill="black"/>
                                                             </svg>
                                                         </div>
-                                                        <span class=" fs-6">{{App\Models\Admins::find($consult->user_id)->name}}</span>
+                                                        <span class=" fs-6">{{ucfirst(App\Models\Admins::find($consult->user_id)->name)}}</span>
                                                     </div>
                                                 </li>
                                                 @endforeach
@@ -2937,7 +2937,7 @@
     
         @foreach($admins as $admin)
         <label for="checkbox1{{$admin->id}}2" class="memberLabel">
-            <input onchange="checkboxes()" id="checkbox1{{$admin->id}}2" value="{{$admin->id}}" class="memberCheckmarkselect1" type="checkbox" name="roleid[]">{{$admin->name}}
+            <input onchange="checkboxes()" id="checkbox1{{$admin->id}}2" value="{{$admin->id}}" class="memberCheckmarkselect1" type="checkbox" name="roleid[]">{{ucfirst($admin->name)}}
             <span class="memberCheckmark"></span>
         </label>
       @endforeach

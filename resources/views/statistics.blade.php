@@ -2165,7 +2165,7 @@
                                                                         <option value="all">Alle</option>
                                                                         @foreach ($adminsStat as $admin)
                                                                             <option value="{{ $admin->id }}">
-                                                                                {{ $admin->name }}</option>
+                                                                                {{ ucfirst($admin->name) }}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
