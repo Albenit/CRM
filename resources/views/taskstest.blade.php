@@ -720,7 +720,7 @@
                                                                                 <br>
                                                                                 Zeit: {{$perApp->time}}
                                                                                 <br>
-                                                                                Von: {{App\Models\Admins::find($perApp->assignfrom)->name}}
+                                                                                Von: {{ucfirst(App\Models\Admins::find($perApp->assignfrom)->name)}}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1302,7 +1302,7 @@
                                                                                 <br>
                                                                                 Zeit: {{$perApp->time}}
                                                                                 <br>
-                                                                                Von: {{App\Models\Admins::find($perApp->assignfrom)->name}}
+                                                                                Von: {{ucfirst(App\Models\Admins::find($perApp->assignfrom)->name)}}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1516,7 +1516,7 @@
                                             <div id="demo_2{{$authUserId}}" class="collapse px-3 py-2">
                                                 <h6 class="m-1"><b>Klientin: {{ucfirst($task->family->first_name)}}</b>
                                                 </h6>
-                                                <h6 class="m-1"><b>Berater:</b> {{$task->adminpend->name}}
+                                                <h6 class="m-1"><b>Berater:</b> {{ucfirst($task->adminpend->name)}}
                                                 </h6>
                                                 <h6 class="m-1"><b>Datum & Zeit:</b> {{$task->updated_at}}</h6>
                                                 <a href="{{route('leadfamilyperson',['id' => $taskId,'admin_id' => $admin_id,'pend_id' => $pend_id])}}">
@@ -1807,7 +1807,7 @@
                                                             </div>
                                                             <div class="col-3">
                                                                 <div onclick="window.location.href='{{route('leadfamilyperson',[$taskId,$admin_id])}}'">
-                                                                    <span class="anfragenFieldsSpan fs-5">{{$family->lead->admin->name}}</span>
+                                                                    <span class="anfragenFieldsSpan fs-5">{{ucfirst($family->lead->admin->name)}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>

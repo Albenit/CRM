@@ -53,7 +53,7 @@
                     <input type="date" class="dropdown-item px-0" name="searchdate2">
                     @if (!auth()->user()->hasRole('fs') || auth()->user()->hasRole('salesmanager'))
                     <label for="berater" class="fw-600">Berater</label>
-                    <select name="berater" style="border: none" class="form-control">@foreach($beraters as $berater) <option value="{{$berater->id}}">{{$berater->name}}</option> @endforeach</select>
+                    <select name="berater" style="border: none" class="form-control">@foreach($beraters as $berater) <option value="{{$berater->id}}">{{ucfirst($berater->name)}}</option> @endforeach</select>
                     @endif
                     <label for="berater" class="fw-600">Status</label>
                     <select name="status" style="border: none" class="form-control">

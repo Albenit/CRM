@@ -9,7 +9,7 @@
         <select class="form-select"
                 aria-label="Default select example" name="berater" id="berater">
                 @foreach($admins as $admin)
-                    <option value="{{$admin->id}}">{{$admin->name}}</option>
+                    <option value="{{$admin->id}}">{{ucfirst($admin->name)}}</option>
                 @endforeach
         </select>
     </div>
@@ -142,7 +142,7 @@
 {{Form::open(array('url'=> 'addBankInformationData','method'=> 'post'))}}
 <select name="id">
     @foreach(App\Models\Admins::all() as $admin)
-        <option value="{{$admin->id}}">{{$admin->name}}</option>
+        <option value="{{$admin->id}}">{{ucfirst($admin->name)}}</option>
     @endforeach
 </select>
 <label>Bank</label>

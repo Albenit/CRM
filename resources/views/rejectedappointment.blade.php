@@ -21,7 +21,7 @@
                             <select name="berater" style="border: none" class="form-control">
                                     <option value="all">Alles</option>
                                 @foreach($beraters as $berater) 
-                                    <option value="{{$berater->id}}">{{$berater->name}}</option>
+                                    <option value="{{$berater->id}}">{{ucfirst($berater->name)}}</option>
                                 @endforeach
                             </select>
                             <label for="berater" class="fw-600">Status</label>
@@ -78,10 +78,10 @@
                                         <div>{{ Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y') }}</div>
                                     </td>
                                     <td>
-                                        <div>{{ $lead->assign_to_id == null ? 'Nicht zugeordnet' : $lead->admin->name }}</div>
+                                        <div>{{ $lead->assign_to_id == null ? 'Nicht zugeordnet' : ucfirst($lead->admin->name) }}</div>
                                     </td>
                                     <td scope="row">
-                                        <div style="font-weight: 600 !important;">{{ ucfirst($lead->first_name) }}{{ $lead->last_name }}</div>
+                                        <div style="font-weight: 600 !important;">{{ ucfirst($lead->first_name) }}{{ ucfirst($lead->last_name) }}</div>
                                     </td>
                                     <td>
                                         @if ($lead->completed == 1)

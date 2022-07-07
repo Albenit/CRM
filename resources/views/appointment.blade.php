@@ -138,7 +138,7 @@
                   resourceId: '{!! $appointmentAGG->admin->id !!}',
                   title: 'Abwesenheit {{ucfirst($appointmentAGG->admin->name)}}',
                   start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["from"] . " 08:00")) !!}'),
-                  name: '{{ $appointmentAGG->admin->name }}',
+                  name: '{{ ucfirst($appointmentAGG->admin->name) }}',
                   user_to: '{{ $appointmentAGG->admin->id }}',
                 //   allDay : false,
                   absence: true,
@@ -176,7 +176,7 @@
                 absence: false,
                 appointment_date: ('{!! date("m/d/Y", strtotime($appointmentAGG["appointment_date"])) !!}'),
                 time: ('{!! date("H:i", strtotime($appointmentAGG["time"])) !!}'),
-                berater: '{!! $appointmentAGG->admin->name !!}',
+                berater: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                 titlemodal: '{{ $appointmentAGG["first_name"] }} {{ $appointmentAGG["last_name"] }}'
               },
 	  @endforeach
@@ -188,7 +188,7 @@
               title: 'Mitarbeiterbesprechungen {{ucfirst($appointmentAGG->Admins->name) . " " . $appointmentAGG->comment }}',
               titull: '{!! $appointmentAGG->title !!}',
               start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["date"]." ".$appointmentAGG["time"])) !!}'),
-              name: '{{ $appointmentAGG->Admins->name }}',
+              name: '{{ ucfirst($appointmentAGG->Admins->name) }}',
               allDay : false,
               absence: false,
               @if($appointmentAGG->AppOrCon == 1)
@@ -722,7 +722,7 @@
                                         border: none !important;">
                                                 <option value="" id="">*******</option>
                                                 @foreach($users as $user)
-                                                <option value="{!! $user->id !!}" id="OP-{!! $user->id !!}">{!! $user->name !!}</option>
+                                                <option value="{!! $user->id !!}" id="OP-{!! $user->id !!}">{!! ucfirst($user->name) !!}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -1546,7 +1546,7 @@
             resourceId: '{!! $appointmentAGG->admin->id !!}',
             title: 'Abwesenheit {{ucfirst($appointmentAGG->admin->name)}}',
             start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["from"] . " " . "08:00")) !!}'),
-            name: '{{ $appointmentAGG->admin->name }}',
+            name: '{{ ucfirst($appointmentAGG->admin->name) }}',
             user_to: '{{ $appointmentAGG->admin->id }}',
             allDay: false,
             absence: true,
@@ -1587,9 +1587,9 @@
         {
             pid: '{!! $appointmentAGG["id"] !!}',
             resourceId: '{!! $appointmentAGG->user_id !!}',
-            title: '{!! App\Models\Admins::find($appointmentAGG->assignfrom)->name . " ," . $appointmentAGG->title !!}',
+            title: '{!! ucfirst(App\Models\Admins::find($appointmentAGG->assignfrom)->name) . " ," . $appointmentAGG->title !!}',
             start: new Date('{!! date("d/M/Y H:i", strtotime($appointmentAGG["date"] ." ". $appointmentAGG["time"])) !!}'),
-            name: '{{ App\Models\Admins::find($appointmentAGG->assignfrom)->name }}',
+            name: '{{ ucfirst(App\Models\Admins::find($appointmentAGG->assignfrom)->name) }}',
             allDay : false,
             absence: false,
             @if($appointmentAGG->AppOrCon == 1)

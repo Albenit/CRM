@@ -69,7 +69,7 @@
                                             <span style="font-weight: 700;font-size: 18px;">Gruppenname</span>
                                         </div>
                                         <div class="">
-                                            <span style="font-weight: 500;font-size: 16px;">{{$group->name}}</span>
+                                            <span style="font-weight: 500;font-size: 16px;">{{ucfirst($group->name)}}</span>
                                         </div>
                                         <hr class="my-2" style="background-color: #cccccc; margin-left: -1rem;margin-right: -1rem;">
                                         <div class="pb-2">

@@ -61,7 +61,7 @@
     <div id="multipleSelectDropdown1" class="multipleSelectDropdown p-2">
         @foreach($groups as $group)
         <label for="checkbox1{{$group->id}}" class="memberLabel">
-            <input onchange="checkboxes()" id="checkbox1{{$group->id}}" value="{{$group->id}}" class="memberCheckmarkselect1" type="checkbox" name="groups[]">{{$group->name}}
+            <input onchange="checkboxes()" id="checkbox1{{$group->id}}" value="{{$group->id}}" class="memberCheckmarkselect1" type="checkbox" name="groups[]">{{ucfirst($group->name)}}
             <span class="memberCheckmark"></span>
         </label>
       @endforeach
@@ -111,7 +111,7 @@
                                     <a href="{{route('finstatus',$prov->id)}}" style="color: black">
                                 <div class="whiteBgInsideGrey px-3 mb-3 pb-0 pt-3">
                                     <div class="pb-1">
-                                        <span class="groupsSpanStyle fs-6">{{$prov->name}}</span>
+                                        <span class="groupsSpanStyle fs-6">{{ucfirst($prov->name)}}</span>
                                     </div>
                                     <div class="pb-3">
                                         <span class="underTitleBlueText fs-6">Grundlohn + Spesen</span>
@@ -198,7 +198,7 @@
                                             <div class="px-3">
                                                 <div class="row g-0 pb-4">
                                                     <div class="col">
-                                                        <span class="modalHeaderSpan fs-5">{{$group->name}}</span>
+                                                        <span class="modalHeaderSpan fs-5">{{ucfirst($group->name)}}</span>
                                                     </div>
                                                     <div class="col-auto" style="cursor: pointer;"
                                                          onclick="document.getElementById('provisionModal1{{$group->id}}').style.display = 'none';document.getElementsByTagName('BODY')[0].style = 'overflow-y: auto'">
@@ -221,14 +221,14 @@
                                                                 @if($group->members->contains($member->id))
                                                                     <div class="col-6">
                                                                         <label for="checkbox{{$member->id}}" class="memberLabel">
-                                                                            <input id="checkbox{{$member->id}}" type="checkbox" checked value="{{$member->id}}" name="members[]">{{$member->name}}
+                                                                            <input id="checkbox{{$member->id}}" type="checkbox" checked value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
                                                                             <span class="memberCheckmark"></span>
                                                                         </label>
                                                                     </div>
                                                                 @else
                                                                     <div class="col-6"> 
                                                                         <label for="checkbox{{$member->id}}" class="memberLabel">
-                                                                            <input id="checkbox{{$member->id}}" type="checkbox" value="{{$member->id}}" name="members[]">{{$member->name}}
+                                                                            <input id="checkbox{{$member->id}}" type="checkbox" value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
                                                                             <span class="memberCheckmark"></span>
                                                                         </label>
                                                                     </div>
@@ -248,14 +248,14 @@
                                                                     @if($prov->id == $group->provision_id)
                                                                     <div class="col-6">
                                                                         <label class="memberLabel radioLabel" for="radio{{$group->provision_id}}" >
-                                                                            <input type="radio" hidden name="prov" id="radio{{$group->provision_id}}" value="{{$group->provision_id}}" checked>{{$prov->name}}
+                                                                            <input type="radio" hidden name="prov" id="radio{{$group->provision_id}}" value="{{$group->provision_id}}" checked>{{ucfirst($prov->name)}}
                                                                             <span class="memberCheckmark radioCheckmark" style="border-radius: 50px !important;"></span>
                                                                         </label>
                                                                     </div>
                                                                     @else
                                                                     <div class="col-6">
                                                                         <label class="memberLabel radioLabel" for="rradio{{$prov->id}}">
-                                                                            <input type="radio" hidden name="prov" id="rradio{{$prov->id}}" value="{{$prov->id}}">{{$prov->name}}
+                                                                            <input type="radio" hidden name="prov" id="rradio{{$prov->id}}" value="{{$prov->id}}">{{ucfirst($prov->name)}}
                                                                             <span class="memberCheckmark radioCheckmark" style="border-radius: 50px !important;"></span>
                                                                         </label>
                                                                     </div>
@@ -277,7 +277,7 @@
                                         <div class="row g-0">
                                             <div class="col">
                                                 <div>
-                                                    <span class="groupsSpanStyle fs-5">{{$group->name}}</span>
+                                                    <span class="groupsSpanStyle fs-5">{{ucfirst($group->name)}}</span>
 
                                                 </div>
                                             </div>
@@ -320,9 +320,9 @@
                                             </div>
                                             <div class="col-auto my-auto ps-3">
                                                 @if($group->provision->name == 'Keines')
-                                                <span class="monthsTextStyle redTextStyle">Verbunden: {{$group->provision->name}}</span>
+                                                <span class="monthsTextStyle redTextStyle">Verbunden: {{ucfirst($group->provision->name)}}</span>
                                                 @else
-                                                <span class="monthsTextStyle greenTextStyle">Verbunden: {{$group->provision->name}}</span>
+                                                <span class="monthsTextStyle greenTextStyle">Verbunden: {{ucfirst($group->provision->name)}}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -367,7 +367,7 @@
                                         <a href="{{route('finstatus',$prov->id)}}" style="color: black">
                                     <div class="whiteBgInsideGrey px-3 mb-3 pb-0 pt-3">
                                         <div class="pb-1">
-                                            <span class="groupsSpanStyle fs-5">{{$prov->name}}</span>
+                                            <span class="groupsSpanStyle fs-5">{{ucfirst($prov->name)}}</span>
                                         </div>
                                         <div class="pb-3">
                                             <span class="underTitleBlueText fs-6">Grundlohn + Spesen</span>
@@ -552,7 +552,7 @@
     <div id="multipleSelectDropdown1222" class="multipleSelectDropdown p-2">
     @foreach(App\Models\Provisions::get() as $prov)
         <label for="checkbox1{{$prov->id}}222" class="memberLabel">
-            <input onchange="checkboxes1222()" id="checkbox1{{$prov->id}}222" value="{{$prov->id}}" class="memberCheckmarkselect1222" type="checkbox" name="prov_id">{{$prov->name}}
+            <input onchange="checkboxes1222()" id="checkbox1{{$prov->id}}222" value="{{$prov->id}}" class="memberCheckmarkselect1222" type="checkbox" name="prov_id">{{ucfirst($prov->name)}}
             <span class="memberCheckmark"></span>
         </label>
   

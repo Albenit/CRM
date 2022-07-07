@@ -126,11 +126,11 @@
                         {
                             id: '{!! $appointmentAGG["id"] !!}',
                             resourceId: '{!! $appointmentAGG["employee_id"] !!}',
-                            title: '{!! $appointmentAGG->admin->name !!}',
+                            title: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                             start: new Date('{!! date("d/M/Y", strtotime($appointmentAGG->from)) !!}') ,
                             user_to :'{!! $appointmentAGG->admin["id"] !!}',
                             to: '{!! $appointmentAGG->to !!}',
-                            admin: '{!! $appointmentAGG->admin->name !!}',
+                            admin: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                         @if($appointmentAGG->type == 0)
                         status: 'Offen',
                             @elseif($appointmentAGG->type == 1)
@@ -220,12 +220,12 @@
                     @foreach ( $admins as $admin)
                         @if(isset($admini))
                         @if($admin->id == $admini->id)
-                        <option value="{{ $admin->id }}">{{ $admin->name }} selected</option>
+                        <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }} selected</option>
                         @else
-                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                            <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
                         @endif
                         @else
-                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                            <option value="{{ $admin->id }}">{{ ucfirst($admin->name) }}</option>
                         @endif
                             @endforeach
 
@@ -429,7 +429,7 @@
                             <tbody class="fs-6">
                             @foreach ( $absences as $appointmentAGG )
                             <tr>
-                                <td scope="row">{{$appointmentAGG->admin->name}}</td>
+                                <td scope="row">{{ucfirst($appointmentAGG->admin->name)}}</td>
                                 <td>{{$appointmentAGG->created_at->format('d/m/Y')}}</td>
                                 <td>{{$appointmentAGG->from}}</td>
                                 <td>{{$appointmentAGG->to}}</td>
@@ -571,7 +571,7 @@
                                         title: '{!! $appointmentAGG->description !!}',
                                         start: new Date('{!! date("d/M/Y", strtotime($appointmentAGG->from)) !!}') ,
                                         eventColor: 'red',
-                                        namee: '{!! $appointmentAGG->admin->name !!}',
+                                        namee: '{!! ucfirst($appointmentAGG->admin->name) !!}',
                                         fundi: '{!! $appointmentAGG["to"] !!}',
                                         @if($appointmentAGG->type == 0)
                                         status: 'Offen',

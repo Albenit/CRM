@@ -24,7 +24,7 @@
                                 <label for="" class="mb-1">Plattform:</label>
                                 <select class="form-control" name="campaign">
                                   @foreach($campaigns as $campaign)
-                                  <option value="{{$campaign->id}}">{{$campaign->name}}</option>
+                                  <option value="{{$campaign->id}}">{{ucfirst($campaign->name)}}</option>
                                   @endforeach
                                 </select>
                             </div>

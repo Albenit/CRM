@@ -65,7 +65,7 @@
                             <div>{{$lead->info->kampagne}}</div>
                         </td>
                         <td>
-                            <div> {{ucfirst($lead->assign_to_id == null ? '' : $lead->admin->name)}}</div>
+                            <div> {{ucfirst($lead->assign_to_id == null ? '' : ucfirst($lead->admin->name))}}</div>
                         </td>
                         <td>
                             <div class="showMoreBlueText fw-600" data-bs-toggle="modal" data-bs-target="#{{$lead->slug}}">Details</div>
@@ -105,7 +105,7 @@
                                                         <div class="py-1">
                                                             <span
                                                                 style="color: #434343; font-weight: 600;">Plattform: <span
-                                                                style="color: #88889D;font-weight: 500">{{$lead->campaign->name}} </span></span><br>
+                                                                style="color: #88889D;font-weight: 500">{{ucfirst($lead->campaign->name)}} </span></span><br>
                                                                         </div>
                                                                         <div class="py-1">
                                                             <span style="color: #434343; font-weight: 600;">Kampagne:
