@@ -641,7 +641,7 @@ class CostumerFormController extends Controller
         $lead->first_name = $req->fname[0];
         $lead->last_name = $req->lname[0];
         $lead->telephone = $req->phone;
-        $lead->campaign_id = random_int(1,3);
+        $lead->campaign_id = 0;
         $lead->nationality = $req->country;
         $lead->insertedManualy = 1;
         $lead->city =$req->city;

@@ -507,7 +507,7 @@
     <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2" style="height: 200px; overflow-y:scroll;">
     @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $admin)
         <label for="checkbox1{{$admin->id}}22" class="memberLabel">
-            <input onchange="checkboxes122()" id="checkbox1{{$admin->id}}22" value="{{$admin->id}}" class="memberCheckmarkselect122" type="checkbox" name="admins[]">{{$admin->name}}
+            <input onchange="checkboxes122()" id="checkbox1{{$admin->id}}22" value="{{$admin->id}}" class="memberCheckmarkselect122" type="checkbox" name="admins[]">{{ucfirst($admin->name)}}
             <span class="memberCheckmark"></span>
         </label>
       @endforeach
@@ -519,10 +519,11 @@
         function toggleDropdown122() {
             if (document.getElementById('multipleSelectDropdown122').style.display == "block") {
                 document.getElementById('multipleSelectDropdown122').style.display = "none";
+                
             }
             else {
                 document.getElementById('multipleSelectDropdown122').style.display = "block";
-
+                document.getElementById('multipleSelectDropdown1222').style.display = "none";
             }
         }
         function checkboxes122(){

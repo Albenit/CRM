@@ -125,14 +125,15 @@
 
                 resources: [
                 @foreach($users as $user)
-                    { id: '{!! $user->id !!}', title: '{!! $user->name !!}', eventColor: 'rgb(12, 113, 195)' },
+                    { id: '{!! $user->id !!}', title:'{!! ucfirst($user->personaldata->name)!!}', eventColor: 'rgb(12, 113, 195)' },
                 @endforeach
                 ],
-                events: [
 
+                events: [
+                  
               @foreach($absences as $appointmentAGG)
               @if($appointmentAGG->type == 1)
-        {      
+                    {      
                   aid: {!! $appointmentAGG->id !!},
                   resourceId: '{!! $appointmentAGG->admin->id !!}',
                   title: 'Abwesenheit {{ucfirst($appointmentAGG->admin->name)}}',
@@ -1535,7 +1536,9 @@
 		  slotLabelInterval: 30,
 		  allDaySlot : false,
          firstDay: 1,
+
     events: [
+
             @foreach($absences as $appointmentAGG)
             @if($appointmentAGG->type == 1)
         {
@@ -2274,7 +2277,12 @@ You don't have permission // {!! $admini->hasRole('admin') !!} ---  {!! $admini-
     background: #2F60DC95;
     border-radius: 10px;
     }
-
+    .fc-scrollgrid-sync-inner {
+        margin: auto !important;
+    }
+    .fc .fc-col-header-cell-cushion {
+        word-break: break-word;
+    }
     .fc .fc-scroller::-webkit-scrollbar-thumb:hover {
     background: #2F60DC;
     }

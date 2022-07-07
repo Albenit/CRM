@@ -2889,7 +2889,7 @@
                                                                 </span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="fw-500 hrBlackTextStyle">{{$personalData->name}} {{$personalData->prename}}</span>
+                                                                        <span class="fw-500 hrBlackTextStyle">{{ucfirst($personalData->name)}} {{ucfisrt($personalData->prename)}}</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="pb-4">
