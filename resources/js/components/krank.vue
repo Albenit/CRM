@@ -21,19 +21,14 @@
         </div>
         <div id="openKrankenDropdown">
             <div class="row g-0">
-                <!-- <div class="col-auto pt-3 pe-1" v-for="fam in family" :value="fam.id"> -->
-                    <span v-for="fam in family" :value="fam.id">
-                        <input v-if="fam.krank_id == 0" type="checkbox" :id="'fam' + fam.id" :name="'fam' + fam.id"  :value="fam.id" v-model="val" @click="linkthat(fam.id)"> 
-                        <input v-else type="checkbox" :id="'fam' + fam.id" :name="'fam' + fam.id"  :value="fam.id" v-model="val" @click="linkthat(fam.id)" checked>
-                        <span class="checkbox-label">{{fam.first_name}} {{fam.last_name}}</span> <br>
 
-                    </span>
-                    <!-- <fieldset>
-                        <label :for="'fam' + fam.id" class="container1">{{fam.first_name}} {{fam.last_name}}</label>
-                        <input v-if="fam.krank_id == 0" type="checkbox" :id="'fam' + fam.id" :name="'fam' + fam.id"  :value="fam.id" v-model="val" @click="linkthat(fam.id)" >
-                        <input v-else type="checkbox" :id="'fam' + fam.id" :name="'fam' + fam.id"  :value="fam.id" v-model="val" @click="linkthat(fam.id)" checked>
-                    </fieldset> -->
-                <!-- </div> -->
+                <div class="col-auto pt-3 pe-3" v-for="fam in family" :value="fam.id">
+                    <label class="container1">{{fam.first_name}} {{fam.last_name}}
+                        <input type="radio" name="radio" :value="fam.id" v-model="val" @click="linkthat(fam.id)">
+                        <span class="checkmark1"></span>
+                    </label>
+                </div>
+
                 <!-- <div class="">
                     <div class="">
                         <button @click="linkthat(); openKrankenDropdown()" onclick="saveContentFunct11()" type="button"
@@ -70,6 +65,7 @@ export default {
         },
         linkthat:async function(x){
             await axios.get(this.url + 'linkthat/' + x + '/' + this.fam_id);
+            await this.getfamily()
         },
         onChangeSelect(event) {
             this.val = parseInt(event.target.value)
