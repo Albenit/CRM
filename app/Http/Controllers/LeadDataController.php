@@ -853,6 +853,12 @@ class LeadDataController extends Controller
                 $gegen->vergleichsart_select = $request->input('vergleichsart_select' . $curr);
                 $gegen->save();
                 $request->hasFile('offer' . $curr) ? $offer++ : $offer += 0;
+                $admin = CostumerProduktAutoversicherung::select('admin_id')->where('person_id_PA',$personId)->first();
+                CostumerProduktAutoversicherung::create([
+                    'person_id_PA' => $personId,
+                    'status_PA' => 'Offen (Innendienst)',
+                    'admin_id' => $admin->admin_id
+                ]);
             }
         }
 
@@ -901,34 +907,34 @@ class LeadDataController extends Controller
                 $gegen[$i]->save();
             }
             else{
-                $i++;
+                $i2 = $i+1;
                 $gegenn = new newnue();
-                $file = $request->file('vehicle_id'. $i);
-                $gegenn->nuekommentar = $request->input('nuekommentar' . $i);
-                $gegenn->first_intro = $request->input('first_intro' . $i);
-                $gegenn->vehicle_id = $request->file('vehicle_id'.$i);
-                $gegenn->leasing = $request->input('leasing' . $i);
-                $gegenn->leasing_name = $request->input('leasing_name' . $i);
-                $gegenn->year_of_purchase = $request->input('year_of_purchase' . $i);
-                $gegenn->placing_on_the_market = $request->input('placing_on_the_market' . $i);
-                $gegenn->nationality = $request->input('nationality' . $i);
-                $gegenn->insurance_date = $request->input('insurance_date' . $i);
-                $gegenn->most_common = $request->input('most_common' . $i);
-                $gegenn->redeemed = $request->input('redeemed' . $i);
-                $gegenn->km_stood = $request->input('km_stood' . $i) ;
-                $gegenn->insurance = $request->input('insurance' . $i);
-                $gegenn->traffic_legal_protection = $request->input('traffic_legal_protection' . $i);
-                $gegenn->deductible = $request->input('deductible' . $i);
-                $gegenn->grossly = $request->input('grossly' . $i);
-                $gegenn->glass_protection = $request->input('glass_protection' . $i);
-                $gegenn->carried = $request->input('carried' . $i);
-                $gegenn->parking_damage = $request->input('parking_damage' . $i);
-                $gegenn->repair_shop = $request->input('repair_shop' . $i);
-                $gegenn->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i);
-                $gegenn->accident_coverage = $request->input('accident_coverage' . $i);
+                $file = $request->file('vehicle_id'. $i2);
+                $gegenn->nuekommentar = $request->input('nuekommentar' . $i2);
+                $gegenn->first_intro = $request->input('first_intro' . $i2);
+                $gegenn->vehicle_id = $request->file('vehicle_id'.$i2);
+                $gegenn->leasing = $request->input('leasing' . $i2);
+                $gegenn->leasing_name = $request->input('leasing_name' . $i2);
+                $gegenn->year_of_purchase = $request->input('year_of_purchase' . $i2);
+                $gegenn->placing_on_the_market = $request->input('placing_on_the_market' . $i2);
+                $gegenn->nationality = $request->input('nationality' . $i2);
+                $gegenn->insurance_date = $request->input('insurance_date' . $i2);
+                $gegenn->most_common = $request->input('most_common' . $i2);
+                $gegenn->redeemed = $request->input('redeemed' . $i2);
+                $gegenn->km_stood = $request->input('km_stood' . $i2) ;
+                $gegenn->insurance = $request->input('insurance' . $i2);
+                $gegenn->traffic_legal_protection = $request->input('traffic_legal_protection' . $i2);
+                $gegenn->deductible = $request->input('deductible' . $i2);
+                $gegenn->grossly = $request->input('grossly' . $i2);
+                $gegenn->glass_protection = $request->input('glass_protection' . $i2);
+                $gegenn->carried = $request->input('carried' . $i2);
+                $gegenn->parking_damage = $request->input('parking_damage' . $i2);
+                $gegenn->repair_shop = $request->input('repair_shop' . $i2);
+                $gegenn->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i2);
+                $gegenn->accident_coverage = $request->input('accident_coverage' . $i2);
                 $gegenn->person_id = $personId;
                 $gegenn->save();
-     
+
             }
 
         }

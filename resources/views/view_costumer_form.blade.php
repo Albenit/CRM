@@ -855,9 +855,12 @@
                                                         <span class="documentFormGreyBGTitle">Autoversicherung</span>
                                                     </div>
                                                     @php
-                                                        $count = 1;
+                                                        $cnthr = 0;
                                                     @endphp
                                                     @foreach($autoversicherungPP as $autoversicherungP)
+                                                    @if ($cnthr > 0)
+                                                        <hr>
+                                                    @endif
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
@@ -915,6 +918,9 @@
                                                         </div>
                                                     </div>
                                                     @endif --}}
+                                                    @php
+                                                        $cnthr++;
+                                                    @endphp
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -1554,9 +1560,12 @@
                                                         <span class="documentFormGreyBGTitle">Autoversicherung</span>
                                                     </div>
                                                     @php
-                                                        $count = 1;
+                                                        $counti = 0;
                                                     @endphp
                                                     @foreach($autoversicherungPP as $autoversicherungP)
+                                                    @if ($counti > 0)
+                                                        <hr>
+                                                    @endif
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
@@ -1634,6 +1643,10 @@
                                                             </div>
                                                         </div>
                                                     @endif --}}
+                                                    
+                                                    @php
+                                                        $counti++;
+                                                    @endphp
                                                     @endforeach
                                                 </div>
                                             </div>
