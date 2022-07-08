@@ -20,7 +20,7 @@
             </div>
         </div>
         <div id="openKrankenDropdown">
-            <div class="row g-0">
+            <div class="row g-0 justify-content-center">
 
                  <div class="col-auto pt-3 pe-3" v-for="fam in family">
                     <label class="container1" :for="fam.id">{{fam.first_name}} {{fam.last_name}}

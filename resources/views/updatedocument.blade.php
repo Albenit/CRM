@@ -1469,8 +1469,8 @@ $urole = $urole->toArray();
                                     </div>
                                 </div>
                                 <div class="pt-4">
-                                    <div class="row g-0 justify-content-center">
-                                        <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="row g-0 justify-content-center d-flex text-center">
+                                        <div class="col-12 col-md-12 col-lg-12">
                                             <krank fam_id="{{$lead->id}}" url="{{config('app.url')}}"
                                                    lead_id="{{$lead->lead->id}}"></krank>
                                         </div>
@@ -14001,7 +14001,7 @@ $urole = $user->getRoleNames()->toArray();
         height: 25px;
         width: 25px;
         background: #fff;
-        border-radius: 50%;
+        border-radius: 0%;
         border: 2px solid #2F60DC;
     }
 
@@ -14024,11 +14024,11 @@ $urole = $user->getRoleNames()->toArray();
     }
 
     .container1 .checkmark1:after {
-        top: 1.6px;
-        left: 1.6px;
+        top: 2px;
+        left: 2px;
         width: 17.5px;
         height: 17.5px;
-        border-radius: 50%;
+        border-radius: 0%;
         background: #2F60DC;
     }
 
