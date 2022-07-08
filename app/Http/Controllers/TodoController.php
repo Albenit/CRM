@@ -69,11 +69,11 @@ class TodoController extends Controller
         else{
             $data['costumers'] = Admins::find((int) $req->admin_id)->kunden()->paginate(60);
         }
-        $data['admins'] = Admins::role(['fs'])->get();
+        $data['admins'] = Admins::role(['fs'])->get()->each(function($item) { $item->name = ucfirst($item->name);});
+
         $data['costumers'] = $data['costumers']->items();
         return $data;
             }
-
     }
     public function deletetodo(Request $req){
         if(Auth::guard('admins')->check()){

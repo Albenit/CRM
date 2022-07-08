@@ -35572,42 +35572,42 @@ var render = function () {
         "div",
         { staticClass: "row g-0" },
         _vm._l(_vm.family, function (fam) {
-          return _c(
-            "div",
-            { staticClass: "col-auto pt-3 pe-3", attrs: { value: fam.id } },
-            [
-              _c("label", { staticClass: "container1" }, [
-                _vm._v(
-                  _vm._s(fam.first_name) +
-                    " " +
-                    _vm._s(fam.last_name) +
-                    "\n                    "
-                ),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.val,
-                      expression: "val",
+          return _c("div", { staticClass: "col-auto pt-3 pe-3" }, [
+            _c("label", { staticClass: "container1", attrs: { for: fam.id } }, [
+              _vm._v(
+                _vm._s(fam.first_name) +
+                  " " +
+                  _vm._s(fam.last_name) +
+                  "\n                    "
+              ),
+              fam.krank_id == 0
+                ? _c("input", {
+                    attrs: { type: "checkbox", name: "radio", id: fam.id },
+                    domProps: { value: fam.id },
+                    on: {
+                      click: function ($event) {
+                        return _vm.linkthat(fam.id)
+                      },
                     },
-                  ],
-                  attrs: { type: "radio", name: "radio" },
-                  domProps: { value: fam.id, checked: _vm._q(_vm.val, fam.id) },
-                  on: {
-                    click: function ($event) {
-                      return _vm.linkthat(fam.id)
+                  })
+                : _c("input", {
+                    attrs: {
+                      type: "checkbox",
+                      name: "radio",
+                      id: fam.id,
+                      checked: "",
                     },
-                    change: function ($event) {
-                      _vm.val = fam.id
+                    domProps: { value: fam.id },
+                    on: {
+                      click: function ($event) {
+                        return _vm.linkthat(fam.id)
+                      },
                     },
-                  },
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "checkmark1" }),
-              ]),
-            ]
-          )
+                  }),
+              _vm._v(" "),
+              _c("span", { staticClass: "checkmark1" }),
+            ]),
+          ])
         }),
         0
       ),
