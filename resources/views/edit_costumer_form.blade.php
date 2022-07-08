@@ -1537,9 +1537,13 @@ if it's not present, don't show loader */
                                                     $count = 1;
                                                 @endphp
                                                 @foreach($autoversicherungPP as $autoversicherungP)
+                                                
                                                 <div id="flush-collapse0044" class="accordion-collapse collapse"
                                                      aria-labelledby="flush-heading0044"
                                                      data-bs-parent="#accordionFlushExample0044">
+                                                     @if ($count > 1)
+                                                    <hr>
+                                                @endif
                                                     <div class="accordion-body"
                                                          style="background-color: #f7f9fd !important; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                                                         <div class="mb-3">
