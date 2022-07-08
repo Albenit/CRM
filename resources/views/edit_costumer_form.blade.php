@@ -888,10 +888,14 @@ if it's not present, don't show loader */
                                                     <div class="pb-3">
                                                         <span class="documentFormGreyBGTitle">Autoversicherung</span>
                                                     </div>
+
                                                     @php
-                                                        $count = 1;
+                                                        $cnthr = 0;
                                                     @endphp
                                                     @foreach($autoversicherungPP as $autoversicherungP)
+                                                    @if ($cnthr > 0)
+                                                        <hr>
+                                                    @endif
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
@@ -923,7 +927,7 @@ if it's not present, don't show loader */
                                                                     @endif
                                                                     @if($autoversicherungP->stoiner_PA == 'Storniert')
                                                                         <span class="documentFormRightSpan" style="color: green !important;">{{$autoversicherungP->stoiner_PA}}</span>
-                                                                    @endif`
+                                                                    @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -949,6 +953,10 @@ if it's not present, don't show loader */
                                                         </div>
                                                     </div>
                                                     @endif
+                                                    
+                                                    @php
+                                                        $cnthr++;
+                                                    @endphp
                                                     @endforeach
                                                 </div>
                                             </div>
