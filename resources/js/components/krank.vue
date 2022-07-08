@@ -22,13 +22,13 @@
         <div id="openKrankenDropdown">
             <div class="row g-0">
 
-                <div class="col-auto pt-3 pe-3" v-for="fam in family" :value="fam.id">
-                    <label class="container1">{{fam.first_name}} {{fam.last_name}}
-                        <input type="radio" name="radio" :value="fam.id" v-model="val" @click="linkthat(fam.id)">
+                 <div class="col-auto pt-3 pe-3" v-for="fam in family">
+                    <label class="container1" :for="fam.id">{{fam.first_name}} {{fam.last_name}}
+                        <input type="checkbox" name="radio" :value="fam.id" :id="fam.id" @click="linkthat(fam.id)" v-if="fam.krank_id == 0">
+                        <input type="checkbox" name="radio" :value="fam.id" :id="fam.id" @click="linkthat(fam.id)" checked v-else>
                         <span class="checkmark1"></span>
                     </label>
                 </div>
-
                 <!-- <div class="">
                     <div class="">
                         <button @click="linkthat(); openKrankenDropdown()" onclick="saveContentFunct11()" type="button"
