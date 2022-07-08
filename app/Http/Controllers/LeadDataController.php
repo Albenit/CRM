@@ -869,62 +869,70 @@ class LeadDataController extends Controller
             }
         }
 
+        
         $cc = 0;
         $gegen = newnue::where('person_id',$personId)->get();
-        for($i = 1; $i <= $count; $i++){
-            if(!empty($gegen[$i-1])){
+      
+        for($i = 0; $i < $count; $i++){
+            if(!empty($gegen[$i])){
                 $file = $request->file('vehicle_id'. $i);
-                $gegen[$i-1]->nationality = $request->input('nationality' . $i) ? $request->input('nationality' . $i) : $gegen[$i-1]->nationality;
-                $gegen[$i-1]->nuekommentar = $request->input('nuekommentar' . $i) ? $request->input('nuekommentar' . $i) : $gegen[$i-1]->nuekommentar;
-                $gegen[$i-1]->vehicle_id = $request->hasFile('vehicle_id'. $i) ? $this->storeFile($file,FolderPaths::KK_FILES) : $gegen[$i-1]->vehicle_id;
-                $gegen[$i-1]->leasing = $request->input('leasing' . $i) ? $request->input('leasing' . $i) : $gegen[$i-1]->leasing;
-                $gegen[$i-1]->leasing_name = $request->input('leasing_name' . $i) ? $request->input('leasing_name' . $i) : $gegen[$i-1]->leasing_name;
-                $gegen[$i-1]->year_of_purchase = $request->input('year_of_purchase' . $i) ? $request->input('year_of_purchase' . $i) : $gegen[$i-1]->year_of_purchase;
-                $gegen[$i-1]->placing_on_the_market = $request->input('placing_on_the_market' . $i) ? $request->input('placing_on_the_market' . $i) : $gegen[$i-1]->placing_on_the_market;
-                $gegen[$i-1]->nationality = $request->input('nationality' . $i) ? $request->input('nationality' . $i) : $gegen[$i-1]->nationality;
-                $gegen[$i-1]->insurance_date = $request->input('insurance_date' . $i) ? $request->input('insurance_date' . $i) : $gegen[$i-1]->insurance_date;
-                $gegen[$i-1]->most_common = $request->input('most_common' . $i) ? $request->input('most_common' . $i) : $gegen[$i-1]->most_common;
-                $gegen[$i-1]->redeemed = $request->input('redeemed' . $i) ? $request->input('redeemed' . $i) : $gegen[$i-1]->redeemed;
-                $gegen[$i-1]->km_stood = $request->input('km_stood' . $i) ? $request->input('km_stood' . $i) : $gegen[$i-1]->km_stood;
-                $gegen[$i-1]->insurance = $request->input('insurance' . $i) ? $request->input('insurance' . $i) : $gegen[$i-1]->insurance;
-                $gegen[$i-1]->traffic_legal_protection = $request->input('traffic_legal_protection' . $i) ? $request->input('traffic_legal_protection' . $i) : $gegen[$i-1]->traffic_legal_protection;
-                $gegen[$i-1]->deductible = $request->input('deductible' . $i) ? $request->input('deductible' . $i) : $gegen[$i-1]->deductible;
-                $gegen[$i-1]->glass_protection = $request->input('glass_protection' . $i) ? $request->input('glass_protection' . $i) : $gegen[$i-1]->glass_protection;
-                $gegen[$i-1]->carried = $request->input('carried' . $i) ? $request->input('carried' . $i) : $gegen[$i-1]->carried;
-                $gegen[$i-1]->parking_damage = $request->input('parking_damage' . $i) ? $request->input('parking_damage' . $i) : $gegen[$i-1]->parking_damage;
-                $gegen[$i-1]->repair_shop = $request->input('repair_shop' . $i) ? $request->input('repair_shop' . $i) : $gegen[$i-1]->repair_shop;
-                $gegen[$i-1]->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i) ? $request->input('hour_breakdown_assistance' . $i) : $gegen[$i-1]->hour_breakdown_assistance;
-                $gegen[$i-1]->accident_coverage = $request->input('accident_coverage' . $i) ? $request->input('accident_coverage' . $i) : $gegen[$i-1]->accident_coverage;
-                $gegen[$i-1]->save();
+                $gegen[$i]->nationality = $request->input('nationality' . $i) ? $request->input('nationality' . $i) : $gegen[$i]->nationality;
+                $gegen[$i]->nuekommentar = $request->input('nuekommentar' . $i) ? $request->input('nuekommentar' . $i) : $gegen[$i]->nuekommentar;
+                $gegen[$i]->vehicle_id = $request->hasFile('vehicle_id'. $i) ? $this->storeFile($file,FolderPaths::KK_FILES) : $gegen[$i]->vehicle_id;
+                $gegen[$i]->leasing = $request->input('leasing' . $i) ? $request->input('leasing' . $i) : $gegen[$i]->leasing;
+                $gegen[$i]->leasing_name = $request->input('leasing_name' . $i) ? $request->input('leasing_name' . $i) : $gegen[$i]->leasing_name;
+                $gegen[$i]->year_of_purchase = $request->input('year_of_purchase' . $i) ? $request->input('year_of_purchase' . $i) : $gegen[$i]->year_of_purchase;
+                $gegen[$i]->placing_on_the_market = $request->input('placing_on_the_market' . $i) ? $request->input('placing_on_the_market' . $i) : $gegen[$i]->placing_on_the_market;
+                $gegen[$i]->nationality = $request->input('nationality' . $i) ? $request->input('nationality' . $i) : $gegen[$i]->nationality;
+                $gegen[$i]->insurance_date = $request->input('insurance_date' . $i) ? $request->input('insurance_date' . $i) : $gegen[$i]->insurance_date;
+                $gegen[$i]->most_common = $request->input('most_common' . $i) ? $request->input('most_common' . $i) : $gegen[$i]->most_common;
+                $gegen[$i]->redeemed = $request->input('redeemed' . $i) ? $request->input('redeemed' . $i) : $gegen[$i]->redeemed;
+                $gegen[$i]->km_stood = $request->input('km_stood' . $i) ? $request->input('km_stood' . $i) : $gegen[$i]->km_stood;
+                $gegen[$i]->insurance = $request->input('insurance' . $i) ? $request->input('insurance' . $i) : $gegen[$i]->insurance;
+                $gegen[$i]->traffic_legal_protection = $request->input('traffic_legal_protection' . $i) ? $request->input('traffic_legal_protection' . $i) : $gegen[$i]->traffic_legal_protection;
+                $gegen[$i]->deductible = $request->input('deductible' . $i) ? $request->input('deductible' . $i) : $gegen[$i]->deductible;
+                $gegen[$i]->grossly = $request->input('grossly' . $i) ? $request->input('grossly' . $i) : $gegen[$i]->grossly;
+                $gegen[$i]->glass_protection = $request->input('glass_protection' . $i) ? $request->input('glass_protection' . $i) : $gegen[$i]->glass_protection;
+                $gegen[$i]->carried = $request->input('carried' . $i) ? $request->input('carried' . $i) : $gegen[$i]->carried;
+                $gegen[$i]->parking_damage = $request->input('parking_damage' . $i) ? $request->input('parking_damage' . $i) : $gegen[$i]->parking_damage;
+                $gegen[$i]->repair_shop = $request->input('repair_shop' . $i) ? $request->input('repair_shop' . $i) : $gegen[$i]->repair_shop;
+                $gegen[$i]->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i) ? $request->input('hour_breakdown_assistance' . $i) : $gegen[$i]->hour_breakdown_assistance;
+                $gegen[$i]->accident_coverage = $request->input('accident_coverage' . $i) ? $request->input('accident_coverage' . $i) : $gegen[$i]->accident_coverage;
+                $gegen[$i]->save();
             }
             else{
-                $gegen = new newnue();
+                $i++;
+                $gegenn = new newnue();
                 $file = $request->file('vehicle_id'. $i);
-                $gegen->nuekommentar = $request->input('nuekommentar' . $i) ? $request->input('nuekommentar' . $i) : $gegen->nuekommentar;
-                $gegen->first_intro = $request->input('first_intro' . $i) ? $request->input('first_intro' . $i) : $gegen->first_intro;
-                $gegen->vehicle_id = $request->hasFile('vehicle_id'. $i) ? $this->storeFile($file,FolderPaths::KK_FILES) : null;
-                $gegen->leasing = $request->input('leasing' . $i) ? $request->input('leasing' . $i) : $gegen->leasing;
-                $gegen->leasing_name = $request->input('leasing_name' . $i) ? $request->input('leasing_name' . $i) : null;
-                $gegen->year_of_purchase = $request->input('year_of_purchase' . $i) ? $request->input('year_of_purchase' . $i) : null;
-                $gegen->placing_on_the_market = $request->input('placing_on_the_market' . $i) ? $request->input('placing_on_the_market' . $i) : null;
-                $gegen->nationality = $request->input('nationality' . $i) ? $request->input('nationality' . $i) : null;
-                $gegen->insurance_date = $request->input('insurance_date' . $i) ? $request->input('insurance_date' . $i) : null;
-                $gegen->most_common = $request->input('most_common' . $i) ? $request->input('most_common' . $i) : null;
-                $gegen->redeemed = $request->input('redeemed' . $i) ? $request->input('redeemed' . $i) : null;
-                $gegen->km_stood = $request->input('km_stood' . $i) ? $request->input('km_stood' . $i) : null;
-                $gegen->insurance = $request->input('insurance' . $i) ? $request->input('insurance' . $i) : null;
-                $gegen->traffic_legal_protection = $request->input('traffic_legal_protection' . $i) ? $request->input('traffic_legal_protection' . $i) : null;
-                $gegen->deductible = $request->input('deductible' . $i) ? $request->input('deductible' . $i) : null;
-                $gegen->glass_protection = $request->input('glass_protection' . $i) ? $request->input('glass_protection' . $i) : null;
-                $gegen->carried = $request->input('carried' . $i) ? $request->input('carried' . $i) : null;
-                $gegen->parking_damage = $request->input('parking_damage' . $i) ? $request->input('parking_damage' . $i) : null;
-                $gegen->repair_shop = $request->input('repair_shop' . $i) ? $request->input('repair_shop' . $i) : null;
-                $gegen->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i) ? $request->input('hour_breakdown_assistance' . $i) : null;
-                $gegen->accident_coverage = $request->input('accident_coverage' . $i) ? $request->input('accident_coverage' . $i) : null;
-                $gegen->person_id = $personId;
-                $gegen->save();
+                $gegenn->nuekommentar = $request->input('nuekommentar' . $i);
+                $gegenn->first_intro = $request->input('first_intro' . $i);
+                $gegenn->vehicle_id = $request->file('vehicle_id'.$i);
+                $gegenn->leasing = $request->input('leasing' . $i);
+                $gegenn->leasing_name = $request->input('leasing_name' . $i);
+                $gegenn->year_of_purchase = $request->input('year_of_purchase' . $i);
+                $gegenn->placing_on_the_market = $request->input('placing_on_the_market' . $i);
+                $gegenn->nationality = $request->input('nationality' . $i);
+                $gegenn->insurance_date = $request->input('insurance_date' . $i);
+                $gegenn->most_common = $request->input('most_common' . $i);
+                $gegenn->redeemed = $request->input('redeemed' . $i);
+                $gegenn->km_stood = $request->input('km_stood' . $i) ;
+                $gegenn->insurance = $request->input('insurance' . $i);
+                $gegenn->traffic_legal_protection = $request->input('traffic_legal_protection' . $i);
+                $gegenn->deductible = $request->input('deductible' . $i);
+                $gegenn->grossly = $request->input('grossly' . $i);
+                $gegenn->glass_protection = $request->input('glass_protection' . $i);
+                $gegenn->carried = $request->input('carried' . $i);
+                $gegenn->parking_damage = $request->input('parking_damage' . $i);
+                $gegenn->repair_shop = $request->input('repair_shop' . $i);
+                $gegenn->hour_breakdown_assistance = $request->input('hour_breakdown_assistance' . $i);
+                $gegenn->accident_coverage = $request->input('accident_coverage' . $i);
+                $gegenn->person_id = $personId;
+                $gegenn->save();
+     
             }
+
         }
+     
 
 
         $existingLeadDataCounterOffered = LeadDataCounteroffered::where('person_id', $personId)->latest()->first();

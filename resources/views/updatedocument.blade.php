@@ -1119,12 +1119,10 @@ $urole = $urole->toArray();
                                                     <div class="pt-4 pb-0 px-4">
                                                         <div id="beforeUploadTextK">
                                                             <div class="">
-<svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
-<path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
-</svg>
-
-
+                                                                <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                </svg>
                                                             </div>
                                                             <div>
                                                                 <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>
@@ -3318,10 +3316,12 @@ $urole = $urole->toArray();
                                                                                 @endif
                                                                             @else
                                                                                 <input type="radio"
+                                                                                    value="" name="leasing"checked hidden>
+                                                                                <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        value="Ja" name="leasing"
                                                                                        id="btnradio1"
-                                                                                       autocomplete="off" checked>
+                                                                                       autocomplete="off">
                                                                                 <label
                                                                                     class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                     value="Ja" for="btnradio1" id="yesBtnLeasing"
@@ -4805,7 +4805,7 @@ $urole = $urole->toArray();
                                                                     <div class="row g-0" role="group"
                                                                          aria-label="Basic radio toggle button group">
                                                                         @if(isset($data->fahrzeug->repair_shop))
-                                                                            @if($data->fahrzeug->repair_shop == 'Specif garage')
+                                                                            @if($data->fahrzeug->repair_shop == 'Specific garage')
                                                                                 <div class="col me-1">
                                                                                     <input type="radio"
                                                                                            class="btn-check showpdf"
@@ -4839,17 +4839,20 @@ $urole = $urole->toArray();
                                                                                     <input type="radio" class="btn-check "
                                                                                            name="repair_shop" value="Freie Wahl"
                                                                                            id="btnradio2_" checked>
-                                                                                    <label style="background: rgb(239, 124, 109)" onclick="noBtnGarageClicked()" id="noBtnGarage"
+                                                                                    <label style="background: rgb(96, 203, 157)" onclick="noBtnGarageClicked()" id="noBtnGarage"
                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0 "
                                                                                            for="btnradio2_">Freie Wahl</label>
                                                                                 </div>
                                                                             @endif
                                                                         @else
+                                                                            <input type="radio"
+                                                                                       name="repair_shop"
+                                                                                       value="" checked hidden>
                                                                             <div class="col me-1">
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf "
                                                                                        name="repair_shop" id="btnradio1_"
-                                                                                       value="Specific garage" checked>
+                                                                                       value="Specific garage">
                                                                                 <label onclick="yesBtnGarageClicked()"
                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0" id="yesBtnGarage"
                                                                                        for="btnradio1_">Specific
@@ -4919,10 +4922,13 @@ $urole = $urole->toArray();
                                                                             @endif
                                                                         @else
                                                                             <input type="radio"
+                                                                                       name="accident_coverage"
+                                                                                       value="" checked hidden>
+                                                                            <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="accident_coverage" value="Ja"
                                                                                    id="btnradio3abcdef"
-                                                                                   autocomplete="off" checked>
+                                                                                   autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnUnfalldeckung" onclick="yesBtnUnfalldeckungClicked()"
                                                                                    for="btnradio3abcdef">Ja</label>
 
@@ -4990,11 +4996,14 @@ $urole = $urole->toArray();
                                                                                        for="btnradio4a">Nein</label>
                                                                             @endif
                                                                         @else
+                                                                        <input type="radio"
+                                                                                       name="traffic_legal_protection"
+                                                                                       value="" checked hidden>
                                                                             <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="traffic_legal_protection"
                                                                                    value="Ja" id="btnradio3a"
-                                                                                   autocomplete="off" checked>
+                                                                                   autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnVerkehrsrechtsschutz" onclick="yesBtnVerkehrsrechtsschutzClicked()"
                                                                                    for="btnradio3a">Ja</label>
 
@@ -5056,10 +5065,13 @@ $urole = $urole->toArray();
                                                                                        for="btnradio4ab">Nein</label>
                                                                             @endif
                                                                         @else
+                                                                        <input type="radio"
+                                                                                       name="grossly"
+                                                                                       value="" checked hidden>
                                                                             <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="grossly" value="Ja"
-                                                                                   id="btnradio3ab" autocomplete="off" checked>
+                                                                                   id="btnradio3ab" autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnGrobfahrlässigkeitschutz" onclick="yesBtnGrobfahrlässigkeitschutzClicked()"
                                                                                    for="btnradio3ab">Ja</label>
 
@@ -5121,9 +5133,12 @@ $urole = $urole->toArray();
                                                                             @endif
                                                                         @else
                                                                             <input type="radio"
+                                                                                       name="glass_protection"
+                                                                                       value="" checked hidden>
+                                                                            <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="glass_protection" value="Ja"
-                                                                                   id="btnradio3abc" autocomplete="off" checked>
+                                                                                   id="btnradio3abc" autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnGlasschutz" onclick ="yesBtnGlasschutzClicked()"
                                                                                    for="btnradio3abc">Ja</label>
 
@@ -5189,11 +5204,14 @@ $urole = $urole->toArray();
                                                                                        for="btnradio4abcd">Nein</label>
                                                                             @endif
                                                                         @else
+                                                                        <input type="radio"
+                                                                                       name="parking_damage"
+                                                                                       value="" checked hidden>
                                                                             <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="parking_damage" value="Ja"
                                                                                    id="btnradio3abcd"
-                                                                                   autocomplete="off" checked>
+                                                                                   autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnParkschaden" onclick="yesBtnParkschadenClicked()"
                                                                                    for="btnradio3abcd">Ja</label>
 
@@ -5258,11 +5276,14 @@ $urole = $urole->toArray();
                                                                                        for="btnradio4abcde">Nein</label>
                                                                             @endif
                                                                         @else
+                                                                        <input type="radio"
+                                                                                       name="hour_breakdown_assistance"
+                                                                                       value="" checked hidden>
                                                                             <input type="radio"
                                                                                    class="btn-check showpdf"
                                                                                    name="hour_breakdown_assistance"
                                                                                    value="Ja" id="btnradio3abcde"
-                                                                                   autocomplete="off" checked>
+                                                                                   autocomplete="off">
                                                                             <label class="documentFormBtn inFormYesNoBtn me-1" id="yesBtnPannenhilfe" onclick="yesBtnPannenhilfeClicked()"
                                                                                    for="btnradio3abcde">Ja</label>
 
@@ -5306,7 +5327,7 @@ $urole = $urole->toArray();
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @php $ncnt = 1; @endphp
+                                                @php $ncnt = 0; @endphp
                                                 @foreach(\App\Models\newnue::where('person_id',$id)->get() as $nue)
                                                     <div class="" id="n{{$ncnt}}">
                                                         <div class="row">
@@ -5409,7 +5430,7 @@ $urole = $urole->toArray();
                                                                                                id="btnradio1{{$ncnt}}n"
                                                                                                autocomplete="off" checked>
                                                                                         <label style="background: rgb(96, 203, 157)"
-                                                                                               class="documentFormBtn inFormYesNoBtn w-100 g-0"
+                                                                                               class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                                value="Ja" for="btnradio1{{$ncnt}}n"
                                                                                                id="btnradio1{{$ncnt}}nn"
                                                                                                onclick="yesBtnLeasingClickedf({{$ncnt}})">Ja</label>
@@ -5433,7 +5454,7 @@ $urole = $urole->toArray();
                                                                                         <label
                                                                                             onclick="yesBtnLeasingClickedf({{$ncnt}})"
                                                                                             id="btnradio1{{$ncnt}}nn"
-                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0"
+                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                             value="Ja" for="btnradio1{{$ncnt}}n"
                                                                                         >Ja</label>
                                                                                         <input type="radio" class="btn-check"
@@ -5454,7 +5475,7 @@ $urole = $urole->toArray();
                                                                                     <label
                                                                                         onclick="yesBtnLeasingClickedf({{$ncnt}})"
                                                                                         id="btnradio1{{$ncnt}}nn"
-                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0"
+                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                         value="Ja" for="btnradio1{{$ncnt}}n"
                                                                                     >Ja</label>
                                                                                     <input type="radio" class="btn-check"
@@ -6938,18 +6959,17 @@ $urole = $urole->toArray();
                                                                         <div class="btn-group w-100" role="group"
                                                                              aria-label="Basic radio toggle button group">
                                                                             @if(isset($nue->repair_shop))
-                                                                                @if($nue->repair_shop == 'Specif garage')
+                                                                                @if($nue->repair_shop == 'Specific garage')
                                                                                     <input type="radio"
                                                                                            class="btn-check showpdf "
                                                                                            name="repair_shop{{$ncnt}}" id="btnradio1__{{$ncnt}}"
                                                                                            value="Specific garage" checked>
                                                                                     <label onclick="yesBtnGarageClickedf({{$ncnt}})" id="btnradio1__{{$ncnt}}nn" style="background: rgb(96, 203, 157)"
-                                                                                           class="documentFormBtn inFormYesNoBtn me-1 w-100 g-0"
-                                                                                           for="btnradio1__{{$ncnt}}">Specific
-                                                                                        garage</label>
+                                                                                           class="documentFormBtn inFormYesNoBtn me-1 w-100 g-0 "
+                                                                                           for="btnradio1__{{$ncnt}}">Specific garage</label>
                                                                                     <input type="radio" class="btn-check "
                                                                                            name="repair_shop{{$ncnt}}" value="Freie Wahl"
-                                                                                           id="btnradio2__{{$ncnt}}">>
+                                                                                           id="btnradio2__{{$ncnt}}">
                                                                                     <label onclick="noBtnGarageClickedf({{$ncnt}})" id="btnradio2__{{$ncnt}}nn"
                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0 "
                                                                                            for="btnradio2__{{$ncnt}}">Freie Wahl</label>
@@ -6959,29 +6979,32 @@ $urole = $urole->toArray();
                                                                                            name="repair_shop{{$ncnt}}" id="btnradio1__{{$ncnt}}"
                                                                                            value="Specific garage">
                                                                                     <label onclick="yesBtnGarageClickedf({{$ncnt}})" id="btnradio1__{{$ncnt}}nn"
-                                                                                           class="documentFormBtn inFormYesNoBtn w-100 g-0"
+                                                                                           class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                            for="btnradio1__{{$ncnt}}">Specific
                                                                                         garage</label>
                                                                                     <input type="radio" class="btn-check "
                                                                                            name="repair_shop{{$ncnt}}" value="Freie Wahl"
                                                                                            id="btnradio2__{{$ncnt}}" checked>
                                                                                     <label onclick="noBtnGarageClickedf({{$ncnt}})" id="btnradio2__{{$ncnt}}nn"
-                                                                                           style="background: rgb(239, 124, 109)"
+                                                                                           style="background: rgb(96, 203, 157)"
                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0 "
                                                                                            for="btnradio2__{{$ncnt}}">Freie Wahl</label>
                                                                                 @endif
                                                                             @else
                                                                                 <input type="radio"
-                                                                                       class="btn-check showpdf "
+                                                                                       name="repair_shop{{$ncnt}}"
+                                                                                       value="" checked hidden>
+                                                                                <input type="radio"
+                                                                                       class="btn-check showpdf"
                                                                                        name="repair_shop{{$ncnt}}" id="btnradio1__{{$ncnt}}"
                                                                                        value="Specific garage" checked>
                                                                                 <label onclick="yesBtnGarageClickedf({{$ncnt}})" id="btnradio1__{{$ncnt}}nn"
-                                                                                       class="documentFormBtn inFormYesNoBtn w-100 g-0"
+                                                                                       class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"
                                                                                        for="btnradio1__{{$ncnt}}">Specific
                                                                                     garage</label>
                                                                                 <input type="radio" class="btn-check "
                                                                                        name="repair_shop{{$ncnt}}" value="Freie Wahl"
-                                                                                       id="btnradio2__{{$ncnt}}">>
+                                                                                       id="btnradio2__{{$ncnt}}">
                                                                                 <label onclick="noBtnGarageClickedf({{$ncnt}})" id="btnradio2__{{$ncnt}}nn"
                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0 "
                                                                                        for="btnradio2__{{$ncnt}}">Freie Wahl</label>
@@ -7004,7 +7027,7 @@ $urole = $urole->toArray();
                                                                                            name="accident_coverage{{$ncnt}}" value="Ja"
                                                                                            id="btnradiis1_{{$ncnt}}"
                                                                                            autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradiis1_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check "
@@ -7019,7 +7042,7 @@ $urole = $urole->toArray();
                                                                                            name="accident_coverage{{$ncnt}}" value="Ja"
                                                                                            id="btnradiis1_{{$ncnt}}"
                                                                                            autocomplete="off" >
-                                                                                    <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradiis1_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check "
@@ -7030,12 +7053,15 @@ $urole = $urole->toArray();
                                                                                            for="btnradiooo1_{{$ncnt}}">Nein</label>
                                                                                 @endif
                                                                             @else
+                                                                            <input type="radio"
+                                                                                       name="accident_coverage{{$ncnt}}"
+                                                                                       value="" checked hidden>
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="accident_coverage{{$ncnt}}" value="Ja"
                                                                                        id="btnradiis1_{{$ncnt}}"
                                                                                        autocomplete="off" checked>
-                                                                                <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                <label onclick="yesBtnUnfalldeckungClickedf({{$ncnt}})" id="btnradiis1_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradiis1_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check "
@@ -7064,7 +7090,7 @@ $urole = $urole->toArray();
                                                                                            name="traffic_legal_protection{{$ncnt}}"
                                                                                            value="Ja" id="btnradio1a_{{$ncnt}}"
                                                                                            autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1a_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7079,7 +7105,7 @@ $urole = $urole->toArray();
                                                                                            name="traffic_legal_protection{{$ncnt}}"
                                                                                            value="Ja" id="btnradio1a_{{$ncnt}}"
                                                                                            autocomplete="off" >
-                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1a_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7090,12 +7116,15 @@ $urole = $urole->toArray();
                                                                                            for="btnradio1b_{{$ncnt}}">Nein</label>
                                                                                 @endif
                                                                             @else
+                                                                            <input type="radio"
+                                                                                       name="traffic_legal_protection{{$ncnt}}"
+                                                                                       value="" checked hidden>
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="traffic_legal_protection{{$ncnt}}"
                                                                                        value="Ja" id="btnradio1a_{{$ncnt}}"
                                                                                        autocomplete="off" checked>
-                                                                                <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                <label onclick="yesBtnVerkehrsrechtsschutzClickedf({{$ncnt}})" id="btnradio1a_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradio1a_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check"
@@ -7121,7 +7150,7 @@ $urole = $urole->toArray();
                                                                                            class="btn-check showpdf"
                                                                                            name="grossly{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1ab_{{$ncnt}}" autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1ab_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7134,7 +7163,7 @@ $urole = $urole->toArray();
                                                                                            class="btn-check showpdf"
                                                                                            name="grossly{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1ab_{{$ncnt}}" autocomplete="off" >
-                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1ab_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7144,11 +7173,14 @@ $urole = $urole->toArray();
                                                                                            for="btnradio1abc_{{$ncnt}}">Nein</label>
                                                                                 @endif
                                                                             @else
+                                                                            <input type="radio"
+                                                                                       name="grossly{{$ncnt}}"
+                                                                                       value="" autocomplete="off" checked hidden>
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="grossly{{$ncnt}}" value="Ja"
                                                                                        id="btnradio1ab_{{$ncnt}}" autocomplete="off" checked>
-                                                                                <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                <label onclick="yesBtnGrobfahrlässigkeitschutzClickedf({{$ncnt}})" id="btnradio1ab_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradio1ab_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check"
@@ -7173,7 +7205,7 @@ $urole = $urole->toArray();
                                                                                            class="btn-check showpdf"
                                                                                            name="glass_protection{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1abbbe_{{$ncnt}}" autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abbbe_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7186,7 +7218,7 @@ $urole = $urole->toArray();
                                                                                            class="btn-check showpdf"
                                                                                            name="glass_protection{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1abbbe_{{$ncnt}}" autocomplete="off" >
-                                                                                    <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abbbe_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7196,11 +7228,14 @@ $urole = $urole->toArray();
                                                                                            for="btnradio1abceeef_{{$ncnt}}">Nein</label>
                                                                                 @endif
                                                                             @else
+                                                                            <input type="radio"
+                                                                                       name="glass_protection{{$ncnt}}"
+                                                                                       value="" autocomplete="off" checked hidden>
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="glass_protection{{$ncnt}}" value="Ja"
                                                                                        id="btnradio1abbbe_{{$ncnt}}" autocomplete="off" checked>
-                                                                                <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                <label onclick="yesBtnGlasschutzClickedf({{$ncnt}})" id="btnradio1abbbe_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradio1abbbe_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check"
@@ -7227,7 +7262,7 @@ $urole = $urole->toArray();
                                                                                            name="parking_damage{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1abce_{{$ncnt}}"
                                                                                            autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abce_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7242,7 +7277,7 @@ $urole = $urole->toArray();
                                                                                            name="parking_damage{{$ncnt}}" value="Ja"
                                                                                            id="btnradio1abce_{{$ncnt}}"
                                                                                            autocomplete="off" >
-                                                                                    <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abce_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7253,12 +7288,15 @@ $urole = $urole->toArray();
                                                                                            for="btnradio1abcdef_{{$ncnt}}">Nein</label>
                                                                                 @endif
                                                                             @else
+                                                                            <input type="radio"
+                                                                                       name="parking_damage{{$ncnt}}"
+                                                                                       value="" autocomplete="off" checked hidden>
                                                                                 <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="parking_damage{{$ncnt}}" value="Ja"
                                                                                        id="btnradio1abce_{{$ncnt}}"
                                                                                        autocomplete="off" checked>
-                                                                                <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                <label onclick="yesBtnParkschadenClickedf({{$ncnt}})" id="btnradio1abce_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradio1abce_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check"
@@ -7286,7 +7324,7 @@ $urole = $urole->toArray();
                                                                                            name="hour_breakdown_assistance{{$ncnt}}"
                                                                                            value="Ja" id="btnradio1abceee_{{$ncnt}}"
                                                                                            autocomplete="off" checked>
-                                                                                    <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" style="background: rgb(96, 203, 157)" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abceee_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7301,7 +7339,7 @@ $urole = $urole->toArray();
                                                                                            name="hour_breakdown_assistance{{$ncnt}}"
                                                                                            value="Ja" id="btnradio1abceee_{{$ncnt}}"
                                                                                            autocomplete="off" >
-                                                                                    <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                    <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                            for="btnradio1abceee_{{$ncnt}}">Ja</label>
 
                                                                                     <input type="radio" class="btn-check"
@@ -7313,11 +7351,14 @@ $urole = $urole->toArray();
                                                                                 @endif
                                                                             @else
                                                                                 <input type="radio"
+                                                                                       name="hour_breakdown_assistance{{$ncnt}}"
+                                                                                       value="" autocomplete="off" checked hidden>
+                                                                                <input type="radio"
                                                                                        class="btn-check showpdf"
                                                                                        name="hour_breakdown_assistance{{$ncnt}}"
                                                                                        value="Ja" id="btnradio1abceee_{{$ncnt}}"
-                                                                                       autocomplete="off" checked>
-                                                                                <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn"
+                                                                                       autocomplete="off">
+                                                                                <label onclick="yesBtnPannenhilfeClickedf({{$ncnt}})" id="btnradio1abceee_{{$ncnt}}nn" class="documentFormBtn inFormYesNoBtn me-1"
                                                                                        for="btnradio1abceee_{{$ncnt}}">Ja</label>
 
                                                                                 <input type="radio" class="btn-check"
@@ -8810,10 +8851,13 @@ $urole = $urole->toArray();
                                                                                    for="btnradio4">Nein</label>
                                                                         @endif
                                                                     @else
+                                                                        <input type="radio"
+                                                                               name="premium_exemption" value=""
+                                                                               checked hidden>
                                                                         <input type="radio" class="btn-check showpdf"
                                                                                name="premium_exemption" value="Ja"
                                                                                id="btnradio3" autocomplete="off"
-                                                                               checked>
+                                                                               >
                                                                         <label id="yesBtnPramienbefreiung"
                                                                                onclick="yesBtnPramienbefreiungClicked()"
                                                                                class="inFormYesNoBtn documentFormBtn px-0 me-1"
@@ -8872,10 +8916,13 @@ $urole = $urole->toArray();
                                                                                    for="btnradio6">Nein</label>
                                                                         @endif
                                                                     @else
+                                                                        <input type="radio"
+                                                                            name="eu_pension" value=""
+                                                                            checked hidden>
                                                                         <input type="radio" class="btn-check showpdf"
                                                                                name="eu_pension" value="Ja"
                                                                                id="btnradio5" autocomplete="off"
-                                                                               checked>
+                                                                               >
                                                                         <label onclick="yesBtnRenteClicked()"
                                                                                id="yesBtnRente"
                                                                                class="inFormYesNoBtn documentFormBtn px-0 me-1"
@@ -8932,10 +8979,13 @@ $urole = $urole->toArray();
                                                                                    for="btnradio8">Nein</label>
                                                                         @endif
                                                                     @else
+                                                                        <input type="radio"
+                                                                                name="death_benefit" value=""
+                                                                                checked hidden>
                                                                         <input type="radio" class="btn-check showpdf"
                                                                                name="death_benefit" value="Ja"
                                                                                id="btnradio7" autocomplete="off"
-                                                                               checked>
+                                                                               >
                                                                         <label onclick="yesBtnTodesfalkapitalClicked()"
                                                                                id="yesBtnTodesfalkapital"
                                                                                class="inFormYesNoBtn documentFormBtn px-0 me-1"
@@ -8993,10 +9043,13 @@ $urole = $urole->toArray();
                                                                                    for="btnradio10">Nein</label>
                                                                         @endif
                                                                     @else
+                                                                        <input type="radio"
+                                                                                    name="smoker" value=""
+                                                                                    checked hidden>
                                                                         <input type="radio" class="btn-check showpdf"
                                                                                name="smoker" value="Ja"
                                                                                id="btnradio9"
-                                                                               autocomplete="off" checked>
+                                                                               autocomplete="off" >
                                                                         <label onclick="yesBtnRaucherClicked()"
                                                                                id="yesBtnRaucher"
                                                                                class="inFormYesNoBtn documentFormBtn px-0 me-1"
@@ -11932,12 +11985,15 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                                <div class="btn-group w-100" role="group"'+
             '                                                                                     aria-label="Basic radio toggle button group">'+
             '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="leasing' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
+            '                                                                                        <input type="radio"'+
             '                                                                                               class="btn-check showpdf"'+
             '                                                                                               value="Ja"  name="leasing' + newncnt + '"'+
             '                                                                                               id="btnradio1' + newncnt + 'n"'+
-            '                                                                                               autocomplete="off" checked>'+
+            '                                                                                               autocomplete="off">'+
             '                                                                                        <label onclick="yesBtnLeasingClickedx(' + newncnt + ')"'+
-            '                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0"'+
+            '                                                                                            class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"'+
             '                                                                                            id="btnradio1' + newncnt + 'nn" value="Ja" for="btnradio1' + newncnt + 'n"'+
             '                                                                                            onclick=" ">Ja</label>'+
             '                                                                                        <input type="radio" class="btn-check"'+
@@ -12727,12 +12783,15 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </span>'+
             '                                                                            <div class="btn-group w-100" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="repair_shop' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf "'+
             '                                                                                           name="repair_shop' + newncnt + '" id="btnradio1__' + newncnt + '"'+
-            '                                                                                           value="Specific garage" checked>'+
+            '                                                                                           value="Specific garage">'+
             '                                                                                    <label onclick="yesBtnGarageClickedx(' + newncnt + ')"'+
-            '                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0"'+
+            '                                                                                        class="documentFormBtn inFormYesNoBtn w-100 g-0 me-1"'+
             '                                                                                        id="btnradio1__' + newncnt + 'n" for="btnradio1__' + newncnt + '">Specific'+
             '                                                                                        garage</label>'+
             '                                                                                    <input type="radio" class="btn-check "'+
@@ -12751,12 +12810,15 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </div>'+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="accident_coverage' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="accident_coverage' + newncnt + '" value="Ja"'+
             '                                                                                           id="btnradiis1_' + newncnt + '"'+
-            '                                                                                           autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnUnfalldeckungClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           autocomplete="off" >'+
+            '                                                                                    <label onclick="yesBtnUnfalldeckungClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                           id="btnradiis1_' + newncnt + 'n" for="btnradiis1_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check "'+
@@ -12777,12 +12839,15 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </div>'+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="traffic_legal_protection' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="traffic_legal_protection' + newncnt + '"'+
             '                                                                                           value="Ja" id="btnradio1a_' + newncnt + '"'+
-            '                                                                                           autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           autocomplete="off" >'+
+            '                                                                                    <label onclick="yesBtnVerkehrsrechtsschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                           id="btnradio1b_' + newncnt + 'n" for="btnradio1a_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check"'+
@@ -12801,11 +12866,14 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </div>'+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="grossly' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="grossly' + newncnt + '" value="Ja"'+
-            '                                                                                           id="btnradio1ab_' + newncnt + '" autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           id="btnradio1ab_' + newncnt + '" autocomplete="off">'+
+            '                                                                                    <label onclick="yesBtnGrobfahrlässigkeitschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                           id="btnradio1ab_' + newncnt + 'n" for="btnradio1ab_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check"'+
@@ -12823,12 +12891,14 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </div>'+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
-
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="glass_protection' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="glass_protection' + newncnt + '" value="Ja"'+
-            '                                                                                           id="btnradio1abbbe_' + newncnt + '" autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnGlasschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           id="btnradio1abbbe_' + newncnt + '" autocomplete="off">'+
+            '                                                                                    <label onclick="yesBtnGlasschutzClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                           id="btnradio1abbbe_' + newncnt + 'n" for="btnradio1abbbe_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check"'+
@@ -12847,12 +12917,15 @@ $urole = $user->getRoleNames()->toArray();
             ''+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="parking_damage' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="parking_damage' + newncnt + '" value="Ja"'+
             '                                                                                           id="btnradio1abce_' + newncnt + '"'+
-            '                                                                                           autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnParkschadenClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           autocomplete="off" >'+
+            '                                                                                    <label onclick="yesBtnParkschadenClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                          id="btnradio1abce_' + newncnt + 'n" for="btnradio1abce_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check"'+
@@ -12872,12 +12945,15 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                            </div>'+
             '                                                                            <div class="btn-group" role="group"'+
             '                                                                                 aria-label="Basic radio toggle button group">'+
+            '                                                                                        <input type="radio"'+
+            '                                                                                               value="" name="hour_breakdown_assistance' + newncnt + '"'+
+            '                                                                                               checked hidden>'+
             '                                                                                    <input type="radio"'+
             '                                                                                           class="btn-check showpdf"'+
             '                                                                                           name="hour_breakdown_assistance' + newncnt + '"'+
             '                                                                                           value="Ja" id="btnradio1abceee_' + newncnt + '"'+
-            '                                                                                           autocomplete="off" checked>'+
-            '                                                                                    <label onclick="yesBtnPannenhilfeClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn"'+
+            '                                                                                           autocomplete="off" >'+
+            '                                                                                    <label onclick="yesBtnPannenhilfeClickedx(' + newncnt + ')" class="documentFormBtn inFormYesNoBtn me-1"'+
             '                                                                                          id="btnradio1abceee_' + newncnt + 'n" for="btnradio1abceee_' + newncnt + '">Ja</label>'+
             ''+
             '                                                                                    <input type="radio" class="btn-check"'+
@@ -12903,7 +12979,7 @@ $urole = $user->getRoleNames()->toArray();
             '                                                                </div>'+
             '                                                            </div>'+
             '                                                            </div>'+
-            '                                                    <div class="text-center mt-3" style="margin-top: -30px" id="add_n" onclick="addanother_item_n()">' +
+            '                                                    <div class="text-center mt-3" style="margin-top: -30px" id="add_n">' +
             '                                                       <div class="d-flex justify-content-center">'+
             '                                                        <div class="text-center mt-3" id="add_n"'+
             '                                                             onclick="addanother_item_n()">'+
@@ -13530,7 +13606,7 @@ $urole = $user->getRoleNames()->toArray();
 
     function noBtnGarageClickedf(x) {
         document.getElementById("btnradio1__" + x+"nn").style = "background: #d4d4d4";
-        document.getElementById("btnradio2__" + x+"nn").style = "background: #EF7C6D";
+        document.getElementById("btnradio2__" + x+"nn").style = "background: #60CB9D";
     }
 
     function yesBtnUnfalldeckungClickedf(x) {
