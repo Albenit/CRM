@@ -28,6 +28,7 @@ class AddanotherThingN extends Migration
             $table->string('km_stood')->nullable();
             $table->string('insurance')->nullable();
             $table->string('traffic_legal_protection')->nullable();
+            $table->string('grossly')->nullable();
             $table->string('deductible')->nullable();
             $table->string('glass_protection')->nullable();
             $table->string('carried')->nullable();
