@@ -35570,7 +35570,7 @@ var render = function () {
     _c("div", { attrs: { id: "openKrankenDropdown" } }, [
       _c(
         "div",
-        { staticClass: "row g-0" },
+        { staticClass: "row g-0 justify-content-center" },
         _vm._l(_vm.family, function (fam) {
           return _c("div", { staticClass: "col-auto pt-3 pe-3" }, [
             _c("label", { staticClass: "container1", attrs: { for: fam.id } }, [
