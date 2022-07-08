@@ -1541,9 +1541,9 @@ if it's not present, don't show loader */
                                                 <div id="flush-collapse0044" class="accordion-collapse collapse"
                                                      aria-labelledby="flush-heading0044"
                                                      data-bs-parent="#accordionFlushExample0044">
-                                                     @if ($count > 1)
-                                                    <hr>
-                                                @endif
+                                                    @if ($count > 1)
+                                                        <hr>
+                                                    @endif
                                                     <div class="accordion-body"
                                                          style="background-color: #f7f9fd !important; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                                                         <div class="mb-3">
@@ -1606,7 +1606,7 @@ if it's not present, don't show loader */
                                                                 </div>
                                                                 <select class="GrundversicherungInput form-select"
                                                                         aria-label="Default select example"
-                                                                        name="status_PA{{$count}}" id="autoStatusi" onchange="autoStatus()">
+                                                                        name="status_PA{{$count}}" id="autoStatusi" onchange="autoStatus({{$count}})">
                                                                     @if($autoversicherungP->status_PA == 'Offen (Berater)')
                                                                         <option selected value="{{$autoversicherungP->status_PA}}">{{$autoversicherungP->status_PA}}</option>
                                                                         <option value="Offen (Innendienst)">Offen (Innendienst)</option>
@@ -1645,7 +1645,7 @@ if it's not present, don't show loader */
                                                                 
                                                             </div>
                                                         </div>
-                                                        <div class="mb-3" id="autoProvision" style="display:none;">
+                                                        <div class="mb-3" id="autoProvision{{$count}}" style="display:none;">
                                                             <div
                                                                 class="input-div1 input-groupp justify-content-between">
                                                                 <div class="pe-3">
@@ -2691,13 +2691,13 @@ $urole = $user->getRoleNames()->toArray();
            document.getElementById('grundProvision').style.display = 'none';
        }
     }
-    function autoStatus(){
+    function autoStatus(cnt){
         var x = document.getElementById('autoStatusi').value;
         console.log(x);
         if(x == 'Provisionert'){
-            document.getElementById('autoProvision').style.display = 'block';
+            document.getElementById('autoProvision'+cnt).style.display = 'block';
         }else{
-            document.getElementById('autoProvision').style.display = 'none';
+            document.getElementById('autoProvision'+cnt).style.display = 'none';
         }
     }
     function zusStatus(){
