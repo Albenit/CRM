@@ -364,23 +364,18 @@ class TasksController extends Controller
         $searchname = $request->searchname ? $request->searchname : '';
         $user = auth()->user();
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
-            $family = auth()->user()->kunden(function($query){
-                $query->whereIn('status', ['Done']); 
-            })->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto');
+            $family = auth()->user()->kunden()->whereIn('status',['Done'])->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto');
             if (isset($request->searchdate1) && isset($request->searchdate2)) {
                 $family->whereBetween('family_person.created_at', [$date1, $date2]);
             }
             if (isset($request->searchname)) {
-                $family->where('first_name', 'like', '%' . $searchname . '%');
+                $family->where('family_person.first_name', 'like', '%' . $searchname . '%');
             }
-            if(isset($request->berater)){
-                $family->whereHas('lead',function($query) use($request){
-                    $query->where('assign_to_id',$request->berater);
-                });
-            }
+         
 
-            if(isset($request->status) && $request->status != 'alle'){
-                $family->whereHas('hausrat',function($query) use($request){
+            if(isset($request->status)){
+                auth()->user()->kunden()->whereIn('status', ['Done'])->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')
+					->whereHas('hausrat',function($query) use($request){
                     $query->where('status_PH',$request->status);
                 })->orWhereHas('rech',function($query) use($request){
                     $query->where('status_PR',$request->status);
@@ -392,10 +387,10 @@ class TasksController extends Controller
                     $query->where('status_PA',$request->status);
                 })->orWhereHas('grund',function($query) use($request){
                     $query->where('status_PG',$request->status);
-                });
+                })->paginate(30);
             }
             
-            $data = $family->paginate(30);
+           $data= $family->paginate(30);
 
             $cnt = 0;
 

@@ -15,6 +15,7 @@ class AddStatusTime extends Migration
     {
         Schema::table('family_person', function (Blueprint $table) {
             $table->timestamp('status_updated_at')->useCurrent();
+            $table->integer('status_changed')->default(0);
         });
     }
 

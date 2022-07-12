@@ -60,8 +60,8 @@
     
     <div id="multipleSelectDropdown1" class="multipleSelectDropdown p-2">
         @foreach($groups as $group)
-        <label for="checkbox1{{$group->id}}" class="memberLabel">
-            <input onchange="checkboxes()" id="checkbox1{{$group->id}}" value="{{$group->id}}" class="memberCheckmarkselect1" type="checkbox" name="groups[]">{{ucfirst($group->name)}}
+        <label for="checkbox1{{$group->id}}4" class="memberLabel">
+            <input onchange="checkboxes()" id="checkbox1{{$group->id}}4" value="{{$group->id}}" class="memberCheckmarkselect1" type="checkbox" name="groups[]">{{ucfirst($group->name)}}
             <span class="memberCheckmark"></span>
         </label>
       @endforeach
@@ -214,23 +214,27 @@
                                                     <div class="pb-3">
                                                         @csrf
                                                         <div class="pb-2">
-                                                            <span class="provisionModalSpan">Grouppe Mitglieder</span>
+                                                            <span class="provisionModalSpan">Mitglieder der Lohngruppe</span>
                                                         </div>
                                                         <div class="row g-0">
                                                             @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $member)
                                                                 @if($group->members->contains($member->id))
                                                                     <div class="col-6">
-                                                                        <label for="checkbox{{$member->id}}" class="memberLabel">
-                                                                            <input id="checkbox{{$member->id}}" type="checkbox" checked value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
+                                                                        <input type="checkbox" id="checkbox{{$member->id}}1" checked value="{{$member->id}}" name="members[]">
+                                                                        <label for="checkbox{{$member->id}}1">{{ucfirst($member->name)}}</label>
+                                                                        {{-- <label for="checkbox{{$member->id}}1" class="memberLabel">
+                                                                            <input id="checkbox{{$member->id}}1" type="checkbox" checked value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
                                                                             <span class="memberCheckmark"></span>
-                                                                        </label>
+                                                                        </label> --}}
                                                                     </div>
                                                                 @else
                                                                     <div class="col-6"> 
-                                                                        <label for="checkbox{{$member->id}}" class="memberLabel">
-                                                                            <input id="checkbox{{$member->id}}" type="checkbox" value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
+                                                                        <input type="checkbox" id="checkbox{{$member->id}}1" value="{{$member->id}}" name="members[]">
+                                                                        <label  for="checkbox{{$member->id}}1">{{ucfirst($member->name)}}</label>
+                                                                        {{-- <label for="checkbox{{$member->id}}1" class="memberLabel">
+                                                                            <input id="checkbox{{$member->id}}1" type="checkbox" value="{{$member->id}}" name="members[]">{{ucfirst($member->name)}}
                                                                             <span class="memberCheckmark"></span>
-                                                                        </label>
+                                                                        </label> --}}
                                                                     </div>
                                                                 @endif
                                                             @endforeach
@@ -247,17 +251,21 @@
                                                                 @foreach(App\Models\Provisions::get() as $prov)
                                                                     @if($prov->id == $group->provision_id)
                                                                     <div class="col-6">
-                                                                        <label class="memberLabel radioLabel" for="radio{{$group->provision_id}}" >
-                                                                            <input type="radio" hidden name="prov" id="radio{{$group->provision_id}}" value="{{$group->provision_id}}" checked>{{ucfirst($prov->name)}}
+                                                                        <input type="checkbox" name="prov" id="radio{{$group->provision_id}}" value="{{$group->provision_id}}" checked>
+                                                                        <label for="radio{{$group->provision_id}}">{{ucfirst($prov->name)}}</label>
+                                                                        {{-- <label class="memberLabel radioLabel" for="radio{{$group->provision_id}}" >
+                                                                            <input type="checkbox" hidden name="prov" id="radio{{$group->provision_id}}" value="{{$group->provision_id}}" checked>{{ucfirst($prov->name)}}
                                                                             <span class="memberCheckmark radioCheckmark" style="border-radius: 50px !important;"></span>
-                                                                        </label>
+                                                                        </label> --}}
                                                                     </div>
                                                                     @else
                                                                     <div class="col-6">
-                                                                        <label class="memberLabel radioLabel" for="rradio{{$prov->id}}">
+                                                                        <input type="checkbox" name="prov" id="rradio{{$prov->id}}" value="{{$prov->id}}">
+                                                                        <label for="rradio{{$prov->id}}">{{ucfirst($prov->name)}}</label>
+                                                                        {{-- <label class="memberLabel radioLabel" for="rradio{{$prov->id}}">
                                                                             <input type="radio" hidden name="prov" id="rradio{{$prov->id}}" value="{{$prov->id}}">{{ucfirst($prov->name)}}
                                                                             <span class="memberCheckmark radioCheckmark" style="border-radius: 50px !important;"></span>
-                                                                        </label>
+                                                                        </label> --}}
                                                                     </div>
                                                                     @endif
                                                                 @endforeach
@@ -494,25 +502,25 @@
                     <div>
                         <span class="provisionModalSpan">Verbunden</span>
                         <div onclick="toggleDropdown122()" class="row g-0 multipleSelectInputDiv">
-        <div class="col">
-            <input disabled style="border: none;background:transparent" class="" type="text" name=""
-                id="multipleSelectInput122">
-        </div>
-        <div class="col-auto my-auto">
-            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 1L5 5L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </div>
+                            <div class="col">
+                                <input disabled style="border: none;background:transparent" class="" type="text" name=""
+                                    id="multipleSelectInput122">
+                            </div>
+                            <div class="col-auto my-auto">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L5 5L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
     
-    <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2" style="height: 200px; overflow-y:scroll;">
-    @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $admin)
-        <label for="checkbox1{{$admin->id}}22" class="memberLabel">
-            <input onchange="checkboxes122()" id="checkbox1{{$admin->id}}22" value="{{$admin->id}}" class="memberCheckmarkselect122" type="checkbox" name="admins[]">{{ucfirst($admin->name)}}
-            <span class="memberCheckmark"></span>
-        </label>
-      @endforeach
-    </div>
-    </div>
+                            <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2" style="height: 200px; overflow-y:scroll;">
+                                @foreach(App\Models\Admins::whereNull('admin_id')->role(['fs','salesmanager','callagent'])->orWhere('roless','<>',null)->get() as $admin)
+                                    <label for="checkbox1{{$admin->id}}22" class="memberLabel">
+                                        <input onchange="checkboxes122()" id="checkbox1{{$admin->id}}22" value="{{$admin->id}}" class="memberCheckmarkselect122" type="checkbox" name="admins[]">{{ucfirst($admin->name)}}
+                                        <span class="memberCheckmark"></span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
     <script>
             var x = document.querySelectorAll('.memberCheckmarkselect122:checked').length;
             document.getElementById('multipleSelectInput122').placeholder = x + ' Optionen ausgewählt';

@@ -121,7 +121,7 @@ public function filterhrcalendar(Request  $req){
 
 
 			$maps = DB::table('leads')->where('appointment_date',Carbon::now()->format('Y-m-d'))->select('leads.first_name','leads.last_name')->get();
-
+			
 			return view('appointment')->with('users',$users)->with('appointments_events',$appointments_events)->with('appointments',$appointments)->with('regions',$regions)->with('langues',$langues)->with('regionO',$regionO)->with('rejectedO',$rejectedO)->with('spracheO',$spracheO)->with('trie',$trie)->with('maps',$maps)->with('date_in',$date_in)->with('absences',$absences)->with('personalApp',$personalApp)->with('rejected',$rejected);
 		}else{
             $absences = Absence::where('employee_id',auth()->user()->id)->with('admin')->orderBy('created_at', 'desc')->paginate(30, ['*'], 'events_page');
@@ -132,6 +132,7 @@ public function filterhrcalendar(Request  $req){
        
             $personalApp = PersonalAppointment::where('user_id', \Illuminate\Support\Facades\Auth::user()->id)->where('date','>=',Carbon::now()->format('Y-m-d'))->with('Admins')->get();
             $maps = DB::table('leads')->where('appointment_date',Carbon::now()->format('Y-m-d'))->where('assign_to_id',$user->id)->select('leads.first_name','leads.last_name','leads.latitude','leads.longitude')->get();
+			
 			return view('appointment')
                 ->with('users',$users)
                 ->with('appointments_events',$appointments_events)
@@ -152,6 +153,7 @@ public function filterhrcalendar(Request  $req){
        if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('admin')){
         $absences = Absence::with('admin')->orderBy('created_at', 'desc')->paginate(30, ['*'], 'events_page');
   $users = Admins::role(['fs'])->get();
+		   
             $personalApp = PersonalAppointment::where('date', '>=', Carbon::now()->format('Y-m-d'))->get();
         $regions = lead::select('city')->distinct()->orderBy('city', 'asc')->whereNotNull('city')->get();
         $langues = lead::select('sprache')->whereNull('assign_to_id')->distinct()->orderBy('sprache', 'asc')->whereNotNull('sprache')->get();
