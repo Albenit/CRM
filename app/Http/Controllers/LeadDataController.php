@@ -533,7 +533,7 @@ class LeadDataController extends Controller
             $todayG = $statusGrund->last_adjustment_PG;
         }
 
-dd($request->input('status_PG' . $pcnt) != 'Offen (Innendienst)' || $request->status_PZ != 'Offen (Innendienst)' || $request->input('status_PA' . $pcnt) != 'Offen (Innendienst)' || $request->status_PH != 'Offen (Innendienst)' || $request->status_PR != 'Offen (Innendienst)' || $request->status_PV != 'Offen (Innendienst)');
+// dd($request->input('status_PG' . $pcnt) != 'Offen (Innendienst)' || $request->status_PZ != 'Offen (Innendienst)' || $request->input('status_PA' . $pcnt) != 'Offen (Innendienst)' || $request->status_PH != 'Offen (Innendienst)' || $request->status_PR != 'Offen (Innendienst)' || $request->status_PV != 'Offen (Innendienst)');
         
         foreach (CostumerProduktGrundversicherung::where('person_id_PG',$id)->get() as $objekt){
             $objekt->graduation_date_PG = $request->input('graduation_date_PG' . $pcnt);
