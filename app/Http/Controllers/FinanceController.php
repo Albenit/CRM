@@ -32,27 +32,30 @@ class FinanceController extends Controller
     }
     public function updategroup($id,Request $req){
 
-foreach (Group::find($id)->members as $member){
-    if(!in_array($member->id,$req->members)){
-        $member->group_id = 0;
-        $member->save();
-    }
-    Group::find($id)->update(['provision_id' => $req->input('prov')]);
-}
+        foreach (Group::find($id)->members as $member){
+            
+            if(!in_array($member->id,$req->members)){
+                $member->group_id = 0;
+                $member->save();
+            }
+            Group::find($id)->update(['provision_id' => $req->input('prov')]);
+        }
 
-foreach ($req->members as $member){
-    
-    if(Admins::find($member)->roless != null){
-   
-        Admins::find($member)->childrens->each(function($item) use($id){
-           $item->group_id = $id;
-           $item->save();
-        });
-    }
-    Admins::find($member)->update(['group_id'=> $id]);
-    
-}
-return redirect()->back();
+
+            foreach ($req->members as $member){
+                
+                if(Admins::find($member)->roless != null){
+            
+                    Admins::find($member)->childrens->each(function($item) use($id){
+                    $item->group_id = $id;
+                    $item->save();
+                    });
+                }
+                Admins::find($member)->update(['group_id'=> $id]);
+            }
+
+
+        return redirect()->back();
     }
 
     public function addGroup(Request $req){
@@ -62,6 +65,7 @@ return redirect()->back();
         $group->name = (string) $req->name;
         $group->provision_id = (int) $req->prov_id;
         $group->save();
+		if(isset($req->admins)){
         foreach ($req->admins as $admin){
             if(Admins::find($admin)->roless != null){
    
@@ -71,7 +75,7 @@ return redirect()->back();
                 });
             }
             Admins::find($admin)->update(['group_id' => $group->id]);
-        }
+        }}
         
         return redirect()->back();
     }

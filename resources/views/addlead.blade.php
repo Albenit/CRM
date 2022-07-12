@@ -34,11 +34,11 @@
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Grund:</label>
-                                <input type="text" name="grund" class="form-control" required>
+                                <input type="text" name="grund" class="form-control">
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Teilnahme:</label>
-                                <input type="date" name="teilnahme" class="form-control" required>
+                                <input type="date" name="teilnahme" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <div class="mb-2">
                                 <label for="" class="mb-1">Geburtsdatum:</label>
                                 <input type="date" name="geburstdatum" class="form-control" min="1900-01-01"
-                                       max="9999-12-31" required>
+                                       max="9999-12-31" >
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Haushalt:</label>
@@ -63,11 +63,11 @@
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Bewertung KK:</label>
-                                <input type="text" name="bewertung" class="form-control" required>
+                                <input type="text" name="bewertung" class="form-control" >
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Wichtig:</label>
-                                <input type="text" name="wichtig" class="form-control" required>
+                                <input type="text" name="wichtig" class="form-control" >
                             </div>
                         </div>
                     </div>

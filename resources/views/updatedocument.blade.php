@@ -1709,7 +1709,7 @@ $urole = $urole->toArray();
                                                                 <span class="ZusatzversicherungTitle">Laufzeit</span>
                                                             </div>
                                                             <div>
-                                                                <span class="GrundversicherungSpans">From</span>
+                                                                <span class="GrundversicherungSpans">von</span>
                                                             </div>
                                                             <div>
                                                                 <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_from_PZ}}" type="date" name="duration_from_PZ" min="1900-01-01" max="9999-12-31">
@@ -1717,7 +1717,7 @@ $urole = $urole->toArray();
                                                         </div>
                                                         <div class="pb-2">
                                                             <div>
-                                                                <span class="GrundversicherungSpans">To</span>
+                                                                <span class="GrundversicherungSpans">bis</span>
                                                             </div>
                                                             <div>
                                                                 <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_to_PZ}}" type="date" name="duration_to_PZ" min="1900-01-01" max="9999-12-31">
@@ -1969,7 +1969,7 @@ $urole = $urole->toArray();
                                                         <span class="ZusatzversicherungTitle">Laufzeit</span>
                                                     </div>
                                                     <div>
-                                                        <span class="GrundversicherungSpans">From</span>
+                                                        <span class="GrundversicherungSpans">von</span>
                                                     </div>
                                                     <div>
                                                         <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_from_PZ}}" type="date" name="duration_from_PZ" min="1900-01-01" max="9999-12-31">
@@ -1977,7 +1977,7 @@ $urole = $urole->toArray();
                                                 </div>
                                                 <div class="pb-2">
                                                     <div>
-                                                        <span class="GrundversicherungSpans">To</span>
+                                                        <span class="GrundversicherungSpans">bis</span>
                                                     </div>
                                                     <div>
                                                         <input class="GrundversicherungInput form-control py-1" value="{{$zusatzversicherungP->duration_to_PZ}}" type="date" name="duration_to_PZ" min="1900-01-01" max="9999-12-31">
@@ -9364,12 +9364,12 @@ $urole = $urole->toArray();
                                                                     Lauftzeit:
                                                                 </span>
                                                             </div>
-                                                            <span for="from2 " class="GrundversicherungSpans">From</span>
+                                                            <span for="from2 " class="GrundversicherungSpans">von</span>
                                                             <input class="py-1 form-control GrundversicherungInput" type="date"
                                                                    name="duration_from_PV" id="from2"
                                                                    min="1900-01-01" max="9999-12-31"
                                                                    value="{{$vorsorgeP->duration_from_PV}}">
-                                                            <label for="to2" class="GrundversicherungSpans">To</label>
+                                                            <label for="to2" class="GrundversicherungSpans">bis</label>
                                                             <input class="py-1 form-control GrundversicherungInput" type="date"
                                                                    name="duration_to_PV" id="to2" min="1900-01-01"
                                                                    max="9999-12-31" value="{{$vorsorgeP->duration_to_PV}}">

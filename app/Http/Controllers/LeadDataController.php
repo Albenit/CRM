@@ -512,14 +512,14 @@ class LeadDataController extends Controller
 
     public function updateLeadDataKK($leadId, $personId, Request $request,$vorsorge = false)
     {
-
-
+    
+        
         $id = Crypt::decrypt($personId) / 1244;
         family::find($id)->update(['first'=> 0]);
         $aufcnt = 0;
         $provcnt = 0;
         $pcnt = 1;
-
+    
         Pendency::where('family_id',$id)->update(array('completed'=>1));
         $statusGrund = CostumerProduktGrundversicherung::select('status_PG','last_adjustment_PG')->where('person_id_PG',$id)->first();
 
@@ -533,7 +533,7 @@ class LeadDataController extends Controller
             $todayG = $statusGrund->last_adjustment_PG;
         }
 
-
+dd($request->input('status_PG' . $pcnt) != 'Offen (Innendienst)' || $request->status_PZ != 'Offen (Innendienst)' || $request->input('status_PA' . $pcnt) != 'Offen (Innendienst)' || $request->status_PH != 'Offen (Innendienst)' || $request->status_PR != 'Offen (Innendienst)' || $request->status_PV != 'Offen (Innendienst)');
         
         foreach (CostumerProduktGrundversicherung::where('person_id_PG',$id)->get() as $objekt){
             $objekt->graduation_date_PG = $request->input('graduation_date_PG' . $pcnt);
@@ -1095,7 +1095,9 @@ class LeadDataController extends Controller
         $person->status = "Done";
         $person->save();
 
-
+        if($request->input('status_PG' . $pcnt) != 'Offen (Innendienst)' || $request->status_PZ != 'Offen (Innendienst)' || $request->input('status_PA' . $pcnt) != 'Offen (Innendienst)' || $request->status_PH != 'Offen (Innendienst)' || $request->status_PR != 'Offen (Innendienst)' || $request->status_PV != 'Offen (Innendienst)'){
+            family::find($id)->update(['status_changed'=>1]);
+        }
 
         Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Form Updated"]);
         return redirect()->route('costumers')->with('success', 'Aufgabe erfolgreich übermittelt');

@@ -359,7 +359,7 @@ class CostumerFormController extends Controller
                 $aufcnt++;
             }
             if($aufcnt > 0 || $provcnt > 0) $provisionert = 1; else $provisionert = 1;
-                family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert]);
+                family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert,'status_changed'=>1]);
 
 
             Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
@@ -368,6 +368,7 @@ class CostumerFormController extends Controller
     }
 
     public function edit_costumer_kundportfolio(Request $request, $id){
+
 
         $id = Crypt::decrypt($id) / 1244;
         $aufcnt = 0;
@@ -627,8 +628,10 @@ class CostumerFormController extends Controller
         if($aufcnt > 0 || $provcnt > 0){
             $famely = family::find($id);
             $famely->provisionert = 1;
+        
             $famely->save();
         }
+        family::find($id)->update(['status_changed'=>1]);
         Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
         return back();
 
