@@ -63,11 +63,16 @@
                                 </svg>
                             </div>
                     <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2" style="height: 200px; overflow-y:scroll;">
+                    <label for="checkbox111222" class="memberLabel">
+                                        <input onchange="checkboxes122()" id="checkbox111222" value="Alle" class="memberCheckmarkselect122" type="checkbox" name="berater[]">Alle
+                                        <span class="memberCheckmark"></span>
+                                    </label>
                     @foreach($beraters as $berater)
                                     <label for="checkbox1{{$berater->id}}22" class="memberLabel">
                                         <input onchange="checkboxes122()" id="checkbox1{{$berater->id}}22" value="{{$berater->id}}" class="memberCheckmarkselect122" type="checkbox" name="berater[]">{{ucfirst($berater->name)}}
                                         <span class="memberCheckmark"></span>
                                     </label>
+                                    
                                 @endforeach
                             </div>
                     </div>
