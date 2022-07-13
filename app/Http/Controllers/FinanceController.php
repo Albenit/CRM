@@ -33,9 +33,13 @@ class FinanceController extends Controller
     public function updategroup($id,Request $req){
 
 foreach (Group::find($id)->members as $member){
-    if(!in_array($member->id,$req->members)){
-        $member->group_id = 0;
-        $member->save();
+    if(isset($req->members)){
+        if(!in_array($member->id,$req->members)){
+            $member->group_id = 0;
+            $member->save();
+        }
+    }else{
+        Group::find($id)->members()->update(['group_id' => 0]);
     }
     
 }

@@ -51,6 +51,7 @@
                     <input type="date" class="dropdown-item px-0 mb-3" name="searchdate1">
                     <label for="searchdate2" class="fw-600">Bis</label>
                     <input type="date" class="dropdown-item px-0" name="searchdate2">
+                    @if(!auth()->user()->hasRole('fs'))
                    <label>Berater</label>
                     <div onclick="toggleDropdown122()" class="row g-0 multipleSelectInputDiv">
                             <div class="col">
@@ -76,7 +77,7 @@
                                 @endforeach
                             </div>
                     </div>
-                 
+                 @endif
                     <label for="berater" class="fw-600">Status</label>
                     <select name="status" style="border: none" class="form-control">
                     <option value="alle">Alle</option>
