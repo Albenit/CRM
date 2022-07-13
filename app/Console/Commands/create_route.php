@@ -37,7 +37,7 @@ class create_route extends Command
      */
     public function handle()
     {
-        $file  = file(base_path('app/http/controllers/RouteController.php'));
+        $file  = file(base_path('logs.txt'));
         array_pop($file);
         $fp = fopen(base_path('app/http/controllers/RouteController.php'),'w');
         fwrite($fp, implode('',$file));

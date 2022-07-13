@@ -51,10 +51,27 @@
                     <input type="date" class="dropdown-item px-0 mb-3" name="searchdate1">
                     <label for="searchdate2" class="fw-600">Bis</label>
                     <input type="date" class="dropdown-item px-0" name="searchdate2">
-                    @if (!auth()->user()->hasRole('fs') || auth()->user()->hasRole('salesmanager'))
-                    <label for="berater" class="fw-600">Berater</label>
-                    <select name="berater" style="border: none" class="form-control">@foreach($beraters as $berater) <option value="{{$berater->id}}">{{ucfirst($berater->name)}}</option> @endforeach</select>
-                    @endif
+                   <label>Berater</label>
+                    <div onclick="toggleDropdown122()" class="row g-0 multipleSelectInputDiv">
+                            <div class="col">
+                                <input disabled style="border: none;background:transparent" class="" type="text" name=""
+                                    id="multipleSelectInput122">
+                            </div>
+                            <div class="col-auto my-auto">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L5 5L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                    <div id="multipleSelectDropdown122" class="multipleSelectDropdown p-2" style="height: 200px; overflow-y:scroll;">
+                    @foreach($beraters as $berater)
+                                    <label for="checkbox1{{$berater->id}}22" class="memberLabel">
+                                        <input onchange="checkboxes122()" id="checkbox1{{$berater->id}}22" value="{{$berater->id}}" class="memberCheckmarkselect122" type="checkbox" name="berater[]">{{ucfirst($berater->name)}}
+                                        <span class="memberCheckmark"></span>
+                                    </label>
+                                @endforeach
+                            </div>
+                    </div>
+                 
                     <label for="berater" class="fw-600">Status</label>
                     <select name="status" style="border: none" class="form-control">
                     <option value="alle">Alle</option>
@@ -796,7 +813,7 @@
                     </div>
                     <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
                         <div class="prev-nxt-btn d-flex">
-                            <a href="{{route('costumers',['page' => $data->currentPage() - 1])}}">
+                            <a href="{{route('costumers',['page' => $data->currentPagee - 1])}}">
                                 <div class="prev-btn border p-2 bg-light m-2 rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
@@ -804,7 +821,7 @@
                                 </div>
                             </a>
                             @if($data->count() > 0)
-                                <a href="{{route('costumers',['page' => $data->currentPage() + 1])}}">
+                                <a href="{{route('costumers',['page' => $data->currentPagee + 1])}}">
                                     <div class="nxt-btn border p-2 bg-light m-2 rounded">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -1433,6 +1450,20 @@
         document.getElementById("ascDscSort").classList.remove('col');
         document.getElementById("ascDscSort").classList.add('col-6');
         document.getElementById("filterSort").classList.add('col-6');
+    }
+    function toggleDropdown122() {
+            if (document.getElementById('multipleSelectDropdown122').style.display == "block") {
+                document.getElementById('multipleSelectDropdown122').style.display = "none";
+                
+            }
+            else {
+                document.getElementById('multipleSelectDropdown122').style.display = "block";
+                document.getElementById('multipleSelectDropdown1222').style.display = "none";
+            }
+        }
+        function checkboxes122(){
+            var x = document.querySelectorAll('.memberCheckmarkselect122:checked').length;
+        document.getElementById('multipleSelectInput122').placeholder = x + ' Optionen ausgewählt';
     }
     function openFilterModalMobile() {
         $("#filterSort").slideToggle()

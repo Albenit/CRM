@@ -44,7 +44,6 @@ if(isset($req->members)){
 foreach ($req->members as $member){
     
     if(Admins::find($member)->roless != null){
-   
         Admins::find($member)->childrens->each(function($item) use($id){
            $item->group_id = $id;
            $item->save();
@@ -52,7 +51,6 @@ foreach ($req->members as $member){
     }
 	
     Admins::find($member)->update(['group_id'=> $id]);
-
 }
 }
 return redirect()->back();
@@ -82,7 +80,6 @@ return redirect()->back();
         }
         }
     }
-        
         return redirect()->back();
     }
     public function register($id,Request $req){

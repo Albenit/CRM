@@ -340,7 +340,6 @@ class TasksController extends Controller
     }
     public function costumers(Request $request)
     {
-
         $beraters = Admins::role(['fs'])->get();
         $grundversicherungP = null;
         $retchsschutzP = null;
@@ -432,20 +431,17 @@ class TasksController extends Controller
             return view('costumers', compact('statusNeuen','sumNeuen','totaliNeuen','data','mandatiert','grundversicherungP','retchsschutzP','vorsorgeP','autoversicherungP','hausratP','zusatzversicherungP','family_person','date1','date2','searchname','beraters'));
 
         }else {
-
+ 
+         
+        
                 $family = family::query()->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto')->whereIn('status', ['Done']);
+            
                 if (isset($request->searchdate1) && isset($request->searchdate2)) {
                     $family->whereBetween('family_person.created_at', [$date1, $date2]);
                 }
-                if (isset($request->searchname)) {
+                if (isset($request->searchname)){
                     $family->where('first_name', 'like', '%' . $searchname . '%');
                 }
-                if(isset($request->berater)){
-                    $family->whereHas('lead',function($query) use($request){
-                        $query->where('assign_to_id',$request->berater);
-                    });
-                }
-               
                 if(isset($request->status) && $request->status != 'alle'){
                     $family->whereHas('hausrat',function($query) use($request){
                         $query->where('status_PH',$request->status);
@@ -461,7 +457,21 @@ class TasksController extends Controller
                         $query->where('status_PG',$request->status);
                     });
                 }
+           
                 $data = $family->paginate(30);
+               
+                $curr = $data->currentPage();
+            
+                $data2 = collect();
+                if(isset($request->berater)){
+               $data = $data->each(function($item) use($request,$data2){
+                  if(in_array($item->lead->assign_to_id,$request->berater)){
+                       $data2->push($item);
+                  }
+               });
+      
+$data = $data2;}
+$data->currentPagee = $curr;
 
 
             $cnt = 0;
