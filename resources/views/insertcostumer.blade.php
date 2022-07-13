@@ -1,12 +1,18 @@
 @extends('template.navbar')
 @section('content')
         <title>Termin Einfügen</title>
+
     <section>
+        @if($errors->any())
+            <div class="text-center">
+                {!! implode('<br />', $errors->all(':message')) !!}
+            </div>
+        @endif
         <div class="">
             <div class="form-div my-5 py-4 mx-3 mx-sm-5" style="background: #F9FAFC;
                     box-shadow: 0px 4px 4px rgba(213, 213, 213, 0.25);
                     border-radius: 13px;">
-                <form action="{{route('savecostumer')}}" method="post">
+                <form action="{{route('savecostumer')}}" method="post" id="formaa">
                     @csrf
                     <input type="hidden" value="1" name="cnt" id="cnt">
                     <div class="row mx-0 mx-md-3 GrundversicherungSpans">
@@ -105,7 +111,7 @@
                         </div>
                         <div class="col-12 col-lg-5 col-xl-4">
                             <div class="my-4 mx-3">
-                                    <button class="py-2 px-5 w-100 border-0 fw-bold"
+                                    <button class="py-2 px-5 w-100 border-0 fw-bold" type="button" id="butonier" onclick="submitt()"
                                         style="background: #2F60DC;border-radius: 5px;color: #fff;">Kunde erstellen</button>
                             </div>
                         </div>
@@ -144,6 +150,13 @@
                             '<hr>';
      
     }
+function submitt(){
+        document.getElementById('butonier').disabled = true;
+        document.getElementById('formaa').submit();
+    //disable
+    // this.disabled = true;
+}
+    //do some validation stuff
 
     </script>
 <style>

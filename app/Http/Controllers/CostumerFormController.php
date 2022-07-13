@@ -664,6 +664,24 @@ class CostumerFormController extends Controller
     }
 
     public function savecostumer(Request $req){
+        $req->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'phone' =>'required',
+            'city' => 'required',
+            'postal_code' => 'required',
+            'address' => 'required'
+        ],
+        [
+            'fname.required' => 'Vorname required',
+            'lname.required' => 'Nachname required',
+            'phone.required' => 'Telefon required',
+            'city.required' => 'Ort required',
+            'postal_code.required' => 'PLZ required',
+            'address.required' => 'Strasse required',
+        ]);
+    
+
 
         $lead = new lead();
         $lead->assign_to_id = $req->berater;
@@ -677,6 +695,7 @@ class CostumerFormController extends Controller
         $lead->postal_code = $req->postal_code;
         $lead->address = $req->address;
         $lead->save();
+   
         for($i = 0; $i < (int) $req->cnt; $i++){
         $family = new family();
         $family->first_name = filter_var($req->input('fname')[$i],FILTER_SANITIZE_STRING);

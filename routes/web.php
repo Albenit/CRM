@@ -66,6 +66,7 @@ use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
+use Maatwebsite\Excel\HeadingRowImport;
 
 route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::class,'throttle:trynal',\App\Http\Middleware\isagent::class])->group(function(){
     route::get('addlead',function(){
