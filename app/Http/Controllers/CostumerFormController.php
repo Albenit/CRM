@@ -30,6 +30,9 @@ use App\Models\LeadDataKK;
 use App\Models\Pendency;
 use Database\Seeders\AdminSeeder;
 use App\Models\Activity;
+use App\Models\LogsActivity;
+
+
 class CostumerFormController extends Controller
 {
     public function costumer_form($id){
@@ -122,6 +125,7 @@ class CostumerFormController extends Controller
 
 
         $id = Crypt::decrypt($id) / 1244;
+
 
         $aufcnt = 0;
         $provcnt= 0;
@@ -361,19 +365,39 @@ class CostumerFormController extends Controller
             if($aufcnt > 0 || $provcnt > 0) $provisionert = 1; else $provisionert = 1;
                 family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert,'status_changed'=>1]);
 
-
-            Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
+            LogsActivity::create([
+                'admin_id' => Auth::user()->id,
+                'person_id' => $id,
+                'new_data' => json_encode($request->all()),
+                'description' => 'Client Products Inserted'
+            ]);
             
             return redirect()->route('costumer_form', Crypt::encrypt($id * 1244))->with('success', 'Aktion erfolgreich durchgeführt');
     }
 
     public function edit_costumer_kundportfolio(Request $request, $id){
 
-
         $id = Crypt::decrypt($id) / 1244;
         $aufcnt = 0;
         $provcnt = 0;
 
+        $oldGrund = CostumerProduktGrundversicherung::find($id);
+        $oldZus = CostumerProduktZusatzversicherung::find($id);
+        $oldAuto = CostumerProduktAutoversicherung::find($id);
+        $oldHaus = CostumerProduktHausrat::find($id);
+        $oldVor = CostumerProduktVorsorge::find($id);
+        $oldRech = CostumerProduktRechtsschutz::find($id);
+        $totalOld = $oldGrund.$oldAuto.$oldZus.$oldHaus.$oldRech.$oldVor;
+   
+        LogsActivity::create([
+            'admin_id' => Auth::user()->id,
+            'person_id' => $id,
+            'old_data' => json_encode($totalOld),
+            'new_data' => json_encode($request->all()),
+            'description' => 'Client Products Edited'
+        ]);
+
+     
         $statusGrund = CostumerProduktGrundversicherung::select('status_PG','last_adjustment_PG')->where('person_id_PG',$id)->first();
 
         if ($request->status_PG != $statusGrund->status_PG){
@@ -632,7 +656,9 @@ class CostumerFormController extends Controller
             $famely->save();
         }
         family::find($id)->update(['status_changed'=>1]);
-        Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Produkt Updated"]);
+
+
+
         return back();
 
     }
@@ -673,7 +699,15 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => "Kunden added"]);}
+
+        LogsActivity::create([
+                'admin_id' => Auth::user()->id,
+                'person_id' => $family->id,
+                'new_data' => json_encode($req->all()),
+                'description' => 'Client Added Manualy'
+            ]);
+      
+    }
         return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
 
