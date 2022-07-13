@@ -66,6 +66,7 @@ use App\Notifications\SendNotificationn;
 use FamilyPerson;
 use Illuminate\Support\Facades\URL;
 use function Clue\StreamFilter\fun;
+use App\Models\LogsActivity;
 
 class UserController extends Controller
 {
@@ -538,6 +539,9 @@ public function folgetermin($id){
     }
     public function updateperson(Request $req,$id){
 
+        $oldPersonData = json_encode(family::find($id)); 
+
+
         $person = family::find($id);
         $person->first_name = $req->first_name ? $req->first_name : $person->first_name;
         $person->last_name = $req->last_name ? $req->last_name : $person->last_name;
@@ -550,6 +554,16 @@ public function folgetermin($id){
         $persons->city = $req->city ? $req->city : $person->city;
         $persons->nr = $req->nr ? $req->nr : $person->nr;
         $persons->save();
+
+
+
+        LogsActivity::create([
+            'admin_id' => Auth::user()->id,
+            'person_id' => $id,
+            'old_data' => $oldPersonData,
+            'new_data' => json_encode($req->all()),
+            'description' => 'Client Personal Data Edited'
+        ]);
 
         return redirect()->back();
     }
@@ -588,7 +602,13 @@ public function folgetermin($id){
                 CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
             }
         }
-        Activity::create(['admin_id' => auth()->id(),'person_id'=> $family->id,'description' => $cnt . "Kunden added"]);
+        LogsActivity::create([
+            'admin_id' => Auth::user()->id,
+            'person_id' => $family->id,
+            'new_data' => json_encode($req->all()),
+            'description' => 'Kunden added'
+        ]);
+        
         $bo = Admins::role(['backoffice', 'admin'])->get();
         foreach ($bo as $b) {
             $url = '<a href="' . route("tasks") . '">' . $pcnt . ' Personen wurden aus einem Termin hinzugefügt </a>';

@@ -30,7 +30,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
 use Svg\Tag\Rect;
-use App\Models\Activity;
+use App\Models\LogsActivity;
+
 class LeadDataController extends Controller
 {
     use FileManagerTrait;
@@ -512,9 +513,35 @@ class LeadDataController extends Controller
 
     public function updateLeadDataKK($leadId, $personId, Request $request,$vorsorge = false)
     {
-    
+
         
         $id = Crypt::decrypt($personId) / 1244;
+        $leadId = Crypt::decrypt($leadId) / 1244;
+        $personId = Crypt::decrypt($personId) / 1244;
+
+        $oldGrund = CostumerProduktGrundversicherung::find($id);
+        $oldZus = CostumerProduktZusatzversicherung::find($id);
+        $oldAuto = CostumerProduktAutoversicherung::find($id);
+        $oldHaus = CostumerProduktHausrat::find($id);
+        $oldVor = CostumerProduktVorsorge::find($id);
+        $oldRech = CostumerProduktRechtsschutz::find($id);
+        $oldKK = LeadDataKK::where('person_id',$personId)->first();
+        $oldCOF = LeadDataCounteroffered::where('person_id',$personId)->first();
+        $oldFahr = LeadDataFahrzeug::where('person_id',$personId)->first();
+        $oldThings = LeadDataThings::where('person_id',$personId)->first();
+        $oldRech = LeadDataRech::where('person_id',$personId)->first();
+        $oldPrev = LeadDataPrevention::where('person_id',$personId)->first();
+
+        $totalOld = $oldGrund.$oldAuto.$oldZus.$oldHaus.$oldRech.$oldVor.$oldKK.$oldCOF.$oldFahr.$oldThings.$oldRech.$oldPrev;
+       
+        LogsActivity::create([
+            'admin_id' => Auth::user()->id,
+            'person_id' => $id,
+            'old_data'=> json_encode($totalOld),
+            'new_data' => json_encode($request->all()),
+            'description' => 'Client Form Updated'
+        ]);
+
         family::find($id)->update(['first'=> 0]);
         $aufcnt = 0;
         $provcnt = 0;
@@ -792,8 +819,7 @@ class LeadDataController extends Controller
 //            Pendency::create(['done' => 0,'type'=>'Task','title'=> $pend->title, 'description'=> $pend->description,'admin_id'=> $pend->admin_id,'family_id'=> $pend->family_id]);
 //        }
 
-        $leadId = Crypt::decrypt($leadId) / 1244;
-        $personId = Crypt::decrypt($personId) / 1244;
+
         $offer = 0;
 
         $existingLeadDataKK = LeadDataKK::where('person_id', $personId)->latest()->first();
@@ -1099,7 +1125,7 @@ class LeadDataController extends Controller
 
 
 
-        Activity::create(['admin_id' => auth()->id(),'person_id'=> $id,'description' => "Kunden Form Updated"]);
+
         return redirect()->route('costumers')->with('success', 'Aufgabe erfolgreich übermittelt');
     }
 
