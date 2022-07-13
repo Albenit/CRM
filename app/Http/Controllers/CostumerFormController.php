@@ -712,12 +712,12 @@ class CostumerFormController extends Controller
         \App\Models\LeadDataThings::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
         \App\Models\LeadDataCounteroffered::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
         \App\Models\LeadDataRech::create(['person_id' => $family->id, 'leads_id' => (int) $lead->id]);
-        \App\Models\CostumerProduktGrundversicherung::create(['person_id_PG'=> $family->id,'status_PG' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        \App\Models\CostumerProduktZusatzversicherung::create(['person_id_PZ'=> $family->id,'status_PZ' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        \App\Models\CostumerProduktAutoversicherung::create(['person_id_PA'=> $family->id,'status_PA' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => auth()->id()]);
-        \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => auth()->id()]);
+        \App\Models\CostumerProduktGrundversicherung::create(['person_id_PG'=> $family->id,'status_PG' => 'Offen (Berater)','admin_id' => $req->berater]);
+        \App\Models\CostumerProduktZusatzversicherung::create(['person_id_PZ'=> $family->id,'status_PZ' => 'Offen (Berater)','admin_id' => $req->berater]);
+        \App\Models\CostumerProduktAutoversicherung::create(['person_id_PA'=> $family->id,'status_PA' => 'Offen (Berater)','admin_id' => $req->berater]);
+        \App\Models\CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => $req->berater]);
+        \App\Models\CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => $req->berater]);
+        \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => $req->berater]);
 
         LogsActivity::create([
                 'admin_id' => Auth::user()->id,
