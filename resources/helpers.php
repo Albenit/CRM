@@ -23,7 +23,6 @@ if(!function_exists('findgrund')){
        }
         }
 }
-
 if(!function_exists('getsalary')){
     function getsalary($com,$model,$val,$p_id){
         $per = \App\Models\Companies::where('company_name',$com)->where('field',$model)->where('prov_id',$p_id)->first();
