@@ -32,30 +32,30 @@ class FinanceController extends Controller
     }
     public function updategroup($id,Request $req){
 
-        foreach (Group::find($id)->members as $member){
-            
-            if(!in_array($member->id,$req->members)){
-                $member->group_id = 0;
-                $member->save();
-            }
-            Group::find($id)->update(['provision_id' => $req->input('prov')]);
-        }
+foreach (Group::find($id)->members as $member){
+    if(!in_array($member->id,$req->members)){
+        $member->group_id = 0;
+        $member->save();
+    }
+    
+}
+Group::find($id)->update(['provision_id' => $req->input('prov')]);
+if(isset($req->members)){
+foreach ($req->members as $member){
+    
+    if(Admins::find($member)->roless != null){
+   
+        Admins::find($member)->childrens->each(function($item) use($id){
+           $item->group_id = $id;
+           $item->save();
+        });
+    }
+	
+    Admins::find($member)->update(['group_id'=> $id]);
 
-
-            foreach ($req->members as $member){
-                
-                if(Admins::find($member)->roless != null){
-            
-                    Admins::find($member)->childrens->each(function($item) use($id){
-                    $item->group_id = $id;
-                    $item->save();
-                    });
-                }
-                Admins::find($member)->update(['group_id'=> $id]);
-            }
-
-
-        return redirect()->back();
+}
+}
+return redirect()->back();
     }
 
     public function addGroup(Request $req){
@@ -67,15 +67,21 @@ class FinanceController extends Controller
         $group->save();
 		if(isset($req->admins)){
         foreach ($req->admins as $admin){
-            if(Admins::find($admin)->roless != null){
-   
-                Admins::find($admin)->childrens->each(function($item) use($group){
+            $admini = Admins::find($admin);
+            if($admini->group_id != 0){
+                return back()->with('fail','Der Berater "' . $admini->name . '" ist bereits im Lohnsystem ,,' . $admini->group->name .'“ ! Bitte entferne diesen zuerst. Die Änderung wird Rückwirkend auf Anfang des Monats aktiv!!');
+            }
+            else{
+            if($admini->roless != null){
+                $admini->childrens->each(function($item) use($group){
                    $item->group_id = $group->id;
                    $item->save();
                 });
             }
             Admins::find($admin)->update(['group_id' => $group->id]);
-        }}
+        }
+        }
+    }
         
         return redirect()->back();
     }
