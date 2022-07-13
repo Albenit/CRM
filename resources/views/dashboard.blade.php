@@ -8,8 +8,8 @@
         <section>
             <div class="px-4 px-lg-5 pe-lg-0 pt-4 pt-lg-5 ">
                 <div class="pb-5 pe-lg-5">
-                    <div class="row gy-4 gx-0 gx-sm-3">
-                        <div class="col-12 col-sm-6 col-lg-4 col-xxl ">
+                    <div class="row gy-4 gx-2 gx-sm-3">
+                        <div class="col-6 col-sm-6 col-lg-4 col-xxl ">
                             <div class="greenBorderDiv p-4" onclick="window.location.href='{{route('costumers',["status" => "Provisionert"])}}'"
                                  style="cursor:pointer;">
                                 <div class="cornerSvgDash">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xxl ">
+                        <div class="col-6 col-sm-6 col-lg-4 col-xxl ">
                             <div class="yellowBorderDiv p-4" onclick="window.location.href='{{route('costumers',["status" => "Aufgenommen"])}}'"
                                  style="cursor:pointer;">
                                 <div class="cornerSvgDash">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xxl ">
+                        <div class="col-6 col-sm-6 col-lg-4 col-xxl ">
                             <div class="yellowBorderDiv p-4" style="border: 3px solid #F8E19B;" onclick="window.location.href='{{route('costumers',["status" => "Aufgenommen"])}}'"
                                  style="cursor:pointer;">
                                 <div class="cornerSvgDash">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-4 col-xxl">
+                        <div class="col-6 col-sm-6 col-lg-4 col-xxl"> 
                             <div class="orangeBorderDiv p-4" onclick="window.location.href='{{route('costumers',['status' => 'Eingereicht'])}}'"
                                  style="cursor:pointer;">
                                 <div class="cornerSvgDash">
@@ -4892,11 +4892,19 @@ var date = 0;
         font-size: 43px
     }
 
+    @media (max-width: 576px) { 
     .smallTitleDash {
-        font-weight: 700;
-        font-size: 20px
-
+            font-weight: 700;
+            font-size: 16px
+        }
     }
+    @media (min-width: 576px) {
+    .smallTitleDash {
+            font-weight: 700;
+            font-size: 20px
+        }
+    }
+
 
     .dashboardSubTitle {
         font-weight: 700;
@@ -6079,7 +6087,6 @@ var date = 0;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-
 
 
 
