@@ -464,6 +464,8 @@ class TasksController extends Controller
             
                 $data2 = collect();
                 if(isset($request->berater)){
+                 
+                    if($request->berater[0] != 'Alle'){
                $data = $data->each(function($item) use($request,$data2){
                   if(in_array($item->lead->assign_to_id,$request->berater)){
                        $data2->push($item);
@@ -471,6 +473,7 @@ class TasksController extends Controller
                });
       
 $data = $data2;}
+            }
 $data->currentPagee = $curr;
 
 
