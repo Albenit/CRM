@@ -54,8 +54,12 @@
                                 <input type="text" name="haushalt" class="form-control" required>
                             </div>
                             <div class="mb-2">
-                                <label for="" class="mb-1">PLZ, Ort:</label>
-                                <input type="text" name="plzort" class="form-control" required>
+                                <label for="" class="mb-1">Stadt:</label>
+                                <input type="text" name="city" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="" class="mb-1">straße:</label>
+                                <input type="text" name="address" class="form-control" required>
                             </div>
                             <div class="mb-2">
                                 <label for="" class="mb-1">Krankenkasse:</label>
