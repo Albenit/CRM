@@ -61,6 +61,7 @@ class HumanResourcesController extends Controller
 
     public function createAbsence(Request $request)
     {
+
         $decryptedEmployeeId = $request->employeeId;
         $emp  = auth()->user();
         $created_at =  Carbon::createFromFormat('Y-m-d',$request->from);

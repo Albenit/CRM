@@ -19,7 +19,7 @@ class Leads extends Migration
             $table->string('first_name')->index();
             $table->string('last_name')->index();
             $table->string('telephone');
-            $table->date('birthdate')->nullable();
+            $table->string('birthdate')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->integer('postal_code')->nullable();
