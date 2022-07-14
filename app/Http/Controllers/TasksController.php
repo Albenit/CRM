@@ -631,8 +631,8 @@ $data->currentPagee = $curr;
             ->orWhere('family_person.birthdate','like','%'.Carbon::now()->addDays(2)->format('m-d').'%')
             ->orWhere('family_person.birthdate','like','%'.Carbon::now()->addDays(3)->format('m-d').'%')
             ->orWhere('family_person.birthdate','like','%'.Carbon::now()->addDays(4)->format('m-d').'%')
-            ->select('family_person.birthdate as birthdate','family_person.first_name as first_name','family_person.last_name as last_name','family_person.id as id')
-            ->get()  as $cos){
+            ->select('family_person.birthdate as birthdate','family_person.first_name as first_name','family_person.last_name as last_name','family_person.id as id','family_person.leads_id as leads_id')
+            ->with('lead')->get()  as $cos){
                         $birthdays[$cnt]['birthday'] = $cos->birthdate;
                         $now = (int) Carbon::now()->format('Y');
                         $birth = (int) substr($cos->birthdate, -10, -6);
@@ -640,10 +640,16 @@ $data->currentPagee = $curr;
                         $birthdays[$cnt]['id'] = $cos->id;
                         $birthdays[$cnt]['name'] = ucfirst($cos->first_name);
                         $birthdays[$cnt]['lname'] = ucfirst($cos->last_name);
+			           
+			             $birthdays[$cnt]['admin'] = lead::find($cos->leads_id)->assign_to_id;
                         $cnt++;
                 }
-            
-            
+            for($i = 0; $i < count($birthdays); $i++){
+				if($birthdays[$i]['admin'] != auth()->user()->id){
+					unset($birthdays[$i]);
+				}
+			}
+           
           }else{
             $todaydate = Carbon::now()->format('m-d');
             
@@ -665,6 +671,7 @@ $data->currentPagee = $curr;
                         $cnt++;
                 }
           }
+
         $personalApp = DB::table('personalappointment')->where('AppOrCon',1)->where('user_id',Auth::user()->id)->where('date','>=',Carbon::now()->format('Y-m-d'))->get();
         $consultation = DB::table('personalappointment')->where('AppOrCon',2)->where('user_id',Auth::user()->id)->where('date','>=',Carbon::now()->format('Y-m-d'))->get();
 

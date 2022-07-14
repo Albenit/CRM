@@ -67,8 +67,8 @@
                                         <input type="text" name="city" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
-                                <div class="" id="addid">
-                                    <div class="row mx-0 px-0" >
+                                <div class="">
+                                    <div class="row mx-0 px-0" id="addid">
                                     
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                             </div>
 
                         </div>
-                        <div onclick="insertanother()" class="pt-4" style="cursor: pointer;">
+                        <div onclick="insertanother(); return true;" class="pt-4" style="cursor: pointer;">
                             <div class="row g-0 mx-3 pt-3 pt-md-0">
                                 <div class="col-auto my-auto">
                                 <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,9 @@
 
     function insertanother(){
         document.getElementById('cnt').value = parseInt(document.getElementById('cnt').value) +1
-        document.getElementById('addid').innerHTML +=  
+        var cnt = document.getElementById('cnt').value
+        $("#addid").append('<div' + ' id="' + cnt + '">');
+        document.getElementById(cnt).innerHTML +=  
                                 '<div class="col-12">'+
                                     '<div class="mb-2 pe-2 col-md-6">' + 
                                         '<label for="" class="mb-1">Vorname</label>' + 
