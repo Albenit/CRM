@@ -1151,7 +1151,24 @@
                                                         <td>{{$appointmentAGG->created_at->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($appointmentAGG->from)->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($appointmentAGG->to)->format('d.m.Y')}}</td>
-                                                        <td>{{$appointmentAGG->description}}</td>
+                                                        <td>
+                                                            <div>
+                                                                <span>{{$appointmentAGG->description}}</span>
+                                                            </div>
+                                                            @if (isset($appointmentAGG->file))
+                                                                <div class="my-2">
+                                                                    <a target="_blank" style="text-decoration: none; cursor: pointer;"
+                                                                        href="{{route('showfile',$appointmentAGG->file)}}">
+                                                                        <input type="text" 
+                                                                                class="form-control p-0"
+                                                                                id="rech_uploadc" disabled
+                                                                                style="background:transparent; border:none; color:blue; cursor: pointer;"
+                                                                                value="{{$appointmentAGG->file}}"
+                                                                        >
+                                                                    </a>  
+                                                                </div>
+                                                            @endif
+                                                        </td>
                                                         @if($appointmentAGG->type == 0)
                                                             <td>
                                                                 <div class="row g-1">
@@ -2427,7 +2444,24 @@
                                                                         <td>{{$appointmentAGG->created_at->format('Y-m-d')}}</td>
                                                                         <td>{{$appointmentAGG->from}}</td>
                                                                         <td>{{$appointmentAGG->to}}</td>
-                                                                        <td>{{$appointmentAGG->description}}</td>
+                                                                        <td>
+                                                                            <div>
+                                                                                <span>{{$appointmentAGG->description}}</span>
+                                                                            </div>
+                                                                            @if (isset($appointmentAGG->file))
+                                                                                <div class="my-2">
+                                                                                    <a target="_blank" style="text-decoration: none; cursor: pointer;"
+                                                                                        href="{{route('showfile',$appointmentAGG->file)}}">
+                                                                                        <input type="text" 
+                                                                                                class="form-control p-0"
+                                                                                                id="rech_uploadc" disabled
+                                                                                                style="background:transparent; border:none; color:blue; cursor: pointer;"
+                                                                                                value="{{$appointmentAGG->file}}"
+                                                                                        >
+                                                                                    </a>  
+                                                                                </div>
+                                                                            @endif
+                                                                        </td>
                                                                         @if($appointmentAGG->type == 0)
                                                                             <td>
                                                                                 <div class="row g-1">
@@ -2889,7 +2923,7 @@
                                                                 </span>
                                                                     </div>
                                                                     <div>
-                                                                        <span class="fw-500 hrBlackTextStyle">{{ucfirst($personalData->name)}} {{ucfisrt($personalData->prename)}}</span>
+                                                                        <span class="fw-500 hrBlackTextStyle">{{ucfirst($personalData->name)}} {{ucfirst($personalData->prename)}}</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="pb-4">
@@ -3249,7 +3283,6 @@
                                                                                 <div class="col-6">
                                                                                     <div class="hrWhiteBgDiv px-1">
                                                                                         <div class="row g-0">
-
                                                                                             <div class="col">
                                                                                                 <input type="date"
 
@@ -3261,23 +3294,56 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="mx-1 my-2 p-4 text-center" style="display:none;" id="fajlli">
-                                                                                <label for="file-input-3">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53">
-                                                                                        <g id="Group_621" data-name="Group 621" transform="translate(-78.283 -14.777)">
-                                                                                            <circle id="Ellipse_31" data-name="Ellipse 31" cx="26.5" cy="26.5" r="26.5" transform="translate(78.283 14.777)" fill="#5f5f5f"></circle>
-                                                                                            <g id="Group_326" data-name="Group 326" transform="translate(95.656 31.893)">
-                                                                                                <path id="Path_234" data-name="Path 234" d="M.6,8.9a.6.6,0,0,1,.6.6v3.011a1.2,1.2,0,0,0,1.2,1.2H16.863a1.2,1.2,0,0,0,1.2-1.2V9.5a.6.6,0,1,1,1.2,0v3.011a2.408,2.408,0,0,1-2.409,2.409H2.409A2.408,2.408,0,0,1,0,12.514V9.5a.6.6,0,0,1,.6-.6" transform="translate(0 1.82)" fill="#fff" stroke="#fff" stroke-width="0.5"></path>
-                                                                                                <path id="Path_235" data-name="Path 235" d="M8.29.177a.6.6,0,0,1,.852,0h0l3.613,3.613a.6.6,0,1,1-.853.853L9.318,2.057V12.648a.6.6,0,1,1-1.2,0V2.057L5.529,4.643a.6.6,0,0,1-.853-.853Z" transform="translate(0.92 0)" fill="#fff" stroke="#fff" stroke-width="0.5"></path>
-                                                                                            </g>
-                                                                                        </g>
-                                                                                    </svg>
+                                                                            <div class="text-center" style="display: none;" id="fajlli">
+                                                                                <label for="file-input-3" class="text-center w-100">
+                                                                                    <div class="inputFileBG mt-5 mx-auto" id="inputFileBG1">
+                                                                                        <div class="pt-4 pb-0 px-4">
+                                                                                            <div id="beforeUploadTextK">
+                                                                                                <div class="">
+                                                                                                    <svg class="uploadSvgStyle" viewBox="0 0 36 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path d="M28.5981 8.48905C28.2221 6.25471 27.1158 4.2156 25.4238 2.66819C23.5437 0.947245 21.0997 0 18.5544 0C16.5876 0 14.6714 0.564008 13.03 1.62695C11.6634 2.50911 10.5282 3.70221 9.72552 5.105C9.37844 5.03992 9.0169 5.00376 8.65536 5.00376C5.58223 5.00376 3.08035 7.50565 3.08035 10.5788C3.08035 10.9765 3.12374 11.3597 3.19605 11.7357C1.20756 13.1819 0 15.5102 0 17.9904C0 19.9934 0.74478 21.9385 2.10418 23.4786C3.49974 25.055 5.34362 25.9878 7.31041 26.0962C7.33211 26.0962 7.34657 26.0962 7.36826 26.0962H13.5868C14.1291 26.0962 14.563 25.6624 14.563 25.1201C14.563 24.5777 14.1291 24.1439 13.5868 24.1439H7.39718C4.43976 23.9631 1.95234 21.1503 1.95234 17.9832C1.95234 15.9368 3.05143 14.0279 4.82299 12.9939C5.23515 12.7553 5.40869 12.2563 5.24961 11.808C5.105 11.4175 5.03269 11.0054 5.03269 10.5643C5.03269 8.56859 6.65963 6.94164 8.65536 6.94164C9.08198 6.94164 9.50137 7.01395 9.89184 7.15856C10.3691 7.33211 10.8969 7.11518 11.1139 6.65963C12.466 3.78898 15.3873 1.93787 18.5617 1.93787C22.8279 1.93787 26.3493 5.13392 26.7542 9.37121C26.7976 9.8123 27.1302 10.1666 27.5641 10.2389C30.7818 10.7885 33.2114 13.7604 33.2114 17.1516C33.2114 20.7454 30.3841 23.8691 26.8988 24.1367H21.5697C21.0274 24.1367 20.5935 24.5705 20.5935 25.1128C20.5935 25.6551 21.0274 26.089 21.5697 26.089H26.935C26.9567 26.089 26.9784 26.089 27.0073 26.089C29.2127 25.9299 31.2735 24.9176 32.8065 23.2256C34.3322 21.548 35.1637 19.3932 35.1637 17.1516C35.1565 13.0951 32.3871 9.48691 28.5981 8.48905Z" fill="#708CD4"/>
+                                                                                                    <path d="M23.4417 18.916C23.825 18.5327 23.825 17.9181 23.4417 17.5349L18.2716 12.3648C18.0909 12.184 17.8378 12.0756 17.5847 12.0756C17.3316 12.0756 17.0786 12.1768 16.8978 12.3648L11.7277 17.5349C11.3445 17.9181 11.3445 18.5327 11.7277 18.916C11.9157 19.104 12.1688 19.2052 12.4146 19.2052C12.6605 19.2052 12.9136 19.1112 13.1016 18.916L16.6085 15.409V31.5266C16.6085 32.0689 17.0424 32.5028 17.5847 32.5028C18.127 32.5028 18.5609 32.0689 18.5609 31.5266V15.409L22.0679 18.916C22.4439 19.2992 23.0585 19.2992 23.4417 18.916Z" fill="#708CD4"/>
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="fileInputSecondTitle">Durchsuchen</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="fileInputFirstTitle">Laden sie hier ihre dateien hoch</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="aferUploadText" id="aferUploadTextK">
+                                                                                                <svg class="afterUploadSvg" viewBox="0 0 90 90" fill="none"
+                                                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path
+                                                                                                        d="M90 45C90 69.8226 69.8226 90 45 90C20.1774 90 0 69.8226 0 45C0 20.1774 20.1774 0 45 0C69.8226 0 90 20.1774 90 45Z"
+                                                                                                        fill="#2F60DC" fill-opacity="0.81" />
+                                                                                                    <path
+                                                                                                        d="M45 0C69.8226 0 90 20.1774 90 45C90 69.8226 69.8226 90 45 90"
+                                                                                                        fill="#002A96" fill-opacity="0.58" />
+                                                                                                    <path
+                                                                                                        d="M13 13.2156C30.6208 -4.4052 59.1636 -4.4052 76.7844 13.2156C94.4052 30.8364 94.4052 59.3792 76.7844 77"
+                                                                                                        fill="#2F60DC" />
+                                                                                                    <path
+                                                                                                        d="M44.1241 61C43.5507 61 43.1206 60.8509 42.6906 60.4036L29.6451 46.8355C28.785 45.9409 28.785 44.599 29.6451 43.7044C30.5052 42.8098 31.7955 42.8098 32.6556 43.7044L44.2675 55.7815L66.3444 32.671C67.2045 31.7763 68.4948 31.7763 69.3549 32.671C70.215 33.5656 70.215 34.9075 69.3549 35.8021L45.5577 60.4036C45.1276 60.8509 44.5542 61 44.1241 61Z"
+                                                                                                        fill="#EEFFFF" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                                <input type="file" id="file-input-3"
+                                                                                                        name="begrundungfile2" hidden
+                                                                                                       class="svg-div w-100 border-0  g-0"
+                                                                                                       onchange="upload(this);">
+                                                                                                <input type="text"
+                                                                                                       class="form-control text-center"
+                                                                                                       id="file-input-3c" disabled
+                                                                                                       style="background:transparent; border:none;">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </label>
-                                                                                <input onchange="uploadfile()" name="begrundungfile2" type="file" id="file-input-3" class="svg-div w-100 border-0  g-0">
                                                                             </div>
                                                                         </div>
                                                                         <div class="pt-4">
-                                                                            <button onclick="submitform()" class="w-100 hrBlueSubmitBtn py-2">Speichern</button>
+                                                                            <button onclick="submitform()" type="button" class="w-100 hrBlueSubmitBtn py-2">Speichern</button>
                                                                         </div>
                                                                     </form>
                                                                     <form action="{{route('createBestellunge')}}" method="post" class="col-12 col-lg-6 ps-0 ps-lg-3">
@@ -3465,7 +3531,26 @@
                                                         <td>{{$absence->created_at->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($absence->from)->format('d.m.Y')}}</td>
                                                         <td>{{Carbon\Carbon::parse($absence->to)->format('d.m.Y')}}</td>
-                                                        <td>{{$absence->description}}</td>
+                                                        <td>
+                                                            <div>
+                                                                <span>{{$absence->description}}</span>
+                                                            <div>
+                                                            @if (isset($absence->file))
+                                                            <div class="my-2">
+                                                                <a target="_blank" style="text-decoration: none; cursor: pointer;"
+                                                                    href="{{route('showfile',$absence->file)}}">
+                                                                    <input type="text" 
+                                                                            class="form-control p-0"
+                                                                            id="rech_uploadc" disabled
+                                                                            style="background:transparent; border:none; color:blue; cursor: pointer;"
+                                                                            value="{{$absence->file}}"
+                                                                    >
+                                                                </a>  
+                                                            </div>
+                                                            @endif
+                                                            
+                                                            
+                                                        </td>
                                                         @if($absence->type == 0)
                                                             <td>
                                                                 <div class="row g-1">
@@ -4016,6 +4101,7 @@
                     </div>
                 </div>
                 <script>
+                    var secsub = 0;
                     var input = document.getElementById("myInput");
                     input.addEventListener("keyup", function (event) {
                         if (event.keyCode === 13) {
@@ -4141,7 +4227,7 @@
                         addMore.value = '';
                     }
 
-                    var secsub = 0;
+                    
                     function krank(){
 
                     }
@@ -4151,18 +4237,22 @@
                         var date1 = new Date(document.getElementById('from').value);
                         var date2 = new Date(document.getElementById('to').value);
                         var diffDays = date2.getDate() - date1.getDate();
+
+
+                    
                         if (document.getElementById('weekend').checked) {
                             if (diffDays > 1) {
+                                
                                 $('#fajlli').show();
                             }
-                            else if (secsub == 2) {
+                            if (secsub == 2) {
                                 document.getElementById('crt').submit();
-                                location.reload()
+                                
                             }
-                        } else {
-                            document.getElementById('crt').submit();
-                            location.reload()
-                        }
+                            }else {
+                                document.getElementById('crt').submit();
+                                
+                            }
                     }
                     // {{--function getData(){--}}
                     // {{--    document.getElementById('options').innerHTML = '';--}}
@@ -4178,6 +4268,18 @@
                     // {{--    });--}}
                     // {{--}--}}
                     // {{--getData();--}}
+
+                    function upload(x) {
+                        var fullPath = x.value;
+                        if (fullPath) {
+                            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+                            var filename = fullPath.substring(startIndex);
+                            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                                filename = filename.substring(1);
+                            }
+                            document.getElementById(x.id + 'c').value = filename;
+                        }
+                    }
 
                 </script>
                 <script>
@@ -4508,6 +4610,11 @@
         background: #F5F5F5;
         border-radius: 47px;
     }
+    .fileInputFirstTitle {
+        font-weight: 400;
+        text-align: center;
+        color: #99999A;
+    }
 
     .employeesTitleSpan {
         font-weight: 600;
@@ -4683,6 +4790,13 @@
         height: 55vh;
         overflow-y: scroll;
         overflow-x: hidden;
+    }
+    .inputFileBG {
+        background: #F7F8FC;
+        border: 2px dashed #708CD4;
+        box-sizing: border-box;
+        border-radius: 9px;
+        width: 85%;
     }
 
 
@@ -5328,6 +5442,9 @@
         padding-bottom: 0.5rem;
         vertical-align: middle;
     }
+    .aferUploadText {
+        display: none;
+    }
 
     .tableStyleEmployees td {
         color: #585858;
@@ -5380,6 +5497,13 @@
         color: #b3b3b3;
         border-radius: 14px;
         border: 2px solid #b3b3b3;
+    }
+    .fileInputSecondTitle {
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+        text-decoration-line: underline;
+        color: #658BEB;
     }
 
     @media (max-width: 1399.98px) {
@@ -5674,6 +5798,10 @@
         background: #F5F5F5;
         border-radius: 47px;
     }
+    .uploadSvgStyle {
+            width: 30px;
+            height: 30px;
+        }
 
     .employeesTitleSpan {
         font-weight: 600;

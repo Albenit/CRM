@@ -23,7 +23,7 @@
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
                                     <label for="" class="mb-1">Qualität</label>
-                                    <input type="text" class="form-control GrundversicherungInput" value="{{ucfirst($admin->name)}}" name="berater" >
+                                    <input type="text" class="form-control GrundversicherungInput" value="{{ucfirst($admin->name)}}" name="berater" readonly>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
