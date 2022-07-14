@@ -180,6 +180,7 @@ public function folgetermin($id){
          }
          
         }
+        $admin->roles()->detach();
         $admin = Admins::find((int) $req->admin)->update(['roless' => '[]']);
         return redirect()->back()->with('success','Erfolgreich hinzugefügt');
      }
