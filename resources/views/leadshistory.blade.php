@@ -37,7 +37,7 @@
                     <tr style="border-top: 1px solid #E9E8E8 !important;">
                         <tbody scope="row">
                             <td>
-                            <div style="font-weight: 600 !important;">{{ucfirst($lead->first_name)}}</div>
+                            <div style="font-weight: 600 !important;">{{ucfirst($lead->first_name)}} {{ucfirst($lead->last_name)}}</div>
                         </td>
                         <td>
                             <div>{{ucfirst($lead->campaign->name)}}</div>
