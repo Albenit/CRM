@@ -271,7 +271,6 @@ class StatisticController extends Controller
                     }
                 } else {
                     $count = family::get()->filter(function ($item) use ($gesellschaft, $collection) {
-
                         if ($gesellschaft != 'all') {
                             if ($item->grund()->where('society_PG', $gesellschaft)->count() > 0) {
                                 $collection->push($item->grund()->where('society_PG', $gesellschaft)->get()->first()->status_PG);
@@ -292,7 +291,7 @@ class StatisticController extends Controller
                                 $collection->push($item->rech()->where('society_PR', $gesellschaft)->get()->first()->status_PR);
                             }
                         } else {
-
+                   
                             if ($item->grund()->count() > 0) {
                                 $collection->push($item->grund()->get()->first()->status_PG);
                             }
@@ -317,7 +316,7 @@ class StatisticController extends Controller
                 }
 
             }
-
+    
             $col = $collection->countBy(function ($item) {
                 return $item;
             });
@@ -472,6 +471,7 @@ class StatisticController extends Controller
                 });
             }
         } else {
+         
             if ($model != 'all') {
                 if ($model == 'Grundversicherung') {
                     $count = 0;
@@ -568,8 +568,8 @@ class StatisticController extends Controller
                     });
                 }
             } else {
+              
                 $count = family::get()->filter(function ($item) use ($gesellschaft, $collection) {
-
                     if ($gesellschaft != 'all') {
                         if ($item->grund()->where('society_PG', $gesellschaft)->count() > 0) {
                             $collection->push($item->grund()->where('society_PG', $gesellschaft)->get()->first()->status_PG);
@@ -590,7 +590,7 @@ class StatisticController extends Controller
                             $collection->push($item->rech()->where('society_PR', $gesellschaft)->get()->first()->status_PR);
                         }
                     } else {
-
+                        
                         if ($item->grund()->count() > 0) {
                             $collection->push($item->grund()->get()->first()->status_PG);
                         }
@@ -611,11 +611,10 @@ class StatisticController extends Controller
                         }
                     }
                 });
-
             }
 
         }
-
+        
         $col = $collection->countBy(function ($item) {
             return $item;
         });
