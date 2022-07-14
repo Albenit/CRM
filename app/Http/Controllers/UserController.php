@@ -193,7 +193,9 @@ public function folgetermin($id){
         $lead->birthdate = filter_var($req->geburstdatum, FILTER_SANITIZE_STRING);
         $lead->number_of_persons = (int)$req->haushalt;
         $lead->campaign_id = (int)$req->campaign;
-        $lead->address = filter_var($req->plzort,FILTER_SANITIZE_STRING);
+        $lead->address = filter_var($req->address,FILTER_SANITIZE_STRING);
+        $lead->city = filter_var($req->city,FILTER_SANITIZE_STRING);
+        $lead->apporlead = 'lead';
         $lead->save();
         $leadi = new lead_info();
         $leadi->grund = filter_var($req->grund,FILTER_SANITIZE_STRING);
