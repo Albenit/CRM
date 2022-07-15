@@ -283,6 +283,7 @@ public function folgetermin($id){
         $lead->campaign_id = (int)$req->input('campaign');
         $lead->assigned = 1;
         $lead->apporlead = 'appointment';
+        $lead->leadToApp = 'App';
         $campaign = campaigns::where('id', $req->input('campaign'))->get();
         if ($req->input('online') == 'yes') {
             $lead->wantsonline = 1;
@@ -438,6 +439,7 @@ public function folgetermin($id){
         $lead->sprache = $req->sprache ?  filter_var($req->sprache,FILTER_SANITIZE_STRING) : $lead->sprache;
         $lead->agent = $req->agent ?  filter_var($req->agent,FILTER_SANITIZE_STRING) : $lead->agent;
         $lead->duration_time = Carbon::now();
+        $lead->leadToApp = 'App';
 
         if ($lead->save()) {
             Admins::role(['salesmanager'])->get()->each(function($admin){
@@ -1164,10 +1166,10 @@ public function folgetermin($id){
                         $vorauf = 0;
                         $provcnt = collect();
 
-                        $leed = lead::where('assign_to_id',Auth::user()->id)->whereNull('insertedManualy')->where('apporlead','appointment')->withTrashed()->count();
+                        $leed = lead::where('assign_to_id',Auth::user()->id)->whereNull('insertedManualy')->where('leadToApp','App')->withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
-                            $leadsAbschlose = lead::where('assign_to_id',Auth::user()->id)->where('completed', 1)->where('rejected',0)->count();
+                            $leadsAbschlose = lead::where('assign_to_id',Auth::user()->id)->where('completed', 1)->where('rejected',0)->where('leadToApp','App')->count();
     
                             $leadsAll = $leadsAbschlose * $leadssAll;
                         }else{
@@ -1254,10 +1256,10 @@ public function folgetermin($id){
                         $abgCount = $grundversicherungA + $retchsschutzA + $vorsorgeA + $zusatzversicherungA + $autoversicherungA + $hausratA;
 
 
-                        $leed = lead::whereNull('insertedManualy')->where('apporlead','appointment')->withTrashed()->count();
+                        $leed = lead::whereNull('insertedManualy')->where('leadToApp','App')->withTrashed()->count();
                         if($leed > 0){
                             $leadssAll = 100 / $leed;
-                            $leadsAbschlose = lead::where('completed', 1)->where('rejected',0)->count();
+                            $leadsAbschlose = lead::where('completed', 1)->where('rejected',0)->where('leadToApp','App')->count();
 
                             $leadsAll = $leadsAbschlose * $leadssAll;
                         }else{

@@ -131,7 +131,7 @@
                                                 <a style="text-decoration: none"
                                                     href="{{ route('showfile2', $lead->begrundungfile2) }}" target="_blank">
                                                     <input type="text" class="form-control" id="begrundung"
-                                                        disabled style="background:transparent; border:none;"
+                                                        disabled style="background:transparent; border:none; color: blue; cursor: pointer;"
                                                         value="{{$lead->begrundungfile2}}">
                                                 </a>
                                             </div>
