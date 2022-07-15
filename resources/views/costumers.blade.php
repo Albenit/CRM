@@ -1474,7 +1474,7 @@
 <script>
     function changepagination(){
         var x = document.getElementById('zusStatusi').value;
-      axios.get('http://localhost:8000/changepagination/' + x).then(window.location.reload());
+      axios.get('http://localhost:8000/changepagination/' + x).then(location.reload());
     }
     function NaBleronit() {
         document.getElementById("inputPress").style.display = "none";
