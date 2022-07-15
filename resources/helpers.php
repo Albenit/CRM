@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
+
 if(!function_exists('f_salary')){
      function f_salary($sum,$per){
         $sum = $sum / 100;
@@ -65,6 +67,9 @@ function days($date1,$date2){
             && ($hausratP->society_PH == null || $hausratP->graduation_date_PH == null || $hausratP->product_PH == null || ( $hausratP->status_PH == 'Offen (Berater)' && $hausratP->status_PH == 'Offen (Innendienst)'))
             && ($vorsorgeP->society_PV == null || $vorsorgeP->product_PV == null || $vorsorgeP->graduation_date_PV == null  || ( $vorsorgeP->status_PV == 'Offen (Berater)' && $vorsorgeP->status_PV == 'Offen (Innendienst)'));
 
+    }
+    function cachee(){
+return Cache::get('paginationCount');
     }
 
 ?>

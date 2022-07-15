@@ -361,8 +361,10 @@ class TasksController extends Controller
         $n = date('Y-m-d', strtotime($request->searchdate2));
         $date2 = date('Y-m-d', strtotime($n . "+1 days"));
         $searchname = $request->searchname ? $request->searchname : '';
+        $paginationCnt = Cache::has('paginationCounte') ? Cache::has('paginationCount') : 30;
         $user = auth()->user();
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
+        
             $family = auth()->user()->kunden()->whereIn('status',['Done'])->with('hausrat')->with('datak')->with('lead')->with('grund')->with('rech')->with('vor')->with('zus')->with('auto');
             if (isset($request->searchdate1) && isset($request->searchdate2)) {
                 $family->whereBetween('family_person.created_at', [$date1, $date2]);
@@ -389,7 +391,7 @@ class TasksController extends Controller
                 })->paginate(30);
             }
             
-           $data= $family->paginate(30);
+           $data= $family->paginate($paginationCnt);
 
             $cnt = 0;
 
@@ -440,7 +442,7 @@ class TasksController extends Controller
                     $family->whereBetween('family_person.created_at', [$date1, $date2]);
                 }
                 if (isset($request->searchname)){
-                    $family->where('first_name', 'like', '%' . $searchname . '%');
+                    $family->where('first_name', 'like', '%' . $request->searchname . '%');
                 }
                 if(isset($request->status) && $request->status != 'alle'){
                     $family->whereHas('hausrat',function($query) use($request){
@@ -458,7 +460,7 @@ class TasksController extends Controller
                     });
                 }
            
-                $data = $family->paginate(30);
+                $data = $family->paginate($paginationCnt);
                
                 $curr = $data->currentPage();
             
