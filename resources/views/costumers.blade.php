@@ -800,20 +800,26 @@
                         </table>
                     </div>
                 
-                <div class="row mt-3">
-                    <div class="col-1">
-                        <select class="GrundversicherungInput form-control py-1 ms-3 text-center" name="status_PZ" id="zusStatusi" onchange="changepagination()">
-                        @for($i = 10; $i <= 50; $i+=10)
-                        @if(cachee() == $i)
-                        <option value="{{$i}}" selected>{{$i}}</option>
-                        @else
-                        <option value="{{$i}}">{{$i}}</option>
-                        @endif
-                        
-                     @endfor
-                        </select>
-                    </div>
-                    <div class="col-9"></div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="row " style="">
+                                <div class="d-inline">
+                                    <span class="ms-3">Kunde Per Page</span>
+                                
+                                
+                                    <select class="GrundversicherungInput p-2" name="status_PZ" id="zusStatusi" onchange="changepagination()">
+                                        @for($i = 10; $i <= 50; $i+=10)
+                                            @if(cachee() == $i)
+                                                <option value="{{$i}}" selected>{{$i}}</option>
+                                            @else
+                                                <option value="{{$i}}">{{$i}}</option>
+                                            @endif
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-7"></div>
                     <div class="col-2">
                         @if(!auth()->user()->hasRole('fs'))
                         <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
@@ -1512,6 +1518,14 @@
     function openSortInputs() {
         $('#sortdatainputs').slideToggle();
     }
+    function openDropDownSelect() {
+            var x = document.getElementById("dropdownSelectId");
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
 </script>
 <style>
     
@@ -1907,6 +1921,30 @@
         box-sizing: border-box;
         border-radius: 11px;
     }
+
+        .statsSelectStyle {
+            border: 2px solid rgba(47, 96, 220, 0.28);
+            border-radius: 6px;
+
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .statsSelectStyleDropdown {
+            border: 2px solid rgba(47, 96, 220, 0.28);
+            border-radius: 6px;
+            background-color: #fff;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            z-index: 5;
+        }
 </style>
 <style>
     /*Per Notification */
