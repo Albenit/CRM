@@ -817,6 +817,7 @@
                     <div class="col-2">
                         @if(!auth()->user()->hasRole('fs'))
                         <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
+                        @if($data->currentPagee > 1)
                             <div class="prev-nxt-btn d-flex">
                                 <a href="{{route('costumers',['page' => $data->currentPagee - 1])}}">
                                     <div class="prev-btn border p-2 bg-light m-2 rounded">
@@ -825,7 +826,10 @@
                                         </svg>
                                     </div>
                                 </a>
+                                </div>
+                                @endif
                                 @if($data->count() > 0)
+                                <div class="next-prv-btn d-flex">
                                     <a href="{{route('costumers',['page' => $data->currentPagee + 1])}}">
                                         <div class="nxt-btn border p-2 bg-light m-2 rounded">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -838,6 +842,7 @@
                         </div>
                         @else
                         <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
+                        @if($data->currentPage() > 1)
                             <div class="prev-nxt-btn d-flex">
                                 <a href="{{route('costumers',['page' => $data->currentPage() - 1])}}">
                                     <div class="prev-btn border p-2 bg-light m-2 rounded">
@@ -846,7 +851,10 @@
                                         </svg>
                                     </div>
                                 </a>
+                                </div>
+                                @endif
                                 @if($data->count() > 0)
+                                <div class="next-prv-btn d-flex">
                                     <a href="{{route('costumers',['page' => $data->currentPage() + 1])}}">
                                         <div class="nxt-btn border p-2 bg-light m-2 rounded">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -1474,7 +1482,7 @@
 <script>
     function changepagination(){
         var x = document.getElementById('zusStatusi').value;
-      axios.get('http://localhost:8000/changepagination/' + x).then(location.reload());
+      axios.get('http://localhost:8000/changepagination/' + x).then(() => {location.reload(); return false;});
     }
     function NaBleronit() {
         document.getElementById("inputPress").style.display = "none";
