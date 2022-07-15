@@ -50,16 +50,15 @@
                                 <div class="lostRedDiv py-1 text-center">
                                     <span>Verloren</span>
                                 </div>
-                            @elseif($lead->rejected == 0   && $lead->appointment_date == null)
+                            @elseif($lead->rejected == 0  && $lead->appointment_date == null)
                                 <div class="yellowRedDiv py-1 text-center">
                                     <span>Pending</span>
                                 </div>
-                            @elseif($lead->completed = 1 && $lead->rejected == 0)
+                            @elseif($lead->rejected == 0 && $lead->appointment_date != null)
                                 <div class="greenRedDiv py-1 text-center">
                                     <span>Gewonnen</span>
                                 </div>
                             @endif
-                            
                         </td>
                         <td>
                             <div>{{$lead->info->kampagne}}</div>
@@ -200,54 +199,55 @@
                                                     <div class="text-dark text-left p-3 h-100 m-2"
                                                             style="border-radius: 9px; background:#fafafa;">
                                                         
-                                                        @if($lead->rejected == 1 || $lead->deleted_at != null)
-                                                            <div class="py-1">
-                                                                <h6 style="color: #434343 !important; font-weight: 700 !important;">Lead Verloren</h6>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Grund: 
-                                                                    <span style="color: #88889D;font-weight: 500">{{$lead->leadsHistory->status}} {{$lead->pendingRejectLead->begrundung}}</span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Verloren Datum: 
-                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->deleted_at == null ? '' : $lead->deleted_at->format('d.m.Y')}}</span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                        @elseif($lead->completed = 1 && $lead->rejected == 0)
-                                                            <div class="py-1">
-                                                                <h6 style="color: #434343 !important; font-weight: 700 !important;">Gewonen</h6>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Grund: 
-                                                                    <span style="color: #88889D;font-weight: 500"></span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Agent: 
-                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->agent}}</span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Appointment Datum: 
-                                                                    <span style="color: #88889D;font-weight: 500"> {{Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y')}}</span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                            <div class="py-1">
-                                                                <span style="color: #434343; font-weight: 600;">Zeit: 
-                                                                    <span style="color: #88889D;font-weight: 500"> {{$lead->time}}</span>
-                                                                </span>
-                                                                <br>
-                                                            </div>
-                                                            
-                                                        @elseif($lead->rejected == 0   && $lead->appointment_date == null)
-                                                            
-                                                        @endif
+                                                            @if($lead->rejected == 1 || $lead->deleted_at != null)
+                                                                <div class="py-1">
+                                                                    <h6 style="color: #434343 !important; font-weight: 700 !important;">Lead Verloren</h6>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Grund: 
+                                                                        <span style="color: #88889D;font-weight: 500">{{$lead->leadsHistory->status}} {{$lead->pendingRejectLead->begrundung}}</span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Verloren Datum: 
+                                                                        <span style="color: #88889D;font-weight: 500"> {{$lead->deleted_at == null ? '' : $lead->deleted_at->format('d.m.Y')}}</span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>
+                                                            @elseif($lead->rejected == 0 && $lead->appointment_date != null)
+                                                                <div class="py-1">
+                                                                    <h6 style="color: #434343 !important; font-weight: 700 !important;">Gewonen</h6>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Grund: 
+                                                                        <span style="color: #88889D;font-weight: 500"></span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Agent: 
+                                                                        <span style="color: #88889D;font-weight: 500"> {{$lead->agent}}</span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Appointment Datum: 
+                                                                        <span style="color: #88889D;font-weight: 500"> {{Carbon\Carbon::parse($lead->appointment_date)->format('d.m.Y')}}</span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>
+                                                                <div class="py-1">
+                                                                    <span style="color: #434343; font-weight: 600;">Zeit: 
+                                                                        <span style="color: #88889D;font-weight: 500"> {{$lead->time}}</span>
+                                                                    </span>
+                                                                    <br>
+                                                                </div>  
+                                                            @elseif($lead->rejected == 0 && $lead->appointment_date == null)
+                                                                <div class="py-1" style="text-align: center">
+                                                                    <h6 style="color: #434343 !important; font-weight: 700 !important;">Pending</h6>
+                                                                </div>
+                                                            @endif
                                                     </div>
                                                 </div>
                                             </div>

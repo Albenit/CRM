@@ -79,7 +79,8 @@ public function author(){
          'latitude' => $this->latitude,
          'longitude' => $this->longitude,
          'slug' => Str::random(7),
-         'apporlead' => 'appointment'
+         'apporlead' => 'appointment',
+         'leadToApp' => 'App'
         ]);
     }
 }
