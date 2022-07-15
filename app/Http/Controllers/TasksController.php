@@ -463,7 +463,7 @@ class TasksController extends Controller
                 $data = $family->paginate($paginationCnt);
                
                 $curr = $data->currentPage();
-            
+                $lastpage = $data->lastPage();
                 $data2 = collect();
                 if(isset($request->berater)){
                  
@@ -476,7 +476,9 @@ class TasksController extends Controller
       
 $data = $data2;}
             }
+            
 $data->currentPagee = $curr;
+$data->lastPagee = $lastpage;
 
 
             $cnt = 0;

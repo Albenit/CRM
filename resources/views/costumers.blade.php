@@ -828,7 +828,7 @@
                                 </a>
                                 </div>
                                 @endif
-                                @if($data->count() > 0)
+                                @if($data->count() > 0 && $data->currentPagee != $data->lastPagee)
                                 <div class="next-prv-btn d-flex">
                                     <a href="{{route('costumers',['page' => $data->currentPagee + 1])}}">
                                         <div class="nxt-btn border p-2 bg-light m-2 rounded">
@@ -853,7 +853,7 @@
                                 </a>
                                 </div>
                                 @endif
-                                @if($data->count() > 0)
+                                @if($data->count() > 0 && $data->currentPage() != $data->lastPage())
                                 <div class="next-prv-btn d-flex">
                                     <a href="{{route('costumers',['page' => $data->currentPage() + 1])}}">
                                         <div class="nxt-btn border p-2 bg-light m-2 rounded">
