@@ -66,6 +66,7 @@ use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
+use Illuminate\Support\Facades\Cache;
 use Maatwebsite\Excel\HeadingRowImport;
 
 route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::class,'throttle:trynal',\App\Http\Middleware\isagent::class])->group(function(){
@@ -347,3 +348,10 @@ route::post('savecostumer',[CostumerFormController::class,'savecostumer'])->name
 //     $tokenVerified = $authyToken->verify('4135553', auth()->user()->authy_id);
 
 // });
+route::get('changepagination/{x}',function($x){
+    Cache::pull('paginationCount');
+     Cache::forever('paginationCount', $x);
+});
+route::get('changepaginationn',function(){
+   return  Cache::has('paginationCount') ? Cache::get('paginationCount') : 22;
+});
