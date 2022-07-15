@@ -800,7 +800,7 @@
                         </table>
                     </div>
                 
-                <div class="row mt-1">
+                <div class="row mt-3">
                     <div class="col-1">
                         <select class="GrundversicherungInput form-control py-1 ms-3 text-center" name="status_PZ" id="zusStatusi" onchange="changepagination()">
                         @for($i = 10; $i <= 50; $i+=10)
@@ -1482,7 +1482,7 @@
 <script>
     function changepagination(){
         var x = document.getElementById('zusStatusi').value;
-      axios.get('http://localhost:8000/changepagination/' + x).then(() => {location.reload(); return false;});
+      axios.get('https://crm.finanu.ch/changepagination/' + x).then(() => {location.reload(); return false;});
     }
     function NaBleronit() {
         document.getElementById("inputPress").style.display = "none";
