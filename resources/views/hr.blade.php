@@ -3207,6 +3207,13 @@
                                                                             <span class="fs-5 fw-600" style="color: #3B3A3A;">Abwesenheit erfassen</span>
                                                                         </div>
                                                                         <div>
+                                                                            @if($errors->any())
+                                                                                <div class="text-center" style="color: red">
+                                                                                    {!! implode('<br />', $errors->all(':message')) !!}
+                                                                                </div>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div>
                                                                             <div class="hrWhiteBgDiv py-2 mb-2">
                                                                                 <div class="hoverLabelClass mb-1 px-3 py-1">
                                                                                     <label class="container2 py-1">
@@ -4232,10 +4239,12 @@
 
                     }
                     function submitform() {
-
+ 
                         secsub++;
                         var date1 = new Date(document.getElementById('from').value);
                         var date2 = new Date(document.getElementById('to').value);
+
+
                         var diffDays = date2.getDate() - date1.getDate();
 
 
@@ -4249,7 +4258,7 @@
                                 document.getElementById('crt').submit();
                                 
                             }
-                            }else {
+                            }else{
                                 document.getElementById('crt').submit();
                                 
                             }

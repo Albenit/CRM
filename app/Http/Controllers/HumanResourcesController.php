@@ -60,7 +60,16 @@ class HumanResourcesController extends Controller
     }
 
     public function createAbsence(Request $request)
-    {
+    {   
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required'
+        ],
+        [   
+            'from.required' => 'Date is required',
+            'to.required' => 'Date is required'
+        ]
+    );
 
         $decryptedEmployeeId = $request->employeeId;
         $emp  = auth()->user();

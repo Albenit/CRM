@@ -799,14 +799,11 @@
                             </tbody>
                         </table>
                     </div>
-                
                     <div class="row mt-3">
                         <div class="col">
                             <div class="row " style="">
                                 <div class="d-inline">
                                     <span class="ms-3">Kunde Per Page</span>
-                                
-                                
                                     <select class="GrundversicherungInput p-2" name="status_PZ" id="zusStatusi" onchange="changepagination()">
 
                                         @for($i = 10; $i <= 50; $i+=10)
