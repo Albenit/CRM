@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dad9331ea26fc7f28ae0e95f94644e5b",
+    "content-hash": "585e63e4e4bb254a977a3bfaaedd3d33",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -10882,6 +10882,72 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wnx/php-swiss-cantons",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefanzweifel/php-swiss-cantons.git",
+                "reference": "a6000e3d4300c3b1f0250a025d36cd24c8926d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefanzweifel/php-swiss-cantons/zipball/a6000e3d4300c3b1f0250a025d36cd24c8926d6d",
+                "reference": "a6000e3d4300c3b1f0250a025d36cd24c8926d6d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4.0 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3",
+                "league/csv": "^9.7",
+                "phpunit/phpunit": "9.*",
+                "symfony/console": "^5.2",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wnx\\SwissCantons\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stefan Zweifel",
+                    "email": "hello@stefanzweifel.io",
+                    "homepage": "https://stefanzweifel.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Search for Swiss Cantons by name or abbreviation.",
+            "homepage": "https://github.com/stefanzweifel/php-swiss-cantons",
+            "keywords": [
+                "canton",
+                "cantons",
+                "swiss"
+            ],
+            "support": {
+                "issues": "https://github.com/stefanzweifel/php-swiss-cantons/issues",
+                "source": "https://github.com/stefanzweifel/php-swiss-cantons/tree/4.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://buymeacoff.ee/3oQ64YW",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/stefanzweifel",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-10-24T08:55:06+00:00"
         }
     ],
     "packages-dev": [
