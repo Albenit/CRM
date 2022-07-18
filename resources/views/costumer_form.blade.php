@@ -636,7 +636,8 @@ if it's not present, don't show loader */
                                     </div>
                                     <div class="col">
                                         <div class="fs-4" style="font-weight: 500;color: #434343">
-                                            {{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}} (Berater: {{ucfirst($costumer->lead->admin->name)}})
+                                            <span>{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
+                                            <span> <span>Berater: </span>{{ucfirst($costumer->lead->admin->name)}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1216,7 +1217,7 @@ if it's not present, don't show loader */
                                                                 <span class="documentFormLeftSpan">KANTON</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan">Kanton</span>
+                                                                <span class="documentFormRightSpan" >{{$cantonName}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2794,6 +2795,7 @@ $urole = $user->getRoleNames()->toArray();
 {{--</script>--}}
 {{--END--}}
 {{--Zusatzversicherung--}}
+
 <script>
     var count = <?php echo $newNeueOfertenCount +1;?>;
     for (i = 2; i <= count; i++) {

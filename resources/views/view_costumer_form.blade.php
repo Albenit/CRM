@@ -1168,7 +1168,7 @@
                                                             <span class="documentFormLeftSpan">KANTON</span>
                                                         </div>
                                                         <div class="col">
-                                                            <span class="documentFormRightSpan">Kanton</span>
+                                                            <span class="documentFormRightSpan">{{$cantonName}}</span>
                                                         </div>
                                                     </div>
                                                 </div>

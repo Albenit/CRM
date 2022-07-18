@@ -31,12 +31,30 @@ use App\Models\Pendency;
 use Database\Seeders\AdminSeeder;
 use App\Models\Activity;
 use App\Models\LogsActivity;
+use Throwable;
+
+// use Wnx\SwissCantons\CantonManager;
 
 
 class CostumerFormController extends Controller
 {
+
     public function costumer_form($id){
         $id = Crypt::decrypt($id) / 1244;
+        $cantonManager = new \Wnx\SwissCantons\CantonManager();
+        $cantonName = '';
+        try{
+            $familyyy = family::find($id);
+            $postali = $familyyy->lead->postal_code;
+            $kantoni = $cantonManager->getByZipcode($postali);
+
+            $cantonName = $kantoni->setLanguage('de')->getName();
+        }catch(Throwable $e){
+           $cantonName = '';
+        }
+
+        
+        
 
         if(Auth::guard('admins')->user()->hasRole('backoffice') ||Auth::guard('admins')->user()->hasRole('admin') || Auth::guard('admins')->user()->hasRole('salesmanager') ||Auth::guard('admins')->user()->hasRole('fs') || Auth::guard('admins')->user()->hasRole('management')){
             $family = family::where('id',$id)->first();
@@ -63,11 +81,11 @@ class CostumerFormController extends Controller
                 $hausratP = CostumerProduktHausrat::where('person_id_PH', $id)->first();
                 $retchsschutzP = CostumerProduktRechtsschutz::where('person_id_PR', $id)->first();
                 $vorsorgeP = CostumerProduktVorsorge::where('person_id_PV', $id)->first();
-
+                
 
                 return view('costumer_form')->with(compact('costumer','newNeueOfertenCount',
                     'grundversicherungP','zusatzversicherungP','newGegenOfertenCount','dataKK','dataFahrzeug',
-                    'dataPrevention','autoversicherungPP','hausratP','retchsschutzP','vorsorgeP','autoversicherungPPFirst'));
+                    'dataPrevention','autoversicherungPP','hausratP','retchsschutzP','vorsorgeP','autoversicherungPPFirst','cantonName'));
 
             }else{
                 if(Auth::guard('admins')->user()->hasRole('admin') || Auth::guard('admins')->user()->hasRole('backoffice')) {
@@ -88,7 +106,7 @@ class CostumerFormController extends Controller
                         ->with(compact('costumer',
                             'grundversicherungPP',
                             'retchsschutzP', 'vorsorgeP','hausratP','autoversicherungPP',
-                            'zusatzversicherungPP','dataKK','dataFahrzeug','dataPrevention','autoversicherungPPFirst'));
+                            'zusatzversicherungPP','dataKK','dataFahrzeug','dataPrevention','autoversicherungPPFirst','cantonName'));
 
 
                 }
@@ -111,7 +129,7 @@ class CostumerFormController extends Controller
                         ->with(compact('costumer',
                             'grundversicherungPP',
                             'retchsschutzP', 'vorsorgeP','hausratP','autoversicherungPP',
-                            'zusatzversicherungPP','dataKK','dataFahrzeug','dataPrevention','autoversicherungPPFirst'));
+                            'zusatzversicherungPP','dataKK','dataFahrzeug','dataPrevention','autoversicherungPPFirst','cantonName'));
 
                 }
             }

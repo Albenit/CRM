@@ -623,21 +623,22 @@ if it's not present, don't show loader */
                     <div class="py-4 px-2 px-sm-4">
                             <div class="row g-0">
                                 <div class="col my-auto">
-                                <div class="row g-0">
-                                    <div class="col-auto my-auto pe-5">
-                                    <a style="text-decoration: none" href="{{URL::previous()}}">
-                                        <svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 2L2 12L12 22" stroke="#656565" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-auto my-auto pe-5">
+                                        <a style="text-decoration: none" href="{{URL::previous()}}">
+                                            <svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2L2 12L12 22" stroke="#656565" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
+                                        </div>
                                         <div class="col">
-                                        <span class="fs-4" style="font-weight: 500;color: #434343">
-                                                            {{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}} (Berater: {{ucfirst($costumer->lead->admin->name)}})
-                                                        </span>
+                                            <div class="fs-4" style="font-weight: 500;color: #434343">
+                                                <span>{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
+                                                <span> <span>Berater: </span>{{ucfirst($costumer->lead->admin->name)}}</span>
+                                            </div>
                                         </div>
 
-                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-auto col-md-3 col-lg-2 my-auto">
                                 <button type="button" style="font-weight: 600;" class="butoniAnpassung py-0 py-sm-1 w-100" onclick="window.location.href='{{route('leadfamilyperson',[Crypt::encrypt($costumer->id * 1244),'admin_id' => \Illuminate\Support\Facades\Crypt::encrypt($costumer->lead->assign_to_id * 1244),'pend_id' => \App\Models\Pendency::where('family_id',$costumer->id)->latest()->first()->id,'vorsorge' => true])}}'">
@@ -1189,7 +1190,7 @@ if it's not present, don't show loader */
                                                             <span class="documentFormLeftSpan">KANTON</span>
                                                         </div>
                                                         <div class="col">
-                                                            <span class="documentFormRightSpan">Kanton</span>
+                                                            <span class="documentFormRightSpan">{{$cantonName}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2776,7 +2777,9 @@ $urole = $user->getRoleNames()->toArray();
     .m-burger:hover .firstHr {
         width: 20px;
     } */
-
+.flaedkad {
+    display: flex;
+}
     .bottom-burger-modal {
         width: 100%;
         height: 100vh;
@@ -3505,6 +3508,13 @@ body {font-family: 'Montserrat', sans-serif;}
         width: 65%;
         transition: all 0.3s ease-in-out;
     }
+
+    .adminName {
+        background: #FFFFFF !important;
+        border: 1px solid #E7EEF4 !important;
+        border-radius: 8px !important;
+    }
+
 
     .documentFormGreyBGDiv2 {
         background: #EBEEFB;

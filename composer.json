@@ -34,7 +34,8 @@
         "sylius/mailer-bundle": "^1.6",
         "twilio/sdk": "^6.38",
         "vonage/client": "^2.4",
-        "webklex/laravel-imap": "^2.4"
+        "webklex/laravel-imap": "^2.4",
+        "wnx/php-swiss-cantons": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
