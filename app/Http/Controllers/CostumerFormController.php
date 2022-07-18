@@ -169,6 +169,7 @@ class CostumerFormController extends Controller
             'status_PG' => filter_var($request->status_PG,FILTER_SANITIZE_STRING),
             'last_adjustment_PG' => $todayG,
             'total_commisions_PG' => (int) filter_var($request->total_commisions_PG,FILTER_SANITIZE_STRING),
+            'prov_id' => $lgrund->prov_id ? $lgrund->prov_id : Admins::find($lgrund->admin_id)->provision->id
         ]);
         $grund = CostumerProduktGrundversicherung::firstWhere('person_id_PG',$id);
         $grund->prov_id = Admins::find($grund->admin_id)->provision->id;
@@ -207,7 +208,8 @@ class CostumerFormController extends Controller
             'produkt_PR'=> filter_var($request->produkt_PR,FILTER_SANITIZE_STRING),
             'status_PR' => filter_var($request->status_PR,FILTER_SANITIZE_STRING),
             'last_adjustment_PR'=> $todayR,
-            'total_commisions_PR'=> (int) filter_var($request->total_commisions_PR,FILTER_SANITIZE_STRING)
+            'total_commisions_PR'=> (int) filter_var($request->total_commisions_PR,FILTER_SANITIZE_STRING),
+            'prov_id' => $lretchsschutzP->prov_id ? $lretchsschutzP->prov_id : Admins::find($lretchsschutzP->admin_id)->provision->id
         ]);
         $retchsschutzP = CostumerProduktRechtsschutz::firstWhere('person_id_PR',$id);
      $retchsschutzP->prov_id = Admins::find($retchsschutzP->admin_id)->provision->id;
@@ -246,7 +248,8 @@ class CostumerFormController extends Controller
             'production_PV'=> filter_var($request->production_PV,FILTER_SANITIZE_STRING),
             'status_PV'=> filter_var($request->status_PV,FILTER_SANITIZE_STRING),
             'last_adjustment_PV'=> $todayV,
-            'total_commisions_PV'=> (int) filter_var($request->total_commisions_PV,FILTER_SANITIZE_STRING)
+            'total_commisions_PV'=> (int) filter_var($request->total_commisions_PV,FILTER_SANITIZE_STRING),
+            'prov_id' => $lvorsorgeP->prov_id ? $lvorsorgeP->prov_id : Admins::find($lvorsorgeP->admin_id)->provision->id
         ]);
         $vorsorgeP = CostumerProduktVorsorge::firstWhere('person_id_PV',$id);
         $vorsorgeP->prov_id = Admins::find($vorsorgeP->admin_id)->provision->id;
@@ -280,7 +283,8 @@ class CostumerFormController extends Controller
                 'insurance_PA' => filter_var($request->insurance_PA,FILTER_SANITIZE_STRING),
                 'status_PA' => filter_var($request->status_PA,FILTER_SANITIZE_STRING),
                 'last_adjustment_PA' => $todayA,
-                'total_commisions_PA' => (int) filter_var($request->total_commisions_PA,FILTER_SANITIZE_STRING)
+                'total_commisions_PA' => (int) filter_var($request->total_commisions_PA,FILTER_SANITIZE_STRING),
+                'prov_id' => $lautoversicherung->prov_id ? $lautoversicherung->prov_id : Admins::find($lautoversicherung->admin_id)->provision->id
 
             ]);
             $autoversicherung = CostumerProduktAutoversicherung::firstWhere('person_id_PA',$id);
@@ -515,7 +519,6 @@ class CostumerFormController extends Controller
             $table_PV = 'status_PV';
         }
         $lvorsorgeP = CostumerProduktVorsorge::firstWhere('person_id_PV',$id);
-
         $vorsorgeP = CostumerProduktVorsorge::where('person_id_PV',$id)->update([
             'graduation_date_PV'=> $request->graduation_date_PV,
             'begin_PV' => $request->begin_PV,
@@ -542,7 +545,10 @@ class CostumerFormController extends Controller
         elseif ($request->status_PV == 'Eingereicht'){
             $affected = Pendency::where('family_id', $id)->update(array('completed' => 1));
         }
-
+      $lauto = CostumerProduktAutoversicherung::firstWhere('person_id_PA',$id);
+       CostumerProduktAutoversicherung::where('person_id_PA',$id)->update([
+        'prov_id' => $lauto->prov_id ? $lauto->prov_id : Admins::find($lauto->admin_id)->provision->id
+       ]);
         $statusAuto = CostumerProduktAutoversicherung::select('status_PA','last_adjustment_PA')->where('person_id_PA',$id)->first();
 
         if ($request->status_PA != $statusAuto->status_PA){
@@ -601,6 +607,7 @@ class CostumerFormController extends Controller
         }else{
             $table_PH = 'status_PH';
         }
+        $lhausratP = CostumerProduktHausrat::where('person_id_PH',$id)->first();
         $hausratP = CostumerProduktHausrat::where('person_id_PH',$id)->update([
             'society_PH'=> filter_var($request->society_PH,FILTER_SANITIZE_STRING),
             'beginning_insurance_PH' => $request->beginning_insurance_PH,
@@ -608,8 +615,10 @@ class CostumerFormController extends Controller
             $table_PH => filter_var($request->status_PH,FILTER_SANITIZE_STRING),
             'last_adjustment_PH'=> $todayH,
             'total_commisions_PH'=> (int) filter_var($request->total_commisions_PH,FILTER_SANITIZE_STRING),
+            'prov_id' => $lhausratP->prov_id ? $lhausratP->prov_id : Admins::find($lhausratP->admin_id)->provision->id
         ]);
         if($request->status_PH == 'Provisionert' && $statusHaus->status_PH != 'Provisionert'){
+        
             $provcnt++;
             $familyperson = family::find($id)->lead->assign_to_id;
             $url = '<a href="' . route("costumer_form",[Crypt::encrypt($id * 1244)]) . '"> Ihr Kunde :' . family::find($id)->first_name . ' wurde bereitgestellt </a>';
