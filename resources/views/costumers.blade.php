@@ -395,7 +395,7 @@
                                                                 @else
                                                                     @if($retchsschutzP[$i]->status_PR == 'Provisionert')
                                                                         <div class="pb-3">
-                                                                            <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{findgrund($retchsschutzP[$i]->society_PR,'Ru',$retchsschutzP[$i]->total_commisions_PR)}}CHF</div>
+                                                                            <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{findgrund($retchsschutzP[$i]->society_PR,'Rech',$retchsschutzP[$i]->total_commisions_PR)}}CHF</div>
                                                                         </div> 
                                                                     @else
                                                                         <div class="pb-3"> 
@@ -447,7 +447,7 @@
                                                                     
                                                                     @else
                                                                     <div class="pb-3"> 
-                                                                        <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;visibility: hidden">CHF</span></div>
+                                                                        <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;visibility: hidden">{{findgrund($autoversicherungP[$i]->society_PA,'Auto',$zusatzversicherungP[$i]->total_commisions_PA)}}CHF</span></div>
                                                                     </div>
                                                                     @endif
                                                                 @endif
@@ -808,15 +808,24 @@
                                 
                                 
                                     <select class="GrundversicherungInput p-2" name="status_PZ" id="zusStatusi" onchange="changepagination()">
+
                                         @for($i = 10; $i <= 50; $i+=10)
                                             @if(cachee() == $i)
                                                 <option value="{{$i}}" selected>{{$i}}</option>
                                             @else
                                                 <option value="{{$i}}">{{$i}}</option>
                                             @endif
+
                                         @endfor
+
                                     </select>
+                                
                                 </div>
+                                @if(auth()->user()->hasRole('fs'))
+                                Total : {{$data->total()}}
+                                @else
+                                Total : {{$data->totall}}
+                                @endif
                             </div>
                         </div>
                     <div class="col-7"></div>
