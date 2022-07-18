@@ -702,7 +702,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{findgrund($grundversicherungPP->society_PG,'Grund',$grundversicherungPP->total_commisions_PG)}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($grundversicherungPP->society_PG,'Grund',$grundversicherungPP->total_commisions_PG,$grundversicherungPP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -770,7 +770,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{findgrund($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ)}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ,$grundversicherungPP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -831,18 +831,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($retchsschutzP->status_PR == 'Provisionert' || $retchsschutzP->status_PR == 'Storniert')
+                                                    @if($retchsschutzP->status_PR == 'Provisionert' || $retchsschutzP->status_PR == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$retchsschutzP->total_commisions_PR}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($retchsschutzP->society_PR,'Rech',$retchsschutzP->total_commisions_PR,$retchsschutzP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -906,18 +906,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($autoversicherungP->status_PA == 'Provisionert' || $autoversicherungP->status_PA == 'Storniert')
+                                                    @if($autoversicherungP->status_PA == 'Provisionert' || $autoversicherungP->status_PA == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$autoversicherungP->total_commisions_PA}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($autoversicherungP->society_PA,'Auto',$autoversicherungP->total_commisions_PA,$autoversicherungP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif
                                                     @php
                                                         $cnthr++;
                                                     @endphp
@@ -979,18 +979,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($hausratP->status_PH == 'Provisionert' || $hausratP->status_PH == 'Storniert')
+                                                    @if($hausratP->status_PH == 'Provisionert' || $hausratP->status_PH == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$hausratP->total_commisions_PH}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($hausratP->society_PH,'Haus',$hausratP->total_commisions_PH,$hausratP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -1047,18 +1047,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($vorsorgeP->status_PV == 'Provisionert' || $vorsorgeP->status_PV == 'Storniert')
+                                                     @if($vorsorgeP->status_PV == 'Provisionert' || $vorsorgeP->status_PV == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$vorsorgeP->total_commisions_PV}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($vorsorgeP->society_PV,'Vor',$vorsorgeP->total_commisions_PV,$vorsorgeP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif 
                                                 </div>
                                             </div>
                                         </div>
@@ -1342,7 +1342,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{findgrund($grundversicherungPP->society_PG,'Grund',$grundversicherungPP->total_commisions_PG)}} CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($grundversicherungPP->society_PG,'Grund',$grundversicherungPP->total_commisions_PG,$grundversicherungPP->prov_id)}} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1459,7 +1459,7 @@
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{findgrund($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ)}}CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($zusatzversicherungPP->society_PZ,'Zusat',$zusatzversicherungPP->total_commisions_PZ,$zusatzversicherungPP->prov_id)}}CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1538,18 +1538,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($retchsschutzP->status_PR == 'Provisionert' || $retchsschutzP->status_PR == 'Storniert')
+                                                    @if($retchsschutzP->status_PR == 'Provisionert' || $retchsschutzP->status_PR == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$retchsschutzP->total_commisions_PR}}CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($retchsschutzP->society_PR,'Rech',$retchsschutzP->total_commisions_PR,$retchsschutzP->prov_id)}}CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif 
                                                 </div>
                                             </div>
                                         </div>
@@ -1631,18 +1631,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($autoversicherungP->status_PA == 'Provisionert' || $autoversicherungP->status_PA == 'Storniert')
+                                                     @if($autoversicherungP->status_PA == 'Provisionert' || $autoversicherungP->status_PA == 'Storniert')
                                                         <div class="pb-4">
                                                             <div class="row g-0">
                                                                 <div class="col-7">
                                                                     <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <span class="documentFormRightSpan colori-green">{{$autoversicherungP->total_commisions_PA}}CHF</span>
+                                                                    <span class="documentFormRightSpan colori-green">{{getsalary($autoversicherungP->society_PA,'Auto',$autoversicherungP->total_commisions_PA,$autoversicherungP->prov_id)}}CHF</span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    @endif --}}
+                                                    @endif 
                                                     
                                                     @php
                                                         $counti++;
@@ -1723,18 +1723,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($hausratP->status_PH == 'Provisionert' || $hausratP->status_PH == 'Storniert')
+                                                    @if($hausratP->status_PH == 'Provisionert' || $hausratP->status_PH == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$hausratP->total_commisions_PH}}CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($hausratP->society_PH,'Haus',$hausratP->total_commisions_PH,$hausratP->prov_id)}}CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif 
                                                 </div>
                                             </div>
                                         </div>
@@ -1860,18 +1860,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- @if($vorsorgeP->status_PV == 'Provisionert' || $vorsorgeP->status_PV == 'Storniert')
+                                                     @if($vorsorgeP->status_PV == 'Provisionert' || $vorsorgeP->status_PV == 'Storniert')
                                                     <div class="pb-4">
                                                         <div class="row g-0">
                                                             <div class="col-7">
                                                                 <span class="documentFormLeftSpan">Gesamtprovision</span>
                                                             </div>
                                                             <div class="col">
-                                                                <span class="documentFormRightSpan colori-green">{{$vorsorgeP->total_commisions_PV}}CHF</span>
+                                                                <span class="documentFormRightSpan colori-green">{{getsalary($vorsorgeP->society_PV,'Vor',$vorsorgeP->total_commisions_PV,$vorsorgeP->prov_id)}}CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endif --}}
+                                                    @endif 
                                                 </div>
                                             </div>
                                         </div>
