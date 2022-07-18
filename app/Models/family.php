@@ -28,6 +28,7 @@ return $this->belongsTo(Pendency::class,'id','family_id');
     public function grund(){
         return $this->hasMany(CostumerProduktGrundversicherung::class,'person_id_PG');
     }
+    
     public function rech(){
         return $this->hasMany(CostumerProduktRechtsschutz::class,'person_id_PR');
     }
