@@ -40,8 +40,18 @@ route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->
             $contracts->push(['val' => $produkt->total_commisions_PZ,'field' => 'Zusat','company' =>$produkt->society_PZ,'prov_id' => $produkt->prov_id]);
         }
         foreach (\App\Models\CostumerProduktRechtsschutz::where('admin_id',auth()->id())->whereIn('status_PR',['Provisionert'])->get() as $produkt){
-            $contracts->push(['val' => $produkt->total_commisions_PR,'field' => 'Ru','company' =>$produkt->society_PR,'prov_id' => $produkt->prov_id]);
+            $contracts->push(['val' => $produkt->total_commisions_PR,'field' => 'Rech','company' =>$produkt->society_PR,'prov_id' => $produkt->prov_id]);
         }
+        foreach (\App\Models\CostumerProduktAutoversicherung::where('admin_id',auth()->id())->whereIn('status_PA',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PA,'field' => 'Auto','company' =>$produkt->society_PA,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktHausrat::where('admin_id',auth()->id())->whereIn('status_PH',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PH,'field' => 'Haus','company' =>$produkt->society_PH,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktVorsorge::where('admin_id',auth()->id())->whereIn('status_PV',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PV,'field' => 'Vor','company' =>$produkt->society_PV,'prov_id' => $produkt->prov_id]);
+        }
+
         $rroga = 0;
         foreach ($contracts as $contract){
             $rroga += getsalary($contract['company'],$contract['field'],$contract['val'],$contract['prov_id']);
@@ -132,15 +142,23 @@ else{
         })->with('grund')->with('rech')->with('zus')->get();
         $totali = 0;
         foreach($totalErnings as $total){
-
             foreach($total->grund as $grunding){
                 $totali += getsalary($grunding->society_PG,'Grund',$grunding->total_commisions_PG,$grunding->prov_id);
             }
             foreach($total->rech as $rechts){
-                $totali += getsalary($rechts->society_PR,'Ru',$rechts->total_commisions_PR,$rechts->prov_id);
+                $totali += getsalary($rechts->society_PR,'Rech',$rechts->total_commisions_PR,$rechts->prov_id);
             }
             foreach($total->zus as $zuzati){
                 $totali += getsalary($zuzati->society_PZ,'Zusat',$zuzati->total_commisions_PZ,$zuzati->prov_id);
+            }
+            foreach($total->auto as $zuzati){
+                $totali += getsalary($zuzati->society_PA,'Auto',$zuzati->total_commisions_PA,$zuzati->prov_id);
+            }
+            foreach($total->vor as $zuzati){
+                $totali += getsalary($zuzati->society_PV,'Vor',$zuzati->total_commisions_PV,$zuzati->prov_id);
+            }
+            foreach($total->haus as $zuzati){
+                $totali += getsalary($zuzati->society_PH,'Haus',$zuzati->total_commisions_PH,$zuzati->prov_id);
             }
         }
     

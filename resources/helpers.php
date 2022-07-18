@@ -13,11 +13,7 @@ if(!function_exists('findgrund')){
     function findgrund($com,$model,$val){
        $per = \App\Models\Companies::where('company_name',$com)->where('field',$model)->where('prov_id',auth()->user()->provision->id)->first();
 
-      if($model == 'Ru'){
-          if(auth()->user()->hasRole('fs')) return 200;
-          else return $val;
-      }
-       elseif($per && auth()->user()->hasRole('fs')){
+       if($per && auth()->user()->hasRole('fs')){
        return f_salary($val,$per->provision_percent);
        }
        else{
@@ -29,11 +25,7 @@ if(!function_exists('getsalary')){
     function getsalary($com,$model,$val,$p_id){
         $per = \App\Models\Companies::where('company_name',$com)->where('field',$model)->where('prov_id',$p_id)->first();
 
-        if($model == 'Ru'){
-            if(auth()->user()->hasRole('fs')) return 200;
-            else return $val;
-        }
-        elseif($per){
+        if($per){
             return f_salary($val,$per->provision_percent);
         }
         else{

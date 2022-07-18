@@ -464,6 +464,7 @@ class TasksController extends Controller
                
                 $curr = $data->currentPage();
                 $lastpage = $data->lastPage();
+                $total = $data->total();
                 $data2 = collect();
                 if(isset($request->berater)){
                  
@@ -479,6 +480,7 @@ $data = $data2;}
             
 $data->currentPagee = $curr;
 $data->lastPagee = $lastpage;
+$data->totall = $total;
 
 
             $cnt = 0;

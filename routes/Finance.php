@@ -22,6 +22,7 @@ route::get('provision/delete/{id}',function ($id){
 route::post('addGroup',[\App\Http\Controllers\FinanceController::class,'addGroup'])->name('addGroup')->middleware('role:admin');
 route::get('finstatus/{id}',function ($id){
     $companies = \App\Models\Companies::where('prov_id',$id)->get();
+
     return view('finstatus',compact('companies','id'));
 })->name('finstatus')->middleware('role:admin');
 route::get('register/{id}',[\App\Http\Controllers\FinanceController::class,'register'])->name('companies.register')->middleware('role:admin');

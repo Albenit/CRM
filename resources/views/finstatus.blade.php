@@ -133,6 +133,10 @@
                                 function enableTableEdit(){
                                     document.getElementById("editBtn1").style.display = "flex"
                                     document.getElementById("editBtn2").style.display = "flex"
+                                    document.getElementById("editBtn3").style.display = "flex"
+                                    document.getElementById("editBtn4").style.display = "flex"
+                                    document.getElementById("editBtn5").style.display = "flex"
+                                    document.getElementById("editBtn6").style.display = "flex"
                                     document.getElementById("submitBtnHide").style.display = "block"
 
                                     var x = document.querySelectorAll(".removeEditBtn")
@@ -155,7 +159,7 @@
                                     </thead>
                                     <tbody id="firstTableBody">
                                     @foreach($companies as $company)
-
+                                      
                                     <div class="modal fade" id="modali{{$company->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog " role="document " style="max-width: 700px">
                                             <div class="modal-content" style="border: none !important;border-radius: 15px !important;">
@@ -339,9 +343,438 @@
                                         </div>
                                     </div>
                                 </div>
-                                <script>
+                              
+                            </div>
+                            
+                        </form>
+                            <div>
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn2" style="display: none;">
+
+                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addSecondTableRow()">
+                                        <span class="addMoreBtn">Zusatzversicherung</span>
+
+                                    </div>
+                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="addSecondTableRow()">
+                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
+                                                fill="#2F60DC" />
+                                            <path
+                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
+                                                fill="white" />
+                                            <path
+                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="pt-4">
+                            <div class="pb-3">
+                                <span class="Grungversicherung fs-5">Autoversicherung</span>
+                            </div>
+                            <form action="{{route('companies.register',['id' => $id,'field' => 'Zusat'])}}" method="post" class="mb-0">
+                                @csrf
+                                <input type="number" hidden id="autonr" name="cnt" value="0">
+                            <div class="overflowFirstTable" id="overflowSecondTable">
+                                <table class="table table-light text-center thirdTableBgColor secondTable fs-6">
+                                    <thead>
+                                    <tr>
+                                        <th>Versicherer</th>
+                                        <th>Provision Firma</th>
+                                        <th>Provision Berater</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="thirdTableBody" style="position: relative">
+                                        @foreach($companies as $company)
+                                        
+                                            @if($company->field == 'Auto')
+                                                    <tr class="">
+                                                        <td scope="row">{{$company->company_name}}</td>
+                                                        <td>{{$company->provision_percent}}</td>
+                                                        <td><div class="row g-0">
+                                                    <div class="col">
+                                                        {{ 100 - (int) $company->provision_percent }}
+                                                    </div>
+                                                    <div style="cursor: pointer;display: none;" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
+                                                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
+                                                            <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                     </td>
+                                                        
+                                                    </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="mobileOnlyTable2 p-3 mb-2">
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Versicherer</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>Helsana</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Firma</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>1%</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Berater</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>99%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <div>
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn3" style="display: none;">
+
+                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addThirdTableRow()">
+                                        <span class="addMoreBtn">Autoversicherung</span>
+
+                                    </div>
+                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="addThirdTableRow()">
+                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
+                                                fill="#2F60DC" />
+                                            <path
+                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
+                                                fill="white" />
+                                            <path
+                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                            <div>
+
+
+                        <div class="pt-4">
+                            <div class="pb-3">
+                                <span class="Grungversicherung fs-5">Rechtschutz</span>
+                            </div>
+                            <form action="{{route('companies.register',['id' => $id,'field' => 'Zusat'])}}" method="post" class="mb-0">
+                                @csrf
+                                <input type="number" hidden id="rechnr" name="cnt" value="0">
+                            <div class="overflowFirstTable" id="overflowSecondTable">
+                                <table class="table table-light text-center thirdTableBgColor secondTable fs-6">
+                                    <thead>
+                                    <tr>
+                                        <th>Versicherer</th>
+                                        <th>Provision Firma</th>
+                                        <th>Provision Berater</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="fourthTableBody" style="position: relative">
+                                        @foreach($companies as $company)
+                                        
+                                            @if($company->field == 'Rech')
+                                                    <tr class="">
+                                                        <td scope="row">{{$company->company_name}}</td>
+                                                        <td>{{$company->provision_percent}}</td>
+                                                        <td><div class="row g-0">
+                                                    <div class="col">
+                                                        {{ 100 - (int) $company->provision_percent }}
+                                                    </div>
+                                                    <div style="cursor: pointer;display: none;" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
+                                                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
+                                                            <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                     </td>
+                                                        
+                                                    </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="mobileOnlyTable2 p-3 mb-2">
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Versicherer</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>Helsana</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Firma</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>1%</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Berater</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>99%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            
+                        </form>
+                            <div>
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn4" style="display: none;">
+
+                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addFourthTableRow()">
+                                        <span class="addMoreBtn">Rechtschutz</span>
+
+                                    </div>
+                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="addFourthTableRow()">
+                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
+                                                fill="#2F60DC" />
+                                            <path
+                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
+                                                fill="white" />
+                                            <path
+                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                            <div class="pb-3">
+                                <span class="Grungversicherung fs-5">Hausrat</span>
+                            </div>
+                            <form action="{{route('companies.register',['id' => $id,'field' => 'Zusat'])}}" method="post" class="mb-0">
+                                @csrf
+                                <input type="number" hidden id="hausnr" name="cnt" value="0">
+                            <div class="overflowFirstTable" id="overflowSecondTable">
+                                <table class="table table-light text-center thirdTableBgColor secondTable fs-6">
+                                    <thead>
+                                    <tr>
+                                        <th>Versicherer</th>
+                                        <th>Provision Firma</th>
+                                        <th>Provision Berater</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="fifthTableBody" style="position: relative">
+                                        @foreach($companies as $company)
+                                        
+                                            @if($company->field == 'Haus')
+                                                    <tr class="">
+                                                        <td scope="row">{{$company->company_name}}</td>
+                                                        <td>{{$company->provision_percent}}</td>
+                                                        <td><div class="row g-0">
+                                                    <div class="col">
+                                                        {{ 100 - (int) $company->provision_percent }}
+                                                    </div>
+                                                    <div style="cursor: pointer;display: none;" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
+                                                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
+                                                            <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                     </td>
+                                                        
+                                                    </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="mobileOnlyTable2 p-3 mb-2">
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Versicherer</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>Helsana</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Firma</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>1%</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Berater</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>99%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            
+                        </form>
+                            <div>
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn5" style="display: none;">
+
+                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="fifthTableBody()">
+                                        <span class="addMoreBtn">Hausrat</span>
+
+                                    </div>
+                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="fifthTableBody()">
+                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
+                                                fill="#2F60DC" />
+                                            <path
+                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
+                                                fill="white" />
+                                            <path
+                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-4">
+                            <div class="pb-3">
+                                <span class="Grungversicherung fs-5">Vorsorge</span>
+                            </div>
+                            <form action="{{route('companies.register',['id' => $id,'field' => 'Zusat'])}}" method="post" class="mb-0">
+                                @csrf
+                                <input type="number" hidden id="vornr" name="cnt" value="0">
+                            <div class="overflowFirstTable" id="overflowSecondTable">
+                                <table class="table table-light text-center thirdTableBgColor secondTable fs-6">
+                                    <thead>
+                                    <tr>
+                                        <th>Versicherer</th>
+                                        <th>Provision Firma</th>
+                                        <th>Provision Berater</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="sixthTableBody" style="position: relative">
+                                        @foreach($companies as $company)
+                                        
+                                            @if($company->field == 'Vor')
+                                                    <tr class="">
+                                                        <td scope="row">{{$company->company_name}}</td>
+                                                        <td>{{$company->provision_percent}}</td>
+                                                        <td><div class="row g-0">
+                                                    <div class="col">
+                                                        {{ 100 - (int) $company->provision_percent }}
+                                                    </div>
+                                                    <div style="cursor: pointer;display: none;" class="col-auto removeEditBtn" onclick="updatee({{$company->id}})">
+                                                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.1038 0.668476C12.3158 0.456543 12.5674 0.288429 12.8443 0.173731C13.1212 0.0590338 13.418 2.23308e-09 13.7177 0C14.0174 -2.23308e-09 14.3142 0.0590338 14.5911 0.173731C14.868 0.288429 15.1196 0.456543 15.3315 0.668476C15.5435 0.880409 15.7116 1.13201 15.8263 1.40891C15.941 1.68582 16 1.9826 16 2.28232C16 2.58204 15.941 2.87882 15.8263 3.15573C15.7116 3.43263 15.5435 3.68423 15.3315 3.89617L4.43807 14.7896L0 16L1.21038 11.5619L12.1038 0.668476Z" fill="white"/>
+                                                            <path d="M10.49 0.635254L14.9281 5.4768" stroke="#B2C4ED"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                     </td>
+                                                        
+                                                    </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="mobileOnlyTable2 p-3 mb-2">
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Versicherer</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>Helsana</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0 pb-2">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Firma</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>1%</span>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-6">
+                                            <span class="fw-600">Provision Berater</span>
+                                        </div>
+                                        <div class="col my-auto">
+                                            <span>99%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            
+                        </form>
+                            <div>
+                                <div class="row g-0 justify-content-end pt-2" id="editBtn6" style="display: none;">
+
+                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="sixthTableBody()">
+                                        <span class="addMoreBtn">Vorsorge</span>
+
+                                    </div>
+                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="sixthTableBody()">
+                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
+                                                fill="#2F60DC" />
+                                            <path
+                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
+                                                fill="white" />
+                                            <path
+                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="submitBtnHide" style="display: none;">
+                                <div class="row g-0 justify-content-end pt-3">
+                                    <div class="col-12 col-sm-6 col-md-5 col-lg-3">
+                                        <button type="button" onclick="updateprov()" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+            <datalist id="companies">
+            <option value="Helsana">Helsana</option>
+                <option value="Sympany">Sympany</option>
+                <option value="Swica">Swica</option>
+                <option value="GM">GM</option>
+
+        </datalist>
+    </div>
+    <script>
                                     var first = 0;
                                     var second = 0;
+                                    var third = 0;
+                                    var fourth = 0;
+                                    var fifth = 0;
+                                    var sixth = 0;
                                     function addFirstTableRow(){
                                         first++;
                                         var x = document.getElementById('firstTableBody');
@@ -433,66 +866,219 @@
                                         $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
                                     
                                     }
+                                    function addThirdTableRow(){
+                                        third++;
+                                        var x = document.getElementById('thirdTableBody');
+                                        var y = document.getElementById('overflowSecondTable');
+                                        let mql1 = window.matchMedia('(max-width: 576px)');
+                                        if (mql1.matches) {
+                                            $(y).append('<div class="mobileOnlyTable2 p-3 mb-2">'
+                                            +        '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Versicherer</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companya' + third + '" name="company' + third + '"></td>'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Firma</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percenta' + third + '" name="percent' + third + '">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Berater</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + third + '"">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +   '</div>');
+                                        }
+                                        else if(!mql1.matches) {
+                                            $(x).append('<tr>'
+                                            +    '<td scope="row">'
+                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + third  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companya' + third + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percenta' + third +'" name="percent' + third + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + third + '"></td>'
+                                            +    '</tr>');
+                                        }
+                                        $('#akt2').show();
+                                        document.getElementById('autonr').value = parseInt(document.getElementById('autonr').value) + 1;
+                                        $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
+                                    
+                                    }
+                                    function addFourthTableRow(){
+                                        fourth++;
+                                        var x = document.getElementById('fourthTableBody');
+                                        var y = document.getElementById('overflowSecondTable');
+                                        let mql1 = window.matchMedia('(max-width: 576px)');
+                                        if (mql1.matches) {
+                                            $(y).append('<div class="mobileOnlyTable2 p-3 mb-2">'
+                                            +        '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Versicherer</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyr' + third + '" name="company' + third + '"></td>'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Firma</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percentr' + fourth + '" name="percent' + fourth + '">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Berater</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + fourth + '"">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +   '</div>');
+                                        }
+                                        else if(!mql1.matches) {
+                                            $(x).append('<tr>'
+                                            +    '<td scope="row">'
+                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + fourth  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyr' + fourth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percentr' + fourth +'" name="percent' + fourth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + fourth + '"></td>'
+                                            +    '</tr>');
+                                        }
+                                        $('#akt2').show();
+                                        document.getElementById('rechnr').value = parseInt(document.getElementById('rechnr').value) + 1;
+                                        $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
+                                    
+                                    }
+                                    function fifthTableBody(){
+                                        fifth++;
+                                        var x = document.getElementById('fifthTableBody');
+                                        var y = document.getElementById('overflowSecondTable');
+                                        let mql1 = window.matchMedia('(max-width: 576px)');
+                                        if (mql1.matches) {
+                                            $(y).append('<div class="mobileOnlyTable2 p-3 mb-2">'
+                                            +        '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Versicherer</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyh' + fifth + '" name="company' + fifth + '"></td>'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Firma</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percenth' + fifth + '" name="percent' + fifth + '">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Berater</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + fifth + '"">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +   '</div>');
+                                        }
+                                        else if(!mql1.matches) {
+                                            $(x).append('<tr>'
+                                            +    '<td scope="row">'
+                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + fifth  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyh' + fifth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percenth' + fifth +'" name="percent' + fifth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + fifth + '"></td>'
+                                            +    '</tr>');
+                                        }
+                                        $('#akt2').show();
+                                        document.getElementById('hausnr').value = parseInt(document.getElementById('hausnr').value) + 1;
+                                        $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
+                                    
+                                    }
+                                    function sixthTableBody(){
+                                        sixth++;
+                                        var x = document.getElementById('sixthTableBody');
+                                        var y = document.getElementById('overflowSecondTable');
+                                        let mql1 = window.matchMedia('(max-width: 576px)');
+                                        if (mql1.matches) {
+                                            $(y).append('<div class="mobileOnlyTable2 p-3 mb-2">'
+                                            +        '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Versicherer</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" list="companies" placeholder="" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyv' + sixth + '" name="company' + sixth + '"></td>'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0 pb-2">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Firma</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" id="percentv' + sixth + '" name="percent' + sixth + '">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +       '<div class="row g-0">'
+                                            +           '<div class="col-6">'
+                                            +               '<span class="fw-600">Provision Berater</span>'
+                                            +           '</div>'
+                                            +           '<div class="col my-auto">'
+                                            +               '<input type="text" placeholder="Enter %" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + sixth + '"">'
+                                            +           '</div>'
+                                            +       '</div>'
+                                            +   '</div>');
+                                        }
+                                        else if(!mql1.matches) {
+                                            $(x).append('<tr>'
+                                            +    '<td scope="row">'
+                                            +    '<input type="text" placeholder="Versicherungsgesellschaft auswählen" list="companies" name="company' + fifth  +'" class="form-select py-1 provisionProfileInput pe-1" onblur="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'none' + '" onfocus="document.getElementById(' + 'openOnFocus' + ').style.display:' +  'block ' + '"  id="companyv' + sixth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" required class="form-control py-1 provisionProfileInput" id="percentv' + sixth +'" name="percent' + sixth + '"></td>'
+                                            +    '<td><input placeholder="Prozentsatz eingeben" type="number" class="form-control py-1 provisionProfileInput" onclick="insertCompany()" id="secondpercent" name="secondpercent' + sixth + '"></td>'
+                                            +    '</tr>');
+                                        }
+                                        $('#akt2').show();
+                                        document.getElementById('vornr').value = parseInt(document.getElementById('vornr').value) + 1;
+                                        $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
+                                    
+                                    }
                               
                                     function updatee(id){ 
                                         $('#modali' + id).modal('show')
                                     }
-                                    function updateprov(){
+                                    async function updateprov(){
 
-                                        for(var i = 1; i <= document.getElementById('grundnr').value; i++){
-                                        axios.get('{{route("companies.register",$id)}}' + '?field=Grund&company_name=' + document.getElementById('company' + i).value + '&provision_percent=' + document.getElementById('percent' + i).value).catch(err => {console.log(err)})
+                                        for(var i = 1; i <= parseInt(document.getElementById('grundnr').value); i++){
+                                        await axios.get('{{route("companies.register",$id)}}' + '?field=Grund&company_name=' + document.getElementById('company' + i).value + '&provision_percent=' + document.getElementById('percent' + i).value).catch(err => {console.log(err)})
                                         }
-                                        for(var i = 1; i <= document.getElementById('zusnr').value; i++){
-                                        axios.get('{{route("companies.register",$id)}}' + '?field=Zusat&company_name=' + document.getElementById('companyz' + i).value + '&provision_percent=' + document.getElementById('percentz' + i).value).catch(err => {console.log(err)})
+                                        for(var i = 1; i <= parseInt(document.getElementById('zusnr').value); i++){
+                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Zusat&company_name=' + document.getElementById('companyz' + i).value + '&provision_percent=' + document.getElementById('percentz' + i).value).catch(err => {console.log(err)})
                                         }
+                                        for(var i = 1; i <= parseInt(document.getElementById('autonr').value); i++){
+                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Auto&company_name=' + document.getElementById('companya' + i).value + '&provision_percent=' + document.getElementById('percenta' + i).value).catch(err => {console.log(err)})
+                                        }
+                                        for(var i = 1; i <= parseInt(document.getElementById('rechnr').value); i++){
+                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Rech&company_name=' + document.getElementById('companyr' + i).value + '&provision_percent=' + document.getElementById('percentr' + i).value).catch(err => {console.log(err)})
+                                        }
+                                        for(var i = 1; i <= parseInt(document.getElementById('hausnr').value); i++){
+                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Haus&company_name=' + document.getElementById('companyh' + i).value + '&provision_percent=' + document.getElementById('percenth' + i).value).catch(err => {console.log(err)})
+                                        }
+                                        for(var i = 1; i <= parseInt(document.getElementById('vornr').value); i++){
+                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Vor&company_name=' + document.getElementById('companyv' + i).value + '&provision_percent=' + document.getElementById('percentv' + i).value).catch(err => {console.log(err)})
+                                        }
+
 window.location.reload();
                                     
                                     }
                                 </script>
-
-                            </div>
-                        </form>
-                            <div>
-                                <div class="row g-0 justify-content-end pt-2" id="editBtn2" style="display: none;">
-
-                                    <div class="col-auto my-auto pe-2" style="cursor: pointer;" onclick="addSecondTableRow()">
-                                        <span class="addMoreBtn">Zusatzversicherung</span>
-
-                                    </div>
-                                    <div class="col-auto my-auto" style="cursor: pointer;" onclick="addSecondTableRow()">
-                                        <svg width="30" height="30" viewBox="0 0 35 35" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.5 35C7.85197 35 0 27.148 0 17.5C0 7.85197 7.85197 0 17.5 0C27.148 0 35 7.85197 35 17.5C35 27.148 27.148 35 17.5 35Z"
-                                                fill="#2F60DC" />
-                                            <path
-                                                d="M25.0588 19H10.9412C10.4211 19 10 18.5526 10 18C10 17.4474 10.4211 17 10.9412 17H25.0588C25.5789 17 26 17.4474 26 18C26 18.5526 25.5789 19 25.0588 19Z"
-                                                fill="white" />
-                                            <path
-                                                d="M18 26C17.4474 26 17 25.5789 17 25.0588V18V10.9412C17 10.4211 17.4474 10 18 10C18.5526 10 19 10.4211 19 10.9412V25.0588C19 25.5789 18.5526 26 18 26Z"
-                                                fill="white" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="submitBtnHide" style="display: none;">
-                                <div class="row g-0 justify-content-end pt-3">
-                                    <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                                        <button type="button" onclick="updateprov()" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        </div>
-            <datalist id="companies">
-            <option value="Helsana">Helsana</option>
-                <option value="Sympany">Sympany</option>
-                <option value="Swica">Swica</option>
-                <option value="GM">GM</option>
-
-        </datalist>
-    </div>
 
 @endsection
 <style>
