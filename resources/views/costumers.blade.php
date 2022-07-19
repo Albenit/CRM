@@ -380,7 +380,7 @@
                                                                 @else
                                                                     @if($grundversicherungP[$i]->status_PG == 'Provisionert')
                                                                         <div class="pb-3"> 
-                                                                            <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;">{{findgrund($grundversicherungP[$i]->society_PG,'Grund',$grundversicherungP[$i]->total_commisions_PG)}}CHF</span></div>
+                                                                            <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;">{{getsalary($grundversicherungP[$i]->society_PG,'Grund',$grundversicherungP[$i]->total_commisions_PG,$grundversicherungP[$i]->prov_id)}}CHF</span></div>
                                                                         </div>
                                                                     @else
                                                                         <div class="pb-3"> 
@@ -395,7 +395,7 @@
                                                                 @else
                                                                     @if($retchsschutzP[$i]->status_PR == 'Provisionert')
                                                                         <div class="pb-3">
-                                                                            <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{findgrund($retchsschutzP[$i]->society_PR,'Rech',$retchsschutzP[$i]->total_commisions_PR)}}CHF</div>
+                                                                            <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{getsalary($retchsschutzP[$i]->society_PR,'Rech',$retchsschutzP[$i]->total_commisions_PR,$retchsschutzP[$i]->prov_id)}}CHF</div>
                                                                         </div> 
                                                                     @else
                                                                         <div class="pb-3"> 
@@ -425,7 +425,7 @@
                                                                 @else   
                                                                     @if($zusatzversicherungP[$i]->status_PZ == 'Provisionert')
                                                                     <div class="pb-3">
-                                                                    <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{findgrund($zusatzversicherungP[$i]->society_PZ,'Zusat',$zusatzversicherungP[$i]->total_commisions_PZ)}}CHF</div>
+                                                                    <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{getsalary($zusatzversicherungP[$i]->society_PZ,'Zusat',$zusatzversicherungP[$i]->total_commisions_PZ,$zusatzversicherungP[$i]->prov_id)}}CHF</div>
                                                                     </div>
                                                                        
                                                                     @else
@@ -443,11 +443,10 @@
                                                                     <div class="pb-3">
                                                                         <div style="padding: 6px;color: #037241; font-weight: 500 !important;">{{$sumNeuen[$i]['nesum']}}CHF
                                                                         </div>
-                                                                    </div>    
-                                                                    
+                                                                    </div>
                                                                     @else
                                                                     <div class="pb-3"> 
-                                                                        <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;visibility: hidden">{{findgrund($autoversicherungP[$i]->society_PA,'Auto',$zusatzversicherungP[$i]->total_commisions_PA)}}CHF</span></div>
+                                                                        <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;visibility: hidden">{{getsalary($autoversicherungP[$i]->society_PA,'Auto',$zusatzversicherungP[$i]->total_commisions_PA,$zusatzversicherungP[$i]->prov_id)}}CHF</span></div>
                                                                     </div>
                                                                     @endif
                                                                 @endif
@@ -458,7 +457,7 @@
                                                                 @else 
                                                                     @if($hausratP[$i]->status_PH == 'Provisionert')
                                                                         <div class="pb-3">
-                                                                            <div style="padding:6px;color: #037241; font-weight: 500 !important;">{{$hausratP[$i]->total_commisions_PH}}CHF</div>
+                                                                            <div style="padding:6px;color: #037241; font-weight: 500 !important;">{{getsalary($hausratP[$i]->society_PH,'Haus',$hausratP[$i]->total_commisions_PH,$zusatzversicherungP[$i]->prov_id)}}CHF</div>
                                                                         </div>
                                                                     @else
                                                                         <div class="pb-3"> 
@@ -466,8 +465,7 @@
                                                                         </div>
                                                                     @endif   
                                                                 @endif
-                                                            @endif    
-
+                                                            @endif
                                                         </div>
                                                     </td>
                                                     <td onclick="window.location.href='{{route('costumer_form', $datId)}}'">

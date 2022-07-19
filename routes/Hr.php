@@ -51,7 +51,6 @@ route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->
         foreach (\App\Models\CostumerProduktVorsorge::where('admin_id',auth()->id())->whereIn('status_PV',['Provisionert'])->get() as $produkt){
             $contracts->push(['val' => $produkt->total_commisions_PV,'field' => 'Vor','company' =>$produkt->society_PV,'prov_id' => $produkt->prov_id]);
         }
-
         $rroga = 0;
         foreach ($contracts as $contract){
             $rroga += getsalary($contract['company'],$contract['field'],$contract['val'],$contract['prov_id']);
