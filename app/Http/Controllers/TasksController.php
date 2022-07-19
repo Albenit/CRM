@@ -361,7 +361,7 @@ class TasksController extends Controller
         $n = date('Y-m-d', strtotime($request->searchdate2));
         $date2 = date('Y-m-d', strtotime($n . "+1 days"));
         $searchname = $request->searchname ? $request->searchname : '';
-        $paginationCnt = Cache::has('paginationCount') ? Cache::get('paginationCount') : 30;
+        $paginationCnt = Cache::has('paginationCount') ? cachee() : 30;
         $user = auth()->user();
         if(Auth::user()->hasRole('fs') || Auth::user()->hasRole('digital')){
         

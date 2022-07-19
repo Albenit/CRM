@@ -632,25 +632,24 @@ if it's not present, don't show loader */
                                             </svg>
                                         </a>
                                         </div>
+                                        @if (Auth::user()->hasRole('admin'))
                                         <div class="col w-auto">
-                                        <div class="flaedkad" >
+                                            <div class="flaedkad" >
                                                 <div>
                                                     <span class="fs-4" style="font-weight: 500;color: #434343">{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
                                                 </div>
-                                                
                                                 <div>
                                                     <span class="fs-5 ms-3">Berater </span>
                                                 </div>
                                                 <div class="adminName py-1 ms-2" id="back">
-                                                    <div class=" adminmaindivv">
+                                                    <div class="adminmaindivv">
                                                         <div class="ps-2 pe-4" id="admin_name">
                                                             <span> 
                                                                 {{ucfirst($costumer->lead->admin->name)}}
                                                             </span>
                                                         </div>
-                                                        <form method="post" action="{{route('updateBeraterKunden')}}" >
+                                                    
                                                         <div class="ps-2 pe-4 w-100 okoafldsq" id="new_adminName" style="display: none">
-                                                           
                                                                 @csrf
                                                                 <input type="hidden" value="{{$costumer->lead->id}}" name="lead_id">
                                                                 <select name="berater_name" id="selecti" class="form-select py-1 w-auto selektibabo" onchange="openButtons()">
@@ -685,23 +684,20 @@ if it's not present, don't show loader */
                                                                                 stroke-linejoin="round"/>
                                                                         </svg>
                                                                     </button>
-                                                                </div>
-                                                            
+                                                                </div> 
                                                         </div>
-                                                    </form>
+                                                    
                                                         <span id="lapsi" class="pe-2" onclick="changeBerater()">
                                                             <svg style="min-width:16px; width: 16px;" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.625 22.9176V27.6043C0.625 28.036 0.964167 28.3751 1.39583 28.3751H6.0825C6.28292 28.3751 6.48333 28.2981 6.62208 28.1439L23.4571 11.3243L17.6758 5.54306L0.85625 22.3626C0.702083 22.5168 0.625 22.7018 0.625 22.9176ZM27.9279 6.85347C28.5292 6.25222 28.5292 5.28097 27.9279 4.67972L24.3204 1.07222C23.7192 0.470972 22.7479 0.470972 22.1467 1.07222L19.3254 3.89347L25.1067 9.67472L27.9279 6.85347Z" fill="#202020"/>
                                                             </svg>
                                                         </span>
                                                     </div>
-                                                    
                                                 </div>
-                                            
                                                 <script>
-                                                 function submitform(){
-                                                  let val = document.getElementById('selecti').value;
-                                                  axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
+                                                    function submitform(){
+                                                        let val = document.getElementById('selecti').value;
+                                                        axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
                                                     }
                                                     function changeBerater(){
                                                         document.getElementById('new_adminName').style.display = 'flex'
@@ -718,11 +714,16 @@ if it's not present, don't show loader */
                                                         document.getElementById('new_adminName').style.display = 'none'
                                                     }
                                                 </script>
-                                                
-                                            
-                                        </div>
-                                    </div>
-
+                                            </div>
+                                        </div>                                              
+                                        @else
+                                            <div class="col">
+                                                <div  class="fs-4">
+                                                    <span  style="font-weight: 500;color: #434343">{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
+                                                    <span> <span class="ms-3">Berater </span>{{ucfirst($costumer->lead->admin->name)}}</span>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-auto col-md-3 col-lg-2 my-auto">
@@ -1230,13 +1231,23 @@ if it's not present, don't show loader */
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="">
+                                                <div class="pb-4">
                                                     <div class="row g-0">
                                                         <div class="col-7">
                                                             <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{Carbon\Carbon::parse($costumer->birthdate)->format('d.m.Y')}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="row g-0">
+                                                        <div class="col-7">
+                                                            <span class="documentFormLeftSpan">TELEFON</span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="documentFormRightSpan">{{$costumer->lead->telephone}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
