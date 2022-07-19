@@ -756,6 +756,17 @@
                                         <button type="button" onclick="updateprov()" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
                                     </div>
                                 </div>
+                                <div class="row g-0 justify-content-end pt-3">
+                                    <div class="col-12 col-sm-6 col-md-5 col-lg-3">
+                                        <label>Provisionssystem erweitern</label>
+                                        <select class="GrundversicherungInput col-12 mb-1" id="exte">
+                                            <option value="1">+1 monat</option>
+                                            <option value="2">+2 monat</option>
+                                            <option value="3">+3 monat</option>
+                                        </select>
+                                        <button type="button" onclick="extend()" class="finStatusSubmitBtn py-1 w-100">Erweitern</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -956,7 +967,6 @@
                                         $('#akt2').show();
                                         document.getElementById('rechnr').value = parseInt(document.getElementById('rechnr').value) + 1;
                                         $("#overflowSecondTable").scrollTop($("#overflowSecondTable")[0].scrollHeight);
-                                    
                                     }
                                     function fifthTableBody(){
                                         fifth++;
@@ -1076,7 +1086,10 @@
                                         }
 
 window.location.reload();
-                                    
+                                    }
+                                    function extend(){
+                                        let months = document.getElementById('exte').value;
+                                        axios.get("{{route('extend')}}?id={{$id}}&months=" + months).then(location.reload());
                                     }
                                 </script>
 
@@ -1378,5 +1391,11 @@ window.location.reload();
             display: block;
             color: #fff;
         }
+    }
+    .GrundversicherungInput {
+        background: #FFFFFF;
+        border: 1px solid #EDEDED;
+        box-sizing: border-box;
+        border-radius: 11px;
     }
 </style>
