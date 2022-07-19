@@ -185,22 +185,11 @@
                 @if(!auth()->user()->hasRole('fs'))
                 <div class="row g-0 g-md-3 px-0 mx-0 mt-0">
                     <div class="col-12 col-md-6">
-                        
                         <div class="row pb-2">
                             <div class="col-9">
                                 <span class="firstTitle fs-4">Gruppen</span>
                             </div>
-                            <div class="col-3">
-                                <select class="GrundversicherungInput form-control">
-                                    <option>Last month</option>
-                                    <option>Last 3 months</option>
-                                    <option>Last 6 months</option>
-                                    <option>Last year</option>
-                                    <option>Last 2 years</option>
-                                </select>
-                            </div>
-                            
-                        
+                    
                         </div>
 
                         <div class="provisionGreyBg p-3">
@@ -379,9 +368,40 @@
                         @endif
                     </div>
                         <div class="col-12 col-md-6">
-                            <div class="pb-3 ps-3 pt-5 pt-md-0">
+                        <div class="row pb-2">
+                            <div class="col-9">
                                 <span class="firstTitle fs-4">Provisionssystem</span>
                             </div>
+                            <div class="col-3">
+                                <select class="GrundversicherungInput form-control" id="prv" onchange="prevprov()">
+                                @if(request()->date == Carbon\Carbon::now()->subDays(30)->format('Y-m'))
+                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}" selected>Last month</option>
+                                    @else
+                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}">Last month</option>
+                                    @endif
+                                    @if(request()->date == Carbon\Carbon::now()->subDays(90)->format('Y-m'))
+                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}" selected>Last 3 months</option>
+                                    @else
+                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}">Last 3 months</option>
+@endif
+@if(request()->date == Carbon\Carbon::now()->subDays(120)->format('Y-m'))
+                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}" selected>Last 6 months</option>
+                                    @else
+                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}">Last 6 months</option>
+@endif
+@if(request()->date == Carbon\Carbon::now()->subDays(360)->format('Y-m'))
+                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m-d')}}" selected>Last year</option>
+                                    @else
+                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m-d')}}">Last year</option>
+@endif
+@if(request()->date == Carbon\Carbon::now()->subDays(720)->format('Y-m'))
+                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}" selected>Last 2 years</option>
+                                    @else
+                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}">Last 2 years</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
                             <div class="provisionGreyBg p-3">
                                 <div class="provisionOverflowDiv">
                                     @foreach($provisions as $prov)
@@ -550,6 +570,10 @@
         function checkboxes122(){
             var x = document.querySelectorAll('.memberCheckmarkselect122:checked').length;
         document.getElementById('multipleSelectInput122').placeholder = x + ' Optionen ausgewählt';
+    }
+    function prevprov(){
+        var x = document.getElementById("prv").value;
+        window.location.href = "{{route('finance')}}?date=" + x;
     }
     </script>
                     </div>

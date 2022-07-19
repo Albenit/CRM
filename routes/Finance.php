@@ -2,11 +2,19 @@
 use App\Http\Controllers\FinanceController;
 
 use App\Models\Admins;
+use Illuminate\Http\Request;
 
 route::post('addProvision',[\App\Http\Controllers\FinanceController::class,'addProvision'])->name('addProvision')->middleware('role:admin|backoffice');
-route::get('finance',function (){
+route::get('finance',function (Request $req){
     $groups = \App\Models\Group::get();
-    $provisions = \App\Models\Provisions::get();
+
+    if(isset($req->date)){
+
+    $provisions = \App\Models\Provisions::where('from','>=',Carbon\Carbon::createFromFormat('Y-m',substr($req->date,0,7))->format('Y-m'))->get();
+}
+    else{
+        $provisions = \App\Models\Provisions::where('from','>=',Carbon\Carbon::now()->subDays(30)->format('Y-m'))->get();
+    }
     $admins = \App\Models\Admins::role(['fs'])->get();
     return view('finance',compact('admins','groups','provisions'));
 })->name('finance')->middleware('role:admin|backoffice');
