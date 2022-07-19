@@ -3573,7 +3573,62 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="" id="chart3"></div>
+                                                                <div class="pt-3 row g-0">
+                                                                    <div class="col-12 col-sm-6 my-auto">
+                                                                        <div id="chart3" style="height: 300px;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 col-sm-6 my-auto ps-0 ps-sm-4 pt-4 pt-sm-0">
+                                                                        <div class="">
+                                                                            <div class="row g-0 pb-3">
+                                                                                <div class="col-auto my-auto me-2">
+                                                                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <ellipse cx="9" cy="8.5" rx="9" ry="8.5"
+                                                                                            fill="#001c62" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <span style="font-weight: 500;">Abgeschlossen</span>
+                                                                                </div>
+                                                                                <div class="col-2 text-end">
+                                                                                    <span style="font-weight: 700;" id="abgeschlossen"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row g-0 pb-3">
+                                                                                <div class="col-auto my-auto me-2">
+                                                                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <ellipse cx="9" cy="8.5" rx="9" ry="8.5"
+                                                                                            fill="#3d66ce" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <span style="font-weight: 500;">Nicht abgeschlossen</span>
+                                                                                </div>
+                                                                                <div class="col-2 text-end">
+                                                                                    <span style="font-weight: 700;" id="nichtabgeschlossen"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row g-0 pb-3">
+                                                                                <div class="col-auto my-auto me-2">
+                                                                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <ellipse cx="9" cy="8.5" rx="9" ry="8.5"
+                                                                                            fill="#74a3e1" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <span style="font-weight: 500;">Won Leads</span>
+                                                                                </div>
+                                                                                <div class="col-2 text-end">
+                                                                                    <span style="font-weight: 700;" id="wonleads"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         @if (!Auth::user()->hasRole('fs'))
@@ -5662,48 +5717,74 @@
             dateFrom = document.getElementById('leadsFrom').value
             dateTo = document.getElementById('leadsTo').value
             axios.get('filterLead?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
-                // document.getElementById('notTerminated').innerHTML = response.data[0]
-                // document.getElementById('terminated').innerHTML = response.data[1]
+                document.getElementById('abgeschlossen').innerHTML = response.data[1]
+                document.getElementById('nichtabgeschlossen').innerHTML = response.data[0]
+                document.getElementById('wonleads').innerHTML = response.data[2]
+                
                 if(response.data[0] + response.data[1] + response.data[2] == 0){
                     document.querySelector("#chart3").innerHTML = '<div class="text-center fs-6 fw-400 d-flex h-100 justify-content-center align-items-center py-5" style="color: #d1d1d1">'+
                                                 '<div class="py-5">Keine Data</div></div>';
                 }else{
-                var options = {
-                    colors: ['#001C62', '#3D66CE','#74A3E1'],
-                    series: [response.data[1], response.data[0],response.data[2]],
-                    chart: {
-                        width: 380,
-                        type: 'pie',
-                    },
-                    stroke: {
-                        width: 0
-                    },
-                    fill: {
-                        colors: ['#001C62', '#3D66CE','#74A3E1'],
-                    },
-                    dataLabels: {
-                        enabled: false
-                    },
-                    labels: ['Abgeschlossen','Nicht abgeschlossen','Won Leads'],
-                    legend: {
-                        offsetY: -10,
-                    },
-                    responsive: [{
-                        breakpoint: 1400,
-                        options: {
-                            chart: {
-                                width: "100%",
+                    $(function() {
+                    var data = [{
+                        "id": "idData",
+                        "name": "Data",
+                        "data": [{
+                                name: 'Abgeschlossen',
+                                y: response.data[1],
+                                color: '#001c62'
                             },
-                            legend: {
-                                position: 'bottom',
-                                offsetY: 0,
+                            {
+                                name: 'Nicht abgeschlossen',
+                                y: response.data[0],
+                                color: '#3d66ce'
+                            },
+                            {
+                                name: 'Won Leads',
+                                y: response.data[2],
+                                color: '#74a3e1'
                             }
-                        }
-                    }]
-                };
-                var chart = new ApexCharts(document.querySelector("#chart3"), options);
-                chart.render();
-                chart.updateSeries([response.data[1], response.data[0],response.data[2]]);
+                        ]
+                    }];
+                    window.mychart = Highcharts.chart('chart3', {
+                        chart: {
+                            type: 'pie',
+                            plotShadow: false,
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: '98%',
+                                borderWidth: 38,
+                                borderColor: null,
+                                slicedOffset: 10,
+                                dataLabels: {
+                                    connectorWidth: 0,
+                                    enabled: false,
+                                },
+                            }
+                        },
+                        title: {
+                            verticalAlign: 'middle',
+                            floating: false,
+                            text: response.data[0] + response.data[1] + response.data[2] 
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                        },
+                        enabled: true,
+                        series: data,
+                    });
+                    $('input[type="radio"]').on('click', function(event) {
+                        var value = $(this).val();
+                        window.mychart.series[0].setData([data[0].data[value]]);
+                        window.mychart.redraw();
+                    });
+                });
             }
             });
             var y = $(x).find("span").html();

@@ -66,6 +66,7 @@ use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
+use App\Models\LogsActivity;
 use Illuminate\Support\Facades\Cache;
 use Maatwebsite\Excel\HeadingRowImport;
 
@@ -356,3 +357,7 @@ route::get('changepaginationn',function(){
    return  Cache::has('paginationCount') ? Cache::get('paginationCount') : 22;
 });
 route::post('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
+route::get('test', function(){
+   $logs = LogsActivity::find(2);
+    dd(json_decode($logs->old_data));
+});
