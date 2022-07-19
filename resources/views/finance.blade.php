@@ -375,29 +375,29 @@
                             <div class="col-3">
                                 <select class="GrundversicherungInput form-control" id="prv" onchange="prevprov()">
                                 @if(request()->date == Carbon\Carbon::now()->subDays(30)->format('Y-m'))
-                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}" selected>Last month</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}" selected>Aktuelle monat</option>
                                     @else
-                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}">Last month</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}">Aktuelle monat</option>
                                     @endif
                                     @if(request()->date == Carbon\Carbon::now()->subDays(90)->format('Y-m'))
-                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}" selected>Last 3 months</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}" selected>Letzte 3 Monate</option>
                                     @else
-                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}">Last 3 months</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(90)->format('Y-m')}}">Letzte 3 Monate</option>
 @endif
 @if(request()->date == Carbon\Carbon::now()->subDays(120)->format('Y-m'))
-                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}" selected>Last 6 months</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}" selected>Letzte 6 Monate</option>
                                     @else
-                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}">Last 6 months</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(120)->format('Y-m')}}">Letzte 6 Monate</option>
 @endif
 @if(request()->date == Carbon\Carbon::now()->subDays(360)->format('Y-m'))
-                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m-d')}}" selected>Last year</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m')}}" selected>Vergangenes Jahr</option>
                                     @else
-                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m-d')}}">Last year</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(360)->format('Y-m')}}">Vergangenes Jahr</option>
 @endif
 @if(request()->date == Carbon\Carbon::now()->subDays(720)->format('Y-m'))
-                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}" selected>Last 2 years</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}" selected>Letzten 2 Jahre</option>
                                     @else
-                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}">Last 2 years</option>
+                                    <option value="{{Carbon\Carbon::now()->subDays(720)->format('Y-m')}}">Letzten 2 Jahre</option>
                                     @endif
                                 </select>
                             </div>

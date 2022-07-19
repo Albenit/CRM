@@ -67,6 +67,7 @@ use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
 use App\Models\LogsActivity;
+use App\Models\Provisions;
 use Illuminate\Support\Facades\Cache;
 use Maatwebsite\Excel\HeadingRowImport;
 
@@ -368,4 +369,8 @@ route::get('test',function(){
 
     dd($tot);
 });
+route::get('extend',function(Request $req){
+    $prov = Provisions::find((int)$req->id);
+   Provisions::find((int)$req->id)->update(['from' => Carbon::createFromFormat('Y-m',$prov->from)->addMonths((int) $req->months)->format('Y-m')]); 
+})->name('extend');
 
