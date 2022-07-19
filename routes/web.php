@@ -66,6 +66,7 @@ use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
+use App\Models\LogsActivity;
 use Illuminate\Support\Facades\Cache;
 use Maatwebsite\Excel\HeadingRowImport;
 
@@ -353,4 +354,6 @@ route::get('changepagination/{x}',function($x){
      Cache::forever('paginationCount', $x);
 });
 
+
 route::get('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
+
