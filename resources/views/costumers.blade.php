@@ -797,10 +797,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-3 rreshti123123" >
                         <div class="col">
                             <div class="row mb-2" style="">
-                                <div class="d-inline">
+                                <div class="">
                                     <span class="ms-3">Kunde Per Page</span>
                                     <select class="GrundversicherungInput p-2" name="status_PZ" id="zusStatusi" onchange="changepagination()">
                                         @if (cachee() == 10)
@@ -836,15 +836,20 @@
                                         @endif
                                         
                                     </select>
-                                    @if(auth()->user()->hasRole('fs'))
-                                        <span>Total Page:  {{$data->total()}}</span>
-                                    @else
-                                        <span>Page: {{$data->currentPagee}} of {{$data->lastPagee}} </span>
-                                    @endif
+                                    
                                 </div>
                             </div>
+                            <div class="text-center">
+                            @if(auth()->user()->hasRole('fs'))
+                                <span>Page:  {{$data->currentPage()}} of {{$data->lastPage()}} </span>
+                            @else
+                                <span>Page: {{$data->currentPagee}} of {{$data->lastPagee}} </span>
+                            @endif
+                        </div>  
                         </div>
-                        <div class="col-7"></div>
+                        
+                   
+                       
                         <div class="col-2">
                         @if(!auth()->user()->hasRole('fs'))
                         <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
@@ -1692,6 +1697,9 @@
 
     .dropdown button:after {
         display: none;
+    }
+    .rreshti123123 {
+        display: flex;
     }
 
     .header-styling {
