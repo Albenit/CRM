@@ -747,5 +747,11 @@ class CostumerFormController extends Controller
     }
         return redirect()->route('costumers')->with('success' ,'Kunde erfolgreich eingefügt');
     }
+    
+    public function updateBeraterKunden(Request $req){
 
+        dd($req->berater_name);
+        lead::where('id',$req->lead_id)->update(['assign_to_id',$req->berater_name]);
+        return back()->with('success','Berater Edited');
+    }
 }
