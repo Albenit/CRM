@@ -355,3 +355,4 @@ route::get('changepagination/{x}',function($x){
 route::get('changepaginationn',function(){
    return  Cache::has('paginationCount') ? Cache::get('paginationCount') : 22;
 });
+route::post('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
