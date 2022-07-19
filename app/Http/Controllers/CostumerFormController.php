@@ -409,13 +409,14 @@ class CostumerFormController extends Controller
         $oldHaus = CostumerProduktHausrat::find($id);
         $oldVor = CostumerProduktVorsorge::find($id);
         $oldRech = CostumerProduktRechtsschutz::find($id);
-        $totalOld = $oldGrund.$oldAuto.$oldZus.$oldHaus.$oldRech.$oldVor;
-   
+        $col = collect();
+        $totalOld = $col->merge($oldGrund)->merge($oldAuto)->merge($oldZus)->merge($oldHaus)->merge($oldRech)->merge($oldVor);
+
         LogsActivity::create([
             'admin_id' => Auth::user()->id,
             'person_id' => $id,
             'old_data' => json_encode($totalOld),
-            'new_data' => json_encode($request->all()),
+            'new_data' => json_encode($request->except(['_method','_token'])),
             'description' => 'Client Products Edited'
         ]);
 

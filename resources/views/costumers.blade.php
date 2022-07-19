@@ -803,24 +803,45 @@
                                 <div class="d-inline">
                                     <span class="ms-3">Kunde Per Page</span>
                                     <select class="GrundversicherungInput p-2" name="status_PZ" id="zusStatusi" onchange="changepagination()">
-
-                                        @for($i = 10; $i <= 50; $i+=10)
-                                            @if(cachee() == $i)
-                                                <option value="{{$i}}" selected>{{$i}}</option>
-                                            @else
-                                                <option value="{{$i}}">{{$i}}</option>
-                                            @endif
-
-                                        @endfor
-
+                                        @if (cachee() == 10)
+                                            <option value="10" selected>10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="500">500</option>
+                                        @elseif (cachee() == 25)
+                                            <option value="10">10</option>
+                                            <option value="25" selected>25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="500">500</option>
+                                        @elseif (cachee() == 50)
+                                            <option value="10">10</option>
+                                            <option value="25" >25</option>
+                                            <option value="50" selected>50</option>
+                                            <option value="100">100</option>
+                                            <option value="500">500</option>
+                                        @elseif (cachee() == 100)
+                                            <option value="10">10</option>
+                                            <option value="25" >25</option>
+                                            <option value="50">50</option>
+                                            <option value="100" selected>100</option>
+                                            <option value="500">500</option>
+                                        @elseif (cachee() == 500)
+                                            <option value="10">10</option>
+                                            <option value="25" >25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="500" selected>500</option>
+                                        @endif
+                                        
                                     </select>
                                     @if(auth()->user()->hasRole('fs'))
-                                    <span>Total Page: {{$data->total()}}</span>
-                                @else
-                                    <span>Total Page: {{$data->totall}} </span>
-                                @endif
+                                        <span>Total Page:  {{$data->total()}}</span>
+                                    @else
+                                        <span>Page: {{$data->currentPagee}} of {{$data->lastPagee}} </span>
+                                    @endif
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="col-7"></div>
@@ -1492,7 +1513,7 @@
 <script>
     function changepagination(){
         var x = document.getElementById('zusStatusi').value;
-      axios.get('https://crm.finanu.ch/changepagination/' + x).then(() => {location.reload(); return false;});
+      axios.get('changepagination/' + x).then(() => {location.reload(); return false;});
     }
     function NaBleronit() {
         document.getElementById("inputPress").style.display = "none";
