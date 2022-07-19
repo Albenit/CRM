@@ -353,11 +353,7 @@ route::get('changepagination/{x}',function($x){
     Cache::pull('paginationCount');
      Cache::forever('paginationCount', $x);
 });
-route::get('changepaginationn',function(){
-   return  Cache::has('paginationCount') ? Cache::get('paginationCount') : 22;
-});
-route::post('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
-route::get('test', function(){
-   $logs = LogsActivity::find(2);
-    dd(json_decode($logs->old_data));
-});
+
+
+route::get('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
+

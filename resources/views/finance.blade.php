@@ -185,9 +185,22 @@
                 @if(!auth()->user()->hasRole('fs'))
                 <div class="row g-0 g-md-3 px-0 mx-0 mt-0">
                     <div class="col-12 col-md-6">
-                        <div class="pb-3 ps-3">
-
-                            <span class="firstTitle fs-4">Gruppen</span>
+                        
+                        <div class="row pb-2">
+                            <div class="col-9">
+                                <span class="firstTitle fs-4">Gruppen</span>
+                            </div>
+                            <div class="col-3">
+                                <select class="GrundversicherungInput form-control">
+                                    <option>Last month</option>
+                                    <option>Last 3 months</option>
+                                    <option>Last 6 months</option>
+                                    <option>Last year</option>
+                                    <option>Last 2 years</option>
+                                </select>
+                            </div>
+                            
+                        
                         </div>
 
                         <div class="provisionGreyBg p-3">
@@ -910,6 +923,12 @@
   -ms-user-select: none;
   user-select: none;
 }
+.GrundversicherungInput {
+        background: #FFFFFF;
+        border: 1px solid #EDEDED;
+        box-sizing: border-box;
+        border-radius: 11px;
+    }
 
 /* Hide the browser's default checkbox */
 .memberLabel input {
