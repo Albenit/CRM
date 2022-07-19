@@ -5,6 +5,7 @@
 <html lang="en">
 
 <head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -652,13 +653,13 @@ if it's not present, don't show loader */
                                                            
                                                                 @csrf
                                                                 <input type="hidden" value="{{$costumer->lead->id}}" name="lead_id">
-                                                                <select name="berater_name" class="form-select py-1 w-auto selektibabo" onchange="openButtons()">
+                                                                <select name="berater_name" id="selecti" class="form-select py-1 w-auto selektibabo" onchange="openButtons()">
                                                                     @foreach(App\Models\Admins::role(['fs'])->get() as $role)
                                                                         <option value="{{$role->id}}">{{$role->name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                                 <div id="butonat" class="ms-1" style="display: none">
-                                                                    <button type="button" class="declineBtnRequest w-100 py-2 me-1" onclick="hideButtons()">
+                                                                    <button type="button" class="declineBtnRequest w-100 py-2 me-1">
                                                                             <svg width="23" height="13"
                                                                                  viewBox="0 0 20 20" fill="none"
                                                                                  xmlns="http://www.w3.org/2000/svg">
@@ -672,7 +673,7 @@ if it's not present, don't show loader */
                                                                                       stroke-linejoin="round"/>
                                                                             </svg>
                                                                     </button>
-                                                                    <button type="submit" class="acceptBtnRequest w-100 py-2">
+                                                                    <button type="button" class="acceptBtnRequest w-100 py-2" onclick="submitform()">
                                                                         <svg width="23" height="13"
                                                                              viewBox="0 0 26 20" fill="none"
                                                                              xmlns="http://www.w3.org/2000/svg">
@@ -698,6 +699,10 @@ if it's not present, don't show loader */
                                                 </div>
                                             
                                                 <script>
+                                                 function submitform(){
+                                                  let val = document.getElementById('selecti').value;
+                                                  axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
+                                                    }
                                                     function changeBerater(){
                                                         document.getElementById('new_adminName').style.display = 'flex'
                                                         document.getElementById('lapsi').style.display = 'none'
