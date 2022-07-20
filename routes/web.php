@@ -359,13 +359,13 @@ route::get('changepagination/{x}',function($x){
 route::get('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
 
 route::get('test',function(){
-    $logs= LogsActivity::find(11);
+    $logs= LogsActivity::find(8);
     $collection1 = json_decode($logs->old_data,true);
 
     $collection2 = json_decode($logs->new_data,true);
+    dd($collection1,$collection2);
 
-
-    $tot = array_diff($collection1,$collection2);
+    $tot = array_diff($collection2,$collection1);
 
     dd($tot);
 });
@@ -373,4 +373,6 @@ route::get('extend',function(Request $req){
     $prov = Provisions::find((int)$req->id);
    Provisions::find((int)$req->id)->update(['from' => Carbon::createFromFormat('Y-m',$prov->from)->addMonths((int) $req->months)->format('Y-m')]); 
 })->name('extend');
+
+
 
