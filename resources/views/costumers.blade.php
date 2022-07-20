@@ -850,6 +850,7 @@
                         </div> 
                         
                    
+
                         {{-- @if($data->currentPagee != $data->lastPagee) --}}
                             <div class="col-3 my-auto">
                                 @if(!auth()->user()->hasRole('fs'))
@@ -876,6 +877,7 @@
                                                 </a>
                                             </div>
                                         @endif 
+
                                     </div>
                                 @else
                                     <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
@@ -904,7 +906,9 @@
                                     </div>
                                 @endif
                             </div>
+
                         {{-- @endif --}}
+
                     </div>
                 </div>
                 @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('backoffice'))
@@ -927,7 +931,7 @@
                     </a>
                 </div>
                 @endif
-                
+
                 @if(auth()->user()->hasRole('admin'))
                     <div class="container-fluid p-0">
 
@@ -956,8 +960,6 @@
                                                 </filter>
                                                 </defs>
                                                 </svg>
-
-
                                         </div>
                                         <div class="col cornerSvgKundenDiv">
                                             <div class="head">
@@ -965,7 +967,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="content py-3" style="margin-top: -2.5rem;">
                                         <div class="row g-0">
                                             <div class="col-12 col-md pb-2 pb-md-0 pe-0 pe-md-2">
@@ -998,35 +999,27 @@
                                                 <input class="leadOffnenBtnStyle w-100 py-1 px-4" type="submit" class="mt-2 btn py-2" value="Hochladen">
                                             </div>
                                         </div>
-
                                     </div>
                                 </form>
-                                
                             </div>
-                            
                         </div>
                     </div>
                 @endif
             </div>
         </form>
     </div>
-
     {{--    mobile--}}
-
     <div class="mobile-kunden container-fluid p-3 p-sm-4 p-md-5">
         <form method="post" action="{{route('search')}}">
             <div class="filters mx-3">
                 <div class="row" style="position: relative;">
                     <div class="col g-0">
-
                         @csrf
                         <div class="input-group">
                             <input type="text" class="border-0 input-suchen form-control searchPlaceholderStyle searchPlaceholderStyle2 py-2" name="searchname" style="background: #F7F7F7 !important;border: 1px solid rgba(100, 97, 97, 0.05) !important;border-radius: 11px !important;"
                                    placeholder="Suche (Kundenname, Vert )">
                         </div>
-
                     </div>
-
                     <div class="col-auto my-auto g-0 ps-1" id="ascDscSort">
 <!--    {{-- <a href="{{route('searchword')}}" style="text-decoration: none;color: #434343;cursor: pointer"
                            class="">
@@ -1037,7 +1030,6 @@
                                 </svg>
                             </div>
                         </a> --}} -->
-
                     </div>
                     <div class="col-auto my-auto ps-1 pe-0">
                         <div class="date-filter p-2 text-center" onclick="openFilterModalMobile()">
@@ -1094,18 +1086,15 @@
                                         </span>
 
                                 </button> -->
-
                                 @csrf
                                 <div class="pb-2">
                                 <label for="from-date" class="fw-600 text-start">Von</label>
                                 <input type="date" class="form-control px-0" name="searchdate1" placeholder="mm/dd/yyyy" style="border: none !important; outline: none !important;">
-
                                 </div>
                                 <div>
                                     <label for="to-date" class="fw-600">Zu</label>
                                     <input type="date" class="form-control px-0" name="searchdate2" placeholder="mm/dd/yyyy" style="border: none !important; outline: none !important;">
                                 </div>
-
                                 <div class="pt-1">
                                 <input type="submit" style="background-color: #2F60DC !important;border-radius:8px !important;"
                                        class="border-0 bg-secondary text-light fw-600 mt-2 px-0 text-center rounded dropdown-item form-control"
