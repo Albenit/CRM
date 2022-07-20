@@ -1123,13 +1123,23 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="">
+                                                <div class="pb-4">
                                                     <div class="row g-0">
                                                         <div class="col-7">
                                                             <span class="documentFormLeftSpan">GEBURTSTAG</span>
                                                         </div>
                                                         <div class="col">
                                                             <span class="documentFormRightSpan">{{Carbon\Carbon::parse($costumer->birthdate)->format('d.m.Y')}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="row g-0">
+                                                        <div class="col-7">
+                                                            <span class="documentFormLeftSpan">TELEFON</span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="documentFormRightSpan">{{$costumer->lead->telephone}}</span>
                                                         </div>
                                                     </div>
                                                 </div>

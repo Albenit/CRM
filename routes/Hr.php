@@ -182,5 +182,7 @@ else{
 
     })->name('employeProfile');
 
-//    route::get('searchEmploye',[HumanResourcesController::class,'searchEmploye'])->name('searchEmploye');
+//    route::get('searchEmploye',[HumanResourcesController::class,'searchEmploye'])->name('searchEmploye');\
+
+    route::get('logsHistory',[HumanResourcesController::class,'logsHistory'])->name('logsHistory');
 ?>

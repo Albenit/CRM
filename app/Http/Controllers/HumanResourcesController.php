@@ -10,6 +10,7 @@ use App\Models\Admins;
 use App\Models\BankInformation;
 use App\Models\bestellungen;
 use App\Models\EmployeePersonalData;
+use App\Models\LogsActivity;
 use App\Models\options_bestellungen;
 use App\Notifications\SendNotificationn;
 use App\Traits\FileManagerTrait;
@@ -458,5 +459,9 @@ class HumanResourcesController extends Controller
 
     }
 
+    public function logsHistory(){
+        $logsActivity = LogsActivity::all();
 
+        return view('logs_history',['logsActivity' => $logsActivity]);
+    }
 }
