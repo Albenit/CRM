@@ -178,9 +178,9 @@ public function folgetermin($id){
              $admin2->assignRole($req->input('role_name' . $i));
            }
          }
-         
         }
         $admin->roles()->detach();
+        // $roless = json_decode(Admins::find((int) $req->admin)->roless);
         $admin = Admins::find((int) $req->admin)->update(['roless' => '[]']);
         return redirect()->back()->with('success','Erfolgreich hinzugefügt');
      }

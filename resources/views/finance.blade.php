@@ -369,10 +369,10 @@
                     </div>
                         <div class="col-12 col-md-6">
                         <div class="row pb-2">
-                            <div class="col-9">
+                            <div class="col-8">
                                 <span class="firstTitle fs-4">Provisionssystem</span>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <select class="GrundversicherungInput form-control" id="prv" onchange="prevprov()">
                                 @if(request()->date == Carbon\Carbon::now()->subDays(30)->format('Y-m'))
                                     <option value="{{Carbon\Carbon::now()->subDays(30)->format('Y-m')}}" selected>Aktuelle monat</option>

@@ -754,12 +754,15 @@
                                 <div class="row g-0 justify-content-end pt-3">
                                     <div class="col-12 col-sm-6 col-md-5 col-lg-3">
                                         <button type="button" onclick="updateprov()" class="finStatusSubmitBtn py-1 w-100">Aktualisieren</button>
+                                        <button type="button" id="vazhdoo" onclick="updateprov1()" class="finStatusSubmitBtn py-1 w-100 mt-2">
+Bereitstellung erweitern</button>
                                     </div>
                                 </div>
-                                <div class="row g-0 justify-content-end pt-3">
+                                
+                                <div class="row g-0 justify-content-end pt-3" style="display: none" id="vazhdo">
                                     <div class="col-12 col-sm-6 col-md-5 col-lg-3">
                                         <label>Provisionssystem erweitern</label>
-                                        <select class="GrundversicherungInput col-12 mb-1" id="exte">
+                                        <select class="GrundversicherungInput col-12 mb-2 py-2" id="exte">
                                             <option value="1">+1 monat</option>
                                             <option value="2">+2 monat</option>
                                             <option value="3">+3 monat</option>
@@ -1090,6 +1093,11 @@ window.location.reload();
                                     function extend(){
                                         let months = document.getElementById('exte').value;
                                         axios.get("{{route('extend')}}?id={{$id}}&months=" + months).then(location.reload());
+                                    }
+                                    function updateprov1(){
+                                        document.getElementById('vazhdoo').style.display = "none";
+                                        document.getElementById('vazhdo').style.display = "flex";
+
                                     }
                                 </script>
 

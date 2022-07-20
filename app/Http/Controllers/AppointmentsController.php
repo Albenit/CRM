@@ -149,8 +149,10 @@ public function filterhrcalendar(Request  $req){
                 ->with('absences',$absences)
                 ->with('personalApp',$personalApp);
 		}}
-        else{
+        else{   
+  dd(auth()->user()->headadmin->getRoleNames());
        if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('admin')){
+   
         $absences = Absence::with('admin')->orderBy('created_at', 'desc')->paginate(30, ['*'], 'events_page');
   $users = Admins::role(['fs'])->get();
 		   
