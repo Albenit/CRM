@@ -849,7 +849,7 @@
                         </div>
                         
                    
-                       
+                       @if($data->currentPagee != $data->lastPagee)
                         <div class="col-2">
                         @if(!auth()->user()->hasRole('fs'))
                         <div class="d-flex justify-content-end py-1 pe-3" style="background-color: transparent;">
@@ -903,6 +903,7 @@
                             </div>
                             @endif
                         </div>
+                        @endif
                     </div>
                 </div>
                 @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('backoffice'))
