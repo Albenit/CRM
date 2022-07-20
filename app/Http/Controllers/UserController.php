@@ -484,6 +484,7 @@ public function folgetermin($id){
     {
         $email = filter_var($req->input('email'), FILTER_SANITIZE_STRING);
         $password = filter_var($req->input('password'), FILTER_SANITIZE_STRING);
+        
 
         $remember = $req->input('remember') == 'on' ? true : false;
         if (Auth::guard('admins')->attempt(['email' => $email, 'password' => $password], $remember)) {
@@ -544,7 +545,12 @@ public function folgetermin($id){
     }
     public function updateperson(Request $req,$id){
 
-        $oldPersonData = json_encode(family::find($id)); 
+        $oldPersonDataF = family::find($id);
+        $oldPersonDataL = lead::select('address','postal_code','city','nr')->find($req->idLead);
+        $coll = collect();
+        $tot = $coll->merge($oldPersonDataF)->merge($oldPersonDataL);
+
+
 
 
         $person = family::find($id);
@@ -563,11 +569,12 @@ public function folgetermin($id){
 
 
         LogsActivity::create([
-            'admin_id' => Auth::user()->id,
+            'edited_from' => Auth::user()->id,
             'person_id' => $id,
-            'old_data' => $oldPersonData,
-            'new_data' => json_encode($req->all()),
-            'description' => 'Client Personal Data Edited'
+            'old_data' => json_encode($tot->except(['id','leads_id','created_at','updated_at','status','status_updated_at','status_changed','kundportfolio','provisionert','first','krank_id','status_of_produkts'])),
+            'new_data' => json_encode($req->except(['_method','_token','idLead'])),
+            'description' => 'Client Personal Data Edited',
+            'type' => 3
         ]);
 
         return redirect()->back();

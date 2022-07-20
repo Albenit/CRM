@@ -13,4 +13,5 @@ class CostumerProduktGrundversicherung extends Model
     public function person(){
         return $this->belongsTo(family::class,'person_id_PG');
     }
+
 }

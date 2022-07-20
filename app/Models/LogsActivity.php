@@ -11,4 +11,8 @@ class LogsActivity extends Model
     public $table = 'logs_activity';
 
     protected $guarded = [];
+
+    public function family(){
+        return $this->belongsTo(family::class,'person_id','id');
+    }
 }

@@ -388,10 +388,12 @@ class CostumerFormController extends Controller
                 family::where('id',$id)->update(['kundportfolio'=>1,'provisionert' => $provisionert,'status_changed'=>1]);
 
             LogsActivity::create([
-                'admin_id' => Auth::user()->id,
+                'edited_from' => Auth::user()->id,
                 'person_id' => $id,
-                'new_data' => json_encode($request->all()),
-                'description' => 'Client Products Inserted'
+                'old_data' => json_encode($request->except(['_method','_token','lead_id','berater_name'])),
+                'new_data' => json_encode($request->except(['_method','_token','lead_id','berater_name'])),
+                'description' => 'Client Products Inserted',
+                'type' => 2
             ]);
             
             return redirect()->route('costumer_form', Crypt::encrypt($id * 1244))->with('success', 'Aktion erfolgreich durchgeführt');
@@ -403,21 +405,24 @@ class CostumerFormController extends Controller
         $aufcnt = 0;
         $provcnt = 0;
 
-        $oldGrund = CostumerProduktGrundversicherung::find($id);
-        $oldZus = CostumerProduktZusatzversicherung::find($id);
-        $oldAuto = CostumerProduktAutoversicherung::find($id);
-        $oldHaus = CostumerProduktHausrat::find($id);
-        $oldVor = CostumerProduktVorsorge::find($id);
-        $oldRech = CostumerProduktRechtsschutz::find($id);
+        $oldGrund = CostumerProduktGrundversicherung::where('person_id_PG',$id)->first();
+        
+        $oldZus = CostumerProduktZusatzversicherung::where('person_id_PZ',$id)->first();
+        $oldAuto = CostumerProduktAutoversicherung::where('person_id_PA',$id)->first();
+        $oldHaus = CostumerProduktHausrat::where('person_id_PH',$id)->first();
+        $oldVor = CostumerProduktVorsorge::where('person_id_PV',$id)->first();
+        $oldRech = CostumerProduktRechtsschutz::where('person_id_PR',$id)->first();
         $col = collect();
+        
         $totalOld = $col->merge($oldGrund)->merge($oldAuto)->merge($oldZus)->merge($oldHaus)->merge($oldRech)->merge($oldVor);
 
         LogsActivity::create([
-            'admin_id' => Auth::user()->id,
+            'edited_from' => Auth::user()->id,
             'person_id' => $id,
-            'old_data' => json_encode($totalOld),
-            'new_data' => json_encode($request->except(['_method','_token'])),
-            'description' => 'Client Products Edited'
+            'old_data' => json_encode($totalOld->except(['id','person_id_PG','admin_id','prov_id','person_id_PA','created_at','updated_at','person_id_PZ','person_id_PH','person_id_PR','person_id_PV','stoiner_PV','stoiner_PG','stoiner_PA','stoiner_PZ','stoiner_PH','stoiner_PR','last_adjustment_PG','last_adjustment_PA','last_adjustment_PZ','last_adjustment_PZ2','last_adjustment_PH','last_adjustment_PR','last_adjustment_PV','selected','produkt_PZ2','vvg_premium_PZ2','duration_from_PZ2','duration_to_PZ2','status_PZ2','provision_PZ2','provision_PZ'])),
+            'new_data' => json_encode($request->except(['_method','_token','lead_id','berater_name'])),
+            'description' => 'Client Products Edited',
+            'type' => 2
         ]);
 
      
@@ -748,10 +753,12 @@ class CostumerFormController extends Controller
         \App\Models\CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => $req->berater]);
 
         LogsActivity::create([
-                'admin_id' => Auth::user()->id,
+                'edited_from' => Auth::user()->id,
                 'person_id' => $family->id,
-                'new_data' => json_encode($req->all()),
-                'description' => 'Client Added Manualy'
+                'old_data' => json_encode($req->except(['_method','_token','lead_id','berater_name','cnt','berater'])),
+                'new_data' => json_encode($req->except(['_method','_token','lead_id','berater_name','cnt','berater'])),
+                'description' => 'Client Added Manualy',
+                'type' => 4
             ]);
       
     }

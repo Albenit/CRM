@@ -531,15 +531,17 @@ class LeadDataController extends Controller
         $oldThings = LeadDataThings::where('person_id',$personId)->first();
         $oldRech = LeadDataRech::where('person_id',$personId)->first();
         $oldPrev = LeadDataPrevention::where('person_id',$personId)->first();
+        $collect = collect();
 
-        $totalOld = $oldGrund.$oldAuto.$oldZus.$oldHaus.$oldRech.$oldVor.$oldKK.$oldCOF.$oldFahr.$oldThings.$oldRech.$oldPrev;
-       
+        $totalOld = $collect->merge($oldGrund)->merge($oldAuto)->merge($oldZus)->merge($oldHaus)->merge($oldRech)->merge($oldVor)->merge($oldKK)->merge($oldCOF)->merge($oldFahr)->merge($oldThings)->merge($oldRech)->merge($oldPrev);
+
         LogsActivity::create([
-            'admin_id' => Auth::user()->id,
+            'edited_from' => Auth::user()->id,
             'person_id' => $id,
             'old_data'=> json_encode($totalOld),
-            'new_data' => json_encode($request->all()),
-            'description' => 'Client Form Updated'
+            'new_data' => json_encode($request->except(['_method','_token'])),
+            'description' => 'Client Form Updated',
+            'type' => 1
         ]);
 
         family::find($id)->update(['first'=> 0]);

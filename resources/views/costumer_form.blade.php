@@ -621,131 +621,124 @@ if it's not present, don't show loader */
                 @endphp
                 <form action="{{route('save_costumer_form',$costumerId)}}" method="POST">
                     @method('POST')
-                    @csrf
-                    <div class="p-4">
-                    <span class="fs-4">
-
-                        <div class="row g-0">
-                            <div class="col">
+                    @csrf 
+                            <div class="py-4 px-2 px-sm-4">
                                 <div class="row g-0">
-                                    <div class="col-auto my-auto pe-2">
-                                        <a style="text-decoration: none" href="{{URL::previous()}}">
-                                        <svg width="17" height="17" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M12 2L2 12L12 22" stroke="#434343" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                                                            </svg>
-                                        </a>
-                                    </div>
-                                    @if (Auth::user()->hasRole('admin'))
-                                        <div class="col w-auto">
-                                            <div class="flaedkad" >
+                                    <div class="col my-auto">
+                                        <div class="row g-0">
+                                            <div class="col-auto my-auto pe-5">
+                                            <a style="text-decoration: none" href="{{URL::previous()}}">
+                                                <svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 2L2 12L12 22" stroke="#656565" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
+                                            </div>
+                                            @if (Auth::user()->hasRole('admin'))
+                                            <div class="col-auto">
                                                 <div>
                                                     <span class="fs-4" style="font-weight: 500;color: #434343">{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
                                                 </div>
-                                                <div>
-                                                    <span class="fs-5 ms-3">Berater </span>
-                                                </div>
-                                                <div class="adminName py-1 ms-2" id="back">
-                                                    <div class="adminmaindivv" style="font-size: 16px">
-                                                        <div class="ps-2 pe-4"  id="admin_name">
-                                                            <span> 
-                                                                {{ucfirst($costumer->lead->admin->name)}}
+                                                
+                                            </div>
+                                            <div class="col col-lg-4 col-xl-4 my-auto">
+                                                <div class="flaedkad me-0 me-lg-2" >
+                                                    
+                                                    <div>
+                                                        <span class="fs-5 ms-0 ms-md-2 ms-lg-3">Berater </span>
+                                                    </div>
+                                                    <div class="adminName w-100 ms-2" id="back">
+                                                        <div class="adminmaindivv">
+                                                            <div class="ps-2 pe-4 py-1" id="admin_name">
+                                                                <span> 
+                                                                    {{ucfirst($costumer->lead->admin->name)}}
+                                                                </span>
+                                                            </div>
+                                                            <div class="w-100 okoafldsq" id="new_adminName" style="display: none">
+                                                                    @csrf
+                                                                    <input type="hidden" value="{{$costumer->lead->id}}" name="lead_id">
+                                                                    <select name="berater_name" id="selecti" class="form-select py-1 w-auto selektibabo" onchange="openButtons()">
+                                                                        @foreach(App\Models\Admins::role(['fs'])->get() as $role)
+                                                                            <option value="{{$role->id}}">{{$role->name}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    <div id="butonat" class="ms-1" style="display: none" onclick="hideButtons()">
+                                                                        <button type="button" class="declineBtnRequest w-100 py-2 me-1">
+                                                                                <svg width="23" height="13"
+                                                                                     viewBox="0 0 20 20" fill="none"
+                                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path d="M17.998 2L1.99805 18"
+                                                                                          stroke="white" stroke-width="3"
+                                                                                          stroke-linecap="round"
+                                                                                          stroke-linejoin="round"/>
+                                                                                    <path d="M1.99805 2L17.998 18"
+                                                                                          stroke="white" stroke-width="3"
+                                                                                          stroke-linecap="round"
+                                                                                          stroke-linejoin="round"/>
+                                                                                </svg>
+                                                                        </button>
+                                                                        <button type="button" class="acceptBtnRequest w-100 py-2" onclick="submitform()">
+                                                                            <svg width="23" height="13"
+                                                                                 viewBox="0 0 26 20" fill="none"
+                                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M1.99805 10.5333L9.33138 18L23.998 2"
+                                                                                    stroke="white"
+                                                                                    stroke-width="3"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"/>
+                                                                            </svg>
+                                                                        </button>
+                                                                    </div> 
+                                                            </div>
+                                                        
+                                                            <span id="lapsi" class="pe-2" onclick="changeBerater()">
+                                                                <svg style="min-width:16px; width: 16px;" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.625 22.9176V27.6043C0.625 28.036 0.964167 28.3751 1.39583 28.3751H6.0825C6.28292 28.3751 6.48333 28.2981 6.62208 28.1439L23.4571 11.3243L17.6758 5.54306L0.85625 22.3626C0.702083 22.5168 0.625 22.7018 0.625 22.9176ZM27.9279 6.85347C28.5292 6.25222 28.5292 5.28097 27.9279 4.67972L24.3204 1.07222C23.7192 0.470972 22.7479 0.470972 22.1467 1.07222L19.3254 3.89347L25.1067 9.67472L27.9279 6.85347Z" fill="#202020"/>
+                                                                </svg>
                                                             </span>
                                                         </div>
-                                                        <form method="post" action="{{route('updateBeraterKunden')}}" >
-                                                        <div class="ps-2 pe-4 w-100 okoafldsq" id="new_adminName" style="display: none">
-                                                                @csrf
-                                                                <input type="hidden" value="{{$costumer->lead->id}}" name="lead_id">
-                                                                <select name="berater_name" id="selecti" class="form-select py-1 w-auto selektibabo" onchange="openButtons()">
-                                                                    @foreach(App\Models\Admins::role(['fs'])->get() as $role)
-                                                                        <option value="{{$role->id}}">{{$role->name}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                                <div id="butonat" class="ms-1" style="display: none">
-                                                                    <button type="button" class="declineBtnRequest w-100 py-2 me-1">
-                                                                            <svg width="23" height="13"
-                                                                                 viewBox="0 0 20 20" fill="none"
-                                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                                <path d="M17.998 2L1.99805 18"
-                                                                                      stroke="white" stroke-width="3"
-                                                                                      stroke-linecap="round"
-                                                                                      stroke-linejoin="round"/>
-                                                                                <path d="M1.99805 2L17.998 18"
-                                                                                      stroke="white" stroke-width="3"
-                                                                                      stroke-linecap="round"
-                                                                                      stroke-linejoin="round"/>
-                                                                            </svg>
-                                                                    </button>
-                                                                    <button type="button" class="acceptBtnRequest w-100 py-2" onclick="submitform()">
-                                                                        <svg width="23" height="13"
-                                                                             viewBox="0 0 26 20" fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M1.99805 10.5333L9.33138 18L23.998 2"
-                                                                                stroke="white"
-                                                                                stroke-width="3"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round"/>
-                                                                        </svg>
-                                                                    </button>
-                                                                </div> 
-                                                        </div>
-                                                    </form>
-                                                        <span id="lapsi" class="pe-2" onclick="changeBerater()">
-                                                            <svg style="min-width:16px; width: 16px;" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.625 22.9176V27.6043C0.625 28.036 0.964167 28.3751 1.39583 28.3751H6.0825C6.28292 28.3751 6.48333 28.2981 6.62208 28.1439L23.4571 11.3243L17.6758 5.54306L0.85625 22.3626C0.702083 22.5168 0.625 22.7018 0.625 22.9176ZM27.9279 6.85347C28.5292 6.25222 28.5292 5.28097 27.9279 4.67972L24.3204 1.07222C23.7192 0.470972 22.7479 0.470972 22.1467 1.07222L19.3254 3.89347L25.1067 9.67472L27.9279 6.85347Z" fill="#202020"/>
-                                                            </svg>
-                                                        </span>
+                                                    </div>
+                                                </div>    
+                                            </div>                                             
+                                            @else
+                                                <div class="col">
+                                                    <div  class="fs-4">
+                                                        <span  style="font-weight: 500;color: #434343">{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
+                                                        <span> <span class="ms-3">Berater </span>{{ucfirst($costumer->lead->admin->name)}}</span>
                                                     </div>
                                                 </div>
-                                                <script>
-                                                    function submitform(){
-                                                        let val = document.getElementById('selecti').value;
-                                                        axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
-                                                    }
-                                                    function changeBerater(){
-                                                        document.getElementById('new_adminName').style.display = 'flex'
-                                                        document.getElementById('lapsi').style.display = 'none'
-                                                        document.getElementById('back').style.backgroundColor = '#F3F3F3'
-                                                        document.getElementById('admin_name').style.display = 'none'
-                                                    }
-                                                    function openButtons(){
-                                                        document.getElementById('butonat').style.display = 'flex'
-
-                                                    }
-                                                    function hideButtons(){
-                                                        document.getElementById('admin_name').style.display = 'block'
-                                                        document.getElementById('new_adminName').style.display = 'none'
-                                                    }
-                                                </script>
-                                            </div>
-                                        </div>                                              
-                                        @else
-                                            <div class="col">
-                                                <div  class="fs-4">
-                                                    <span  style="font-weight: 500;color: #434343">{{ucfirst($costumer->first_name)}} {{ucfirst($costumer->last_name)}}</span>
-                                                    <span> <span class="ms-3">Berater </span>{{ucfirst($costumer->lead->admin->name)}}</span>
-                                                </div>
-                                            </div>
-                                        @endif
-                                </div>
-                            </div>
-                            <div class="col-auto col-md-3 col-lg-2 my-auto">
-
-                                <div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 my-auto pt-2 pt-lg-0">
                                         <button type="button" class="butoniAnpassung py-0 py-md-1 w-100" style="font-weight: 600;"  onclick="window.location.href='{{route('leadfamilyperson',[Crypt::encrypt($costumer->id * 1244),'admin_id' => \Illuminate\Support\Facades\Crypt::encrypt($costumer->lead->assign_to_id * 1244),'pend_id' => \App\Models\Pendency::where('family_id',$costumer->id)->latest()->first()->id,'vorsorge' => true])}}'">
                                             Anpassung
                                         </button>
+                                    </div>
                                 </div>
-
                             </div>
-                        </div>
+                    <script>
+                        function submitform(){
+                            let val = document.getElementById('selecti').value;
+                            axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
+                        }
+                        function changeBerater(){
+                            document.getElementById('new_adminName').style.display = 'flex'
+                            document.getElementById('lapsi').style.display = 'none'
+                            document.getElementById('back').style.backgroundColor = '#F3F3F3'
+                            document.getElementById('admin_name').style.display = 'none'
+                        }
+                        function openButtons(){
+                            document.getElementById('butonat').style.display = 'flex'
 
-
-                    </span> <br>
-                        <div class="fs-6 text-muted justify-content-end d-flex">
-
-                        </div>
-                    </div>
+                        }
+                        function hideButtons(){
+                                document.getElementById('new_adminName').style.display = 'none'
+                                document.getElementById('admin_name').style.display = 'block'
+                                document.getElementById('lapsi').style.display = 'block'
+                                document.getElementById('back').style.backgroundColor = '#fff'         
+                            }
+                    </script>
                     <div class="row mx-2 mx-sm-4">
                         <nav class="g-0 nav-form-links">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
