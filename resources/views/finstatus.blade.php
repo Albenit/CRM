@@ -1067,25 +1067,25 @@ Bereitstellung erweitern</button>
                                     function updatee(id){ 
                                         $('#modali' + id).modal('show')
                                     }
-                                    async function updateprov(){
+                                    function updateprov(){
 
                                         for(var i = 1; i <= parseInt(document.getElementById('grundnr').value); i++){
-                                        await axios.get('{{route("companies.register",$id)}}' + '?field=Grund&company_name=' + document.getElementById('company' + i).value + '&provision_percent=' + document.getElementById('percent' + i).value).catch(err => {console.log(err)})
+                                       axios.get('{{route("companies.register",$id)}}' + '?field=Grund&company_name=' + document.getElementById('company' + i).value + '&provision_percent=' + document.getElementById('percent' + i).value).catch(err => {console.log(err)})
                                         }
                                         for(var i = 1; i <= parseInt(document.getElementById('zusnr').value); i++){
-                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Zusat&company_name=' + document.getElementById('companyz' + i).value + '&provision_percent=' + document.getElementById('percentz' + i).value).catch(err => {console.log(err)})
+                                           axios.get('{{route("companies.register",$id)}}' + '?field=Zusat&company_name=' + document.getElementById('companyz' + i).value + '&provision_percent=' + document.getElementById('percentz' + i).value).catch(err => {console.log(err)})
                                         }
                                         for(var i = 1; i <= parseInt(document.getElementById('autonr').value); i++){
-                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Auto&company_name=' + document.getElementById('companya' + i).value + '&provision_percent=' + document.getElementById('percenta' + i).value).catch(err => {console.log(err)})
+                                           axios.get('{{route("companies.register",$id)}}' + '?field=Auto&company_name=' + document.getElementById('companya' + i).value + '&provision_percent=' + document.getElementById('percenta' + i).value).catch(err => {console.log(err)})
                                         }
                                         for(var i = 1; i <= parseInt(document.getElementById('rechnr').value); i++){
-                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Rech&company_name=' + document.getElementById('companyr' + i).value + '&provision_percent=' + document.getElementById('percentr' + i).value).catch(err => {console.log(err)})
+                                         axios.get('{{route("companies.register",$id)}}' + '?field=Rech&company_name=' + document.getElementById('companyr' + i).value + '&provision_percent=' + document.getElementById('percentr' + i).value).catch(err => {console.log(err)})
                                         }
                                         for(var i = 1; i <= parseInt(document.getElementById('hausnr').value); i++){
-                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Haus&company_name=' + document.getElementById('companyh' + i).value + '&provision_percent=' + document.getElementById('percenth' + i).value).catch(err => {console.log(err)})
+                                       axios.get('{{route("companies.register",$id)}}' + '?field=Haus&company_name=' + document.getElementById('companyh' + i).value + '&provision_percent=' + document.getElementById('percenth' + i).value).catch(err => {console.log(err)})
                                         }
                                         for(var i = 1; i <= parseInt(document.getElementById('vornr').value); i++){
-                                            await axios.get('{{route("companies.register",$id)}}' + '?field=Vor&company_name=' + document.getElementById('companyv' + i).value + '&provision_percent=' + document.getElementById('percentv' + i).value).catch(err => {console.log(err)})
+                                         axios.get('{{route("companies.register",$id)}}' + '?field=Vor&company_name=' + document.getElementById('companyv' + i).value + '&provision_percent=' + document.getElementById('percentv' + i).value).catch(err => {console.log(err)})
                                         }
 
 window.location.reload();
