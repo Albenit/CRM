@@ -13,7 +13,7 @@
                             <div class="greenBorderDiv p-4" onclick="window.location.href='{{route('costumers',["status" => "Provisionert"])}}'"
                                  style="cursor:pointer;">
                                 <div class="cornerSvgDash">
-                                <svg viewBox="0 0 151 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg viewBox="0 0 151 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g filter="url(#filter0_d_28_428)">
                                             <path d="M37.172 76.7164C40.1076 81.6024 46.8941 86.4191 51.2888 89.9222C55.6834 93.4253 50.1958 103.07 55.3806 104.657C60.5653 106.244 76.3209 99.7419 81.5064 99.1711C86.6919 98.6003 91.6239 96.9468 96.0206 94.3051C100.417 91.6634 104.193 88.0853 107.132 83.7749C110.07 79.4646 112.115 74.5064 113.148 69.1836C114.181 63.8608 114.183 58.2775 113.154 52.7525C112.124 47.2276 107.535 38.7637 104.599 33.8778L68.8588 33.8778C62.707 33.8778 56.5869 34.7591 50.685 36.495L49.9812 36.9642C46.285 39.4283 42.9913 42.4481 40.2163 45.9169C38.2042 51.1061 37.172 56.6235 37.172 62.1891L37.172 76.7164Z" fill="#CAE9BF"/>
                                             </g>
@@ -32,9 +32,7 @@
                                             <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape"/>
                                             </filter>
                                             </defs>
-                                            </svg>
-
-
+                                    </svg>
                                 </div>
                                 <div class="text-end textDivDash">
                                     <div>

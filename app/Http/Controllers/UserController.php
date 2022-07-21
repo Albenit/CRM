@@ -66,6 +66,8 @@ use App\Notifications\SendNotificationn;
 use FamilyPerson;
 use Illuminate\Support\Facades\URL;
 use function Clue\StreamFilter\fun;
+use function PHPSTORM_META\type;
+
 use App\Models\LogsActivity;
 
 class UserController extends Controller
@@ -615,10 +617,12 @@ public function folgetermin($id){
             }
         }
         LogsActivity::create([
-            'admin_id' => Auth::user()->id,
+            'edited_from' => Auth::user()->id,
             'person_id' => $family->id,
+            'old_data' => json_encode($req->all()),
             'new_data' => json_encode($req->all()),
-            'description' => 'Kunden added'
+            'description' => 'Kunden added',
+            'type' => 5
         ]);
         
         $bo = Admins::role(['backoffice', 'admin'])->get();

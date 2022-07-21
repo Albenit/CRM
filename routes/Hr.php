@@ -9,7 +9,7 @@ use App\Models\Provisions;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
     route::post('createbst',[HumanResourcesController::class,'createBestellunge'])->name('createBestellunge');
-route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->name('createAbsence');
+    route::post('createAbsence',[HumanResourcesController::class,'createAbsence'])->name('createAbsence');
     route::post('updateAbsence',[HumanResourcesController::class,'updateAbsenceById'])->name('updateAbsenceById');
     route::get('getAllEmployeeAbsences',[HumanResourcesController::class,'getAllEmployeeAbsences'])->name('getAllEmployeeAbsences');
     route::post('removeAbsence',[HumanResourcesController::class,'removeAbsence'])->name('removeAbsence');

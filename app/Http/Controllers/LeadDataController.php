@@ -538,8 +538,8 @@ class LeadDataController extends Controller
         LogsActivity::create([
             'edited_from' => Auth::user()->id,
             'person_id' => $id,
-            'old_data'=> json_encode($totalOld),
-            'new_data' => json_encode($request->except(['_method','_token'])),
+            'old_data'=> json_encode($totalOld->except(['id','created_at','updated_at','admin_id','prov_id','krank_id','skiped'])),
+            'new_data' => json_encode($request->except(['_method','_token','newgcount','newncount','nofert','gofert','admin_id'])),
             'description' => 'Client Form Updated',
             'type' => 1
         ]);
