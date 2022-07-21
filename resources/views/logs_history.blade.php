@@ -108,7 +108,8 @@
                                             {{-- type 1 stand for form
                                          type 2 stand for products
                                          type 3 stand for edit personaldata
-                                         type 4 stand for manualy inserted client --}}
+                                         type 4 stand for manualy inserted client 
+                                         type 5 stand for inserted client from appoinment--}}
                                             <div class="row g-0">
                                                 <div class="col-4 d-block d-md-none">
                                                     <span class="fw-bold">Type</span>
@@ -126,6 +127,8 @@
                                                         @elseif ($logs->type == 4)
                                                             <span class="fs-6" style="font-weight: 500;">Kunden
                                                                 Manualy</span>
+                                                        @elseif ($logs->type == 5)
+                                                            <span class="fs-6" style="font-weight: 500;">Kunde from Termine</span>
                                                         @endif
                                                     </span>
                                                 </div>

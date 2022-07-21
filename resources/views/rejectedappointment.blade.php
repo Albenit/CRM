@@ -1,6 +1,8 @@
 @extends('template.navbar')
 @section('content')
-
+    <title>
+        Historie Der Termine
+    </title>
     <div>
         <div class="p-4">
             

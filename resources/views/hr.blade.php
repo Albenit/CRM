@@ -1898,14 +1898,13 @@
                                                        style="border-radius: 8px; background-color: rgb(255, 255, 255) !important; border: 1px solid rgb(243, 243, 243) !important; box-shadow: rgba(238, 238, 238, 0.25) 0px 4px 4px;"
                                                        name="bank_name"
                                                        class="form-control mb-3"
-                                                       required
                                                        value="{{$bankInfo->bank}}">
                                             @else
                                                 <input type="text"
                                                        style="border-radius: 8px; background-color: rgb(255, 255, 255) !important; border: 1px solid rgb(243, 243, 243) !important; box-shadow: rgba(238, 238, 238, 0.25) 0px 4px 4px;"
                                                        name="bank_name"
                                                        class="form-control mb-3"
-                                                       required>
+                                                       >
                                             @endif
                                         </div>
                                         <div>
@@ -1918,14 +1917,12 @@
                                                        style="border-radius: 8px; background-color: rgb(255, 255, 255) !important; border: 1px solid rgb(243, 243, 243) !important; box-shadow: rgba(238, 238, 238, 0.25) 0px 4px 4px;"
                                                        name="iban_number"
                                                        class="form-control mb-3"
-                                                       required
                                                        value="{{$bankInfo->iban}}">
                                             @else
                                                 <input type="number"
                                                        style="border-radius: 8px; background-color: rgb(255, 255, 255) !important; border: 1px solid rgb(243, 243, 243) !important; box-shadow: rgba(238, 238, 238, 0.25) 0px 4px 4px;"
                                                        name="iban_number"
-                                                       class="form-control mb-3"
-                                                       required>
+                                                       class="form-control mb-3">
                                             @endif
                                         </div>
                                     </div>

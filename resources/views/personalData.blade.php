@@ -108,18 +108,18 @@
                                                 <div>
                                                     <label class="fs-6" style="font-family: 'Montserrat' !important;font-weight:600">Bank</label>
                                                     @if (isset($bankInfo->bank))
-                                                    <input type="text" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="bank_name" class="form-control mb-3" required value="{{ $bankInfo->bank }}">
+                                                    <input type="text" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="bank_name" class="form-control mb-3"  value="{{ $bankInfo->bank }}">
                                                     @else
-                                                    <input type="text" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="bank_name" class="form-control mb-3" required>
+                                                    <input type="text" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="bank_name" class="form-control mb-3" >
                                                     @endif
                                                 </div>
                                                 <div>
                                                     <label class="fs-6" style="font-family: 'Montserrat' !important;font-weight:600">IBAN
                                                         Nummer</label>
                                                     @if (isset($bankInfo->iban))
-                                                    <input type="number" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="iban_number" class="form-control mb-3" required value="{{ $bankInfo->iban }}">
+                                                    <input type="number" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="iban_number" class="form-control mb-3"  value="{{ $bankInfo->iban }}">
                                                     @else
-                                                    <input type="number" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="iban_number" class="form-control mb-3" required>
+                                                    <input type="number" style="border-radius: 8px; background-color: #fff !important; border: 1px solid #f3f3f3 !important; box-shadow: rgb(238 238 238 / 25%) 0px 4px 4px;" name="iban_number" class="form-control mb-3" >
                                                     @endif
                                                 </div>
                                                 <div class="row g-0 mx-0 px-0 pt-3">
