@@ -4,7 +4,7 @@ use App\Http\Controllers\FinanceController;
 use App\Models\Admins;
 use Illuminate\Http\Request;
 
-route::post('addProvision',[\App\Http\Controllers\FinanceController::class,'addProvision'])->name('addProvision')->middleware('role:admin|backoffice');
+route::post('addProvision',[\App\Http\Controllers\FinanceController::class,'addProvision'])->name('addProvision')->middleware('role:admin');
 route::get('finance',function (Request $req){
     $groups = \App\Models\Group::get();
 
@@ -17,7 +17,7 @@ route::get('finance',function (Request $req){
     }
     $admins = \App\Models\Admins::role(['fs'])->get();
     return view('finance',compact('admins','groups','provisions'));
-})->name('finance')->middleware('role:admin|backoffice');
+})->name('finance')->middleware('role:admin');
 route::get('group/delete/{id}',function ($id){
     \App\Models\Group::find($id)->delete();
     Admins::where('group_id',$id)->update(['group_id'=> 0 ]);
