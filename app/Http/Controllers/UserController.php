@@ -614,16 +614,19 @@ public function folgetermin($id){
                 CostumerProduktHausrat::create(['person_id_PH'=> $family->id,'status_PH' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
                 CostumerProduktRechtsschutz::create(['person_id_PR'=> $family->id,'status_PR' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
                 CostumerProduktVorsorge::create(['person_id_PV'=> $family->id,'status_PV' => 'Offen (Berater)','admin_id' => lead::find((int) $idd)->assign_to_id]);
+                
+                LogsActivity::create([
+                    'edited_from' => Auth::user()->id,
+                    'person_id' => $family->id,
+                    'old_data' => json_encode($req->except('_token')),
+                    'new_data' => json_encode($req->except('_token')),
+                    'description' => 'Kunden added',
+                    'type' => 5
+                ]);
             }
+
         }
-        LogsActivity::create([
-            'edited_from' => Auth::user()->id,
-            'person_id' => $family->id,
-            'old_data' => json_encode($req->all()),
-            'new_data' => json_encode($req->all()),
-            'description' => 'Kunden added',
-            'type' => 5
-        ]);
+
         
         $bo = Admins::role(['backoffice', 'admin'])->get();
         foreach ($bo as $b) {
@@ -652,7 +655,7 @@ public function folgetermin($id){
     public function dealclosed($id)
     {
         $id = Crypt::decrypt($id) / 1244;
-
+ 
         $app = lead::where('id', $id)->first();
         if ($app->assign_to_id == Auth::guard('admins')->user()->id || Auth::guard('admins')->user()->hasRole('admin') || $app->wantsonline == 1 && Auth::user()->hasRole('digital')) {
             return view('completelead', compact('app'));
@@ -724,7 +727,6 @@ public function folgetermin($id){
         } else {
             return redirect()->back()->with('success', 'Aktion fehlgeschlagen');
         }
-
     }
 
     public function rejectlead(Request $request, $id)

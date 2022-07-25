@@ -1297,8 +1297,6 @@ class StatisticController extends Controller
 
             $datas = collect([$grundversicherungP,$retchsschutzP,$vorsorgeP,$autoversicherungP,$zusatzversicherungP,$hausratP]);
 
-        
-
         return $datas;
     }
 

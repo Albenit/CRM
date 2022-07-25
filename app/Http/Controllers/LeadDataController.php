@@ -524,7 +524,7 @@ class LeadDataController extends Controller
         $oldAuto = CostumerProduktAutoversicherung::find($id);
         $oldHaus = CostumerProduktHausrat::find($id);
         $oldVor = CostumerProduktVorsorge::find($id);
-        $oldRech = CostumerProduktRechtsschutz::find($id);
+        $oldRecht = CostumerProduktRechtsschutz::find($id);
         $oldKK = LeadDataKK::where('person_id',$personId)->first();
         $oldCOF = LeadDataCounteroffered::where('person_id',$personId)->first();
         $oldFahr = LeadDataFahrzeug::where('person_id',$personId)->first();
@@ -533,12 +533,12 @@ class LeadDataController extends Controller
         $oldPrev = LeadDataPrevention::where('person_id',$personId)->first();
         $collect = collect();
 
-        $totalOld = $collect->merge($oldGrund)->merge($oldAuto)->merge($oldZus)->merge($oldHaus)->merge($oldRech)->merge($oldVor)->merge($oldKK)->merge($oldCOF)->merge($oldFahr)->merge($oldThings)->merge($oldRech)->merge($oldPrev);
+        $totalOld = $collect->merge($oldGrund)->merge($oldZus)->merge($oldRecht)->merge($oldFahr)->merge($oldAuto)->merge($oldThings)->merge($oldVor)->merge($oldPrev)->merge($oldHaus)->merge($oldKK)->merge($oldRech)->merge($oldCOF);
 
         LogsActivity::create([
             'edited_from' => Auth::user()->id,
             'person_id' => $id,
-            'old_data'=> json_encode($totalOld->except(['id','created_at','updated_at','admin_id','prov_id','krank_id','skiped'])),
+            'old_data'=> json_encode($totalOld->except(['id','created_at','updated_at','admin_id','prov_id','krank_id','skiped','person_id_PG','person_id_PA','person_id_PZ','person_id_PH','person_id_PV','selected','stoiner_PG','stoiner_PA','stoiner_PZ','leads_id','person_id','stoiner_PH','stoiner_PV','accepted','imported','provision_PZ2','last_adjustment_PZ2','status_PZ2','duration_to_PZ2','duration_from_PZ2','vvg_premium_PZ2','produkt_PZ2'])),
             'new_data' => json_encode($request->except(['_method','_token','newgcount','newncount','nofert','gofert','admin_id'])),
             'description' => 'Client Form Updated',
             'type' => 1

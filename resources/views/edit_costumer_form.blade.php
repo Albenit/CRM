@@ -420,7 +420,7 @@ if it's not present, don't show loader */
                 </div>
             </div>
             @endif
-            @if(!auth()->user()->hasRole('callagent') && !auth()->user()->hasRole('fs') && !auth()->user()->hasRole('salesmanager'))
+            @if(!auth()->user()->hasRole('callagent') && !auth()->user()->hasRole('fs') && !auth()->user()->hasRole('salesmanager') && !auth()->user()->hasRole('backoffice'))
                 <div class="pt-3">
                     <div class="row g-0">
                         <div class="col-auto pe-0 pe-lg-3">
@@ -2617,7 +2617,7 @@ $urole = $user->getRoleNames()->toArray();
         </a>
         </div>
         <div class="my-3 m-burger">
-        @if(Auth::check() && !auth()->user()->hasRole('callagent')  && !auth()->user()->hasRole('fs') && !auth()->user()->hasRole('salesmanager'))
+        @if(Auth::check() && !auth()->user()->hasRole('callagent')  && !auth()->user()->hasRole('fs') && !auth()->user()->hasRole('salesmanager') && !auth()->user()->hasRole('backoffice'))
             <a href="{{route('finance')}}" class="m-nav text-decoration-none {{ (request()->is('finance')) ? 'activeClassNavMob__' : '' }}">
                 <div class="row g-0">
                     <div class="col-auto pe-3">
