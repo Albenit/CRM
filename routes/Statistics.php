@@ -30,4 +30,6 @@ route::get('appointmentStat',[\App\Http\Controllers\StatisticController::class,'
 
 route::get('soldProducts',[\App\Http\Controllers\StatisticController::class,'soldProducts']);
 
+route::get('salesoverview',[\App\Http\Controllers\StatisticController::class,'salesoverview']);
+
 ?>

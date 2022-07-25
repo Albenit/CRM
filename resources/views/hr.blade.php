@@ -4004,9 +4004,9 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                    <span class="fs-6 {{ (request()->is('finance')) ? 'activeClassNavMob__' : '' }} " style="color: #A7A4A4;font-weight: 500">
-                                        Finanzen
-                                    </span>
+                                                    <span class="fs-6 {{ (request()->is('finance')) ? 'activeClassNavMob__' : '' }} " style="color: #A7A4A4;font-weight: 500">
+                                                        Finanzen
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

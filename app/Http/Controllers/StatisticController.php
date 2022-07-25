@@ -997,6 +997,13 @@ class StatisticController extends Controller
         $leads['instagram'] = $instagram;
         $leads['facebook'] = $facebook;
 
+        // $family = collect();
+        // foreach(family::all() as $obj){
+        //     $family->push($obj->lead->assign_to_id);
+        // }
+        // dd($family->sort());
+        
+
 
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
         return view('statistics', compact('leads','adminsStat'));
@@ -1266,36 +1273,70 @@ class StatisticController extends Controller
         return $appStat;
     }
 
-    public function soldProducts(Request $req){
-        $admin = $req->empID;
-        $date = Carbon::now()->subDays($req->numberi);
-        $dateFrom = date('Y-m-d', strtotime($req->dateFrom));
-        $dateTo = date('Y-m-d', strtotime($req->dateTo));
+    public function soldProducts(Request $request){
+        $admin = $request->empID;
+        $date = Carbon::now()->subDays($request->numberi);
+        $dateFrom = date('Y-m-d', strtotime($request->dateFrom));
+        $dateTo = date('Y-m-d', strtotime($request->dateTo));
 
-            if($req->numberi == 0) {
-                $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->where('admin_id',$admin)->count();
-                $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->where('admin_id',$admin)->count();
-                $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->where('admin_id',$admin)->count();
-                $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->where('admin_id',$admin)->count();
-                $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->where('admin_id',$admin)->count();
-                $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->where('admin_id',$admin)->count();
-            }elseif($req->numberi == 100){
-                $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->whereBetween('last_adjustment_PG',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-                $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->whereBetween('last_adjustment_PR',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-                $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->whereBetween('last_adjustment_PV',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-                $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->whereBetween('last_adjustment_PZ',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-                $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->whereBetween('last_adjustment_PA',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-                $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->whereBetween('last_adjustment_PH',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
-            }else{
-                $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->where('last_adjustment_PG', '>',$date)->where('admin_id',$admin)->count();
-                $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->where('last_adjustment_PR', '>',$date)->where('admin_id',$admin)->count();
-                $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->where('last_adjustment_PV', '>',$date)->where('admin_id',$admin)->count();
-                $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->where('last_adjustment_PZ', '>',$date)->where('admin_id',$admin)->count();
-                $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->where('last_adjustment_PA', '>',$date)->where('admin_id',$admin)->count();
-                $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->where('last_adjustment_PH', '>',$date)->where('admin_id',$admin)->count();
-            }
+        if($request->numberi == 0) {
+            $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->where('admin_id',$admin)->count();
+            $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->where('admin_id',$admin)->count();
+            $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->where('admin_id',$admin)->count();
+            $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->where('admin_id',$admin)->count();
+            $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->where('admin_id',$admin)->count();
+            $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->where('admin_id',$admin)->count();
+        }elseif($request->numberi == 100){
+            $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->whereBetween('last_adjustment_PG',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+            $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->whereBetween('last_adjustment_PR',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+            $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->whereBetween('last_adjustment_PV',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+            $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->whereBetween('last_adjustment_PZ',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+            $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->whereBetween('last_adjustment_PA',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+            $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->whereBetween('last_adjustment_PH',[$dateFrom , $dateTo])->where('admin_id',$admin)->count();
+        }else{
+            $grundversicherungP = CostumerProduktGrundversicherung::where('status_PG', 'Provisionert')->where('last_adjustment_PG', '>',$date)->where('admin_id',$admin)->count();
+            $retchsschutzP = CostumerProduktRechtsschutz::where('status_PR', 'Provisionert')->where('last_adjustment_PR', '>',$date)->where('admin_id',$admin)->count();
+            $vorsorgeP = CostumerProduktVorsorge::where('status_PV', 'Provisionert')->where('last_adjustment_PV', '>',$date)->where('admin_id',$admin)->count();
+            $zusatzversicherungP = CostumerProduktZusatzversicherung::where('status_PZ', 'Provisionert')->where('last_adjustment_PZ', '>',$date)->where('admin_id',$admin)->count();
+            $autoversicherungP = CostumerProduktAutoversicherung::where('status_PA', 'Provisionert')->where('last_adjustment_PA', '>',$date)->where('admin_id',$admin)->count();
+            $hausratP = CostumerProduktHausrat::where('status_PH', 'Provisionert')->where('last_adjustment_PH', '>',$date)->where('admin_id',$admin)->count();
+        }
 
             $datas = collect([$grundversicherungP,$retchsschutzP,$vorsorgeP,$autoversicherungP,$zusatzversicherungP,$hausratP]);
+
+        return $datas;
+    }
+
+    public function salesoverview(){
+        $grundversicherungP = 0;
+        $zusatzversicherungP = 0;
+        $retchsschutzP = 0;
+        $autoversicherungP = 0;
+        $hausratP = 0;
+        $vorsorgeP = 0;
+
+        foreach(CostumerProduktGrundversicherung::all() as $obj){
+            $grundversicherungP += $obj->total_commisions_PG;
+        }
+        foreach(CostumerProduktZusatzversicherung::all() as $obj){
+            $zusatzversicherungP += $obj->total_commisions_PZ;
+        }
+        foreach(CostumerProduktRechtsschutz::all() as $obj){
+            $retchsschutzP += $obj->total_commisions_PR;
+        }
+        foreach(CostumerProduktAutoversicherung::all() as $obj){
+            $autoversicherungP += $obj->total_commisions_PA;
+        }
+        foreach(CostumerProduktHausrat::all() as $obj){
+            $hausratP += $obj->total_commisions_PH;
+        }
+        foreach(CostumerProduktVorsorge::all() as $obj){
+            $vorsorgeP += $obj->total_commisions_PV;
+        }
+
+
+
+        $datas = collect([$grundversicherungP,$zusatzversicherungP,$autoversicherungP,$vorsorgeP,$retchsschutzP,$hausratP]);
 
         return $datas;
     }
