@@ -929,7 +929,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="pt-2">
-                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                                <span class="fs-5" style="color: #333; font-weight: 600">{{ $person->salary ? (int) $person->salary->expenses : 0 }} CHF</span>
                                                             </div>
                                                         </div>
                                                     </div>
