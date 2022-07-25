@@ -772,10 +772,9 @@ class CostumerFormController extends Controller
             CostumerProduktHausrat::where('person_id_PH',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktVorsorge::where('person_id_PV',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktAutoversicherung::where('person_id_PA',(int) $item->id)->update(['admin_id' => $req->id]);
-            CostumerProduktGrundversicherung::where('person_id_PH',(int) $item->id)->update(['admin_id' => $req->id]);
+            CostumerProduktGrundversicherung::where('person_id_PG',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktZusatzversicherung::where('person_id_PZ',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktRechtsschutz::where('person_id_PR',(int) $item->id)->update(['admin_id' => $req->id]);
         });
-     
     }
 }

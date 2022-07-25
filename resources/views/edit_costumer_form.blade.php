@@ -718,9 +718,9 @@ if it's not present, don't show loader */
                             </div>
                         </div>
                         <script>
-                            function submitform(){
+                            async function submitform(){
                                 let val = document.getElementById('selecti').value;
-                                axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
+                                await axios.get("{{route('updateBeraterKunden')}}" + "?id=" + val + "&lead_id={{$costumer->lead->id}}").then(location.reload());
                             }
                             function changeBerater(){
                                 document.getElementById('new_adminName').style.display = 'flex'
