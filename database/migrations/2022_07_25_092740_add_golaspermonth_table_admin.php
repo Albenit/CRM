@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusFamily extends Migration
+class AddGolaspermonthTableAdmin extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class AddStatusFamily extends Migration
      */
     public function up()
     {
-        Schema::table('family_person', function (Blueprint $table) {
-            $table->string('status')->default('Open')->index();
-            $table->integer('admin_id')->nullable();
-     
+        Schema::table('admins', function (Blueprint $table) {
+            $table->integer('goalspermonth')->nullable();
         });
-      
-        
     }
 
     /**
@@ -29,9 +25,8 @@ class AddStatusFamily extends Migration
      */
     public function down()
     {
-        Schema::table('family_person', function (Blueprint $table) {
-            $table->dropColumn('status');
-
+        Schema::table('admins', function (Blueprint $table) {
+            //
         });
     }
 }

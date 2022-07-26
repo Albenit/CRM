@@ -886,80 +886,78 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-4 col-xxl-4">
+                                                <div class="col-12 col-md-8 col-xxl-8">
                                                     <div class="contractsWhiteBgDiv h-100 p-3">
-                                                        <div style="position: relative;">
-                                                            <div style="top:-3.1rem; left: -3.45rem;position: relative">
-                                                                <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g filter="url(#filter0_d_28_428)">
-                                                                        <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
-                                                                    </g>
-                                                                    <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
-                                                                    <defs>
-                                                                        <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                                                            <feOffset dy="4" />
-                                                                            <feGaussianBlur stdDeviation="18.5" />
-                                                                            <feComposite in2="hardAlpha" operator="out" />
-                                                                            <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
-                                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
-                                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
-                                                                        </filter>
-                                                                    </defs>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                        <div style="margin-top: -4rem;">
-                                                            <div>
-                                                                <div class="row g-3">
-                                                                    <div class="col-auto">
-                                                                        <span style="color: #C3C0C0;font-weight: 500">Total Spendings</span>
-                                                                    </div>
-                                                                    <div class="col-1">
-                                                                        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M0.998955 8.42821L0.998955 16.9996L9.57031 16.9996" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                                            <path d="M26 1.28572L18.6154 10.2143L11.5824 5.92857L0.999999 17" stroke="#EB5757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                                        </svg>
-                                                                    </div>
+                                                        <div class="row">
+                                                            <div style="position: relative;" class="col">
+                                                                <div style="top:-3.1rem; left: -3.45rem;position: relative">
+                                                                    <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g filter="url(#filter0_d_28_428)">
+                                                                            <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
+                                                                        </g>
+                                                                        <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                        <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                        <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                        <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
+                                                                        <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
+                                                                        <defs>
+                                                                            <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                                                                <feOffset dy="4" />
+                                                                                <feGaussianBlur stdDeviation="18.5" />
+                                                                                <feComposite in2="hardAlpha" operator="out" />
+                                                                                <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
+                                                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
+                                                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
+                                                                            </filter>
+                                                                        </defs>
+                                                                    </svg>
                                                                 </div>
                                                             </div>
-                                                            <div class="pt-2">
-                                                                <span class="fs-5" style="color: #333; font-weight: 600">{{ $person->salary ? (int) $person->salary->expenses : 0 }} CHF</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4 col-xxl-4">
-                                                    <div class="contractsWhiteBgDiv h-100 p-3">
-                                                        <div style="position: relative;">
-                                                            <div style="top:-3.1rem; left: -3.45rem;position: relative">
-                                                                <svg style="width: 140px !important;height: 135px !important" viewBox="0 0 140 135" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g filter="url(#filter0_d_28_428)">
-                                                                        <path d="M37.9963 69.0001C40.4927 73.1551 45.3176 77.2865 49.0548 80.2655C52.7921 83.2446 48.1254 91.4467 52.5345 92.7962C56.9437 94.1458 70.3423 88.6163 74.7521 88.1308C79.1619 87.6454 83.356 86.2393 87.095 83.9928C90.8341 81.7463 94.0448 78.7034 96.5439 75.0379C99.043 71.3723 100.782 67.1559 101.66 62.6293C102.539 58.1028 102.541 53.3547 101.665 48.6563C100.789 43.9578 96.996 37.155 94.4996 33L56.4963 33.0001L49.9963 33.0001C44.4286 33.0001 39.5888 36.8215 38.2974 42.2374L37.9963 43.5001L37.9963 49.5001L37.9963 69.0001Z" fill="#2D9CDB" />
-                                                                    </g>
-                                                                    <path d="M68.6556 42.8345C69.0323 42.5285 69.5744 42.5371 69.9412 42.855L76.4427 48.4897H61.6955L68.6556 42.8345Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <rect x="55.3086" y="49.1835" width="28.0403" height="21.5098" rx="5" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <path d="M76.2031 60.5915C76.2031 59.3405 77.2173 58.3263 78.4684 58.3263H83.3458V62.8568H78.4684C77.2173 62.8568 76.2031 61.8426 76.2031 60.5915Z" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <circle cx="58.8775" cy="65.8159" r="4.87745" fill="#2D9CDB" stroke="white" stroke-width="2" />
-                                                                    <path d="M57 66.9153L57.7986 67.1947C58.2622 67.3569 58.7755 67.1591 59.0099 66.7279L60.1009 64.7208" stroke="white" stroke-linecap="round" />
-                                                                    <defs>
-                                                                        <filter id="filter0_d_28_428" x="0.996094" y="0" width="138.324" height="134.008" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                                                            <feOffset dy="4" />
-                                                                            <feGaussianBlur stdDeviation="18.5" />
-                                                                            <feComposite in2="hardAlpha" operator="out" />
-                                                                            <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.25 0" />
-                                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_428" />
-                                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_428" result="shape" />
-                                                                        </filter>
-                                                                    </defs>
-                                                                </svg>
+                                                            <div class="col-auto">
+                                                                    <div class="flaedkad me-0 me-lg-2" >
+                                                                        <div class="adminName w-100 ms-2" id="back">
+                                                                            <div class="adminmaindivv" id="kejtt">
+                                                                                <div class="w-100 " id="new_adminName" style="display: none">
+                                                                                    <input class="form-control" type="number" name="goalpermonth" id="goalpermonth" value="{{$admini->goalspermonth}}">
+                                                                                    <div class="ms-1" style="display: flex" onclick="hideButtons()">
+                                                                                        <button type="button" class="declineBtnRequest w-100 py-2 me-1 ">
+                                                                                                <svg width="23" height="13"
+                                                                                                     viewBox="0 0 20 20" fill="none"
+                                                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path d="M17.998 2L1.99805 18"
+                                                                                                          stroke="white" stroke-width="3"
+                                                                                                          stroke-linecap="round"
+                                                                                                          stroke-linejoin="round"/>
+                                                                                                    <path d="M1.99805 2L17.998 18"
+                                                                                                          stroke="white" stroke-width="3"
+                                                                                                          stroke-linecap="round"
+                                                                                                          stroke-linejoin="round"/>
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                        <button type="button" class="acceptBtnRequest w-100 py-2" onclick="submitform()">
+                                                                                            <svg width="23" height="13"
+                                                                                                 viewBox="0 0 26 20" fill="none"
+                                                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M1.99805 10.5333L9.33138 18L23.998 2"
+                                                                                                    stroke="white"
+                                                                                                    stroke-width="3"
+                                                                                                    stroke-linecap="round"
+                                                                                                    stroke-linejoin="round"/>
+                                                                                            </svg>
+                                                                                        </button>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <span id="lapsi" class="pe-2" onclick="changeBerater()">
+                                                                                    <svg style="min-width:18px; width: 18px;" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.625 22.9176V27.6043C0.625 28.036 0.964167 28.3751 1.39583 28.3751H6.0825C6.28292 28.3751 6.48333 28.2981 6.62208 28.1439L23.4571 11.3243L17.6758 5.54306L0.85625 22.3626C0.702083 22.5168 0.625 22.7018 0.625 22.9176ZM27.9279 6.85347C28.5292 6.25222 28.5292 5.28097 27.9279 4.67972L24.3204 1.07222C23.7192 0.470972 22.7479 0.470972 22.1467 1.07222L19.3254 3.89347L25.1067 9.67472L27.9279 6.85347Z" fill="#202020"/>
+                                                                                    </svg>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>    
                                                             </div>
                                                         </div>
                                                         <div style="margin-top: -4rem;">
@@ -967,6 +965,9 @@
                                                                 <div class="row g-3">
                                                                     <div class="col-auto">
                                                                         <span style="color: #C3C0C0;font-weight: 500">Goal this month</span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <span class="fs-6" style="color: #333; font-weight: 600">{{$admini->goalspermonth}} CHF</span>
                                                                     </div>
                                                                     <div class="col-1">
                                                                         <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -977,8 +978,9 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="pt-2">
-                                                                <span class="fs-5" style="color: #333; font-weight: 600">12.482.80 CHF</span>
+                                                            
+                                                            <div id="myProgress" class="mt-3">
+                                                                <div id="myBar">{{round($percent,2)}}%</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1001,6 +1003,29 @@
 </div>
 <script>
 
+        var elem = document.getElementById("myBar");
+        var width = {{$percent}};
+        if(width >= 100){
+            elem.style.width = 100 +"%";
+        }else{
+            elem.style.width = width +"%";
+        }
+  
+    
+    async function submitform(){
+        let val = document.getElementById('goalpermonth').value;
+        await axios.get("{{route('setmonthlygoal')}}" + "?sum=" + val + "&admin_id={{$employeID}}").then(location.reload());
+    }
+    function changeBerater(){
+        document.getElementById('new_adminName').style.display = 'flex'
+        document.getElementById('lapsi').style.display = 'none'
+        document.getElementById('back').style.backgroundColor = '#F3F3F3'
+        document.getElementById('admin_name').style.display = 'none'
+    }
+    function hideButtons(){
+        document.getElementById('new_adminName').style.display = 'none'
+        document.getElementById('lapsi').style.display = 'block'      
+    }
     function statusvomvertragCostum() {
         $("#statusvomvertragCostum").slideToggle()
         $("#activeDropDownItem").html("Individueller Zeitraum")
@@ -1025,8 +1050,8 @@
         var activeSvg = document.querySelector(".activeSvg");
         $(activeSvg).removeClass("activeSvg");
         $(svg).addClass("activeSvg");
-        $("#activeDropDownItem").html(y)
-        $("#dropdownSelectId").hide()
+        $("#activeDropDownItem").html(y);
+        $("#dropdownSelectId").hide();
     }
 
 
@@ -1045,6 +1070,35 @@
         });
 </script>
 @endsection
+<style>
+    .declineBtnRequest {
+        background: #EB5757;
+        border-radius: 8px;
+        border: none
+    }
+
+    .acceptBtnRequest {
+        background: #219653;
+        border-radius: 8px;
+        border: none
+    }
+    #myProgress {
+      width: 100%;
+      background-color: #ddd;
+    }
+    
+    #myBar {
+      width: 10%;
+      height: 30px;
+      background-color: #2d9cdb;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+    }
+    .inputii{
+        border-radius: 8px;
+    }
+    </style>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@200;800;900&display=swap');

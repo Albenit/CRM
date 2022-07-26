@@ -737,6 +737,7 @@ class CostumerFormController extends Controller
         $family->leads_id = (int) $lead->id;
         $family->status = "Done";
         $family->status_of_produkts = 'Offen (Berater)';
+        $family->admin_id = $req->berater;
         $family->save();
         Pendency::create(['admin_id' => auth()->user()->id,'family_id'=> $family->id,'p' => 0]);
         \App\Models\LeadDataKK::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
@@ -772,10 +773,9 @@ class CostumerFormController extends Controller
             CostumerProduktHausrat::where('person_id_PH',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktVorsorge::where('person_id_PV',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktAutoversicherung::where('person_id_PA',(int) $item->id)->update(['admin_id' => $req->id]);
-            CostumerProduktGrundversicherung::where('person_id_PH',(int) $item->id)->update(['admin_id' => $req->id]);
+            CostumerProduktGrundversicherung::where('person_id_PG',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktZusatzversicherung::where('person_id_PZ',(int) $item->id)->update(['admin_id' => $req->id]);
             CostumerProduktRechtsschutz::where('person_id_PR',(int) $item->id)->update(['admin_id' => $req->id]);
         });
-     
     }
 }
