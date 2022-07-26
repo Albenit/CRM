@@ -174,15 +174,26 @@ else{
                 $totali += getsalary($zuzati->society_PH,'Haus',$zuzati->total_commisions_PH,$zuzati->prov_id);
             }
         }
-        
-    
+        $goals = 0;
+        $percent = 0;
+        if($admini->goalspermonth == 0){
+            $goals = 0;
+        }else{
+            $goals = 100 / $admini->goalspermonth ;
+            $percent = $goals * $totali;
+        }
 
 
-        return view('personalData',compact('rroga2','personalData','bankInfo','person','rroga','employeID','allCosumersPerEmp','monthlyCosumersPerEmp','totali'));
+
+        return view('personalData',compact('percent','admini','rroga2','personalData','bankInfo','person','rroga','employeID','allCosumersPerEmp','monthlyCosumersPerEmp','totali'));
 
     })->name('employeProfile');
 
 //    route::get('searchEmploye',[HumanResourcesController::class,'searchEmploye'])->name('searchEmploye');\
 
     route::get('logsHistory',[HumanResourcesController::class,'logsHistory'])->name('logsHistory');
+
+    route::get('setmonthlygoal',function(Request $req){
+        Admins::where('id',$req->admin_id)->update(['goalspermonth' => $req->sum]);
+    })->name('setmonthlygoal');
 ?>
