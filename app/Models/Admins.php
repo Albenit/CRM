@@ -24,6 +24,33 @@ class Admins extends Authenticatable
     {
         return [WebPushChannel::class];
     }
+    public function getsalaryy(){
+        $contracts = collect();
+
+        foreach (\App\Models\CostumerProduktGrundversicherung::where('admin_id',$this->id)->whereIn('status_PG',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PG,'field' => 'Grund','company' => $produkt->society_PG,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktZusatzversicherung::where('admin_id',$this->id)->whereIn('status_PZ',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PZ,'field' => 'Zusat','company' =>$produkt->society_PZ,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktRechtsschutz::where('admin_id',$this->id)->whereIn('status_PR',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PR,'field' => 'Rech','company' =>$produkt->society_PR,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktAutoversicherung::where('admin_id',$this->id)->whereIn('status_PA',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PA,'field' => 'Auto','company' =>$produkt->society_PA,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktHausrat::where('admin_id',$this->id)->whereIn('status_PH',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PH,'field' => 'Haus','company' =>$produkt->society_PH,'prov_id' => $produkt->prov_id]);
+        }
+        foreach (\App\Models\CostumerProduktVorsorge::where('admin_id',$this->id)->whereIn('status_PV',['Provisionert'])->get() as $produkt){
+            $contracts->push(['val' => $produkt->total_commisions_PV,'field' => 'Vor','company' =>$produkt->society_PV,'prov_id' => $produkt->prov_id]);
+        }
+        $rroga = 0;
+        foreach ($contracts as $contract){
+            $rroga += getsalary($contract['company'],$contract['field'],$contract['val'],$contract['prov_id']);
+        }
+        return $rroga;
+    }
 
     public function toWebPush($notifiable, $notification)
     {
