@@ -275,10 +275,10 @@ route::prefix('')->middleware(['confirmcode',\App\Http\Middleware\ChangeRole::cl
     route::get('rleads',[UserController::class,'rleads'])->name('rleads');
     route::get('leadhistory',function(Request $request){
         if(!Auth::user()->hasRole('fs')){
-            $leads = lead::with('info')->with('admin')->whereNull('insertedManualy')->where('apporlead','lead')->orderBy('updated_at','asc')->withTrashed()->get();
+            $leads = lead::with('info')->with('admin')->whereNull('insertedManualy')->where('apporlead','lead')->orderBy('updated_at','asc')->withTrashed()->paginate(10);
         }
         else{
-            $leads = lead::with('info')->with('admin')->where('leads.assign_to_id',Auth::user()->id)->whereNull('insertedManualy')->where('apporlead','lead')->orderBy('updated_at','asc')->withTrashed()->get();
+            $leads = lead::with('info')->with('admin')->where('leads.assign_to_id',Auth::user()->id)->whereNull('insertedManualy')->where('apporlead','lead')->orderBy('updated_at','asc')->withTrashed()->paginate(10);
         }
         return view('leadshistory',compact('leads'));
     })->name('leadshistory');

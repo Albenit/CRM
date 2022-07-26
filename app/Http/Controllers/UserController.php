@@ -599,7 +599,6 @@ public function folgetermin($id){
                 $family->leads_id = (int) $idd;
                 $family->status = "Done";
                 $family->status_of_produkts = 'Offen (Berater)';
-                $family->admin_id = $lead->assign_to_id;
                 $family->save();
                 $pcnt++;
                 Pendency::create(['admin_id' => auth()->user()->id,'family_id'=> $family->id,'p' => 0]);
