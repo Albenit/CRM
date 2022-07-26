@@ -72,9 +72,9 @@ use Illuminate\Http\Request;
             $bestellungen = bestellungen::where('employee_id',auth()->user()->id)->orderBy('created_at', 'desc')->get();
         }
         if ($request->searchEmployes == null){
-            $admins = \App\Models\Admins::with('personaldata')->where('admin_id', null)->get();
+            $admins = \App\Models\Admins::with('personaldata')->where('admin_id', null)->paginate(5,'*','costumersP');
         }else{
-            $admins = \App\Models\Admins::where('name', 'LIKE', '%'.$request->searchEmployes.'%')->with('personaldata')->where('admin_id', null)->get();
+            $admins = \App\Models\Admins::where('name', 'LIKE', '%'.$request->searchEmployes.'%')->with('personaldata')->where('admin_id', null)->paginate(5,'*','costumersP');
         }
         
         $admini = Admins::find(auth()->user()->id);
@@ -82,14 +82,11 @@ use Illuminate\Http\Request;
             $personalData = EmployeePersonalData::where('admin_id',auth()->user()->id)->first();
             $personalDatas = EmployeePersonalData::where('admin_id',auth()->user()->id)->get();
             $bankInfo = \App\Models\BankInformation::where('employee_id',auth()->user()->id)->first();
-        
         }else{
             $personalDatas = EmployeePersonalData::where('admin_id',auth()->user()->headadmin->id)->get();
             $personalData = EmployeePersonalData::where('admin_id',auth()->user()->headadmin->id)->first();
             $bankInfo = \App\Models\BankInformation::where('employee_id',auth()->user()->headadmin->id)->first();
         }
-
-
        
 if(auth()->user()->hasRole('fs')){
         return view('hr',['rroga2'=> $rroga2,'personalDatas' => $personalDatas,'bestellungen' => $bestellungen,'admins' => $admins,'personalData' => $personalData,'bankInfo' => $bankInfo])->with('admins',$admins)->with('absences',$absences)->with('date_in',$date_in)->with('date_to',$date_to)->with('rroga',$rroga);
