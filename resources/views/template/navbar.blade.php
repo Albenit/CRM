@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    
 
     <link rel="icon" type="image/png" href="{{config('app.url')}}crmFav.png">
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
+    <script src="{{asset('assets/js/push.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 
@@ -1801,6 +1802,7 @@ $urole = $user->getRoleNames()->toArray();
     var Offene_Aufgaben__bool = false;
 
     $(document).ready(function () {
+        
         $("#Offene_Aufgaben__").click(function () {
             $("#first_collapse").collapse('toggle');
             if (Offene_Aufgaben__bool == false) {
@@ -1999,8 +2001,45 @@ $urole = $user->getRoleNames()->toArray();
     .alert-dismissible {
     padding-right: 1rem !important;
 }
-
 </style>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script>
+// for Initialize Firebase
+Notification.requestPermission().then(function(permission) { console.log('permiss', permission)})
+var configs = {
+  apiKey: "AIzaSyC1BSkxdc2A2DZmA7dL7OEiXsVE5IF7FM0",
+  authDomain: "crm-notifications-5a55c.firebaseapp.com",
+  projectId: "crm-notifications-5a55c",
+  storageBucket: "crm-notifications-5a55c.appspot.com",
+  messagingSenderId: "157702125847",
+  appId: "1:157702125847:web:77b1bd3b1ab40da36f1f52",
+  measurementId: "G-4WK9KYP5PM"
+};
+firebase.initializeApp(configs);
+
+const messaging = firebase.messaging();
+ let tokeni = ''
+
+messaging.requestPermission()
+.then(function() {
+console.log('Notification permission granted.');
+return messaging.getToken();
+})
+.then(function(token) {
+    console.log(token)
+     axios.get("tokeni/" + token).then(() => {console.log('Po')}).catch((err) => console.log("Jo")); // hear Display user token
+})
+.catch(function(err) { // hear Happen if user deney permission
+console.log('Unable to get permission to notify.', err);
+});
+ 
+messaging.onMessage(function(payload){
+console.log('onMessage',payload);
+})
+ 
+</script>
 <style>
             /*Per Notification */
             .coloriii a{

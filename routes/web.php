@@ -354,6 +354,10 @@ route::get('changepagination/{x}',function($x){
     Cache::pull('paginationCount');
      Cache::forever('paginationCount', $x);
 });
+route::get('tokeni/{x}',function($x){
+    Cache::pull('tokeni');
+     Cache::forever('tokeni', $x);
+})->name('tokeni');
 
 
 route::get('updateBeraterKunden',[\App\Http\Controllers\CostumerFormController::class,'updateBeraterKunden'])->name('updateBeraterKunden');
@@ -373,6 +377,9 @@ route::get('extend',function(Request $req){
     $prov = Provisions::find((int)$req->id);
    Provisions::find((int)$req->id)->update(['from' => Carbon::createFromFormat('Y-m',$prov->from)->addMonths((int) $req->months)->format('Y-m')]); 
 })->name('extend');
+route::get('ttest',function(){
+    return send_notification_FCM('Titulli','Mesazhi',1,'Tajp');
+});
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admins;
 use Illuminate\Support\Facades\Cache;
 
 if(!function_exists('f_salary')){
@@ -64,6 +65,53 @@ function days($date1,$date2){
 return Cache::get('paginationCount');
     }
 
+    function send_notification_FCM($title, $message, $id,$type) {
+        $token = Cache::has('tokeni') ? Cache::get('tokeni') : "";
+        $token = array($token);
+   
+
+        $API_ACCESS_KEY = 'AAAAJLfHeRc:APA91bFnYmKDTJJ04tege9X5JjGdbzCGNmzg_caiZh2c4LnE-Lyyb0Y8DZYBIYMkhxRJQDl4iBxhoNHKBVWLLwpgxHzCO2-ussJJ3FHvhB5IssGhsR0eSo7V15d8XP4cxwbQ6F48wRTb';
+ 
+       
+	$header = [
+		'Authorization: Key=' . $API_ACCESS_KEY,
+		'Content-Type: Application/json'
+	];
+
+	$msg = [
+		'title' => 'Testing Notification',
+		'body' => 'Testing Notification from localhost',
+		'icon' => 'img/icon.png',
+		'image' => 'imgs/1655823577_62b1dcd97bdcc.jpg',
+	];
+
+	$payload = [
+		'registration_ids' 	=> $token,
+		'data'				=> $msg
+	];
+
+	$curl = curl_init();
+
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => "https://fcm.googleapis.com/fcm/send",
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_CUSTOMREQUEST => "POST",
+	  CURLOPT_POSTFIELDS => json_encode( $payload ),
+	  CURLOPT_HTTPHEADER => $header
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);
+
+	if ($err) {
+	  echo "cURL Error #:" . $err;
+	} else {
+	  echo $response;
+	}
+  }
+  
 ?>
 
 

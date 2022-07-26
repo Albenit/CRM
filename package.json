@@ -26,7 +26,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "push.js": "^1.0.12",
         "vue-axios": "^3.4.0",
-        "vue-owl-carousel": "^2.0.3"
+        "vue-owl-carousel": "^2.0.3",
+        "web-push-notifications": "^3.30.0"
     }
 }
