@@ -59,6 +59,7 @@ class CostumerImport implements ToModel
             'birthdate' => $row[2],
             'leads_id' => $lead->id,
             'kundportfolio' => $kunden,
+            'admin_id' => Auth::user()->id,
             'status' => 'done'
         ]);
 
