@@ -543,11 +543,11 @@
                                     </div>
                                 </div>
                                 <div class="pt-4">
-                                    <div class="row g-3"  id="employes">
+                                    <div class="row g-3 greyBgStats py-3" id="employes">
                                         @for($i = 0; $i < $admins->count(); $i++)
                                             
                                             @if($admins[$i]->roless == null)
-                                                <div class="col-12" >
+                                                <div class="col-12 ">
                                                     <div class="adminHrGreyBg py-2 px-3">
                                                         <div class="row g-0 h-100 justify-content-between">
                                                             <div class="col-auto my-auto me-3">
@@ -690,6 +690,36 @@
                                             @endif
                                         
                                         @endfor
+                                                                
+                                        <div class="row g-0 pt-3">
+                                            <div class="col text-center">
+                                                <spna>Page: {{$admins->currentPage()}} of {{$admins->lastPage()}}</spna>
+                                            </div>
+                                            <div class="col-auto me-2"> 
+                                                @if($admins->currentPage() > 1)
+                                                    <div class="prev-nxt-btn d-flex">
+                                                        <a href="{{route('hr_view',['costumersP' => $admins->currentPage() - 1])}}">
+                                                            <div class="prev-btn border p-2 bg-light m-2 rounded">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endif
+                                                @if($admins->count() > 0 && $admins->currentPage() != $admins->lastPage())
+                                                    <div class="next-prv-btn d-flex">
+                                                        <a href="{{route('hr_view',['costumersP' => $admins->currentPage() + 1])}}">
+                                                            <div class="nxt-btn border p-2 bg-light m-2 rounded">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                                </svg>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1979,7 +2009,7 @@
                                     </div>
                                 </div>
                                 <div class="pt-4">
-                                    <div class="row g-3"  id="employes">
+                                    <div class="row g-3 greyBgStats"  id="employes">
                                         @for($i = 0; $i < $admins->count(); $i++)
                                                 @if($admins[$i]->roless == null)
                                                 @if (!Auth::user()->hasRole('admin'))
@@ -4493,7 +4523,11 @@
         font-family: 'Montserrat';
     }
 
-
+    .greyBgStats {
+            background: #F9FAFC;
+            box-shadow: 0px 4px 4px rgba(118, 118, 118, 0.17);
+            border-radius: 23px;
+        }
     .sideBarStyle {
         left: 0px;
         top: 0px;
@@ -6616,8 +6650,8 @@
         color: #CFCECE;
     }
     .adminHrGreyBg {
-        background: #FAFAFA;
-        border: 1px solid #FAFAFA;
+        background: #ffffff;
+
         box-shadow: 0px 4px 4px rgba(214, 214, 214, 0.25);
         border-radius: 13px;
         height: 100%;

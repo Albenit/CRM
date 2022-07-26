@@ -11,10 +11,12 @@ use App\Models\CostumerProduktRechtsschutz;
 use App\Models\CostumerProduktVorsorge;
 use App\Models\CostumerProduktZusatzversicherung;
 use App\Models\family;
+use App\Models\Group;
 use App\Models\lead;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\TextUI\XmlConfiguration\Groups;
 
 class StatisticController extends Controller
 {
@@ -980,7 +982,10 @@ class StatisticController extends Controller
     public function statistics(){
 
         $leads['leads'] = lead::with('campaign')->where('apporlead','lead')->get();
-
+        $groups = Group::all();
+        foreach($groups as $group){
+          
+        }
         $instagram = 0;
         $sanascout = 0;
         $facebook = 0;

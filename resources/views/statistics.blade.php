@@ -5873,6 +5873,7 @@
                                         </div>
                                     </div>
                                 </div>
+                               
                             </div>
                             @if (Auth::user()->hasRole('admin'))
                                 <div class="row ">
@@ -6210,6 +6211,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-12 col-lg-12 col-xl-12 col-xxl-12 mb-5 mt-5 mb-md-0">
+                                        <div class="greyBgStats p-3 p-sm-4">
+                                            <div id="chart9"></div>
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -6555,6 +6560,92 @@
         }
     </style>
     <script>
+        
+        var options = {
+          series: [{
+          name:'Inflation',
+          data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6],
+         
+        }],
+          chart: {
+          height: 350,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
+        },
+        
+        xaxis: {
+          categories: [],
+          position: 'top',
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false
+          },
+          crosshairs: {
+            fill: {
+              type: 'gradient',
+              gradient: {
+                colorFrom: '#D8E3F0',
+                colorTo: '#BED1E6',
+                stops: [0, 100],
+                opacityFrom: 0.4,
+                opacityTo: 0.5,
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+          }
+        },
+        yaxis: {
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+            formatter: function (val) {
+              return val + "%";
+            }
+          }
+        
+        },
+        title: {
+          text: '',
+          floating: true,
+          offsetY: 330,
+          align: 'center',
+          style: {
+            color: '#444'
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart9"), options);
+        chart.render();
+      
+      
         function openDropDownSelect() {
             var x = document.getElementById("dropdownSelectId");
             if (x.style.display == "block") {
