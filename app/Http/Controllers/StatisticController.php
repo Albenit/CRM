@@ -1001,15 +1001,23 @@ class StatisticController extends Controller
         $leads['sanascout'] = $sanascout;
         $leads['instagram'] = $instagram;
         $leads['facebook'] = $facebook;
+
+        $family = collect();
+        foreach(family::all() as $obj){
+            $family->push($obj->lead->assign_to_id);
+        }
         
-        $ff = family::orderBy('admin_id')->get()->groupBy('admin_id')->map->count();
-        $ff2 = $ff->sort(function($a,$b){
+        $arr = $family->countBy(function ($item){
+             return $item;
+        });
+
+        $ff2 = $arr->sort(function($a,$b){
             if($a == $b){
                 return 0;
             }
             return ($a > $b) ? -1 : 1;
         });
-    
+
 
 
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();

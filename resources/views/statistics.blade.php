@@ -6158,40 +6158,38 @@
                                                         </div>
                                                         <div>
                                                             <div class="row g-0">
-                                                                <div class="col-12" >
+                                                                <div class="col-12 py-3" >
                                                                     @php
                                                                         $cnt = 1;
+                                                                        
                                                                     @endphp
-                                                                    @foreach ($ff2 as $beraters)
+                                                                    @foreach ($ff2 as $key => $value)
+                                                                    @php
+                                                                        $admin = App\Models\Admins::find($key);
+                                                                    @endphp
                                                                     <div class="adminHrGreyBg my-4 py-2 px-3">
-                                                                        <div class="row g-0 justify-content-between">
+                                                                        <div class="row g-0 justify-content-between py-3">
                                                                             <div class="col-auto my-auto me-3">
-                                                                                <svg width="40" height="40" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                    <path d="M22.766 0.000976562C10.194 0.000976562 0 10.193 0 22.766C0 35.339 10.193 45.531 22.766 45.531C35.34 45.531 45.532 35.339 45.532 22.766C45.532 10.193 35.34 0.000976562 22.766 0.000976562ZM22.766 6.80798C26.926 6.80798 30.297 10.18 30.297 14.338C30.297 18.497 26.926 21.868 22.766 21.868C18.608 21.868 15.237 18.497 15.237 14.338C15.237 10.18 18.608 6.80798 22.766 6.80798ZM22.761 39.579C18.612 39.579 14.812 38.068 11.881 35.567C11.167 34.958 10.755 34.065 10.755 33.128C10.755 28.911 14.168 25.536 18.386 25.536H27.148C31.367 25.536 34.767 28.911 34.767 33.128C34.767 34.066 34.357 34.957 33.642 35.566C30.712 38.068 26.911 39.579 22.761 39.579Z" fill="#D6D6D6"/>
-                                                                                </svg>
+                                                                                @if ($admin->admin_id == null)
+                                                                                    @if ($admin->personaldata->profile_picture == null)
+                                                                                        <svg width="50" height="50" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                            <path d="M22.766 0.000976562C10.194 0.000976562 0 10.193 0 22.766C0 35.339 10.193 45.531 22.766 45.531C35.34 45.531 45.532 35.339 45.532 22.766C45.532 10.193 35.34 0.000976562 22.766 0.000976562ZM22.766 6.80798C26.926 6.80798 30.297 10.18 30.297 14.338C30.297 18.497 26.926 21.868 22.766 21.868C18.608 21.868 15.237 18.497 15.237 14.338C15.237 10.18 18.608 6.80798 22.766 6.80798ZM22.761 39.579C18.612 39.579 14.812 38.068 11.881 35.567C11.167 34.958 10.755 34.065 10.755 33.128C10.755 28.911 14.168 25.536 18.386 25.536H27.148C31.367 25.536 34.767 28.911 34.767 33.128C34.767 34.066 34.357 34.957 33.642 35.566C30.712 38.068 26.911 39.579 22.761 39.579Z" fill="#D6D6D6"/>
+                                                                                        </svg>
+                                                                                    @else
+                                                                                        <img width="50" height="50" style="border-radius: 100px " src="{{route('showfile2',$admin->personaldata->profile_picture)}}" alt="Kein profilbild">
+                                                                                    @endif
+                                                                                @else
+                                                                                    @if ($admin->headadmin->personaldata->profile_picture == null)
+                                                                                        <svg width="50" height="50" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                            <path d="M22.766 0.000976562C10.194 0.000976562 0 10.193 0 22.766C0 35.339 10.193 45.531 22.766 45.531C35.34 45.531 45.532 35.339 45.532 22.766C45.532 10.193 35.34 0.000976562 22.766 0.000976562ZM22.766 6.80798C26.926 6.80798 30.297 10.18 30.297 14.338C30.297 18.497 26.926 21.868 22.766 21.868C18.608 21.868 15.237 18.497 15.237 14.338C15.237 10.18 18.608 6.80798 22.766 6.80798ZM22.761 39.579C18.612 39.579 14.812 38.068 11.881 35.567C11.167 34.958 10.755 34.065 10.755 33.128C10.755 28.911 14.168 25.536 18.386 25.536H27.148C31.367 25.536 34.767 28.911 34.767 33.128C34.767 34.066 34.357 34.957 33.642 35.566C30.712 38.068 26.911 39.579 22.761 39.579Z" fill="#D6D6D6"/>
+                                                                                        </svg>
+                                                                                    @else
+                                                                                        <img width="50" height="50" style="border-radius: 100px " src="{{route('showfile2',$admin->headadmin->personaldata->profile_picture)}}" alt="Kein profilbild">
+                                                                                    @endif
+                                                                                @endif
                                                                             </div>
-                                                                            <div class="col col-lg-2 my-auto">
-                                                                                <span class="fs-6" style="font-weight: 600;">{{App\Models\Admins::find($beraters)->name}} </span>
-                                                                            </div>
-                                                                            <div class="col col-lg-2 my-auto">
-                                                                                <span class="fs-6" style="font-weight: 500;">
- 
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="col-2 d-none d-lg-block my-auto">
-                                                                                <span class="fs-6" style="font-weight: 500;">
-                                                                                      
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="col-2 d-none d-lg-block my-auto">
-                                                                                <span class="fs-6" style="font-weight: 500;">
-                                                                                    
-                                                                                </span>
-                                                                            </div>
-                                                                            <div class="col-12 col-sm-auto pt-3 pt-sm-0 my-auto">
-                                                                                <div class="">
-
-                                                                                </div>
+                                                                            <div class="col my-auto">
+                                                                                <span class="fs-6" style="font-weight: 600;">{{$admin->name}} ({{$value}} Kunden)</span>
                                                                             </div>
                                                                         </div>
 

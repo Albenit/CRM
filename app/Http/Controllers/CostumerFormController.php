@@ -737,7 +737,6 @@ class CostumerFormController extends Controller
         $family->leads_id = (int) $lead->id;
         $family->status = "Done";
         $family->status_of_produkts = 'Offen (Berater)';
-        $family->admin_id = $req->berater;
         $family->save();
         Pendency::create(['admin_id' => auth()->user()->id,'family_id'=> $family->id,'p' => 0]);
         \App\Models\LeadDataKK::create(['person_id'=> $family->id,'leads_id'=> (int) $lead->id]);
