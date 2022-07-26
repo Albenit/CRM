@@ -11,13 +11,38 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Musonza\Chat\Traits\Messageable;
 use PhpParser\Node\Expr\FuncCall;
+use NotificationChannels\WebPush\HasPushSubscriptions;
+use NotificationChannels\WebPush\WebPushMessage;
 
 class Admins extends Authenticatable
 {
 
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, Messageable,SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Messageable,SoftDeletes,HasPushSubscriptions;
 
     protected $guard_name = 'admins';
+    public function via($notifiable)
+    {
+        return [WebPushChannel::class];
+    }
+
+    public function toWebPush($notifiable, $notification)
+    {
+        return (new WebPushMessage)
+            ->title('Approved!')
+            ->icon('/approved-icon.png')
+            ->body('Your account was approved!')
+            ->action('View account', 'view_account')
+            ->options(['TTL' => 1000]);
+            // ->data(['id' => $notification->id])
+            // ->badge()
+            // ->dir()
+            // ->image()
+            // ->lang()
+            // ->renotify()
+            // ->requireInteraction()
+            // ->tag()
+            // ->vibrate()
+    }
 
     protected $hidden = [
         'password',
