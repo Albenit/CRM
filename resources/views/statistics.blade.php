@@ -5114,7 +5114,9 @@
                                     </div>
                                 </div>
                             </div>
-                          
+                            <div class="col-12 col-lg-6 mb-5 mb-md-0">
+                                <div id="chart8"></div>
+                            </div>
                         </div>
                     </div>
                     @endif
