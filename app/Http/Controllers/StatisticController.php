@@ -983,9 +983,17 @@ class StatisticController extends Controller
 
         $leads['leads'] = lead::with('campaign')->where('apporlead','lead')->get();
         $groups = Group::all();
+        $groups2 = array_fill(0, count($groups), 0);
+        $groups1 = array_fill(0, count($groups), 0);
+        $cnt = 0;
         foreach($groups as $group){
-          
+           foreach($group->members as $member){
+$groups2[$cnt] = $groups2[$cnt] +  $member->getsalaryy();
+           }
+           $groups1[$cnt] = $group->id;
+           $cnt++;
         }
+    
         $instagram = 0;
         $sanascout = 0;
         $facebook = 0;
@@ -1001,23 +1009,15 @@ class StatisticController extends Controller
         $leads['sanascout'] = $sanascout;
         $leads['instagram'] = $instagram;
         $leads['facebook'] = $facebook;
-
-        $family = collect();
-        foreach(family::all() as $obj){
-            $family->push($obj->lead->assign_to_id);
-        }
         
-        $arr = $family->countBy(function ($item){
-             return $item;
-        });
-
-        $ff2 = $arr->sort(function($a,$b){
+        $ff = family::orderBy('admin_id')->get()->groupBy('admin_id')->map->count();
+        $ff2 = $ff->sort(function($a,$b){
             if($a == $b){
                 return 0;
             }
             return ($a > $b) ? -1 : 1;
         });
-
+    
 
 
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
