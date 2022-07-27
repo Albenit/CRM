@@ -983,9 +983,17 @@ class StatisticController extends Controller
 
         $leads['leads'] = lead::with('campaign')->where('apporlead','lead')->get();
         $groups = Group::all();
+        $groups2 = array_fill(0, count($groups), 0);
+        $groups1 = array_fill(0, count($groups), 0);
+        $cnt = 0;
         foreach($groups as $group){
-          
+           foreach($group->members as $member){
+$groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
+           }
+           $groups1[$cnt] = $group->id;
+           $cnt++;
         }
+
         $instagram = 0;
         $sanascout = 0;
         $facebook = 0;
@@ -1022,7 +1030,7 @@ class StatisticController extends Controller
 
 
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
-        return view('statistics', compact('leads','adminsStat','ff2'));
+        return view('statistics', compact('leads','adminsStat','ff2','groups1','groups2'));
     }
 
 
