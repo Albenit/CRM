@@ -17,7 +17,7 @@ use NotificationChannels\WebPush\WebPushMessage;
 class Admins extends Authenticatable
 {
 
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, Messageable,SoftDeletes,HasPushSubscriptions;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Messageable,SoftDeletes;
 
     protected $guard_name = 'admins';
     public function via($notifiable)

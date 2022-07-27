@@ -692,10 +692,10 @@
                                         @endfor
                                                                 
                                         <div class="row g-0 pt-3">
-                                            <div class="col text-center">
-                                                <spna>Page: {{$admins->currentPage()}} of {{$admins->lastPage()}}</spna>
+                                            <div class="col text-center py-3">
+                                                <span class="fs-6">Page: {{$admins->currentPage()}} of {{$admins->lastPage()}}</spna>
                                             </div>
-                                            <div class="col-auto me-2"> 
+                                            <div class="col-auto me-2 py-auto"> 
                                                 @if($admins->currentPage() > 1)
                                                     <div class="prev-nxt-btn d-flex">
                                                         <a href="{{route('hr_view',['costumersP' => $admins->currentPage() - 1])}}">
