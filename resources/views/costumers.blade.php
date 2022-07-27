@@ -380,7 +380,7 @@
                                                                 @else
                                                                     @if($grundversicherungP[$i]->status_PG == 'Provisionert')
                                                                         <div class="pb-3"> 
-                                                                            <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;">{{getsalary($grundversicherungP[$i]->society_PG,'Grund',$grundversicherungP[$i]->total_commisions_PG,$grundversicherungP[$i]->prov_id)}}CHF</span></div>
+                                                                            <div style="padding: 6px;"><span style="color: #037241; font-weight: 500 !important;">{{getsalary($grundversicherungP[$i]->society_PG,'Grund',$grundversicherungP[$i]->total_commisions_PG,$grundversicherungP[$i]->prov_id)}} CHF</span></div>
                                                                         </div>
                                                                     @else
                                                                         <div class="pb-3"> 
