@@ -979,7 +979,7 @@ class StatisticController extends Controller
         return $datas;
     }
 
-    public function statistics(){
+  public function statistics(){
 
         $leads['leads'] = lead::with('campaign')->where('apporlead','lead')->get();
         $groups = Group::all();
@@ -1024,6 +1024,7 @@ class StatisticController extends Controller
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
         return view('statistics', compact('leads','adminsStat','ff2'));
     }
+
 
     public function durationOfLead(Request $request){
 
