@@ -6561,17 +6561,21 @@
         
         var options = {
           series: [{
-          name:'Inflation',
-          data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6],
+          name:'',
+          data: [
+            @foreach($groups2 as $group)
+            {{$group > 0.1 ? $group : 0}},
+            @endforeach
+        ]
          
         }],
           chart: {
-          height: 350,
+          height: 320,
           type: 'bar',
         },
         plotOptions: {
           bar: {
-            borderRadius: 10,
+            borderRadius: 6,
             dataLabels: {
               position: 'top', // top, center, bottom
             },
@@ -6580,7 +6584,7 @@
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            return val + "%";
+            return '';
           },
           offsetY: -20,
           style: {
@@ -6590,7 +6594,11 @@
         },
         
         xaxis: {
-          categories: [],
+          categories: [
+            @foreach($groups1 as $group)
+            '{{App\Models\Group::find($group)->name}}',
+            @endforeach
+          ],
           position: 'top',
           axisBorder: {
             show: false
@@ -6605,8 +6613,8 @@
                 colorFrom: '#D8E3F0',
                 colorTo: '#BED1E6',
                 stops: [0, 100],
-                opacityFrom: 0.4,
-                opacityTo: 0.5,
+                opacityFrom: 0.6,
+                opacityTo: 8,
               }
             }
           },
@@ -6624,7 +6632,7 @@
           labels: {
             show: false,
             formatter: function (val) {
-              return val + "%";
+              return val + " personen";
             }
           }
         
