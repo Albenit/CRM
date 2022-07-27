@@ -6217,7 +6217,7 @@
                                         </div>
                                 </div>
                                 <div class="mt-5 ms-3">
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc"></script>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key="></script>
                                     <div id="map" style="width: 50vh; height=50vh;">
                         
                                     </div>
