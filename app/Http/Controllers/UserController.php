@@ -305,7 +305,7 @@ public function folgetermin($id){
         $address = [];
 
         $address = filter_var($req->input('address'), FILTER_SANITIZE_STRING);
-        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc';
+        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&key=';
         $ch = curl_init();
         
         curl_setopt($ch, CURLOPT_URL, $url);
