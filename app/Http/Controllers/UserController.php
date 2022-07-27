@@ -301,23 +301,22 @@ public function folgetermin($id){
                     $lead->assigned = 0;
                 }
             }
-           
-
-
         }
         $address = [];
 
         $address = filter_var($req->input('address'), FILTER_SANITIZE_STRING);
-        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&key=AIzaSyDscxZzYju_pJGNA2zu1lXOqJuubCdPu0o';
+        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc';
         $ch = curl_init();
+        
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $responseJson = curl_exec($ch);
+
         curl_close($ch);
         $response = json_decode($responseJson);
         if ($response->status == 'OK') {
-            $latitude = $response->results[0]->geometry->location->lat;
-            $longitude = $response->results[0]->geometry->location->lng;
+            $lead->latitude = $response->results[0]->geometry->location->lat;
+            $lead->longitude = $response->results[0]->geometry->location->lng;
         } else {
 
             $lead->latitude = "0";
