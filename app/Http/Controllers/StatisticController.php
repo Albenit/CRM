@@ -1027,10 +1027,12 @@ $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
             return ($a > $b) ? -1 : 1;
         });
 
-
+        $appointmm = lead::whereNotNull('assign_to_id')->where('completed',0)->whereNotNull('appointment_date')->where('rejected',0)->get();
 
         $adminsStat = Admins::role(['fs'])->with('kunden')->get();
-        return view('statistics', compact('leads','adminsStat','ff2','groups1','groups2'));
+
+        return view('statistics', compact('leads','adminsStat','ff2','groups1','groups2','appointmm'));
+
     }
 
 

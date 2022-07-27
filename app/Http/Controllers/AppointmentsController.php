@@ -150,7 +150,7 @@ public function filterhrcalendar(Request  $req){
                 ->with('personalApp',$personalApp);
 		}}
         else{   
-  dd(auth()->user()->headadmin->getRoleNames());
+
        if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('salesmanager') || auth()->user()->headadmin->hasRole('admin')){
    
         $absences = Absence::with('admin')->orderBy('created_at', 'desc')->paginate(30, ['*'], 'events_page');

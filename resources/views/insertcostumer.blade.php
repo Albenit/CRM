@@ -67,10 +67,8 @@
                                         <input type="text" name="city" class="form-control GrundversicherungInput" required>
                                     </div>
                                 </div>
-                                <div class="">
-                                    <div class="row mx-0 px-0" id="addid">
+                                <div class=" mx-0 px-0" id="addid">
                                     
-                                    </div>
                                 </div>
                                 
                                 <div class="col-12 col-md-6">

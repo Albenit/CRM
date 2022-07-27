@@ -29,7 +29,9 @@
     {{-- nav style --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@200;800;900&display=swap');
-
+        #map {
+            height: 50vh !important;
+        }
         .sideBarStyle {
             position: fixed;
             left: 0px;
@@ -6214,6 +6216,13 @@
                                             <div id="chart9"></div>
                                         </div>
                                 </div>
+                                <div class="mt-5 ms-3">
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc"></script>
+                                    <div id="map" style="width: 50vh; height=50vh;">
+                        
+                                    </div>
+                                </div>
+
                         </div>
                 </div>
                 
@@ -7649,6 +7658,211 @@
             $('#terminCostum').slideToggle()
             $("#activeDropDownItem8").html("Individueller Zeitraum")
         }
+        $(document).ready(function(){
+
+
+  
+var map = new google.maps.Map(document.getElementById('map'), {
+zoom: 8,
+center: new google.maps.LatLng(46.818188, 8.227512),
+mapTypeId: google.maps.MapTypeId.ROADMAP,
+styles: [{
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#444444"
+            }]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "on"
+            }]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "weight": "0.40"
+            }]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "labels.text",
+            "stylers": [{
+                    "visibility": "on"
+                },
+                {
+                    "saturation": "-40"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#333366"
+            }]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                    "hue": "#ff0000"
+                },
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.province",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "administrative.locality",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "on"
+            }]
+        },
+        {
+            "featureType": "administrative.neighborhood",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "administrative.land_parcel",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [{
+                "color": "#ffffff"
+            }]
+        },
+        {
+            "featureType": "landscape.man_made",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "landscape.natural",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "on"
+            }]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [{
+                    "saturation": -100
+                },
+                {
+                    "lightness": 45
+                },
+                {
+                    "weight": "1.25"
+                },
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "simplified"
+            }]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [{
+                    "visibility": "on"
+                },
+                {
+                    "color": "#dddcdc"
+                }
+            ]
+        }
+    ]
+
+});
+var infoWindow = new google.maps.InfoWindow(),
+    marker, i;
+
+    @foreach ($appointmm as $app)
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng({{$app->latitude}}, {{$app->longitude}}),
+        map: map,
+        
+    });
+   
+
+    marker.setIcon('imgs/blue-dot.png');
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infoWindow.setContent('Pini u bo ');
+            infoWindow.open(map, marker);
+        }
+    })(marker, i));
+    @endforeach
+var gmarkers = [];
+
+var mediaQuery = window.matchMedia("(max-width: 700px)");
+if (mediaQuery.matches) {
+
+    let x = document.getElementsByClassName('therapistCardOne');
+    var pointMapTo = new google.maps.LatLng(x[0].getAttribute("data-geo-lat"), x[0].getAttribute("data-geo-long"));
+    map.setCenter(pointMapTo);
+
+
+    markermap = new google.maps.Marker({
+        position: new google.maps.LatLng(x[0].getAttribute("data-geo-lat"), x[0].getAttribute("data-geo-long")),
+        map: map
+    });
+    gmarkers.push(markermap);
+}
+
+})
+
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
