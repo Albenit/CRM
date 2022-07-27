@@ -1003,6 +1003,7 @@ class StatisticController extends Controller
         $leads['facebook'] = $facebook;
 
         $family = collect();
+        
         foreach(family::all() as $obj){
             $family->push($obj->lead->assign_to_id);
         }
