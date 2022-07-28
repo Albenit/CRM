@@ -3,10 +3,742 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <title>Startseite</title>
+    @if (in_array('admin', $urole))
+    <div class="px-4 px-lg-5 pt-4 pt-lg-5 ">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-4 mb-5 mb-md-0">
+                <div class="greyBgStats p-3 p-sm-4">
+                    <div>
+                        <div style="position: relative;">
+                            <div class="col my-auto">
+                                <div>
+                                    <span class="statsTitleSpan fs-3">Group Perfomance</span>
+                                </div>
+                                <div>
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-5 mb-5 mb-md-0">
+                <div class="greyBgStats p-3 p-sm-4">
+                    <div>
+                        <div style="position: relative;">
+                            <div class="col my-auto">
+                                <div>
+                                    <span class="statsTitleSpan fs-3">Group Perfomance</span>
+                                </div>
+                                <div>
+                                    <div id="chart9"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-3 mb-5  mb-md-0 ">
+                <div class="greyBgStats p-3 p-sm-4 h-100">
+                    <div>
+                        <div style="position: relative;">
+                            <div class="col my-auto">
+                                <div>
+                                    <span class="statsTitleSpan fs-3">Top Beraters</span>
+                                </div>
+                                <div>
+                                    <div class="row g-0">
+                                        <div class="col-12 py-3" >
+                                            @php
+                                                $cnt = 1;
+                                                
+                                            @endphp
+                                            @foreach ($ff2 as $key => $value)
+                                            @php
+                                                $admin = App\Models\Admins::find($key);
+                                            @endphp
+                                            <div class="adminHrGreyBg my-4 py-2 px-3">
+                                                <div class="row py-2">
+                                                    <div class="col-4 my-auto">
+                                                        @if ($admin->admin_id == null)
+                                                            @if ($admin->personaldata->profile_picture == null)
+                                                                <svg width="60" height="60" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M22.766 0.000976562C10.194 0.000976562 0 10.193 0 22.766C0 35.339 10.193 45.531 22.766 45.531C35.34 45.531 45.532 35.339 45.532 22.766C45.532 10.193 35.34 0.000976562 22.766 0.000976562ZM22.766 6.80798C26.926 6.80798 30.297 10.18 30.297 14.338C30.297 18.497 26.926 21.868 22.766 21.868C18.608 21.868 15.237 18.497 15.237 14.338C15.237 10.18 18.608 6.80798 22.766 6.80798ZM22.761 39.579C18.612 39.579 14.812 38.068 11.881 35.567C11.167 34.958 10.755 34.065 10.755 33.128C10.755 28.911 14.168 25.536 18.386 25.536H27.148C31.367 25.536 34.767 28.911 34.767 33.128C34.767 34.066 34.357 34.957 33.642 35.566C30.712 38.068 26.911 39.579 22.761 39.579Z" fill="#D6D6D6"/>
+                                                                </svg>
+                                                            @else
+                                                                <img width="60" height="60" style="border-radius: 100px " src="{{route('showfile2',$admin->personaldata->profile_picture)}}" alt="Kein profilbild">
+                                                            @endif
+                                                        @else
+                                                            @if ($admin->headadmin->personaldata->profile_picture == null)
+                                                                <svg width="60" height="60" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M22.766 0.000976562C10.194 0.000976562 0 10.193 0 22.766C0 35.339 10.193 45.531 22.766 45.531C35.34 45.531 45.532 35.339 45.532 22.766C45.532 10.193 35.34 0.000976562 22.766 0.000976562ZM22.766 6.80798C26.926 6.80798 30.297 10.18 30.297 14.338C30.297 18.497 26.926 21.868 22.766 21.868C18.608 21.868 15.237 18.497 15.237 14.338C15.237 10.18 18.608 6.80798 22.766 6.80798ZM22.761 39.579C18.612 39.579 14.812 38.068 11.881 35.567C11.167 34.958 10.755 34.065 10.755 33.128C10.755 28.911 14.168 25.536 18.386 25.536H27.148C31.367 25.536 34.767 28.911 34.767 33.128C34.767 34.066 34.357 34.957 33.642 35.566C30.712 38.068 26.911 39.579 22.761 39.579Z" fill="#D6D6D6"/>
+                                                                </svg>
+                                                            @else
+                                                                <img width="60" height="60" style="border-radius: 100px " src="{{route('showfile2',$admin->headadmin->personaldata->profile_picture)}}" alt="Kein profilbild">
+                                                            @endif
+                                                        @endif
+                                                    </div>
+                                                    <div class="col my-auto">
+                                                        <span class="fs-6" style="font-weight: 600;">{{$admin->name}}</span>
+                                                        <span class="fs-6" style="font-weight: 500;">({{$value}} Kunden)</span>                                                    
+                                                    </div>
+                                                    
+                                                </div>
 
-    @if (in_array('admin', $urole) || in_array('fs', $urole) || in_array('digital', $urole))
+                                            </div>
+                                            @php
+                                                if ($cnt == 3) {
+                                                    break;
+                                                }
+                                                $cnt++;
+                                            @endphp
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-8 mt-5 mb-5 mb-md-0">
+                <div class="greyBgStats p-3 p-sm-4">
+                    <div>
+                        <div style="position: relative;">
+                            <div class="col my-auto">
+                                <div>
+                                    <span class="statsTitleSpan fs-3">Sales Overview</span>
+                                </div>
+                                <div>
+                                    <div class="row g-0">
+                                        <div class="col-12" style="position: relative;">
+                                            <div class="">
+                                                <div class="whiteBgGraph h-100 p-3">
+                                                    <div class="row g-0">
+                                                        <div class="col">
+                                                            <div class="pb-2">
+                                                                <span style="font-weight: 600;"
+                                                                    class="fs-5"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto my-auto">
+                                                            <div class="statsSelectStyle py-1"
+                                                                onclick="openDropDownSelect9()"
+                                                                style="cursor: pointer;">
+                                                                <div class="row g-0">
+                                                                    <div class="col ms-2">
+                                                                        <div>
+                                                                            <span
+                                                                                id="activeDropDownItem9">
+                                                                                Gesamter
+                                                                                Zeitraum</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="col-auto my-auto mx-2 me-1">
+                                                                        <div>
+                                                                            <svg width="10"
+                                                                                height="6"
+                                                                                viewBox="0 0 10 6"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M9 1L5 5L1 1"
+                                                                                    stroke="black"
+                                                                                    stroke-width="2"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round" />
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="statsSelectStyleDropdown"
+                                                                id="dropdownSelectId9"
+                                                                style="display: none;right: 1rem;">
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,1)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span
+                                                                                    id="rtest">Heute</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,7)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Letzte 7
+                                                                                    Tage</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,30)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Letzte 30
+                                                                                    Tage</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,120)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Letztes
+                                                                                    Quartal</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,365)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Letztes
+                                                                                    Jahr</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <div class="row g-0"
+                                                                        onclick="makeSelectActive9(this,0)">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg class="activeSvg9"
+                                                                                    width="19"
+                                                                                    height="19"
+                                                                                    viewBox="0 0 19 19"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <circle
+                                                                                        cx="9.5"
+                                                                                        cy="9.5"
+                                                                                        r="9"
+                                                                                        fill="#fff"
+                                                                                        stroke="#E0E0E0" />
+                                                                                    <ellipse
+                                                                                        cx="9.5"
+                                                                                        cy="9.416"
+                                                                                        rx="5.5"
+                                                                                        ry="5"
+                                                                                        fill="white" />
+                                                                                </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Gesamter
+                                                                                    Zeitraum</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-2"
+                                                                    style="border-top: 1px solid #E8E8E8;">
+                                                                    <div class="row g-0"
+                                                                        onclick="salesCostum()"
+                                                                        style="cursor: pointer">
+                                                                        <div
+                                                                            class="col-auto my-auto ps-3">
+                                                                            <div>
+                                                                                <svg width="18"
+                                                                                    height="12"
+                                                                                    viewBox="0 0 12 12"
+                                                                                    fill="none"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path
+                                                                                        d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
+                                                                                        fill="black" />
+                                                                                </svg>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="col my-auto ps-2 pe-5">
+                                                                            <div>
+                                                                                <span>Individueller
+                                                                                    Zeitraum</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="salesCostum"
+                                                                    style="display: none">
+                                                                    <div class="py-2">
+                                                                        <div class="row g-0">
+                                                                            <div
+                                                                                class="col my-auto ps-2 pe-2">
+                                                                                <div>
+                                                                                    <input
+                                                                                        class="form-control"
+                                                                                        type="date"
+                                                                                        id="salesFrom">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="pt-1">
+                                                                        <div class="row g-0">
+                                                                            <div
+                                                                                class="col my-auto ps-2 pe-2">
+                                                                                <div>
+                                                                                    <input
+                                                                                        class="form-control"
+                                                                                        type="date"
+                                                                                        id="salesTo">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="pb-2 pt-2">
+                                                                        <div class="row g-0">
+                                                                            <div
+                                                                                class="col my-auto ps-2 pe-2">
+                                                                                <div>
+                                                                                    <input
+                                                                                        onclick="makeSelectActive9(this,100)"
+                                                                                        class="col-12 py-1"
+                                                                                        type="button"
+                                                                                        value="Suche"
+                                                                                        style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row g-0">
+                                                        <div class="col-12" style="position: relative;">
+                                                            <div class="">
+                                                                <div class="pt-3">
+                                                                    <div class="row g-4">
+                                                                        <div class="col-12 col-md mx-auto"
+                                                                            style="max-width: 290px;min-width: 260px;">
+                                                                            <div id="chart8"></div>
+                                                                        </div>
+                                                                        <div class="col-12 col-md mx-auto">
+                                                                            <div class="row">
+                                                                                <div class="col-auto">
+                                                                                    <svg width="60"
+                                                                                        height="56"
+                                                                                        viewBox="0 0 44 36"
+                                                                                        fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect width="44"
+                                                                                            height="36"
+                                                                                            rx="5"
+                                                                                            fill="white" />
+                                                                                        <path d="M22 6V28"
+                                                                                            stroke="black"
+                                                                                            stroke-width="2"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round" />
+                                                                                        <path
+                                                                                            d="M27 10H19.5C18.5717 10 17.6815 10.3687 17.0251 11.0251C16.3687 11.6815 16 12.5717 16 13.5C16 14.4283 16.3687 15.3185 17.0251 15.9749C17.6815 16.6313 18.5717 17 19.5 17H24.5C25.4283 17 26.3185 17.3687 26.9749 18.0251C27.6313 18.6815 28 19.5717 28 20.5C28 21.4283 27.6313 22.3185 26.9749 22.9749C26.3185 23.6313 25.4283 24 24.5 24H16"
+                                                                                            stroke="black"
+                                                                                            stroke-width="2"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div>
+                                                                                        <span>Total Sales</span>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <span class="fs-5"
+                                                                                            style="font-weight: 600"
+                                                                                            id="totaleran"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <div>
+                                                                                <div class="row gy-3 pb-3">
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="rgb(34, 132, 0)" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div
+                                                                                                    class="">
+                                                                                                    <span
+                                                                                                        class="fs-6">Grundversicherung</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600;"
+                                                                                                        id="Grundversicherung"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="rgb(255, 155, 55)" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6">Zusatzversicherung</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600;"
+                                                                                                        id="Zusatzversicherung"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="rgb(135, 212, 106)" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6">Autoversicherung</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600;"
+                                                                                                        id="Autoversicherung"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="rgb(81, 92, 159)" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6">Vorsorge
+                                                                                                        3a&3b</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600;"
+                                                                                                        id="Vorsorge"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="rgb(255, 151, 151)" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6">Rechtschutz</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600"
+                                                                                                        id="Rechtschutz"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-12 col-sm-6">
+                                                                                        <div class="row">
+                                                                                            <div
+                                                                                                class="col-auto pt-1">
+                                                                                                <svg width="16"
+                                                                                                    height="15"
+                                                                                                    viewBox="0 0 18 17"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <ellipse
+                                                                                                        cx="9"
+                                                                                                        cy="8.5"
+                                                                                                        rx="9"
+                                                                                                        ry="8.5"
+                                                                                                        fill="#3d66ce" />
+                                                                                                </svg>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col p-0">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6">Hausrat</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        class="fs-6"
+                                                                                                        style="font-weight: 600"
+                                                                                                        id="Hausrat"></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-4 mb-5 mt-5 mb-md-0 ">
+                <div class="greyBgStats p-3 p-sm-4 h-100">
+                    <div>
+                        <div style="position: relative;">
+                            <div class="col my-auto">
+                                <div>
+                                    <span class="statsTitleSpan fs-3">Temine Map</span>
+                                </div>
+                                <div>
+                                    <div class="row g-0">
+                                        <div class="col-12 py-3" >
+                                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc"></script>
+                                            <div id="map" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    @if ( in_array('fs', $urole) || in_array('digital', $urole))
         <section>
-
             <div class="px-4 px-lg-5 pe-lg-0 pt-4 pt-lg-5 ">
                 <div class="pb-5 pe-lg-5">
                     <div class="row gy-4 gx-2 gx-sm-3">
@@ -472,7 +1204,7 @@
             </div>
         </section>
     @endif
-    @if (in_array('backoffice', $urole) || in_array('admin', $urole))
+    @if (in_array('backoffice', $urole) )
 
         <div class="row gx-0 gx-xl-2 gy-2 pt-4 pt-lg-0 mx-4 mx-md-4 mx-lg-5 my-4 my-md-4 my-lg-5 removeGuttersMobile"
             id="app">
@@ -3753,6 +4485,428 @@
 
         </section>
     @endif
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        function salesCostum() {
+            $('#salesCostum').slideToggle()
+            $("#activeDropDownItem9").html("Individueller Zeitraum")
+        }
+        function grupPerformance(){
+            var options = {
+          series: [{
+          name:'',
+          data: [
+            @foreach($groups2 as $group)
+            {{$group > 0.1 ? $group : 0}},
+            @endforeach
+        ]
+         
+        }],
+          chart: {
+          height: 320,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 6,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return '';
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
+        },
+        
+        xaxis: {
+          categories: [
+            @foreach($groups1 as $group)
+            '{{App\Models\Group::find($group)->name}}',
+            @endforeach
+          ],
+          position: 'top',
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false
+          },
+          crosshairs: {
+            fill: {
+              type: 'gradient',
+              gradient: {
+                colorFrom: '#D8E3F0',
+                colorTo: '#BED1E6',
+                stops: [0, 100],
+                opacityFrom: 0.6,
+                opacityTo: 8,
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+          }
+        },
+        yaxis: {
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+            formatter: function (val) {
+              return val + " personen";
+            }
+          }
+        
+        },
+        title: {
+          text: '',
+          floating: true,
+          offsetY: 330,
+          align: 'center',
+          style: {
+            color: '#444'
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart9"), options);
+        chart.render();
+        }
+        
+        function openDropDownSelect9() {
+            var x = document.getElementById("dropdownSelectId9");
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+        function makeSelectActive9(x, number) {
+            dateFrom = document.getElementById('salesFrom').value
+            dateTo = document.getElementById('salesTo').value
+            axios.get('salesoverview?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
+
+                document.getElementById('Grundversicherung').innerHTML = response.data[0] + ' CHF'
+                document.getElementById('Zusatzversicherung').innerHTML = response.data[1] + ' CHF'
+                document.getElementById('Autoversicherung').innerHTML = response.data[2] + ' CHF'
+                document.getElementById('Vorsorge').innerHTML = response.data[3] + ' CHF'
+                document.getElementById('Rechtschutz').innerHTML = response.data[4] + ' CHF'
+                document.getElementById('Hausrat').innerHTML = response.data[5] + ' CHF'
+                document.getElementById('totaleran').innerHTML = response.data[0] + response.data[1] + response
+                    .data[2] + response.data[3] + response.data[4] + response.data[5] + ' CHF'
+
+                for (let i = 0; i < 6; i++) {
+                    if (response.data[i] == 0) {
+                        response.data[i] = null;
+                    }
+                }
+                $(function() {
+                    var data = [{
+                        "id": "idData",
+                        "name": "Data",
+                        "data": [{
+                                name: 'Grundversicherung',
+                                y: response.data[0],
+                                color: 'rgb(34, 132, 0)'
+                            },
+                            {
+                                name: 'Zusatzversicherung',
+                                y: response.data[1],
+                                color: 'rgb(255, 155, 55)'
+                            },
+                            {
+                                name: 'Autoversicherung',
+                                y: response.data[2],
+                                color: 'rgb(135, 212, 106)'
+                            },
+                            {
+                                name: 'Vorsorge 3a&3b',
+                                y: response.data[3],
+                                color: 'rgb(81, 92, 159)'
+                            },
+                            {
+                                name: 'Rechtschutz',
+                                y: response.data[4],
+                                color: 'rgb(255, 151, 151)'
+                            },
+                            {
+                                name: 'Hausrat',
+                                y: response.data[5],
+                                color: 'rgb(61, 102, 206)'
+                            },
+                        ]
+                    }];
+                    window.mychart = Highcharts.chart('chart8', {
+                        chart: {
+                            type: 'pie',
+                            plotShadow: false,
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: '98%',
+                                borderWidth: 38,
+                                borderColor: null,
+                                slicedOffset: 10,
+                                dataLabels: {
+                                    connectorWidth: 0,
+                                    enabled: false,
+                                },
+                            }
+                        },
+                        title: {
+                            verticalAlign: 'middle',
+                            floating: false,
+                            text: response.data[0] + response.data[1] + response.data[2] + response
+                                .data[3] + response.data[4] + response.data[5] + 'CHF'
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                        },
+                        enabled: true,
+                        series: data,
+                    });
+                    $('input[type="radio"]').on('click', function(event) {
+                        var value = $(this).val();
+                        window.mychart.series[0].setData([data[0].data[value]]);
+                        window.mychart.redraw();
+                    });
+                });
+            });
+            var y = $(x).find("span").html();
+            var svg = $(x).find("svg");
+            var activeSvg = document.querySelector(".activeSvg9");
+            $(activeSvg).removeClass("activeSvg9");
+            $(svg).addClass("activeSvg9");
+            $("#activeDropDownItem9").html(y)
+            $("#dropdownSelectId9").hide()
+        }
+        $(document).ready(function() {  
+            makeSelectActive9(6, 0);
+            grupPerformance();
+        });
+
+        $(document).ready(function(){
+                var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: new google.maps.LatLng(46.818188, 8.227512),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#444444"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "weight": "0.40"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                            "visibility": "on"
+                        },
+                        {
+                            "saturation": "-40"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#333366"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                            "hue": "#ff0000"
+                        },
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.province",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "administrative.locality",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "administrative.neighborhood",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{
+                        "color": "#ffffff"
+                    }]
+                },
+                {
+                    "featureType": "landscape.man_made",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 45
+                        },
+                        {
+                            "weight": "1.25"
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "simplified"
+                    }]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#dddcdc"
+                        }
+                    ]
+                }
+            ]
+
+
+            });
+            var infoWindow = new google.maps.InfoWindow(),
+                marker, i;
+
+                @foreach ($appointmm as $app)
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng({{$app->latitude}}, {{$app->longitude}}),
+                    map: map,
+                    
+                });
+            
+
+                marker.setIcon('imgs/blue-dot.png');
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent('Pini u bo ');
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+                @endforeach
+            var gmarkers = [];
+
+            var mediaQuery = window.matchMedia("(max-width: 700px)");
+            if (mediaQuery.matches) {
+
+                let x = document.getElementsByClassName('therapistCardOne');
+                var pointMapTo = new google.maps.LatLng(x[0].getAttribute("data-geo-lat"), x[0].getAttribute("data-geo-long"));
+                map.setCenter(pointMapTo);
+
+
+                markermap = new google.maps.Marker({
+                    position: new google.maps.LatLng(x[0].getAttribute("data-geo-lat"), x[0].getAttribute("data-geo-long")),
+                    map: map
+                });
+                gmarkers.push(markermap);
+            }
+
+
+            })
+    </script>
 
     <script>
         function createOption(value, text) {
@@ -3838,6 +4992,91 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <style>
+        #map {
+            height: 45vh !important;
+        }
+        .adminHrGreyBg {
+            background: #ffffff;
+            border: 1px solid #FAFAFA;
+            box-shadow: 0px 4px 4px rgba(214, 214, 214, 0.25);
+            border-radius: 13px;
+        
+        }
+        .greyBgStats {
+            background: #F9FAFC;
+            box-shadow: 0px 4px 4px rgba(118, 118, 118, 0.17);
+            border-radius: 23px;
+        }
+
+        .statsTitleSpan {
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .statsSelectStyle {
+            border: 2px solid rgba(47, 96, 220, 0.28);
+            border-radius: 6px;
+            position: relative;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .statsSelectStyleDropdown {
+            border: 2px solid rgba(47, 96, 220, 0.28);
+            border-radius: 6px;
+            position: absolute;
+            background-color: #fff;
+            margin-top: 3px;
+            right: 0;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            z-index: 5;
+        }
+
+        .activeSvg circle {
+            fill: #2F60DC;
+            stroke: #2F60DC;
+        }
+
+        .activeSvg9 circle {
+            fill: #2F60DC;
+            stroke: #2F60DC;
+        }
+
+        .greyBorderDivStats {
+            border: 2px solid rgba(47, 96, 220, 0.1);
+            box-sizing: border-box;
+            border-radius: 6px;
+        }
+
+        .greySelectStats {
+            background-color: rgba(196, 196, 196, 0.23);
+            border-radius: 6px;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .apexcharts-legend-text {
+            font-weight: 500;
+            font-size: 18px !important;
+            color: #000000;
+            line-height: 27px;
+            letter-spacing: -1px;
+        }
     .add-a-task-header {
         height: 60px;
     }
