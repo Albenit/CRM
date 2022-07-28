@@ -6600,7 +6600,7 @@
                                                         <div>
                                                             <div class="row g-0">
                                                                 <div class="col-12 py-3" >
-                                                                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkVp4BCBg1iwxulOu4TAc8SOQ7pYDo2nc"></script>
+                                                                    <script async defer src="https://maps.googleapis.com/maps/api/js?key="></script>
                                                                     <div id="map" style="width: 45vh; height=20vh;">
                                                                     </div>
                                                                 </div>
