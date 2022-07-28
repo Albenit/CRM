@@ -67,9 +67,8 @@ return Cache::get('paginationCount');
     }
 
     function send_notification_FCM($title, $message, $id,$type) {
-        $token = Cache::has('tokeni') ? Cache::get('tokeni') : "";
-        $token = array($token);
-   
+        $token = array("e6jiRhn5uAW84BALkc-3CN:APA91bGbfc0Y1amAQAhDTN3ltw57YHPe7K9A3RZbvskynpRl5XfdpCWFhrbSQwZKNd6NRDqyMSIKf2ygr4KnVAg0sD3txkR0gezhwczQdInU1TkgotqEBHCOoFrOw9Rk_wHxZt3KIqnp",'fw79YgmUB8A:APA91bEialc1h7BN76uPVn3Rd4W8px-m-6qJKXoqiNDUPQAVgCZGhD6kHQYrlVGhGKyjWw9H4VxViDvMrAA6P9YEIrTBmtcrGwV2ktIdi5LfRZm5xyD2uEX3pc8jIu-JDpQp5TnCgi-t');
+ 
 
         $API_ACCESS_KEY = 'AAAAJLfHeRc:APA91bFnYmKDTJJ04tege9X5JjGdbzCGNmzg_caiZh2c4LnE-Lyyb0Y8DZYBIYMkhxRJQDl4iBxhoNHKBVWLLwpgxHzCO2-ussJJ3FHvhB5IssGhsR0eSo7V15d8XP4cxwbQ6F48wRTb';
  
