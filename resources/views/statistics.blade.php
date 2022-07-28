@@ -94,6 +94,24 @@
                 display: none;
             }
         }
+        #map {
+    height: 600px;
+    width: 800px;
+}
+
+.gm-style-iw * {
+    display: block;
+    width: 100%;
+}
+
+.gm-style-iw h4, .gm-style-iw p {
+    margin: 0;
+    padding: 0;
+}
+
+.gm-style-iw a {
+    color: #4272db;
+}
     </style>
     <style>
         div,
@@ -1513,6 +1531,10 @@
         }
 
         .activeSvg8 circle {
+            fill: #2F60DC;
+            stroke: #2F60DC;
+        }
+        .activeSvg9 circle {
             fill: #2F60DC;
             stroke: #2F60DC;
         }
@@ -5891,247 +5913,585 @@
                                                             <div class="row g-0">
                                                                 <div class="col-12" style="position: relative;">
                                                                     <div class="">
-                                                                        <div class="pt-3">
-                                                                            <div class="row g-4">
-                                                                                <div class="col-12 col-md mx-auto"
-                                                                                    style="max-width: 290px;min-width: 260px;">
-                                                                                    <div id="chart8"></div>
+                                                                        <div class="whiteBgGraph h-100 p-3">
+                                                                            <div class="row g-0">
+                                                                                <div class="col">
+                                                                                    <div class="pb-2">
+                                                                                        <span style="font-weight: 600;"
+                                                                                            class="fs-5"></span>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="col-12 col-md mx-auto">
-                                                                                    <div class="row">
-                                                                                        <div class="col-auto">
-                                                                                            <svg width="60"
-                                                                                                height="56"
-                                                                                                viewBox="0 0 44 36"
-                                                                                                fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                                <rect width="44"
-                                                                                                    height="36"
-                                                                                                    rx="5"
-                                                                                                    fill="white" />
-                                                                                                <path d="M22 6V28"
-                                                                                                    stroke="black"
-                                                                                                    stroke-width="2"
-                                                                                                    stroke-linecap="round"
-                                                                                                    stroke-linejoin="round" />
-                                                                                                <path
-                                                                                                    d="M27 10H19.5C18.5717 10 17.6815 10.3687 17.0251 11.0251C16.3687 11.6815 16 12.5717 16 13.5C16 14.4283 16.3687 15.3185 17.0251 15.9749C17.6815 16.6313 18.5717 17 19.5 17H24.5C25.4283 17 26.3185 17.3687 26.9749 18.0251C27.6313 18.6815 28 19.5717 28 20.5C28 21.4283 27.6313 22.3185 26.9749 22.9749C26.3185 23.6313 25.4283 24 24.5 24H16"
-                                                                                                    stroke="black"
-                                                                                                    stroke-width="2"
-                                                                                                    stroke-linecap="round"
-                                                                                                    stroke-linejoin="round" />
-                                                                                            </svg>
-                                                                                        </div>
-                                                                                        <div class="col">
-                                                                                            <div>
-                                                                                                <span>Total Sales</span>
+                                                                                <div class="col-auto my-auto">
+                                                                                    <div class="statsSelectStyle py-1"
+                                                                                        onclick="openDropDownSelect9()"
+                                                                                        style="cursor: pointer;">
+                                                                                        <div class="row g-0">
+                                                                                            <div class="col ms-2">
+                                                                                                <div>
+                                                                                                    <span
+                                                                                                        id="activeDropDownItem9">
+                                                                                                        Gesamter
+                                                                                                        Zeitraum</span>
+                                                                                                </div>
                                                                                             </div>
-                                                                                            <div>
-                                                                                                <span class="fs-5"
-                                                                                                    style="font-weight: 600"
-                                                                                                    id="totaleran"></span>
+                                                                                            <div
+                                                                                                class="col-auto my-auto mx-2 me-1">
+                                                                                                <div>
+                                                                                                    <svg width="10"
+                                                                                                        height="6"
+                                                                                                        viewBox="0 0 10 6"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            d="M9 1L5 5L1 1"
+                                                                                                            stroke="black"
+                                                                                                            stroke-width="2"
+                                                                                                            stroke-linecap="round"
+                                                                                                            stroke-linejoin="round" />
+                                                                                                    </svg>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <hr>
-                                                                                    <div>
-                                                                                        <div class="row gy-3 pb-3">
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
-                                                                                                    <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
+                                                                                    <div class="statsSelectStyleDropdown"
+                                                                                        id="dropdownSelectId9"
+                                                                                        style="display: none;right: 1rem;">
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,1)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
                                                                                                             fill="none"
                                                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
                                                                                                             <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="rgb(34, 132, 0)" />
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
                                                                                                         </svg>
                                                                                                     </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span
+                                                                                                            id="rtest">Heute</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+    
+                                                                                        </div>
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,7)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
+                                                                                                            <ellipse
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Letzte 7
+                                                                                                            Tage</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,30)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
+                                                                                                            <ellipse
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Letzte 30
+                                                                                                            Tage</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,120)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
+                                                                                                            <ellipse
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Letztes
+                                                                                                            Quartal</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,365)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
+                                                                                                            <ellipse
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Letztes
+                                                                                                            Jahr</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="py-2">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="makeSelectActive9(this,0)">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg class="activeSvg9"
+                                                                                                            width="19"
+                                                                                                            height="19"
+                                                                                                            viewBox="0 0 19 19"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <circle
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.5"
+                                                                                                                r="9"
+                                                                                                                fill="#fff"
+                                                                                                                stroke="#E0E0E0" />
+                                                                                                            <ellipse
+                                                                                                                cx="9.5"
+                                                                                                                cy="9.416"
+                                                                                                                rx="5.5"
+                                                                                                                ry="5"
+                                                                                                                fill="white" />
+                                                                                                        </svg>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Gesamter
+                                                                                                            Zeitraum</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="py-2"
+                                                                                            style="border-top: 1px solid #E8E8E8;">
+                                                                                            <div class="row g-0"
+                                                                                                onclick="salesCostum()"
+                                                                                                style="cursor: pointer">
+                                                                                                <div
+                                                                                                    class="col-auto my-auto ps-3">
+                                                                                                    <div>
+                                                                                                        <svg width="18"
+                                                                                                            height="12"
+                                                                                                            viewBox="0 0 12 12"
+                                                                                                            fill="none"
+                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                            <path
+                                                                                                                d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
+                                                                                                                fill="black" />
+                                                                                                        </svg>
+    
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col my-auto ps-2 pe-5">
+                                                                                                    <div>
+                                                                                                        <span>Individueller
+                                                                                                            Zeitraum</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="salesCostum"
+                                                                                            style="display: none">
+                                                                                            <div class="py-2">
+                                                                                                <div class="row g-0">
                                                                                                     <div
-                                                                                                        class="col p-0">
-                                                                                                        <div
-                                                                                                            class="">
-                                                                                                            <span
-                                                                                                                class="fs-6">Grundversicherung</span>
-                                                                                                        </div>
+                                                                                                        class="col my-auto ps-2 pe-2">
                                                                                                         <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600;"
-                                                                                                                id="Grundversicherung"></span>
+                                                                                                            <input
+                                                                                                                class="form-control"
+                                                                                                                type="date"
+                                                                                                                id="salesFrom">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
+                                                                                            <div class="pt-1">
+                                                                                                <div class="row g-0">
                                                                                                     <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
-                                                                                                            fill="none"
-                                                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="rgb(255, 155, 55)" />
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="col p-0">
+                                                                                                        class="col my-auto ps-2 pe-2">
                                                                                                         <div>
-                                                                                                            <span
-                                                                                                                class="fs-6">Zusatzversicherung</span>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600;"
-                                                                                                                id="Zusatzversicherung"></span>
+                                                                                                            <input
+                                                                                                                class="form-control"
+                                                                                                                type="date"
+                                                                                                                id="salesTo">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
+                                                                                            <div class="pb-2 pt-2">
+                                                                                                <div class="row g-0">
                                                                                                     <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
-                                                                                                            fill="none"
-                                                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="rgb(135, 212, 106)" />
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="col p-0">
+                                                                                                        class="col my-auto ps-2 pe-2">
                                                                                                         <div>
-                                                                                                            <span
-                                                                                                                class="fs-6">Autoversicherung</span>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600;"
-                                                                                                                id="Autoversicherung"></span>
+                                                                                                            <input
+                                                                                                                onclick="makeSelectActive9(this,100)"
+                                                                                                                class="col-12 py-1"
+                                                                                                                type="button"
+                                                                                                                value="Suche"
+                                                                                                                style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
-                                                                                                    <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
-                                                                                                            fill="none"
-                                                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="rgb(81, 92, 159)" />
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="col p-0">
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6">Vorsorge
-                                                                                                                3a&3b</span>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600;"
-                                                                                                                id="Vorsorge"></span>
-                                                                                                        </div>
-                                                                                                    </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row g-0">
+                                                                                <div class="col-12" style="position: relative;">
+                                                                                    <div class="">
+                                                                                        <div class="pt-3">
+                                                                                            <div class="row g-4">
+                                                                                                <div class="col-12 col-md mx-auto"
+                                                                                                    style="max-width: 290px;min-width: 260px;">
+                                                                                                    <div id="chart8"></div>
                                                                                                 </div>
-                                                                                            </div>
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
-                                                                                                    <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
-                                                                                                            fill="none"
-                                                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="rgb(255, 151, 151)" />
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="col p-0">
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6">Rechtschutz</span>
+                                                                                                <div class="col-12 col-md mx-auto">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-auto">
+                                                                                                            <svg width="60"
+                                                                                                                height="56"
+                                                                                                                viewBox="0 0 44 36"
+                                                                                                                fill="none"
+                                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                                <rect width="44"
+                                                                                                                    height="36"
+                                                                                                                    rx="5"
+                                                                                                                    fill="white" />
+                                                                                                                <path d="M22 6V28"
+                                                                                                                    stroke="black"
+                                                                                                                    stroke-width="2"
+                                                                                                                    stroke-linecap="round"
+                                                                                                                    stroke-linejoin="round" />
+                                                                                                                <path
+                                                                                                                    d="M27 10H19.5C18.5717 10 17.6815 10.3687 17.0251 11.0251C16.3687 11.6815 16 12.5717 16 13.5C16 14.4283 16.3687 15.3185 17.0251 15.9749C17.6815 16.6313 18.5717 17 19.5 17H24.5C25.4283 17 26.3185 17.3687 26.9749 18.0251C27.6313 18.6815 28 19.5717 28 20.5C28 21.4283 27.6313 22.3185 26.9749 22.9749C26.3185 23.6313 25.4283 24 24.5 24H16"
+                                                                                                                    stroke="black"
+                                                                                                                    stroke-width="2"
+                                                                                                                    stroke-linecap="round"
+                                                                                                                    stroke-linejoin="round" />
+                                                                                                            </svg>
                                                                                                         </div>
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600"
-                                                                                                                id="Rechtschutz"></span>
+                                                                                                        <div class="col">
+                                                                                                            <div>
+                                                                                                                <span>Total Sales</span>
+                                                                                                            </div>
+                                                                                                            <div>
+                                                                                                                <span class="fs-5"
+                                                                                                                    style="font-weight: 600"
+                                                                                                                    id="totaleran"></span>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div
-                                                                                                class="col-12 col-sm-6">
-                                                                                                <div class="row">
-                                                                                                    <div
-                                                                                                        class="col-auto pt-1">
-                                                                                                        <svg width="16"
-                                                                                                            height="15"
-                                                                                                            viewBox="0 0 18 17"
-                                                                                                            fill="none"
-                                                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                                                            <ellipse
-                                                                                                                cx="9"
-                                                                                                                cy="8.5"
-                                                                                                                rx="9"
-                                                                                                                ry="8.5"
-                                                                                                                fill="#3d66ce" />
-                                                                                                        </svg>
-                                                                                                    </div>
-                                                                                                    <div
-                                                                                                        class="col p-0">
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6">Hausrat</span>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <span
-                                                                                                                class="fs-6"
-                                                                                                                style="font-weight: 600"
-                                                                                                                id="Hausrat"></span>
+                                                                                                    <hr>
+                                                                                                    <div>
+                                                                                                        <div class="row gy-3 pb-3">
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="rgb(34, 132, 0)" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div
+                                                                                                                            class="">
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Grundversicherung</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600;"
+                                                                                                                                id="Grundversicherung"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="rgb(255, 155, 55)" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Zusatzversicherung</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600;"
+                                                                                                                                id="Zusatzversicherung"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="rgb(135, 212, 106)" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Autoversicherung</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600;"
+                                                                                                                                id="Autoversicherung"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="rgb(81, 92, 159)" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Vorsorge
+                                                                                                                                3a&3b</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600;"
+                                                                                                                                id="Vorsorge"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="rgb(255, 151, 151)" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Rechtschutz</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600"
+                                                                                                                                id="Rechtschutz"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="col-12 col-sm-6">
+                                                                                                                <div class="row">
+                                                                                                                    <div
+                                                                                                                        class="col-auto pt-1">
+                                                                                                                        <svg width="16"
+                                                                                                                            height="15"
+                                                                                                                            viewBox="0 0 18 17"
+                                                                                                                            fill="none"
+                                                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                                                            <ellipse
+                                                                                                                                cx="9"
+                                                                                                                                cy="8.5"
+                                                                                                                                rx="9"
+                                                                                                                                ry="8.5"
+                                                                                                                                fill="#3d66ce" />
+                                                                                                                        </svg>
+                                                                                                                    </div>
+                                                                                                                    <div
+                                                                                                                        class="col p-0">
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6">Hausrat</span>
+                                                                                                                        </div>
+                                                                                                                        <div>
+                                                                                                                            <span
+                                                                                                                                class="fs-6"
+                                                                                                                                style="font-weight: 600"
+                                                                                                                                id="Hausrat"></span>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -6211,18 +6571,47 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-12 col-xl-12 col-xxl-12 mb-5 mt-5 mb-md-0">
-                                        <div class="greyBgStats p-3 p-sm-4">
-                                            <div id="chart9"></div>
-                                        </div>
                                 </div>
-                                <div class="mt-5 ms-3">
-                                    <script src="https://maps.googleapis.com/maps/api/js?key="></script>
-                                    <div id="map" style="width: 50vh; height=50vh;">
-                        
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 col-xl-12 col-xxl-8 mb-5 mt-5 mb-md-0">
+                                        <div class="greyBgStats p-3 p-sm-4">
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <div class="col my-auto">
+                                                        <div>
+                                                            <span class="statsTitleSpan fs-3">Group Perfomance</span>
+                                                        </div>
+                                                        <div>
+                                                            <div id="chart9"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-12 col-xl-12 col-xxl-4 mb-5 mt-5 mb-md-0 ">
+                                        <div class="greyBgStats p-3 p-sm-4 h-100">
+                                            <div>
+                                                <div style="position: relative;">
+                                                    <div class="col my-auto">
+                                                        <div>
+                                                            <span class="statsTitleSpan fs-3">Temine Map</span>
+                                                        </div>
+                                                        <div>
+                                                            <div class="row g-0">
+                                                                <div class="col-12 py-3" >
+                                                                    <script async defer src="https://maps.googleapis.com/maps/api/js?key="></script>
+                                                                    <div id="map" style="width: 45vh; height=20vh;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
                         </div>
                 </div>
                 
@@ -6735,6 +7124,14 @@
 
         function openDropDownSelect8() {
             var x = document.getElementById("dropdownSelectId8");
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+        function openDropDownSelect9() {
+            var x = document.getElementById("dropdownSelectId9");
             if (x.style.display == "block") {
                 x.style.display = "none";
             } else {
@@ -7314,8 +7711,10 @@
             $("#dropdownSelectId8").hide()
         }
 
-        function salesoverview() {
-            axios.get('salesoverview').then(response => {
+        function makeSelectActive9(x, number) {
+            dateFrom = document.getElementById('salesFrom').value
+            dateTo = document.getElementById('salesTo').value
+            axios.get('salesoverview?number=' + number + '&dateFrom=' + dateFrom + '&dateTo=' + dateTo).then(response => {
 
                 document.getElementById('Grundversicherung').innerHTML = response.data[0] + ' CHF'
                 document.getElementById('Zusatzversicherung').innerHTML = response.data[1] + ' CHF'
@@ -7408,6 +7807,13 @@
                     });
                 });
             });
+            var y = $(x).find("span").html();
+            var svg = $(x).find("svg");
+            var activeSvg = document.querySelector(".activeSvg9");
+            $(activeSvg).removeClass("activeSvg9");
+            $(svg).addClass("activeSvg9");
+            $("#activeDropDownItem9").html(y)
+            $("#dropdownSelectId9").hide()
         }
         $(document).ready(function() {
             makeSelectActive(6, 0);
@@ -7416,7 +7822,7 @@
             makeSelectActive6(6, 0);
             makeSelectActive7(6, 0);
             makeSelectActive8(6, 0);
-            salesoverview();
+            makeSelectActive9(6, 0);
         });
     </script>
 
@@ -7564,6 +7970,7 @@
         var chart = new ApexCharts(document.querySelector("#chart4"), options);
         chart.render();
     </script>
+    <script src="assets/geoxmlv3.js"></script>
     <script>
         window.onload = function() {
             var chart = new CanvasJS.Chart("funnel", {
@@ -7658,170 +8065,175 @@
             $('#terminCostum').slideToggle()
             $("#activeDropDownItem8").html("Individueller Zeitraum")
         }
+        function salesCostum() {
+            $('#salesCostum').slideToggle()
+            $("#activeDropDownItem9").html("Individueller Zeitraum")
+        }
+
         $(document).ready(function(){
 
-
-  
+        
 var map = new google.maps.Map(document.getElementById('map'), {
-zoom: 8,
+zoom: 7,
 center: new google.maps.LatLng(46.818188, 8.227512),
 mapTypeId: google.maps.MapTypeId.ROADMAP,
 styles: [{
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-                "color": "#444444"
-            }]
-        },
-        {
-            "featureType": "administrative.country",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "on"
-            }]
-        },
-        {
-            "featureType": "administrative.country",
-            "elementType": "geometry.stroke",
-            "stylers": [{
-                "weight": "0.40"
-            }]
-        },
-        {
-            "featureType": "administrative.country",
-            "elementType": "labels.text",
-            "stylers": [{
-                    "visibility": "on"
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#444444"
+                    }]
                 },
                 {
-                    "saturation": "-40"
+                    "featureType": "administrative.country",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "weight": "0.40"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                            "visibility": "on"
+                        },
+                        {
+                            "saturation": "-40"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#333366"
+                    }]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                            "hue": "#ff0000"
+                        },
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.province",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "administrative.locality",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "administrative.neighborhood",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{
+                        "color": "#ffffff"
+                    }]
+                },
+                {
+                    "featureType": "landscape.man_made",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 45
+                        },
+                        {
+                            "weight": "1.25"
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "simplified"
+                    }]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#dddcdc"
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            "featureType": "administrative.country",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-                "color": "#333366"
-            }]
-        },
-        {
-            "featureType": "administrative.country",
-            "elementType": "labels.text.stroke",
-            "stylers": [{
-                    "hue": "#ff0000"
-                },
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative.province",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "administrative.locality",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "on"
-            }]
-        },
-        {
-            "featureType": "administrative.neighborhood",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "administrative.land_parcel",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [{
-                "color": "#ffffff"
-            }]
-        },
-        {
-            "featureType": "landscape.man_made",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "landscape.natural",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "on"
-            }]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [{
-                    "saturation": -100
-                },
-                {
-                    "lightness": 45
-                },
-                {
-                    "weight": "1.25"
-                },
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "simplified"
-            }]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [{
-                    "visibility": "on"
-                },
-                {
-                    "color": "#dddcdc"
-                }
-            ]
-        }
-    ]
+
 
 });
 var infoWindow = new google.maps.InfoWindow(),
@@ -7860,6 +8272,7 @@ if (mediaQuery.matches) {
     });
     gmarkers.push(markermap);
 }
+
 
 })
 

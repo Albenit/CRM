@@ -67,6 +67,7 @@ use FamilyPerson;
 use Illuminate\Support\Facades\URL;
 use function Clue\StreamFilter\fun;
 use function PHPSTORM_META\type;
+use App\Models\Group;
 
 use App\Models\LogsActivity;
 
@@ -304,7 +305,8 @@ public function folgetermin($id){
         }
         $address = [];
 
-        $address = filter_var($req->input('address'), FILTER_SANITIZE_STRING);
+        $address = $req->input('location').$req->input('address').$req->input('postal');
+
         $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&key=';
         $ch = curl_init();
         
@@ -1298,10 +1300,43 @@ public function folgetermin($id){
                         $leadsss = Crypt::encrypt(Auth::user()->id * 1244);
                         $absences = Absence::whereHas('admin')->with('admin')->where('type', 0)->orderBy('created_at', 'desc')->get();
 
-                return view('dashboard', compact('absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
+                        $family = collect();
+        
+                        foreach(family::all() as $obj){
+                            $family->push($obj->lead->assign_to_id);
+                        }
+                        
+                        $arr = $family->countBy(function ($item){
+                             return $item;
+                        });
+                
+                        $ff2 = $arr->sort(function($a,$b){
+                            if($a == $b){
+                                return 0;
+                            }
+                            return ($a > $b) ? -1 : 1;
+                        });
+                        
+                        $groups = Group::all();
+                        $groups2 = array_fill(0, count($groups), 0);
+                        $groups1 = array_fill(0, count($groups), 0);
+                        $cnt = 0;
+                        foreach($groups as $group){
+                           foreach($group->members as $member){
+                                $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
+                           }
+                           $groups1[$cnt] = $group->id;
+                           $cnt++;
+                        }
+                
+                        $appointmm = lead::whereNotNull('assign_to_id')->where('completed',0)->whereNotNull('appointment_date')->where('rejected',0)->get();
+                
+
+                return view('dashboard', compact('groups1','groups2','appointmm','ff2','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
             }
         }
     }
+
 
     public function addnewuser(){
             $admins = Admins::all()->whereNull('admin_id');

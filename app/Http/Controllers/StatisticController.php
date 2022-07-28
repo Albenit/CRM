@@ -988,7 +988,7 @@ class StatisticController extends Controller
         $cnt = 0;
         foreach($groups as $group){
            foreach($group->members as $member){
-$groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
+                $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
            }
            $groups1[$cnt] = $group->id;
            $cnt++;
@@ -1334,7 +1334,17 @@ $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
         return $datas;
     }
 
-    public function salesoverview(){
+    public function salesoverview(Request $request){
+
+
+        $date = Carbon::now()->subDays($request->number);
+        // $dateFrom = date('Y-m-d', strtotime($request->dateFrom));
+        // $dateTo = date('Y-m-d', strtotime($request->dateTo));
+        if($request->dateFrom && $request->dateTo != null ){
+            $dateFrom = Carbon::createFromFormat('Y-m-d',$request->dateFrom)->subDay()->format('Y-m-d');
+            $dateTo = Carbon::createFromFormat('Y-m-d',$request->dateTo)->addDay()->format('Y-m-d');
+        }
+
         $grundversicherungP = 0;
         $zusatzversicherungP = 0;
         $retchsschutzP = 0;
@@ -1342,24 +1352,70 @@ $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
         $hausratP = 0;
         $vorsorgeP = 0;
 
-        foreach(CostumerProduktGrundversicherung::all() as $obj){
-            $grundversicherungP += $obj->total_commisions_PG;
+        if($request->number == 0) {
+            foreach(CostumerProduktGrundversicherung::all() as $obj){
+                $grundversicherungP += $obj->total_commisions_PG;
+            }
+            foreach(CostumerProduktZusatzversicherung::all() as $obj){
+                $zusatzversicherungP += $obj->total_commisions_PZ;
+            }
+            foreach(CostumerProduktRechtsschutz::all() as $obj){
+                $retchsschutzP += $obj->total_commisions_PR;
+            }
+            foreach(CostumerProduktAutoversicherung::all() as $obj){
+                $autoversicherungP += $obj->total_commisions_PA;
+            }
+            foreach(CostumerProduktHausrat::all() as $obj){
+                $hausratP += $obj->total_commisions_PH;
+            }
+            foreach(CostumerProduktVorsorge::all() as $obj){
+                $vorsorgeP += $obj->total_commisions_PV;
+            }
+        }elseif($request->number == 100){
+            foreach(CostumerProduktGrundversicherung::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $grundversicherungP += $obj->total_commisions_PG;
+            }
+            foreach(CostumerProduktZusatzversicherung::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $zusatzversicherungP += $obj->total_commisions_PZ;
+            }
+            foreach(CostumerProduktRechtsschutz::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $retchsschutzP += $obj->total_commisions_PR;
+            }
+            foreach(CostumerProduktAutoversicherung::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $autoversicherungP += $obj->total_commisions_PA;
+            }
+            foreach(CostumerProduktHausrat::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $hausratP += $obj->total_commisions_PH;
+            }
+            foreach(CostumerProduktVorsorge::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $vorsorgeP += $obj->total_commisions_PV;
+            }
+        }else{
+            foreach(CostumerProduktGrundversicherung::where('created_at','>', $date)->get() as $obj){
+                $grundversicherungP += $obj->total_commisions_PG;
+            }
+            foreach(CostumerProduktZusatzversicherung::where('created_at','>', $date)->get() as $obj){
+                $zusatzversicherungP += $obj->total_commisions_PZ;
+            }
+            foreach(CostumerProduktRechtsschutz::where('created_at','>', $date)->get() as $obj){
+                $retchsschutzP += $obj->total_commisions_PR;
+            }
+            foreach(CostumerProduktAutoversicherung::where('created_at','>', $date)->get() as $obj){
+                $autoversicherungP += $obj->total_commisions_PA;
+            }
+            foreach(CostumerProduktHausrat::where('created_at','>', $date)->get() as $obj){
+                $hausratP += $obj->total_commisions_PH;
+            }
+            foreach(CostumerProduktVorsorge::where('created_at','>', $date)->get() as $obj){
+                $vorsorgeP += $obj->total_commisions_PV;
+            }
         }
-        foreach(CostumerProduktZusatzversicherung::all() as $obj){
-            $zusatzversicherungP += $obj->total_commisions_PZ;
-        }
-        foreach(CostumerProduktRechtsschutz::all() as $obj){
-            $retchsschutzP += $obj->total_commisions_PR;
-        }
-        foreach(CostumerProduktAutoversicherung::all() as $obj){
-            $autoversicherungP += $obj->total_commisions_PA;
-        }
-        foreach(CostumerProduktHausrat::all() as $obj){
-            $hausratP += $obj->total_commisions_PH;
-        }
-        foreach(CostumerProduktVorsorge::all() as $obj){
-            $vorsorgeP += $obj->total_commisions_PV;
-        }
+
+
+
+
+
+
 
 
 
