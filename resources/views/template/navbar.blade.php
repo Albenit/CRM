@@ -2007,8 +2007,13 @@ $urole = $user->getRoleNames()->toArray();
 <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 <script>
 // for Initialize Firebase
-Notification.requestPermission().then(function(permission) { console.log('permiss', permission)})
 var configs = {
+apiKey: "AIzaSyC1BSkxdc2A2DZmA7dL7OEiXsVE5IF7FM0",
+authDomain: "crm-notifications-5a55c.firebaseapp.com",
+storageBucket: "crm-notifications-5a55c.appspot.com",
+messagingSenderId: "1:157702125847:web:77b1bd3b1ab40da36f1f52"
+};
+const firebaseConfig = {
   apiKey: "AIzaSyC1BSkxdc2A2DZmA7dL7OEiXsVE5IF7FM0",
   authDomain: "crm-notifications-5a55c.firebaseapp.com",
   projectId: "crm-notifications-5a55c",
@@ -2017,19 +2022,25 @@ var configs = {
   appId: "1:157702125847:web:77b1bd3b1ab40da36f1f52",
   measurementId: "G-4WK9KYP5PM"
 };
-firebase.initializeApp(configs);
-
+if ('serviceWorker' in navigator) {
+     navigator.serviceWorker.register('./firebase-messaging-sw.js').then(function(registration) {
+       console.log('Firebase Worker Registered');
+     }).catch(function(err) {
+       console.log('Service Worker registration failed: ', err);
+     });
+   }
+firebase.initializeApp(firebaseConfig);
+ 
 const messaging = firebase.messaging();
- let tokeni = ''
-
+ 
 messaging.requestPermission()
 .then(function() {
 console.log('Notification permission granted.');
 return messaging.getToken();
 })
 .then(function(token) {
-    console.log(token)
-     axios.get("tokeni/" + token).then(() => {console.log('Po')}).catch((err) => console.log("Jo")); // hear Display user token
+console.log(token);
+axios.get("tokeni/" + token).then(() => {console.log('Po')}).catch((err) => console.log("Jo"));
 })
 .catch(function(err) { // hear Happen if user deney permission
 console.log('Unable to get permission to notify.', err);
