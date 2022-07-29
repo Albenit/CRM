@@ -1052,7 +1052,7 @@ else{
 
         return view('statistics', compact('leads','adminsStat','ff2','groups1','groups2','appointmm'));
 
-    }
+        }
 
 
     public function durationOfLead(Request $request){
@@ -1441,6 +1441,58 @@ else{
         $datas = collect([$grundversicherungP,$zusatzversicherungP,$autoversicherungP,$vorsorgeP,$retchsschutzP,$hausratP]);
 
         return $datas;
+    }
+
+    function topBeraters(Request $request){
+
+
+        $date = Carbon::now()->subDays($request->number);
+        if($request->dateFrom && $request->dateTo != null ){
+            $dateFrom = Carbon::createFromFormat('Y-m-d',$request->dateFrom)->subDay()->format('Y-m-d');
+            $dateTo = Carbon::createFromFormat('Y-m-d',$request->dateTo)->addDay()->format('Y-m-d');
+        }
+        $family = collect();
+
+        if($request->number == 0) {
+            foreach(family::all() as $obj){
+                $family->push($obj->lead->assign_to_id);
+            }
+        }elseif($request->number == 100){
+            foreach(family::whereBetween('created_at',[$dateFrom , $dateTo])->get() as $obj){
+                $family->push($obj->lead->assign_to_id);
+            }
+        }else{
+            foreach(family::where('created_at','>', $date)->get() as $obj){
+                $family->push($obj->lead->assign_to_id);
+            }
+        }
+
+        
+        $arr = $family->countBy(function ($item){
+             return $item;
+        });
+
+        $ff2 = $arr->sort(function($a,$b){
+            if($a == $b){
+                return 0;
+            }
+            return ($a > $b) ? -1 : 1;
+        });
+        $beraters = collect();
+        $cnt = 1;
+        foreach($ff2 as $key => $value){
+            $admin = Admins::find($key);
+            $beraters->push(['admin_id' => $admin->admin_id,'name'=>$admin->name,'value' => $value,'profile' => $admin->personaldata->profile_picture]);
+
+            if ($cnt == 3) {
+                break;
+            }
+            $cnt++;
+        }
+
+
+        return $beraters;
+
     }
 
 

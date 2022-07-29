@@ -1045,7 +1045,18 @@ public function folgetermin($id){
                 $autoversicherungZ = CostumerProduktAutoversicherung::where('status_PA', 'Zuruckgezogen')->count();
                 $hausratZ = CostumerProduktHausrat::where('status_PH', 'Zuruckgezogen')->count();
                 //perfundion
-
+                $groups = Group::all();
+                $groups2 = array_fill(0, count($groups), 0);
+                $groups1 = array_fill(0, count($groups), 0);
+                $cnt = 0;
+                foreach($groups as $group){
+                   foreach($group->members as $member){
+                        $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
+                   }
+                   $groups1[$cnt] = $group->id;
+                   $cnt++;
+                }
+                $appointmm = lead::whereNotNull('assign_to_id')->where('completed',0)->whereNotNull('appointment_date')->where('rejected',0)->get();
 
                 if (auth()->check()) {
                     $pendingcnt = !auth()->user()->hasRole('fs') ? Pendency::where('done',0)->where('p',1)->where('completed',0)
@@ -1207,7 +1218,7 @@ public function folgetermin($id){
                         ];
 
 
-                        return view('dashboard', compact('user','urole','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','done', 'tasks', 'pendingcnt', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'counterat', 'offen'));
+                        return view('dashboard', compact('groups1','groups2','appointmm','user','urole','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','done', 'tasks', 'pendingcnt', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'counterat', 'offen'));
 
                     } elseif (in_array('backoffice',$urole)) {
                         $tasks = lead::whereHas('family', function ($q){
@@ -1218,7 +1229,7 @@ public function folgetermin($id){
 
                         $leadsss = Crypt::encrypt(Auth::user()->id * 1244);
                         $absences = Absence::whereHas('admin')->with('admin')->where('type',0)->orderBy('created_at', 'desc')->get();
-                        return view('dashboard', compact('absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','user','tasks','urole','pendencies', 'morethan30','leadsss','pendingg'));
+                        return view('dashboard', compact('groups1','groups2','appointmm','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','user','tasks','urole','pendencies', 'morethan30','leadsss','pendingg'));
                     } elseif (in_array('salesmanager',$urole)) {
 
 
@@ -1245,7 +1256,7 @@ public function folgetermin($id){
                         $zuruckCount = $grundversicherungZ + $retchsschutzZ + $vorsorgeZ + $zusatzversicherungZ + $autoversicherungZ + $hausratZ;
                         $abgCount = $grundversicherungA + $retchsschutzA + $vorsorgeA + $zusatzversicherungA + $autoversicherungA + $hausratA;
 
-                        return view('dashboard', compact('user','admins','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','adminsStat','urole','personalApp', 'consultation', 'done', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'countconsultation', 'provisionertCount', 'offenCount', 'aufgenomenCount', 'zuruckCount', 'abgCount', 'offen','adminsStat'));
+                        return view('dashboard', compact('groups1','groups2','appointmm','user','admins','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','adminsStat','urole','personalApp', 'consultation', 'done', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'countconsultation', 'provisionertCount', 'offenCount', 'aufgenomenCount', 'zuruckCount', 'abgCount', 'offen','adminsStat'));
                     } elseif (in_array('admin',$urole)) {
                         $personalApp = PersonalAppointment::where('AppOrCon', 1)->where('assignfrom', $user->id)->where('date', '>=', Carbon::now()->format('Y-m-d'))->get();
                         $countpersonalApp = $personalApp->count();
@@ -1301,39 +1312,30 @@ public function folgetermin($id){
                         $leadsss = Crypt::encrypt(Auth::user()->id * 1244);
                         $absences = Absence::whereHas('admin')->with('admin')->where('type', 0)->orderBy('created_at', 'desc')->get();
 
-                        $family = collect();
-        
-                        foreach(family::all() as $obj){
-                            $family->push($obj->lead->assign_to_id);
-                        }
-                        
-                        $arr = $family->countBy(function ($item){
-                             return $item;
-                        });
-                
-                        $ff2 = $arr->sort(function($a,$b){
-                            if($a == $b){
-                                return 0;
-                            }
-                            return ($a > $b) ? -1 : 1;
-                        });
-                        
-                        $groups = Group::all();
-                        $groups2 = array_fill(0, count($groups), 0);
-                        $groups1 = array_fill(0, count($groups), 0);
-                        $cnt = 0;
-                        foreach($groups as $group){
-                           foreach($group->members as $member){
-                                $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
-                           }
-                           $groups1[$cnt] = $group->id;
-                           $cnt++;
-                        }
-                
-                        $appointmm = lead::whereNotNull('assign_to_id')->where('completed',0)->whereNotNull('appointment_date')->where('rejected',0)->get();
-                
+                        $allProvisnojns = CostumerProduktGrundversicherung::whereNotNull('total_commisions_PG')->sum('total_commisions_PG')+
+                        CostumerProduktZusatzversicherung::whereNotNull('total_commisions_PZ')->sum('total_commisions_PZ')+
+                        CostumerProduktRechtsschutz::whereNotNull('total_commisions_PR')->sum('total_commisions_PR')+
+                        CostumerProduktAutoversicherung::whereNotNull('total_commisions_PA')->sum('total_commisions_PA')+
+                        CostumerProduktHausrat::whereNotNull('total_commisions_PH')->sum('total_commisions_PH')+
+                        CostumerProduktVorsorge::whereNotNull('total_commisions_PV')->sum('total_commisions_PV');
 
-                return view('dashboard', compact('groups','groups1','groups2','appointmm','ff2','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
+                        $allContracts = CostumerProduktGrundversicherung::whereNotNull('society_PG')->count()+
+                        CostumerProduktZusatzversicherung::whereNotNull('society_PZ')->count()+
+                        CostumerProduktRechtsschutz::whereNotNull('society_PR')->count()+
+                        CostumerProduktAutoversicherung::whereNotNull('society_PA')->count()+
+                        CostumerProduktHausrat::whereNotNull('society_PH')->count()+
+                        CostumerProduktVorsorge::whereNotNull('society_PV')->count();
+
+                        $totalkunden = family::where('status','Done')->count();
+
+                        $totalTermins = lead::where('leadToApp','App')->where('completed',0)->where('appointment_date','>=',Carbon::now()->format('Y-m-d'))->count();
+
+                            
+                
+                        
+               
+                return view('dashboard', compact('groups','totalkunden','allContracts','totalTermins','allProvisnojns','groups1','groups2','appointmm','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
+
             }
         }
     }
