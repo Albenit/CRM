@@ -14502,7 +14502,6 @@ $urole = $user->getRoleNames()->toArray();
 
         .underSvgSpan {
             font-size: 18px;
-
         }
 
         .ProduktsSvgClass {
