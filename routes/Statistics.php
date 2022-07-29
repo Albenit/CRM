@@ -33,4 +33,6 @@ route::get('soldProducts',[\App\Http\Controllers\StatisticController::class,'sol
 route::get('salesoverview',[\App\Http\Controllers\StatisticController::class,'salesoverview']);
 route::get('comparestatistics',[StatisticController::class,'comparestatistics']);
 
+route::get('topBeraters',[StatisticController::class,'topBeraters']);
+
 ?>
