@@ -66,6 +66,7 @@ use Monolog\Test\TestCase;
 use App\Http\Controllers\RouteController;
 use App\Http\Test;
 use App\Mail\confirmcodee;
+use App\Models\Group;
 use App\Models\LogsActivity;
 use App\Models\Provisions;
 use Illuminate\Support\Facades\Cache;
@@ -377,6 +378,8 @@ route::get('extend',function(Request $req){
     $prov = Provisions::find((int)$req->id);
    Provisions::find((int)$req->id)->update(['from' => Carbon::createFromFormat('Y-m',$prov->from)->addMonths((int) $req->months)->format('Y-m')]); 
 })->name('extend');
-
+route::get('getname',function(Request $req){
+    return Group::find($req->id)->name;
+});
 
 
