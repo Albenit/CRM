@@ -848,10 +848,8 @@
                                                         id="topBeratersId"
                                                         style="display: none;right: 1rem;">
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,1)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,1)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg width="19"
                                                                             height="19"
@@ -884,10 +882,8 @@
 
                                                         </div>
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,7)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,7)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg width="19"
                                                                             height="19"
@@ -919,10 +915,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,30)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,30)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg width="19"
                                                                             height="19"
@@ -954,10 +948,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,120)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,120)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg width="19"
                                                                             height="19"
@@ -989,10 +981,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,365)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,365)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg width="19"
                                                                             height="19"
@@ -1024,10 +1014,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="py-2">
-                                                            <div class="row g-0"
-                                                                onclick="topBeraters(this,0)">
-                                                                <div
-                                                                    class="col-auto my-auto ps-3">
+                                                            <div class="row g-0" onclick="makeSelectActivee(this,0)">
+                                                                <div class="col-auto my-auto ps-3">
                                                                     <div>
                                                                         <svg class="activeSvg10"
                                                                             width="19"
@@ -1092,13 +1080,54 @@
                                                             style="display: none">
                                                             <div class="py-2">
                                                                 <div class="row g-0">
-                                                                    <div
-                                                                        class="col my-auto ps-2 pe-2">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
                                                                         <div>
-                                                                            <input
-                                                                                class="form-control"
-                                                                                type="date"
-                                                                                id="beratersFrom">
+                                                                            <span class="fs-6">Aus</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                            <input class="form-control" type="date"
+                                                                                id="data1"
+                                                                                name="statusvomvertragFrom">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-1 pb-2">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Zu</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                            <input class="form-control" type="date"
+                                                                                id="data2"
+                                                                                name="statusvomvertragTo">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-1">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Zu</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                        <select class="form-control text-center" id="gr1">
+                                                                            @foreach($groups as $group)
+                                                                            @if($group == $groups->first())
+                                                                            <option value="{{$group->id}}">
+                                                                               {{$group->name}}
+                                                                            </option>
+                                                                            @endif
+                                                                            @endforeach
+                                                                           </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1108,10 +1137,15 @@
                                                                     <div
                                                                         class="col my-auto ps-2 pe-2">
                                                                         <div>
-                                                                            <input
-                                                                                class="form-control"
-                                                                                type="date"
-                                                                                id="beratersTo">
+                                                                        <select class="form-control text-center" id="gr2">
+                                                                        @foreach($groups as $group)
+                                                                            @if($group != $groups->first())
+                                                                            <option value="{{$group->id}}">
+                                                                               {{$group->name}}
+                                                                            </option>
+                                                                            @endif
+                                                                            @endforeach
+                                                                           </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -6079,103 +6113,91 @@
     }]
 });
     }
-    $(document).ready(function(){
-        charti10()
-    })
-    function makeSelectActive(x, number) {
-            dateFrom = document.getElementById('statusvomvertragFromm').value
-            dateTo = document.getElementById('statusvomvertragToo').value
+   
+   async function makeSelectActivee(x, number) {
+            dateFrom = document.getElementById('data1').value;
+            dateTo = document.getElementById('data2').value;
             gr1 = document.getElementById('gr1').value
             gr2 = document.getElementById('gr2').value
+           let name1,name2;
+            await axios.get('getname?id='+gr1).then(res => {name1 = res.data});
+            await axios.get('getname?id='+gr2).then(res => {name2 = res.data});
+      
+         let results;
+           await axios.get('comparestatistics?date=' + dateFrom + '&date1=' + dateTo + '&ekipet[]=' + gr1 + '&ekipet[]=' + gr2 + '&number=' + number).then(response => {
+                results = response.data;
+                Highcharts.chart('chart10', {
+    chart: {
+        type: 'spline'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: ['', '','',''],
+        accessibility: {
+            description: 'Months of the year'
+        }
+    },
+    yAxis: {
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value + '°';
+            }
+        }
+    },
+    tooltip: {
+        crosshairs: true,
+        shared: true
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                radius: 4,
+                lineColor: '#666666',
+                lineWidth: 1
+            }
+        }
+    },
+    series: [{
+        name: name1,
+        marker: {
+            symbol: 'square'
+        },
+        data: [0, {
+            y: results[0],
+            marker: {
+                symbol: ''
+            },
+            accessibility: {
+                description: ''
+            }
+        },]
 
-console.log(dateFrom,dateTo,gr1,gr2)
-            axios.get('comparestatistics?date=' + dateFrom + '&date1=' + dateTo + '&ekipet=').then(response => {
-                console.log(response)
-            });
-            //     document.getElementById('provisionert').innerHTML = response.data[0]
-            //     document.getElementById('aufgenommen').innerHTML = response.data[1]
-            //     document.getElementById('eingereicht').innerHTML = response.data[2]
-            //     document.getElementById('abgelehnt').innerHTML = response.data[3]
-            //     // document.getElementById('offenBerater').innerHTML = response.data[4]
-            //     // for (let i = 0; i < 4; i++) {
-            //     //     if (response.data[i] == 0) {
-            //     //         response.data[i] = null;
-            //     //     }
-            //     // }
-            //     $(function() {
-            //         var data = [{
-            //             "id": "idData",
-            //             "name": "Data",
-            //             "data": [{
-            //                     name: 'Provisionert',
-            //                     y: response.data[0],
-            //                     color: '#43B21C'
-            //                 },
-            //                 {
-            //                     name: 'Aufgenommen',
-            //                     y: response.data[1],
-            //                     color: '#9FD78C'
-            //                 },
-            //                 {
-            //                     name: 'Eingereicht',
-            //                     y: response.data[2],
-            //                     color: '#C4C4C4'
-            //                 },
-            //                 {
-            //                     name: 'Abgelehnt',
-            //                     y: response.data[3],
-            //                     color: '#DB5437'
-            //                 },
-            //                 // {
-            //                 //     name: 'Offen Berater',
-            //                 //     y: response.data[4],
-            //                 //     color: '#F79C42'
-            //                 // },
-            //             ]
-            //         }];
-            //         window.mychart = Highcharts.chart('chart1', {
-            //             chart: {
-            //                 type: 'pie',
-            //                 plotShadow: false,
-            //             },
-            //             credits: {
-            //                 enabled: false
-            //             },
-            //             plotOptions: {
-            //                 pie: {
-            //                     innerSize: '98%',
-            //                     borderWidth: 38,
-            //                     borderColor: null,
-            //                     slicedOffset: 10,
-            //                     dataLabels: {
-            //                         connectorWidth: 0,
-            //                         enabled: false,
-            //                     },
-            //                 }
-            //             },
-            //             title: {
-            //                 verticalAlign: 'middle',
-            //                 floating: false,
-            //                 text: response.data[0] + response.data[1] + response.data[2] + response
-            //                     .data[3],
-            //             },
-            //             legend: {
-            //                 layout: 'vertical',
-            //                 align: 'right',
-            //                 verticalAlign: 'middle',
-            //             },
-            //             enabled: true,
-            //             series: data,
-            //         });
-            //         $('input[type="radio"]').on('click', function(event) {
-            //             var value = $(this).val();
-            //             window.mychart.series[0].setData([data[0].data[value]]);
-            //             window.mychart.redraw();
-            //         });
-            //     });
-            // }).catch((error) => {
-            //     console.log(error)
-            // })
+    }, {
+        name: name2,
+        marker: {
+            symbol: 'diamond'
+        },
+        data: [0,{
+            y: results[1],
+            marker: {
+                symbol: ''
+            },
+            accessibility: {
+                description: 'Snowy symbol, this is the coldest point in the chart.'
+            }
+        }, ]
+    }]
+});
+});
+   
 
             var y = $(x).find("span").html();
             var svg = $(x).find("svg");

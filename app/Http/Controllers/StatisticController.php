@@ -982,21 +982,22 @@ public function comparestatistics(Request $req){
     $ekipet = $req->ekipet;
     $groups = Group::whereIn('id',$req->ekipet)->get();
     $groups2 = array_fill(0, count($groups), 0);
-    $groups1 = array_fill(0, count($groups), 0);
     $cnt = 0;
     foreach($groups as $group){
        foreach($group->members as $member){
         if(!isset($req->date)){
 $groups2[$cnt] = $groups2[$cnt] +  $member->kunden()->count();
 }
+elseif(isset($req->number)){
+    $groups2[$cnt] = $groups2[$cnt] +  $member->kunden->whereBetween('created_at',[Carbon::now()->subDay(((int)$req->number)+1)->format('Y-m-d'),Carbon::now()->addDay()->format('Y-m-d')])->count();
+}
 else{
     $groups2[$cnt] = $groups2[$cnt] +  $member->kunden->whereBetween('created_at',[Carbon::createFromFormat('Y-m-d',$req->date)->subDay()->format('Y-m-d'),Carbon::createFromFormat('Y-m-d',$req->date1)->addDay()->format('Y-m-d')])->count();
 }
        }
-       $groups1[$cnt] = $group->id;
        $cnt++;
     }
-    return array($groups2,$groups1);
+    return $groups2;
 }
 
   public function statistics(){
