@@ -377,9 +377,6 @@ route::get('extend',function(Request $req){
     $prov = Provisions::find((int)$req->id);
    Provisions::find((int)$req->id)->update(['from' => Carbon::createFromFormat('Y-m',$prov->from)->addMonths((int) $req->months)->format('Y-m')]); 
 })->name('extend');
-route::get('ttest',function(){
-    return send_notification_FCM('Titulli','Mesazhi',1,'Tajp');
-});
 
 
 

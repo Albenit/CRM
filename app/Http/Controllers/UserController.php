@@ -759,6 +759,7 @@ public function folgetermin($id){
     public function dashboard(Request $req)
     {
         $user = auth()->user();
+        $groups = Group::all();
 
         $pendingg = Pendency::where('completed',0)
             ->with(['family', 'adminpend'])
@@ -1332,7 +1333,7 @@ public function folgetermin($id){
                         $appointmm = lead::whereNotNull('assign_to_id')->where('completed',0)->whereNotNull('appointment_date')->where('rejected',0)->get();
                 
 
-                return view('dashboard', compact('groups1','groups2','appointmm','ff2','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
+                return view('dashboard', compact('groups','groups1','groups2','appointmm','ff2','absences','pendinggg','zusatzversicherungP','grundversicherungP','vorsorgeP','autoversicherungP','retchsschutzP','hausratP','consultation','leadsss','tasks','countconsultation','user','urole','done', 'admins', 'counterat', 'personalApp', 'tasks', 'pending', 'leadscount', 'todayAppointCount', 'percnt', 'pendencies', 'pendingcnt', 'morethan30', 'recorded', 'countpersonalApp', 'offen','pendingg'));
             }
         }
     }
