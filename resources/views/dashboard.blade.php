@@ -6,16 +6,292 @@
     @if (in_array('admin', $urole))
     <div class="px-4 px-lg-5 pt-4 pt-lg-5 ">
         <div class="row">
-            <div class="col-12 col-lg-12 col-xl-12 col-xxl-4 mb-5 mb-md-0">
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-6 mb-5 mb-md-0">
                 <div class="greyBgStats p-3 p-sm-4">
                     <div>
                         <div style="position: relative;">
                             <div class="col my-auto">
                                 <div>
                                     <span class="statsTitleSpan fs-3">Group Perfomance</span>
+                                    <div class="col-auto my-auto">
+                                                    <div class="statsSelectStyle py-1" onclick="openDropDownSelect()"
+       style="cursor: pointer;">
+                                                        <div class="row g-0">
+                                                            <div class="col ms-2">
+                                                                <div>
+                                                                    <span id="activeDropDownItem">Gesamter
+                                                                        Zeitraum</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto my-auto mx-2 me-1">
+                                                                <div>
+                                                                    <svg width="10" height="6"
+                                                                        viewBox="0 0 10 6" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M9 1L5 5L1 1" stroke="black"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="statsSelectStyleDropdown" id="dropdownSelectId"
+                                                        style="display: none;">
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,1)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg width="19" height="19"
+                                                                            viewBox="0 0 19 19" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span id="rtest">Heute</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,7)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg class="" width="19"
+                                                                            height="19" viewBox="0 0 19 19"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Letzte 7 Tage</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,30)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg width="19" height="19"
+                                                                            viewBox="0 0 19 19" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Letzte 30 Tage</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,120)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg width="19" height="19"
+                                                                            viewBox="0 0 19 19" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Letztes Quartal</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,365)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg width="19" height="19"
+                                                                            viewBox="0 0 19 19" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Letztes Jahr</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <div class="row g-0" onclick="makeSelectActive(this,0)">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg class="activeSvg" width="19"
+                                                                            height="19" viewBox="0 0 19 19"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <circle cx="9.5" cy="9.5"
+                                                                                r="9" fill="#fff"
+                                                                                stroke="#E0E0E0" />
+                                                                            <ellipse cx="9.5" cy="9.416"
+                                                                                rx="5.5" ry="5"
+                                                                                fill="white" />
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Gesamter Zeitraum</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="py-2" style="border-top: 1px solid #E8E8E8;">
+                                                            <div class="row g-0" onclick="statusvomvertragCostum()"
+                                                                style="cursor: pointer">
+                                                                <div class="col-auto my-auto ps-3">
+                                                                    <div>
+                                                                        <svg width="18" height="12"
+                                                                            viewBox="0 0 12 12" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12 5.6044H6.3956V0H5.6044V5.6044H0V6.3956H5.6044V12H6.3956V6.3956H12V5.6044Z"
+                                                                                fill="black" />
+                                                                        </svg>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col my-auto ps-2 pe-5">
+                                                                    <div>
+                                                                        <span>Individueller Zeitraum</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="statusvomvertragCostum" style="display: none">
+                                                            <div class="py-2">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Aus</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                            <input class="form-control" type="date"
+                                                                                id="statusvomvertragFromm"
+                                                                                name="statusvomvertragFrom">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-1 pb-2">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Zu</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                            <input class="form-control" type="date"
+                                                                                id="statusvomvertragToo"
+                                                                                name="statusvomvertragTo">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-1">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Zu</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                        <select class="form-control text-center" id="gr1">
+                                                                            @foreach($groups as $group)
+                                                                            <option value="{{$group->id}}">
+                                                                               {{$group->name}}
+                                                                            </option>
+                                                                            @endforeach
+                                                                           </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pt-1">
+                                                                <div class="row g-0">
+                                                                    {{-- <div class="col-auto my-auto ps-3">
+                                                                        <div>
+                                                                            <span class="fs-6">Zu</span>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                        <select class="form-control text-center" id="gr2">
+                                                                        @foreach($groups as $group)
+                                                                            <option value="{{$group->id}}">
+                                                                               {{$group->name}}
+                                                                            </option>
+                                                                            @endforeach
+                                                                           </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pb-2 pt-2">
+                                                                <div class="row g-0">
+                                                                    <div class="col my-auto ps-2 pe-2">
+                                                                        <div>
+                                                                            <input onclick="makeSelectActive(this,100)"
+                                                                                class="col-12 py-1" type="button"
+                                                                                value="Suche"
+                                                                                style="background-color:#2F60DC; color:#fff;border:#2F60DC; border-radius:8px;font-weight:700">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                 </div>
                                 <div>
-                                    <div id="chart"></div>
+                                <div id="chart10"></div>
                                 </div>
                             </div>
                         </div>
@@ -4903,12 +5179,192 @@
                 });
                 gmarkers.push(markermap);
             }
-
-
             })
+            
     </script>
 
     <script>
+        function charti10(){
+            Highcharts.chart('chart10', {
+    chart: {
+        type: 'spline'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: ['', '','',''],
+        accessibility: {
+            description: 'Months of the year'
+        }
+    },
+    yAxis: {
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value + '°';
+            }
+        }
+    },
+    tooltip: {
+        crosshairs: true,
+        shared: true
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                radius: 4,
+                lineColor: '#666666',
+                lineWidth: 1
+            }
+        }
+    },
+    series: [{
+        name: 'Tokyo',
+        marker: {
+            symbol: 'square'
+        },
+        data: [0, {
+            y: 26.5,
+            marker: {
+                symbol: ''
+            },
+            accessibility: {
+                description: ''
+            }
+        },]
+
+    }, {
+        name: 'London',
+        marker: {
+            symbol: 'diamond'
+        },
+        data: [0,{
+            y: 3.9,
+            marker: {
+                symbol: ''
+            },
+            accessibility: {
+                description: 'Snowy symbol, this is the coldest point in the chart.'
+            }
+        }, ]
+    }]
+});
+    }
+    $(document).ready(function(){
+        charti10()
+    })
+    function makeSelectActive(x, number) {
+            dateFrom = document.getElementById('statusvomvertragFromm').value
+            dateTo = document.getElementById('statusvomvertragToo').value
+            gr1 = document.getElementById('gr1').value
+            gr2 = document.getElementById('gr2').value
+
+console.log(dateFrom,dateTo,gr1,gr2)
+            axios.get('comparestatistics?date=' + dateFrom + '&date1=' + dateTo + '&ekipet=').then(response => {
+                console.log(response)
+            });
+            //     document.getElementById('provisionert').innerHTML = response.data[0]
+            //     document.getElementById('aufgenommen').innerHTML = response.data[1]
+            //     document.getElementById('eingereicht').innerHTML = response.data[2]
+            //     document.getElementById('abgelehnt').innerHTML = response.data[3]
+            //     // document.getElementById('offenBerater').innerHTML = response.data[4]
+            //     // for (let i = 0; i < 4; i++) {
+            //     //     if (response.data[i] == 0) {
+            //     //         response.data[i] = null;
+            //     //     }
+            //     // }
+            //     $(function() {
+            //         var data = [{
+            //             "id": "idData",
+            //             "name": "Data",
+            //             "data": [{
+            //                     name: 'Provisionert',
+            //                     y: response.data[0],
+            //                     color: '#43B21C'
+            //                 },
+            //                 {
+            //                     name: 'Aufgenommen',
+            //                     y: response.data[1],
+            //                     color: '#9FD78C'
+            //                 },
+            //                 {
+            //                     name: 'Eingereicht',
+            //                     y: response.data[2],
+            //                     color: '#C4C4C4'
+            //                 },
+            //                 {
+            //                     name: 'Abgelehnt',
+            //                     y: response.data[3],
+            //                     color: '#DB5437'
+            //                 },
+            //                 // {
+            //                 //     name: 'Offen Berater',
+            //                 //     y: response.data[4],
+            //                 //     color: '#F79C42'
+            //                 // },
+            //             ]
+            //         }];
+            //         window.mychart = Highcharts.chart('chart1', {
+            //             chart: {
+            //                 type: 'pie',
+            //                 plotShadow: false,
+            //             },
+            //             credits: {
+            //                 enabled: false
+            //             },
+            //             plotOptions: {
+            //                 pie: {
+            //                     innerSize: '98%',
+            //                     borderWidth: 38,
+            //                     borderColor: null,
+            //                     slicedOffset: 10,
+            //                     dataLabels: {
+            //                         connectorWidth: 0,
+            //                         enabled: false,
+            //                     },
+            //                 }
+            //             },
+            //             title: {
+            //                 verticalAlign: 'middle',
+            //                 floating: false,
+            //                 text: response.data[0] + response.data[1] + response.data[2] + response
+            //                     .data[3],
+            //             },
+            //             legend: {
+            //                 layout: 'vertical',
+            //                 align: 'right',
+            //                 verticalAlign: 'middle',
+            //             },
+            //             enabled: true,
+            //             series: data,
+            //         });
+            //         $('input[type="radio"]').on('click', function(event) {
+            //             var value = $(this).val();
+            //             window.mychart.series[0].setData([data[0].data[value]]);
+            //             window.mychart.redraw();
+            //         });
+            //     });
+            // }).catch((error) => {
+            //     console.log(error)
+            // })
+
+            var y = $(x).find("span").html();
+            var svg = $(x).find("svg");
+            var activeSvg = document.querySelector(".activeSvg");
+            $(activeSvg).removeClass("activeSvg");
+            $(svg).addClass("activeSvg");
+            $("#activeDropDownItem").html(y)
+            $("#dropdownSelectId").hide()
+        }
+   
+
+
         function createOption(value, text) {
             var option = document.createElement('option');
             if (value.charAt(0) == '1' || value.charAt(0) == '2') {
@@ -7456,6 +7912,7 @@
         makeSelectActive5(6, 0);
         makeSelectActive(6, 0);
         makeSelectActive1(6, 0)
+        
     });
 
 
@@ -7800,11 +8257,9 @@
             credits: {
                 enabled: false,
             },
-
             title: {
                 text: ""
             },
-
             data: [{
                 type: "funnel",
                 indexLabel: "{label} - {y}",
@@ -7836,7 +8291,6 @@
                     },
 
                 ],
-
             }]
         });
         calculatePercentage();
