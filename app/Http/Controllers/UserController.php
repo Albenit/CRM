@@ -1328,7 +1328,7 @@ public function folgetermin($id){
 
                         $totalkunden = family::where('status','Done')->count();
 
-                        $totalTermins = lead::where('leadToApp','App')->where('completed',0)->where('appointment_date','>=',Carbon::now()->format('Y-m-d'))->count();
+                        $totalTermins = lead::where('leadToApp','App')->count();
 
                             
                 
